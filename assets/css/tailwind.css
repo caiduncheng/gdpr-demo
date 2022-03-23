@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    height: 100%;
+  }
+  img {
+    display: inline-block;
+    max-width: none;
+  }
+  body {
+    height: 100%;
+    margin: 0;
+    font-family: var(--default-font-family), sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 60px;
+  }
+
+  h2 {
+    font-size: 44px;
+  }
+
+  h3 {
+    font-size: 28px;
+  }
+
+  svg {
+    display: inline-block;
+  }
+}
+
+@layer components {
+  @media (min-width: 576px) {
+    .container {
+      max-width: 540px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1105px;
+    }
+
+    .container-large {
+      max-width: 1180px;
+    }
+
+    .containerXL {
+      max-width: 1400px;
+    }
+  }
+}
+
+@layer utilities {
+  .clearfix:after {
+    content: "\20";
+    display: block;
+    clear: both;
+  }
+}
