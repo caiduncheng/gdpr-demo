@@ -12,6 +12,12 @@ export default {
         content: process.env.npm_package_description || "",
       },
     ],
+    link: [
+      {
+        rel: "stylesheet",
+        href: "//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+      },
+    ],
   },
   css: [
     { src: "element-ui/lib/theme-chalk/index.css" },
@@ -22,10 +28,11 @@ export default {
   plugins: [
     {
       src: "~plugins/element-ui",
-      ssr: true,
+      mode: "client",
     },
     "~/plugins/i18n.js",
     "~/plugins/axios",
+    { src: "~/plugins/aos.js", mode: "client" },
   ],
   components: true,
   router: {
@@ -35,30 +42,30 @@ export default {
     routes: ["/", "zh-CN"],
   },
   modules: ["@nuxtjs/axios"],
-  // axios: {
-  //   proxy: true,
-  //   credentials: true,
-  // },
-  // proxy: {
-  //   "/api/online/authorization": {
-  //     target: "https://operator.opennl.com",
-  //     pathRewrite: { "/api/online/authorization": "/online/authorization" },
-  //     changeOrigin: true,
-  //     secure: false,
-  //   },
-  //   "/api/online/management": {
-  //     target: "https://operator.opennl.com",
-  //     pathRewrite: { "/api/online/management": "/online/management" },
-  //     changeOrigin: true,
-  //     secure: false,
-  //   },
-  //   "/api": {
-  //     target: "https://operator.opennl.com",
-  //     secure: false,
-  //     pathRewrite: { "/api": "" },
-  //     changeOrigin: true,
-  //   },
-  // },
+  axios: {
+    proxy: true,
+    credentials: true,
+  },
+  proxy: {
+    "/api/online/authorization": {
+      target: "https://operator.opennl.com",
+      pathRewrite: { "/api/online/authorization": "/online/authorization" },
+      changeOrigin: true,
+      secure: false,
+    },
+    "/api/online/management": {
+      target: "https://operator.opennl.com",
+      pathRewrite: { "/api/online/management": "/online/management" },
+      changeOrigin: true,
+      secure: false,
+    },
+    "/api": {
+      target: "https://operator.opennl.com",
+      secure: false,
+      pathRewrite: { "/api": "" },
+      changeOrigin: true,
+    },
+  },
   env: {
     VUE_APP_BASE_API: process.env.VUE_APP_BASE_API,
   },

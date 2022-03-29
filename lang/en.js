@@ -120,7 +120,7 @@ module.exports = {
     validate_username_less5_tip: "The account cannot be less then 5 letters.",
     validate_username_required_tip: "The account cannot be empty.",
     validate_password_tip:
-      "The password can not be less than 6 letters and digits",
+      "The password can not be less than 6 letters and 18 digits",
     consistent_password_tip: "Two input password must be consistent",
     address: "Address",
     address_placeholder: "Please entry company address",

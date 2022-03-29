@@ -3,33 +3,33 @@ export const api = {
     return await this.$axios.post("/online/authorization/auth/login", form);
   },
 
-  async sendEmail(email) {
+  async sendEmail(store, email) {
     return await this.$axios.post("/online/authorization/register/email/send", {
       email,
     });
   },
-  async register(data) {
+  async register(store, data) {
     return await this.$axios({
       url: `/online/management/operator/register`,
       method: "POST",
       data,
     });
   },
-  async verifyRegisterToken(data) {
+  async verifyRegisterToken(store, data) {
     return await this.$axios({
       url: `/online/authorization/register/url/validate/email/token/`,
       method: "POST",
       data,
     });
   },
-  async sendResetEmail(data) {
+  async sendResetEmail(store, data) {
     return await this.$axios({
       url: `/online/authorization/password/reset/send/email`,
       method: "POST",
       data,
     });
   },
-  async verifyResetToken(data) {
+  async verifyResetToken(store, data) {
     return await this.$axios({
       url: `/online/authorization/password/reset/verify`,
       method: "POST",
@@ -37,7 +37,7 @@ export const api = {
     });
   },
 
-  async resetPassword(data) {
+  async resetPassword(store, data) {
     return await this.$axios({
       url: `/online/authorization/password/reset`,
       method: "POST",
@@ -55,14 +55,14 @@ export const api = {
     });
   },
 
-  async getOperatorInfo(token) {
+  async getOperatorInfo(store, token) {
     return await this.$axios({
       url: `/online/authorization/operator/self`,
       method: "GET",
     });
   },
 
-  async reRegister(data) {
+  async reRegister(store, data) {
     return await this.$axios({
       url: `/online/management/operator/re-register`,
       method: "POST",

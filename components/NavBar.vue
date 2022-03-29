@@ -89,7 +89,7 @@
                     </li>
                     <li>
                       <NuxtLink
-                        :to="{name: 'lang', params: { lang: $store.state.locale} }"
+                        :to="{name: 'lang-contact-us', params: { lang: $store.state.locale} }"
                         exact
                       >{{ $t('common.contact_us') }}</NuxtLink>
                     </li>
