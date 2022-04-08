@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="homepage">
+    <NavBar fixed />
     <div id="headerIndex">
       <div class="background-wrapper">
         <div class="h-full w-full background"></div>
@@ -9,7 +10,11 @@
       </div>
       <div class="container">
         <div class="header-info w-2/4">
-          <h1>The TOMS platform was born for terminal lifecycle management</h1>
+          <h1 class="header-title">
+            The TOMS platform was born for
+            <br />terminal lifecycle management
+          </h1>
+
           <p>
             Reduce manpower investment,improve management efficiency and
             <br />reduce operating costs.
@@ -27,52 +32,36 @@
             <h2>Terminal Lifecycle Management</h2>
           </div>
         </div>
-        <div class="relative">
+        <div class="text-center">
           <ul class="tabs">
             <li
-              :class="['tab', {active: activeIndex === index}]"
+              :class="['tab', 'lifecycle-tab', {active: activeIndex === index}]"
               v-for="(item, index) in terminalTabs"
               :key="index"
               @click="() => activeIndex = index "
               :data-index="index"
             >{{item}}</li>
+            <div class="indicator" :style="indicatorStyle"></div>
           </ul>
-          <div class="indicator" :style="indicatorStyle"></div>
         </div>
       </div>
       <div class="containerXL container-fluid">
         <div class="row tab-content justify-between items-center">
-          <div
-            class="col-md-6"
-            style="padding: 0 50px"
-            data-aos="fade-right"
-            data-aos-duration="1200"
-          >
-            <img src="~assets/Zero-touchDeployment.png" class="w-4/5" alt v-if="activeIndex === 0" />
-            <img
-              src="~assets/Multi-dimensional.png"
-              class="w-4/5"
-              alt
-              v-else-if="activeIndex === 1"
-            />
-            <img src="~assets/Software.png" class="w-4/5" alt v-else-if="activeIndex === 2" />
-            <img
-              src="~assets/device-monitoring.png"
-              class="w-4/5"
-              alt
-              v-else-if="activeIndex === 3"
-            />
-            <img src="~assets/RemoteDiagnosis.png" class="w-4/5" alt v-else-if="activeIndex === 4" />
-            <img src="~assets/Customization.png" class="w-4/5" alt v-else-if="activeIndex === 5" />
-          </div>
-          <!-- 0 -->
-          <div
-            class="col-md-6"
-            data-aos="fade-left"
-            data-aos-duration="1200"
-            style="padding: 0 50px"
-          >
-            <div v-if="activeIndex === 0">
+          <template v-if="activeIndex === 0">
+            <div
+              class="col-md-6"
+              style="padding: 0 50px"
+              data-aos="fade-right"
+              data-aos-duration="1200"
+            >
+              <img src="~assets/Zero-touchDeployment.png" class="w-4/5" alt />
+            </div>
+            <div
+              class="col-md-6"
+              data-aos="fade-left"
+              data-aos-duration="1200"
+              style="padding: 0 50px"
+            >
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
@@ -106,8 +95,22 @@
                 </div>
               </div>
             </div>
-            <!-- 1 -->
-            <div v-else-if="activeIndex === 1">
+          </template>
+          <template v-else-if="activeIndex === 1">
+            <div
+              class="col-md-6"
+              style="padding: 0 50px"
+              data-aos="fade-right"
+              data-aos-duration="1200"
+            >
+              <img src="~assets/Multi-dimensional.png" class="w-4/5" alt />
+            </div>
+            <div
+              class="col-md-6"
+              data-aos="fade-left"
+              data-aos-duration="1200"
+              style="padding: 0 50px"
+            >
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
@@ -143,8 +146,22 @@
                 </div>
               </div>
             </div>
-            <!-- 2 -->
-            <div v-else-if="activeIndex === 2">
+          </template>
+          <template v-else-if="activeIndex === 2">
+            <div
+              class="col-md-6"
+              style="padding: 0 50px"
+              data-aos="fade-right"
+              data-aos-duration="1200"
+            >
+              <img src="~assets/Software.png" class="w-4/5" alt />
+            </div>
+            <div
+              class="col-md-6"
+              data-aos="fade-left"
+              data-aos-duration="1200"
+              style="padding: 0 50px"
+            >
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
@@ -180,8 +197,22 @@
                 </div>
               </div>
             </div>
-            <!-- 3 -->
-            <div v-else-if="activeIndex === 3">
+          </template>
+          <template v-else-if="activeIndex === 3">
+            <div
+              class="col-md-6"
+              style="padding: 0 50px"
+              data-aos="fade-right"
+              data-aos-duration="1200"
+            >
+              <img src="~assets/device-monitoring.png" class="w-4/5" alt />
+            </div>
+            <div
+              class="col-md-6"
+              style="padding: 0 50px"
+              data-aos="fade-left"
+              data-aos-duration="1200"
+            >
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
@@ -216,8 +247,22 @@
                 </div>
               </div>
             </div>
-            <!-- 4 -->
-            <div v-else-if="activeIndex === 4">
+          </template>
+          <template v-else-if="activeIndex === 4">
+            <div
+              class="col-md-6"
+              style="padding: 0 50px"
+              data-aos="fade-right"
+              data-aos-duration="1200"
+            >
+              <img src="~assets/RemoteDiagnosis.png" class="w-4/5" alt />
+            </div>
+            <div
+              class="col-md-6"
+              style="padding: 0 50px"
+              data-aos="fade-left"
+              data-aos-duration="1200"
+            >
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
@@ -253,8 +298,22 @@
                 </div>
               </div>
             </div>
-            <!-- 5 -->
-            <div v-else-if="activeIndex === 5">
+          </template>
+          <template v-else-if="activeIndex === 5">
+            <div
+              class="col-md-6"
+              style="padding: 0 50px"
+              data-aos="fade-right"
+              data-aos-duration="1200"
+            >
+              <img src="~assets/Customization.png" class="w-4/5" alt />
+            </div>
+            <div
+              class="col-md-6"
+              style="padding: 0 50px"
+              data-aos="fade-left"
+              data-aos-duration="1200"
+            >
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
@@ -267,7 +326,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </template>
         </div>
       </div>
     </section>
@@ -279,14 +338,18 @@
             <h2>Value-Added Service</h2>
           </div>
         </div>
-        <ul class="tabs">
-          <li
-            :class="['tab', {active: activeServiceIndex === index}]"
-            v-for="(item, index) in serviceTabs"
-            :key="index"
-            @click="() => activeServiceIndex = index"
-          >{{item}}</li>
-        </ul>
+        <div class="text-center">
+          <ul class="tabs relative">
+            <li
+              :class="['tab', 'service-tab', {active: activeServiceIndex === index}]"
+              v-for="(item, index) in serviceTabs"
+              :key="index"
+              @click="() => activeServiceIndex = index"
+              :data-index="index"
+            >{{item}}</li>
+            <div class="indicator" :style="serviceIndicatorStyle"></div>
+          </ul>
+        </div>
       </div>
       <div class="containerXL container-fluid">
         <div class="row items-center no-gutters">
@@ -318,11 +381,19 @@
               </ul>
             </div>
             <div
-              class="col-md-7 value-added-service__bg flykey"
-              data-aos="fade-up"
+              class="col-md-7 value-added-service__bg flykey float-right"
+              data-aos="fade-left"
               data-aos-duration="1200"
             >
               <img src="~assets/Value-Added Service/flykey/3.png" alt class="device" />
+              <img
+                src="~assets/Value-Added Service/flykey/1.png"
+                alt
+                class="flykey-line"
+                data-aos="fade-up"
+                data-aos-duration="1200"
+                data-aos-delay="1000"
+              />
               <img src="~assets/Value-Added Service/flykey/2.png" alt class="cloud" />
               <!-- <img src="~assets/Value-Added Service/FlyDesk/7.png" alt class="w-full" /> -->
             </div>
@@ -356,11 +427,36 @@
             </div>
             <div
               class="col-md-7 value-added-service__bg fly-desk"
-              data-aos="fade-up"
+              data-aos="fade-left"
               data-aos-duration="1200"
             >
               <img src="~assets/Value-Added Service/FlyDesk/6.png" alt class="left" />
               <img src="~assets/Value-Added Service/FlyDesk/1.png" alt class="right" />
+              <img src="~assets/Value-Added Service/FlyDesk/4.png" alt class="green-dot" />
+              <img
+                src="~assets/Value-Added Service/FlyDesk/2.png"
+                alt
+                class="flydesk-dialog"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                data-aos-delay="1000"
+              />
+              <img
+                src="~assets/Value-Added Service/FlyDesk/2.png"
+                alt
+                class="flydesk-dialog-2"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                data-aos-delay="1300"
+              />
+              <img
+                src="~assets/Value-Added Service/FlyDesk/2.png"
+                alt
+                class="flydesk-dialog-3"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                data-aos-delay="1600"
+              />
               <!-- <img src="~assets/Value-Added Service/FlyDesk/7.png" alt class="w-full" /> -->
             </div>
           </template>
@@ -393,7 +489,7 @@
             </div>
             <div
               class="col-md-7 value-added-service__bg hardware"
-              data-aos="fade-up"
+              data-aos="fade-left"
               data-aos-duration="1200"
             >
               <img src="~assets/Value-Added Service/hardware-diagnostics/1.png" alt class="left" />
@@ -430,7 +526,7 @@
             </div>
             <div
               class="col-md-7 value-added-service__bg geo-fencing"
-              data-aos="fade-up"
+              data-aos="fade-left"
               data-aos-duration="1200"
             >
               <img src="~assets/Value-Added Service/Geo-fencing/1.png" alt class="left" />
@@ -467,7 +563,7 @@
             </div>
             <div
               class="col-md-7 value-added-service__bg pre-warning"
-              data-aos="fade-up"
+              data-aos="fade-left"
               data-aos-duration="1200"
             >
               <img src="~assets/Value-Added Service/Pre-warning/1.png" alt class="left" />
@@ -478,23 +574,23 @@
     </section>
 
     <section class="section brand-store">
-      <div class="w-full">
+      <div class="containerXL container-fluid">
         <div class="row no-gutters items-center">
-          <div class="col-md-7">
-            <img src="~assets/macbook.png" alt class="mac-book w-full" />
+          <div class="col-md-7 brand-store-left">
+            <!-- <img src="~assets/macbook.png" alt class="mac-book w-full" /> -->
           </div>
-          <div class="col-md-5 text-white">
-            <h3 class="mb-4">Own Brand Store</h3>
+          <div class="col-md-5 text-white" data-aos="fade-up" data-aos-duration="1200">
+            <h3 class="mb-10">Own Brand Store</h3>
             <ul>
-              <li class="mb-5">
+              <li class="mb-10">
                 <img src="~assets/OwnBrandStore/icon-1.png" alt />
                 Private application store
               </li>
-              <li class="mb-5">
+              <li class="mb-10">
                 <img src="~assets/OwnBrandStore/icon-2.png" alt />
                 Control application content by yourself
               </li>
-              <li class="mb-5">
+              <li class="mb-10">
                 <img src="~assets/OwnBrandStore/icon-3.png" alt />
                 Free to build application
               </li>
@@ -512,7 +608,6 @@
 </template>
 
 <script>
-import AOS from "aos";
 export default {
   data() {
     return {
@@ -546,16 +641,40 @@ export default {
           let sum = 0;
           for (let i = 0; i < this.activeIndex; i++) {
             sum += document.querySelector(
-              `.tab[data-index="${i}"]`
+              `.lifecycle-tab[data-index="${i}"]`
             ).clientWidth;
           }
           left = sum;
         }
         return {
           width:
-            document.querySelector(`.tab[data-index="${this.activeIndex}"]`)
-              .clientWidth + "px",
-          left: left - 23 + "px",
+            document.querySelector(
+              `.lifecycle-tab[data-index="${this.activeIndex}"]`
+            ).clientWidth + "px",
+          left: left + "px",
+        };
+      }
+    },
+    serviceIndicatorStyle() {
+      if (this.mounted && process.browser) {
+        let left = 0;
+        if (this.activeServiceIndex === 0) {
+          left = 0;
+        } else {
+          let sum = 0;
+          for (let i = 0; i < this.activeServiceIndex; i++) {
+            sum += document.querySelector(
+              `.service-tab[data-index="${i}"]`
+            ).clientWidth;
+          }
+          left = sum;
+        }
+        return {
+          width:
+            document.querySelector(
+              `.service-tab[data-index="${this.activeServiceIndex}"]`
+            ).clientWidth + "px",
+          left: left + "px",
         };
       }
     },
@@ -563,11 +682,17 @@ export default {
   mounted() {
     this.mounted = true;
   },
+  methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
 @use "../../assets/css/mixin";
+@import "../../assets/css/animation.scss";
+
+.homepage {
+  overflow: hidden;
+}
 
 #headerIndex {
   height: auto;
@@ -604,10 +729,15 @@ export default {
   transform: translate(-50%, -50%);
   text-align: center;
   margin: 0 auto;
+  /* transition: all 0.8s ease-in; */
+
   & > h1 {
+    animation: fade 1s;
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     line-height: 50px;
+    text-transform: uppercase;
+    /* line-height: 1.2; */
   }
 
   & > p {
@@ -615,6 +745,17 @@ export default {
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     /* padding: 0 100px; */
     margin-bottom: 40px;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -631,14 +772,25 @@ export default {
     background-image: url("~assets/bg-2.png");
     background-size: cover;
     background-repeat: no-repeat;
+    padding: 150px 0;
+    .brand-store-left {
+      background-image: url("~assets/macbook.png");
+      height: 500px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
   }
 }
 
 .tabs {
   padding-bottom: 20px;
   white-space: nowrap;
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  /* display: flex;
+  justify-content: center; */
   margin-bottom: 50px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   .tab {
@@ -669,6 +821,7 @@ export default {
 }
 
 .tab-content {
+  min-height: 500px;
   h3 {
     font-size: 18px;
   }
@@ -694,6 +847,13 @@ export default {
       position: absolute;
       left: 140px;
       bottom: 70px;
+      animation: moveUpAndDown 2s infinite;
+    }
+    .flykey-line {
+      position: absolute;
+      left: 387px;
+      width: 238px;
+      top: 253px;
     }
     .device {
       position: absolute;
@@ -727,16 +887,42 @@ export default {
   }
   &.fly-desk {
     background-image: url("~assets/Value-Added Service/FlyDesk/7.png");
+    img {
+      position: absolute;
+    }
     .left {
       left: 200px;
-      position: absolute;
       top: 120px;
       width: 200px;
     }
     .right {
       right: 70px;
       bottom: 0;
-      position: absolute;
+    }
+    .green-dot {
+      top: 133px;
+      left: 265px;
+      animation: fadeInAndOut 1s infinite;
+      animation-direction: alternate;
+    }
+    .flydesk-dialog {
+      top: 226px;
+      left: 218px;
+      width: 164px;
+      /* animation: moveDialog 1s; */
+      /* animation-delay: 1s; */
+    }
+
+    .flydesk-dialog-2 {
+      top: 290px;
+      left: 218px;
+      width: 164px;
+    }
+
+    .flydesk-dialog-3 {
+      top: 354px;
+      left: 218px;
+      width: 164px;
     }
   }
   &.geo-fencing {
@@ -770,6 +956,15 @@ export default {
   li {
     margin-bottom: 10px;
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 
 .mac-book {

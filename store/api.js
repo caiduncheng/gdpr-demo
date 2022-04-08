@@ -17,7 +17,7 @@ export const api = {
   },
   async verifyRegisterToken(store, data) {
     return await this.$axios({
-      url: `/online/authorization/register/url/validate/email/token/`,
+      url: `/online/authorization/register/url/validate/email/token`,
       method: "POST",
       data,
     });
@@ -73,6 +73,22 @@ export const api = {
   async getTimeStamp() {
     return await this.$axios({
       url: `/online/authorization/auth/timestamp`,
+    });
+  },
+
+  async contactUs(store, data) {
+    return await this.$axios({
+      url: `/online/contact-us/message-record`,
+      method: "POST",
+      data,
+    });
+  },
+
+  async verifyRegisterToken(store, data) {
+    return await this.$axios({
+      url: `/online/authorization/register/url/validate/email/token/`,
+      method: "POST",
+      data,
     });
   },
 };

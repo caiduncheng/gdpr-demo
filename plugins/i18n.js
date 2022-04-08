@@ -1,5 +1,7 @@
 import Vue from "vue";
 import VueI18n from "vue-i18n";
+import enLocale from "element-ui/lib/locale/lang/en";
+import zhLocale from "element-ui/lib/locale/lang/zh-CN";
 
 Vue.use(VueI18n);
 
@@ -8,8 +10,8 @@ export default ({ app, store }) => {
     locale: store.state.locale,
     fallbackLocale: "en-US",
     messages: {
-      "en-US": require("@/lang/en.js"),
-      "zh-CN": require("@/lang/zh.js"),
+      "en-US": Object.assign(enLocale, require("@/lang/en.js")),
+      "zh-CN": Object.assign(zhLocale, require("@/lang/zh.js")),
     },
   });
 

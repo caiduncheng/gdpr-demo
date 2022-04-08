@@ -1,11 +1,4 @@
 module.exports = {
-  links: {
-    home: "home",
-    english: "english",
-  },
-  home: {
-    title: "hahha",
-  },
   common: {
     home: "首页",
     solutions: "解决方案",
@@ -112,9 +105,12 @@ module.exports = {
     invalid_link: "无效链接。",
     validate_username_less5_tip: "账号不能小于5个字符",
     validate_username_required_tip: "账号不能为空",
-    validate_password_tip: "密码不能少于6个字母和数字的组合",
+    validate_password_required: "密码不能为空",
+    validate_password_tip: "密码的长度必须在8-18位",
+    validate_password_strength: "密码必须是包含字母、数字、符号的组合",
+    validate_confirm_password_required: "确认密码不能为空",
     consistent_password_tip: "两次输入密码必须一致",
-    address: "地址",
+    address: "公司地址",
     address_placeholder: "请输入公司地址",
     name: "名称",
     name_placeholder: "请输入名称",
@@ -127,10 +123,13 @@ module.exports = {
     upload_tip1: "请上传CSR（文件以.csr结尾）",
     upload_tip2:
       "我们将使用证书签名请求（CSR）创建用于平台验证终端的证书（Payment.crt文件）。",
-    upload_tip3: "您可以从NPSC获取CSR或通过工具生成CSR",
+    upload_tip3:
+      "您可以从<a class='link' href='https://npsc.newlandpayment.com/npsc'>NPSC</a>获取CSR或通过工具生成CSR",
     confirm_password_tip: "请确认密码",
     contact_you_in_some_days: "我们将在1-2个工作日内与您联系",
     illegal_mobile: "不合法的电话",
     agree_terms_and_conditions_tip: "你需要接受条款与条件",
+    file_required: "请上传CSR证书文件",
+    country_required: "请选择国家",
   },
 };

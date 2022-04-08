@@ -3,11 +3,11 @@
     <NavBar />
     <div class="container container-fluid">
       <div class="row login items-center mb-10" style="padding-top: 40px; padding-bottom: 130px;">
-        <div class="col-8">
+        <div class="col-6 col-lg-7 col-xl-8 login-title-wrapper">
           <h1 class="text-white mb-3">Welcome!</h1>
-          <p class="text-white text-3xl">Abandon the complexity / Embrace the world.</p>
+          <p class="text-white text-2xl lg:text-3xl">Abandon the complexity / Embrace the world.</p>
         </div>
-        <div class="col-4">
+        <div class="col-8 col-md-6 col-lg-5 col-xl-4 offset-2 offset-md-0">
           <div class="login-form">
             <div class="login-form__header">Sign in</div>
             <div class="login-form__body">
@@ -47,7 +47,7 @@
                     <el-input
                       @focus="hidePopovers"
                       slot="reference"
-                      placeholder="Password"
+                      :placeholder="$t('login.password')"
                       v-model="loginForm.password"
                       type="password"
                       tabindex="2"
@@ -63,9 +63,10 @@
                         <i class="el-icon-warning text-yellow-500"></i>
                         {{invalidMessage}}
                         <el-input
+                          tabindex="3"
                           @focus="hidePopovers"
                           slot="reference"
-                          placeholder="Captcha"
+                          :placeholder="$t('login.captcha')"
                           v-model.trim="loginForm.code"
                           @keyup.enter.native="handleLogin"
                         ></el-input>
@@ -80,26 +81,40 @@
                 </el-form-item>
 
                 <el-form-item>
-                  <el-button class="w-full" type="primary" @click="handleLogin">Sign in</el-button>
+                  <el-button
+                    class="w-full"
+                    :loading="loading"
+                    type="primary"
+                    @click="handleLogin"
+                  >{{$t('common.sign_in')}}</el-button>
+                </el-form-item>
+                <el-form-item prop="checked">
+                  <div class="text-center">
+                    <el-popover trigger="manual" v-model="checkedPopover" placement="bottom">
+                      <i class="el-icon-warning text-yellow-500"></i>
+                      {{invalidMessage}}
+                      <el-checkbox slot="reference" v-model="loginForm.checked">
+                        <span class="text-xs">{{$t('login.i_accept')}}</span>
+                        <NuxtLink
+                          to="/privacy/terms"
+                          class="link"
+                        >{{$t('login.terms_and_conditions')}}</NuxtLink>
+                      </el-checkbox>
+                    </el-popover>
+                  </div>
                 </el-form-item>
               </el-form>
-              <div>
+              <hr class="my-5" />
+              <div class="text-center">
                 <p class="text-gray text-xs text-center mb-3">
                   Don't have an account yet?
-                  <a href="/" @click.prevent="startSignUp">
-                    <span class="link">Sign up</span>
+                  <a @click.prevent="startSignUp" class="link">
+                    <span>Sign up</span>
                   </a>
                 </p>
                 <div class="text-center">
-                  <a href="/" class="text-xs link">Forgot paassword?</a>
+                  <a @click.prevent="resetPassword" class="text-xs link">Forgot password?</a>
                 </div>
-              </div>
-              <hr class="my-5" />
-              <div class="text-center">
-                <el-checkbox>
-                  <span class="text-xs">I accept</span>
-                  <NuxtLink to="/" class="link">Terms & Conditions</NuxtLink>
-                </el-checkbox>
               </div>
             </div>
           </div>
@@ -111,9 +126,20 @@
         <div class="row">
           <div class="col-12 text-center">
             <div class="mb-3">
-              <img class="mr-2" src="~assets/sign-in/4.png" alt />
-              <img class="mr-2" src="~assets/sign-in/5.png" alt />
-              <img src="~assets/sign-in/6.png" alt />
+              <a href="https://www.newlandnpt.com/" target="_blank">
+                <img class="mr-2" src="~assets/sign-in/4.png" alt />
+              </a>
+
+              <a href="https://www.linkedin.cn/injobs" target="_blank">
+                <img class="mr-2" src="~assets/sign-in/5.png" alt />
+              </a>
+
+              <a
+                href="https://www.alibaba.com/trade/search?fsb=y&IndexArea=product_en&CatId=&SearchText=newlandnpt"
+                target="_blank"
+              >
+                <img src="~assets/sign-in/6.png" alt />
+              </a>
             </div>
             <p
               class="text-gray text-xs"
@@ -122,7 +148,8 @@
         </div>
       </div>
     </div>
-    <LazySignupDialog :visible.sync="dialogVisible" title="Sign Up" />
+    <LazySignupDialog :visible.sync="signUpDialogVisible" title="Sign Up" />
+    <LazyResetPasswordDialog :visible.sync="resetPasswordDialogVisible" title="Reset Password" />
   </div>
 </template>
 
@@ -163,7 +190,8 @@ export default {
       }
     };
     return {
-      dialogVisible: false,
+      signUpDialogVisible: false,
+      resetPasswordDialogVisible: false,
       loginForm: {
         username: "",
         password: "",
@@ -184,12 +212,11 @@ export default {
       passwordType: "password",
       redirect: undefined,
       captchaLoading: false,
-      selectRoledialogVisible: false,
-      resetDialogVisible: false,
       invalidMessage: "",
       usernamePopover: false,
       codePopover: false,
       passwordPopover: false,
+      checkedPopover: false,
       showFlag: false,
     };
   },
@@ -210,7 +237,10 @@ export default {
       return rsaPassWord;
     },
     startSignUp() {
-      this.dialogVisible = true;
+      this.signUpDialogVisible = true;
+    },
+    resetPassword() {
+      this.resetPasswordDialogVisible = true;
     },
     validate(prop, isValid, message) {
       if (this.showFlag) {
@@ -224,10 +254,15 @@ export default {
       }
     },
     hidePopovers() {
-      this.codePopover = this.passwordPopover = this.usernamePopover = false;
+      this.checkedPopover =
+        this.codePopover =
+        this.passwordPopover =
+        this.usernamePopover =
+          false;
     },
     handleLogin() {
       this.showFlag = false;
+      this.hidePopovers();
       this.$refs.loginForm.validate(async (valid) => {
         if (valid) {
           this.loading = true;
@@ -282,6 +317,7 @@ export default {
   async mounted() {
     const { default: _JSEncrypt } = await import("jsencrypt");
     JSEncrypt = _JSEncrypt;
+    console.log(process.env.NODE_ENV);
     this.getCaptcha();
   },
 };
@@ -295,6 +331,13 @@ export default {
   @include mixin.background-cover;
   min-height: 100vh;
   position: relative;
+}
+
+.login-title-wrapper {
+  display: none;
+  @screen md {
+    display: block;
+  }
 }
 
 .welcome {
@@ -329,11 +372,5 @@ export default {
   bottom: 0;
   width: 100%;
   z-index: 2;
-}
-
-.link {
-  font-weight: 700;
-  font-size: 12px;
-  color: #3e80e5;
 }
 </style>

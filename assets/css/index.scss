@@ -3,11 +3,39 @@
 @import './element-ui.scss';
 
 :root {
-  --button-border-radius: 20px 0px 20px 20px;
   --default-font-family: "Cerebri Sans";
-  // --default-font-family: "museo",
-  //   Arial,
-  //   sans-serif;
+
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  mix-blend-mode: overlay;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+*::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+}
+
+*::-webkit-scrollbar-corner {
+  height: 0;
+  width: 0;
 }
 
 @font-face {
@@ -15,13 +43,6 @@
   font-style: normal;
   font-weight: normal;
   src: url("../fonts/cerebrisans/cerebrisans-medium.woff") format("woff");
-}
-
-@font-face {
-  font-family: "museo";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/museo/Museo300-Regular.otf") format("oft");
 }
 
 @font-face {
@@ -54,6 +75,15 @@ body {
 
 a {
   cursor: pointer;
+}
+
+a,
+span {
+  &.link {
+    font-weight: 700;
+    font-size: 12px;
+    color: #3e80e5;
+  }
 }
 
 p {
@@ -90,6 +120,10 @@ textarea {
   /* 1 */
   margin: 0;
   /* 2 */
+}
+
+#app {
+  // background: #000000;
 }
 
 button {

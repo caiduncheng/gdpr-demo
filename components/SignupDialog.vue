@@ -1,31 +1,53 @@
 <template>
   <div class="sign-up-dialog">
-    <el-dialog v-bind="$attrs" v-on="$listeners" @closed="handleClose" width="30%">
-      <div class="text-center mb-6">
-        <div class="text-lg m-auto">
-          <p style="word-break: break-word">{{ $t('home.enter_email_tip') }}</p>
+    <el-dialog v-bind="$attrs" v-on="$listeners" @closed="handleClose" width="40%">
+      <div v-show="!success">
+        <div class="text-center mb-6">
+          <div class="text-lg m-auto">
+            <p style="word-break: break-word" v-html="$t('home.enter_email_tip')"></p>
+          </div>
+        </div>
+        <el-form
+          class="w-4/5 m-auto"
+          :model="formData"
+          :rules="rules"
+          ref="form"
+          @submit.prevent.native="submit"
+        >
+          <el-form-item prop="email">
+            <el-input
+              @keyup.enter="submit"
+              class="email-collect-input"
+              :placeholder="$t('home.enter_email_placeholder')"
+              :maxlength="64"
+              style
+              v-model="formData.email"
+            ></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button
+              native-type="submit"
+              type="primary"
+              class="w-full"
+              :loading="loading"
+              @click="submit"
+            >{{ $t('common.confirm') }}</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
+      <div v-show="success">
+        <div class="text-center">
+          <el-result icon="success" class="email-result">
+            <h2 slot="title" class="text-3xl">{{ $t('home.congratulations') }}</h2>
+            <h2
+              slot="subTitle"
+              class="text-2xl"
+              style="word-break: break-word"
+            >{{ $t('home.email_sent_successfully') }}</h2>
+          </el-result>
+          <el-button type="primary" class="w-full" @click="handleClose">{{ $t('common.confirm') }}</el-button>
         </div>
       </div>
-      <el-form class="w-4/5 m-auto" :model="formData" :rules="rules" ref="form">
-        <el-form-item prop="email">
-          <el-input
-            @keyup.enter="submit"
-            class="email-collect-input"
-            :placeholder="$t('home.enter_email_placeholder')"
-            :maxlength="64"
-            style
-            v-model="formData.email"
-          ></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button
-            type="primary"
-            class="w-full"
-            :loading="loading"
-            @click="submit"
-          >{{ $t('common.confirm') }}</el-button>
-        </el-form-item>
-      </el-form>
     </el-dialog>
   </div>
 </template>
@@ -34,8 +56,8 @@
 export default {
   data() {
     return {
+      success: false,
       loading: false,
-      step: 1,
       formData: {
         email: "",
       },
@@ -59,8 +81,8 @@ export default {
   },
   methods: {
     handleClose() {
+      this.success = false;
       this.$refs.form.resetFields();
-      this.step = 1;
       this.$emit("update:visible", false);
     },
     submit() {
@@ -70,7 +92,7 @@ export default {
           this.$store
             .dispatch("sendEmail", this.formData.email)
             .then(() => {
-              this.step = 2;
+              this.success = true;
             })
             .finally(() => {
               this.loading = false;
@@ -90,5 +112,10 @@ export default {
     text-align: center;
     padding: 1.2em 0.2em;
   }
+}
+
+.email-result.el-result {
+  padding: 0;
+  margin-bottom: 40px;
 }
 </style>

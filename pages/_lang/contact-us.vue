@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="contact-us">
     <div class="background">
       <NavBar />
       <div class="containerXL">
@@ -10,33 +10,50 @@
               <p class="text-xs">Get in touch with by completing the below form</p>
             </div>
             <el-card class="px-4">
-              <el-form class="small">
-                <el-form-item label="Email address">
-                  <el-input></el-input>
+              <el-form class="small" :model="form" @submit.prevent.native="submit">
+                <el-form-item label="Email address" prop="email">
+                  <el-input v-model="form.email"></el-input>
                 </el-form-item>
-                <el-form-item label="Full name">
-                  <el-input></el-input>
+                <el-form-item label="Full name" prop="name">
+                  <el-input v-model="form.name"></el-input>
                 </el-form-item>
-                <el-form-item label="Character">
-                  <el-input></el-input>
+                <el-form-item label="Character" prop="mobile">
+                  <el-input v-model="form.mobile"></el-input>
                 </el-form-item>
-                <el-form-item label="Country / Region">
-                  <el-input></el-input>
+                <el-form-item label="Country / Region" prop="country" class="form-select">
+                  <el-select v-model="form.countryCode" size="small">
+                    <el-option
+                      v-for="item in countries"
+                      :key="item.countryCode3"
+                      :label="item.countryNameEn"
+                      :value="item.countryCode3"
+                    ></el-option>
+                  </el-select>
                 </el-form-item>
-                <el-form-item label="Company">
-                  <el-input></el-input>
+                <el-form-item label="Type" prop="type" class="form-select">
+                  <el-select v-model="form.type">
+                    <el-option
+                      v-for="item in types"
+                      :key="item.value"
+                      :value="item.value"
+                      :label="item.label"
+                    ></el-option>
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="Company" prop="company">
+                  <el-input v-model="form.company"></el-input>
                 </el-form-item>
 
-                <el-form-item label="Industry">
-                  <el-input></el-input>
+                <el-form-item label="Industry" prop="industry">
+                  <el-input v-model="form.industry"></el-input>
                 </el-form-item>
 
-                <el-form-item label="Message">
-                  <el-input type="textarea" rows="5"></el-input>
+                <el-form-item label="Message" prop="content">
+                  <el-input type="textarea" rows="5" v-model="form.content"></el-input>
                 </el-form-item>
                 <el-form-item>
                   <div class="text-center">
-                    <el-button type="primary">Send Message</el-button>
+                    <el-button type="primary" native-type="submit">Send Message</el-button>
                   </div>
                 </el-form-item>
               </el-form>
@@ -69,8 +86,71 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      types: [
+        {
+          value: 0,
+          label: "Contact Sales",
+        },
+        {
+          value: 1,
+          label: "Support",
+        },
+        {
+          value: 2,
+          label: "Partner",
+        },
+        {
+          value: 3,
+          label: "Marketing",
+        },
+      ],
+      countries: [],
+      form: {
+        email: "",
+        name: "",
+        mobile: "",
+        countryCode: "",
+        company: "",
+        industry: "",
+        content: "",
+      },
+    };
+  },
+  methods: {
+    submit() {
+      this.$store.dispatch("contactUs", { ...this.form, role: 1 }).then(() => {
+        this.$message({
+          message: "Message successfully sent.",
+          type: "success",
+        });
+      });
+    },
+  },
+  mounted() {
+    this.$store.dispatch("getCountryList").then((data) => {
+      this.countries = data;
+    });
+  },
+};
 </script>
+
+<style lang="scss">
+.contact-us {
+  .form-select {
+    .el-input__inner {
+      width: 230px;
+    }
+    .el-form-item__label {
+      float: none;
+      text-align: left;
+      display: block;
+    }
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 @use "~assets/css/mixin";

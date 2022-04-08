@@ -9,7 +9,7 @@ export default {
   },
   production: {
     VUE_APP_BASE_API: "",
-    VUE_APP_OPERATOR_ADDRESS: "https://operator.opennl.com",
+    VUE_APP_OPERATOR_ADDRESS: "https://toms.opennl.com/operator/#/",
     VUE_APP_MANUFACTURER_ADDRESS: "https://vendor.opennl.com",
     VUE_APP_DEV_ADDRESS: "https://developer.opennl.com",
     VUE_APP_ADMIN_ADDRESS: "https://admin.opennl.com",

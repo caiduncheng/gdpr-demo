@@ -7,8 +7,10 @@ export default function ({ store, redirect, req, router, app: { $axios } }) {
   // request拦截器
   $axios.onRequest((config) => {
     // 将获取到token加入到请求头中
-    config.headers["WEB-TOKEN"] = sessionStorage.getItem("token");
-    config.headers["TOMS-LANG"] = localStorage.getItem("LANG") || "en-US";
+    config.headers["WEB-TOKEN"] =
+      sessionStorage && sessionStorage.getItem("token");
+    config.headers["TOMS-LANG"] =
+      (localStorage && localStorage.getItem("LANG")) || "en-US";
   });
   // response拦截器，数据返回后，可以先在这里进行一个简单的判断
   $axios.interceptors.response.use(
@@ -24,7 +26,6 @@ export default function ({ store, redirect, req, router, app: { $axios } }) {
       } else {
         errorMessage = error.message;
       }
-
       Message({
         message: errorMessage,
         type: "error",

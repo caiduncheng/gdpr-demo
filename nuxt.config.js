@@ -1,6 +1,15 @@
+const webpack = require("webpack");
+
 export default {
   mode: "universal",
-  target: "server",
+  target: "static",
+  build: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: "jquery",
+      }),
+    ],
+  },
   head: {
     title: process.env.npm_package_name || "",
     meta: [
@@ -28,7 +37,7 @@ export default {
   plugins: [
     {
       src: "~plugins/element-ui",
-      mode: "client",
+      ssr: true,
     },
     "~/plugins/i18n.js",
     "~/plugins/axios",
@@ -37,6 +46,7 @@ export default {
   components: true,
   router: {
     middleware: "i18n",
+    base: "/",
   },
   generate: {
     routes: ["/", "zh-CN"],
