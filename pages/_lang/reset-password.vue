@@ -4,12 +4,12 @@
       <div class="col-6 offset-3">
         <el-card>
           <div v-if="!success">
-            <h2 class="text-2xl text-center">{{ $t('login.reset_password') }}</h2>
+            <h2 class="text-2xl text-center">{{ $t('login.title_reset_password') }}</h2>
             <el-form :model="form" :rules="loginRules" ref="form">
               <el-form-item :label=" $t('login.new_password')" prop="password">
                 <el-input v-model="form.password" type="password"></el-input>
                 <div class="password-strength" v-show="showPasswordStrength">
-                  <div class="text">Password strength: {{mapPasswordStrength[passwordStrength]}}</div>
+                  <div class="text"> {{$t('login.password_strength')}} {{mapPasswordStrength[passwordStrength]}}</div>
                   <div class="indicator">
                     <span :class="['weak', {active: passwordStrength >= 1}]"></span>
                     <span :class="['moderate', {active: passwordStrength >= 2}]"></span>
