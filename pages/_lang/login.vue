@@ -4,16 +4,16 @@
     <div class="container container-fluid">
       <div class="row login items-center mb-10" style="padding-top: 40px; padding-bottom: 130px;">
         <div class="col-6 col-lg-7 col-xl-8 login-title-wrapper">
-          <h1 class="text-white mb-3">Welcome!</h1>
-          <p class="text-white text-2xl lg:text-3xl">Abandon the complexity / Embrace the world.</p>
+          <h1 class="text-white mb-3">{{$t('login.welcome')}}</h1>
+          <p class="text-white text-2xl lg:text-3xl">{{$t('login.slogan')}}</p>
         </div>
         <div class="col-8 col-md-6 col-lg-5 col-xl-4 offset-2 offset-md-0">
           <div class="login-form">
-            <div class="login-form__header">Sign in</div>
+            <div class="login-form__header">{{$t('login.sign_in')}}</div>
             <div class="login-form__body">
               <p
                 class="text-xs text-gray text-center mb-4"
-              >Sign in to your account using email and password provided during registration</p>
+              >{{$t('login.sign_in_tip')}}</p>
               <el-form
                 @validate="validate"
                 class="small"
@@ -107,13 +107,13 @@
               <hr class="my-5" />
               <div class="text-center">
                 <p class="text-gray text-xs text-center mb-3">
-                  Don't have an account yet?
+                  {{$t('login.donnot_have_account')}}
                   <a @click.prevent="startSignUp" class="link">
-                    <span>Sign up</span>
+                    <span>{{$t('login.sign_up')}}</span>
                   </a>
                 </p>
                 <div class="text-center">
-                  <a @click.prevent="resetPassword" class="text-xs link">Forgot password?</a>
+                  <a @click.prevent="resetPassword" class="text-xs link">{{$t('login.forgot_password')}}</a>
                 </div>
               </div>
             </div>
@@ -148,8 +148,8 @@
         </div>
       </div>
     </div>
-    <LazySignupDialog :visible.sync="signUpDialogVisible" title="Sign Up" />
-    <LazyResetPasswordDialog :visible.sync="resetPasswordDialogVisible" title="Reset Password" />
+    <LazySignupDialog :visible.sync="signUpDialogVisible" :title="$t('login.sign_up')" />
+    <LazyResetPasswordDialog :visible.sync="resetPasswordDialogVisible" :title="$t('login.title_reset_password')" />
   </div>
 </template>
 

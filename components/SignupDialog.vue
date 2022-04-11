@@ -4,7 +4,7 @@
       <div v-show="!success">
         <div class="text-center mb-6">
           <div class="text-lg m-auto">
-            <p style="word-break: break-word" v-html="$t('home.enter_email_tip')"></p>
+            <p style="word-break: break-word" v-html="$t('login.enter_email_tip')"></p>
           </div>
         </div>
         <el-form
@@ -18,7 +18,7 @@
             <el-input
               @keyup.enter="submit"
               class="email-collect-input"
-              :placeholder="$t('home.enter_email_placeholder')"
+              :placeholder="$t('login.enter_email_placeholder')"
               :maxlength="64"
               style
               v-model="formData.email"
@@ -38,12 +38,12 @@
       <div v-show="success">
         <div class="text-center">
           <el-result icon="success" class="email-result">
-            <h2 slot="title" class="text-3xl">{{ $t('home.congratulations') }}</h2>
+            <h2 slot="title" class="text-3xl">{{ $t('login.congratulations') }}</h2>
             <h2
               slot="subTitle"
               class="text-2xl"
               style="word-break: break-word"
-            >{{ $t('home.email_sent_successfully') }}</h2>
+            >{{ $t('login.email_sent_successfully') }}</h2>
           </el-result>
           <el-button type="primary" class="w-full" @click="handleClose">{{ $t('common.confirm') }}</el-button>
         </div>
@@ -65,15 +65,15 @@ export default {
         email: [
           {
             required: true,
-            message: "Email is required",
+            message: this.$t("login.email_required"),
           },
           {
             type: "email",
-            message: this.$t("home.invalid_email_format"),
+            message: this.$t("login.invalid_email_format"),
           },
           {
             max: 64,
-            message: "The max length of email is 64.",
+            message: this.$t("login.invalid_email_length"),
           },
         ],
       },

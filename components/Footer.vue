@@ -6,7 +6,7 @@
           <div class="footer-info">
             <div class="flex items-center mb-5">
               <div class="divider"></div>
-              <h4>Social</h4>
+              <h4>{{$t('common.social')}}</h4>
             </div>
             <div class="pl-3">
               <a href="https://www.newlandnpt.com/" target="_blank">
@@ -30,23 +30,23 @@
           <div class="footer-info">
             <div class="flex items-center mb-5">
               <div class="divider"></div>
-              <h4>Contact Toms</h4>
+              <h4>{{$t('common.contact_toms')}}</h4>
             </div>
             <div>
               <address>
-                <span class="label">Address:</span>Newland Science & Technology Park, NO.1 Rujiang Xi Rd.,
+                <span class="label">{{$t('common.address')}}</span>{{$t('common.address1')}}
                 <br />
-                <span style="padding-left: 83px;">Mawei Dist., Fuzhou 350015, Fujian China</span>
+                <span style="padding-left: 83px;">{{$t('common.address2')}}</span>
               </address>
               <div>
-                <span class="label">Phone:</span>
-                <span style="padding-left: 10px">+86 591 83979622</span>
+                <span class="label">{{$t('common.phone')}}</span>
+                <span style="padding-left: 10px">{{$t('common.phone1')}}</span>
               </div>
               <div>
                 <address>
-                  <span class="label">Email:</span>
+                  <span class="label">{{$t('common.email')}}</span>
                   <a href="javacsript:;" class="mail-link">
-                    <span style="padding-left: 20px;">TOMS-support@newlandnpt.com</span>
+                    <span style="padding-left: 20px;">{{$t('common.email1')}}</span>
                   </a>
                 </address>
               </div>

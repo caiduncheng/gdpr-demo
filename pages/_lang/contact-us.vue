@@ -6,21 +6,21 @@
         <div class="row py-14 items-center">
           <div class="col-4 offset-md-3 mr-10">
             <div class="text-white mb-8 contact-title">
-              <h3 class="mb-2">Contact Us</h3>
-              <p class="text-xs">Get in touch with by completing the below form</p>
+              <h3 class="mb-2">{{ $t('contact.contact_us')}}</h3>
+              <p class="text-xs">{{ $t('contact.main_tip')}}</p>
             </div>
             <el-card class="px-4">
               <el-form class="small" :model="form" @submit.prevent.native="submit">
-                <el-form-item label="Email address" prop="email">
+                <el-form-item :label="$t('contact.email')" prop="email">
                   <el-input v-model="form.email"></el-input>
                 </el-form-item>
-                <el-form-item label="Full name" prop="name">
+                <el-form-item :label="$t('contact.full_name')" prop="name">
                   <el-input v-model="form.name"></el-input>
                 </el-form-item>
-                <el-form-item label="Character" prop="mobile">
+                <el-form-item :label="$t('contact.character')" prop="mobile">
                   <el-input v-model="form.mobile"></el-input>
                 </el-form-item>
-                <el-form-item label="Country / Region" prop="country" class="form-select">
+                <el-form-item :label="$t('contact.country_region')" prop="country" class="form-select">
                   <el-select v-model="form.countryCode" size="small">
                     <el-option
                       v-for="item in countries"
@@ -30,7 +30,7 @@
                     ></el-option>
                   </el-select>
                 </el-form-item>
-                <el-form-item label="Type" prop="type" class="form-select">
+                <el-form-item :label="$t('contact.type')" prop="type" class="form-select">
                   <el-select v-model="form.type">
                     <el-option
                       v-for="item in types"
@@ -40,41 +40,41 @@
                     ></el-option>
                   </el-select>
                 </el-form-item>
-                <el-form-item label="Company" prop="company">
+                <el-form-item :label="$t('contact.company')" prop="company">
                   <el-input v-model="form.company"></el-input>
                 </el-form-item>
 
-                <el-form-item label="Industry" prop="industry">
+                <el-form-item :label="$t('contact.industry')" prop="industry">
                   <el-input v-model="form.industry"></el-input>
                 </el-form-item>
 
-                <el-form-item label="Message" prop="content">
+                <el-form-item :label="$t('contact.message')" prop="content">
                   <el-input type="textarea" rows="5" v-model="form.content"></el-input>
                 </el-form-item>
                 <el-form-item>
                   <div class="text-center">
-                    <el-button type="primary" native-type="submit">Send Message</el-button>
+                    <el-button type="primary" native-type="submit">{{$t('contact.btn_send_msg')}}</el-button>
                   </div>
                 </el-form-item>
               </el-form>
             </el-card>
           </div>
           <div class="col-3">
-            <h3 class="mb-5">Contact Us</h3>
+            <h3 class="mb-5">{{$t('contact.contact_us')}}</h3>
             <div class="contact-info">
               <address class="mb-5 flex">
                 <i class="fa fa-map-marker" style="margin-right: 12px"></i>
-                Science & Technology Park, No.1 Rujiang Xi Rd., Mawei Dist., Fuzhou 350015, Fujian, China
+                {{$t('contact.address')}}
               </address>
               <div class="mb-5 flex">
                 <i class="fa fa-envelope-o mr-2"></i>
                 <a href="javacsript:;" class="mail-link">
-                  <span>TOMS-support@newlandnpt.com</span>
+                  <span>{{$t('contact.email_box')}}</span>
                 </a>
               </div>
               <div class="flex">
                 <i class="fa fa-phone mr-2"></i>
-                +86(591) 83979921
+                {{$t('contact.service_phone')}}
               </div>
             </div>
           </div>

@@ -10,17 +10,14 @@
       </div>
       <div class="container">
         <div class="header-info w-2/4">
-          <h1 class="header-title">
-            The TOMS platform was born for
-            <br />terminal lifecycle management
+          <h1 class="header-title" v-html="$t('home.first_screen.slogan')">
           </h1>
 
-          <p>
-            Reduce manpower investment,improve management efficiency and
-            <br />reduce operating costs.
+          <p v-html="$t('home.first_screen.target')">
+            
           </p>
           <a class="start-button btn">
-            <span>Start Now</span>
+            <span>{{ $t('home.first_screen.start') }}</span>
           </a>
         </div>
       </div>
@@ -29,7 +26,7 @@
       <div class="container container-fluid" data-aos="fade-up" data-aos-duration="1200">
         <div class="section-title">
           <div class="text-center">
-            <h2>Terminal Lifecycle Management</h2>
+            <h2>{{ $t('home.lifecycle.title') }}</h2>
           </div>
         </div>
         <div class="text-center">
@@ -40,7 +37,7 @@
               :key="index"
               @click="() => activeIndex = index "
               :data-index="index"
-            >{{item}}</li>
+            >{{ $t(item) }}</li>
             <div class="indicator" :style="indicatorStyle"></div>
           </ul>
         </div>
@@ -66,32 +63,31 @@
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
-                    <h3 class="mb-2">Out of the box</h3>
+                    <h3 class="mb-2">{{ $t('home.lifecycle.deployment.feature1') }}</h3>
                     <p
                       class="pr-2"
-                    >The TOMS Client is pre-installed at the factory, access the TOMS platform instantly when booted.</p>
+                    >{{ $t('home.lifecycle.deployment.detail1') }}</p>
                   </div>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-2.png" alt class="mb-2" />
-                  <h3 class="mb-2">Deployment in Batches</h3>
+                  <h3 class="mb-2">{{ $t('home.lifecycle.deployment.feature2') }}</h3>
                   <p
                     class="pr-2"
-                  >The device can bind the Installation Template in batches,this sets up the pre-installation environment to reduce repetitive labor.</p>
+                  >{{ $t('home.lifecycle.deployment.detail2') }}</p>
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-3.png" alt class="mb-2" />
-                  <h3 class="mb-2">Auto Pre-install</h3>
-                  <p class="pr-2">Automatic Template Installation, rapid and efficient deployment.</p>
+                  <h3 class="mb-2">{{ $t('home.lifecycle.deployment.feature3') }}</h3>
+                  <p class="pr-2">{{ $t('home.lifecycle.deployment.detail3') }}</p>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-4.png" alt class="mb-2" />
-                  <h3 class="mb-2">Zero-touch Transfer</h3>
-                  <p
-                    class="pr-2"
-                  >Can be allocated before deployment, making management one step faster.</p>
+                  <h3 class="mb-2">{{ $t('home.lifecycle.deployment.feature4') }}</h3>
+                  <p class="pr-2"
+                  > {{ $t('home.lifecycle.deployment.detail4') }}</p>
                 </div>
               </div>
             </div>
@@ -115,34 +111,34 @@
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
-                    <h3 class="mb-2">Organization</h3>
+                    <h3 class="mb-2">{{ $t('home.lifecycle.multi_dimen.feature1') }}</h3>
                     <p
                       class="pr-2"
-                    >Clearly know the equipment distribution of each organization and each store.</p>
+                    >{{ $t('home.lifecycle.multi_dimen.detail1') }}</p>
                   </div>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-2.png" alt class="mb-2" />
-                  <h3 class="mb-2">Group</h3>
+                  <h3 class="mb-2">{{ $t('home.lifecycle.multi_dimen.feature2') }}</h3>
                   <p
                     class="pr-2"
-                  >By combining devices with the same label, devices can be repeatedly bound to groups,batch operation is easy and labor-saving.</p>
+                  >{{ $t('home.lifecycle.multi_dimen.detail2') }}</p>
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-3.png" alt class="mb-2" />
-                  <h3 class="mb-2">Renewal Schedule</h3>
+                  <h3 class="mb-2">{{ $t('home.lifecycle.multi_dimen.feature3') }}</h3>
                   <p
                     class="pr-2"
-                  >In addition to real-time updates, we also provide task plans which are scheduled for execution.</p>
+                  >{{ $t('home.lifecycle.multi_dimen.detail3') }}</p>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-4.png" alt class="mb-2" />
-                  <h3 class="mb-2">Single Device</h3>
+                  <h3 class="mb-2">{{ $t('home.lifecycle.multi_dimen.feature4') }}</h3>
                   <p
                     class="pr-2"
-                  >Not only can be set in batches, but also can be specific to a single device operation, both convenient and accurate.</p>
+                  >{{ $t('home.lifecycle.multi_dimen.detail4') }}</p>
                 </div>
               </div>
             </div>
@@ -166,34 +162,34 @@
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
-                    <h3 class="mb-2">Remote Management</h3>
+                    <h3 class="mb-2">{{ $t('home.lifecycle.software.feature1') }}</h3>
                     <p
                       class="pr-2"
-                    >Remote firmware and application upgrades, and apply configurable parameters independently.</p>
+                    >{{ $t('home.lifecycle.software.detail1') }}</p>
                   </div>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-2.png" alt class="mb-2" />
-                  <h3 class="mb-2">Parameter Template</h3>
+                  <h3 class="mb-2">{{ $t('home.lifecycle.software.feature2') }}</h3>
                   <p
                     class="pr-2"
-                  >Set the parameter template and default values for the application, and push the parameters in a smooth way.</p>
+                  >{{ $t('home.lifecycle.software.detail2') }}</p>
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-3.png" alt class="mb-2" />
-                  <h3 class="mb-2">Launch on Boot</h3>
+                  <h3 class="mb-2">{{ $t('home.lifecycle.software.feature3') }}</h3>
                   <p
                     class="pr-2"
-                  >Set up the application to start automatically with the device boot, no development adaptation, reduce the application development investment.</p>
+                  >{{ $t('home.lifecycle.software.detail3') }}</p>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-4.png" alt class="mb-2" />
-                  <h3 class="mb-2">Kiosk</h3>
+                  <h3 class="mb-2">{{ $t('home.lifecycle.software.feature4') }}</h3>
                   <p
                     class="pr-2"
-                  >Lock down devices to one or some special apps,keep equipment in working condition at all times.</p>
+                  >{{ $t('home.lifecycle.software.detail4') }}</p>
                 </div>
               </div>
             </div>
@@ -217,33 +213,30 @@
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
-                    <h3 class="mb-2">Rich Chart</h3>
-                    <p class="pr-2">
-                      Graphical display of network usage, power, hardware life etc.intuitive generous
-                      .
-                    </p>
+                    <h3 class="mb-2">{{ $t('home.lifecycle.monitor.feature1') }}</h3>
+                    <p class="pr-2">{{ $t('home.lifecycle.monitor.detail1') }}</p>
                   </div>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-2.png" alt class="mb-2" />
-                  <h3 class="mb-2">Device Location</h3>
-                  <p class="pr-2">Find the exact location of your devices</p>
+                  <h3 class="mb-2">{{ $t('home.lifecycle.monitor.feature2') }}</h3>
+                  <p class="pr-2">{{ $t('home.lifecycle.monitor.detail2') }}</p>
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-3.png" alt class="mb-2" />
-                  <h3 class="mb-2">History</h3>
+                  <h3 class="mb-2">{{ $t('home.lifecycle.monitor.feature3') }}</h3>
                   <p
                     class="pr-2"
-                  >Device operation logs, asset flow, and application installation records help partners quickly understand devices.</p>
+                  >{{ $t('home.lifecycle.monitor.detail3') }}</p>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-4.png" alt class="mb-2" />
-                  <h3 class="mb-2">More Info</h3>
+                  <h3 class="mb-2">{{ $t('home.lifecycle.monitor.feature4') }}</h3>
                   <p
                     class="pr-2"
-                  >Card type display Organization, application, firmware, system settings information, loud and clear.</p>
+                  >{{ $t('home.lifecycle.monitor.detail4') }}</p>
                 </div>
               </div>
             </div>
@@ -267,34 +260,34 @@
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
-                    <h3 class="mb-2">Log Extraction</h3>
+                    <h3 class="mb-2">{{ $t('home.lifecycle.diagnosis.feature1') }}</h3>
                     <p
                       class="pr-2"
-                    >Remote log extraction, no need to reproduce, help development locate problems, not to miss any exceptions.</p>
+                    >{{ $t('home.lifecycle.diagnosis.detail1') }}</p>
                   </div>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-2.png" alt class="mb-2" />
-                  <h3 class="mb-2">Real-time Logcat</h3>
+                  <h3 class="mb-2">{{ $t('home.lifecycle.diagnosis.feature2') }}</h3>
                   <p
                     class="pr-2"
-                  >Real-time access to logs for troubleshooting can be performed by one-click solution.</p>
+                  >{{ $t('home.lifecycle.diagnosis.detail2') }}</p>
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-3.png" alt class="mb-2" />
-                  <h3 class="mb-2">Extract File</h3>
+                  <h3 class="mb-2">{{ $t('home.lifecycle.diagnosis.feature3') }}</h3>
                   <p
                     class="pr-2"
-                  >Extract the device-specified path file to get the application's own log and crash files.</p>
+                  >{{ $t('home.lifecycle.diagnosis.detail3') }}</p>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-4.png" alt class="mb-2" />
-                  <h3 class="mb-2">System Settings</h3>
+                  <h3 class="mb-2">{{ $t('home.lifecycle.diagnosis.feature4') }}</h3>
                   <p
                     class="pr-2"
-                  >Remote setting WIFI IME language. Imitation terminal interface, abandon complex steps, immediately start.</p>
+                  >{{ $t('home.lifecycle.diagnosis.detail4') }}</p>
                 </div>
               </div>
             </div>
@@ -318,10 +311,10 @@
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
-                    <h3 class="mb-2">Customization</h3>
+                    <h3 class="mb-2">{{ $t('home.lifecycle.customization.feature1') }}</h3>
                     <p
                       class="pr-2"
-                    >Customizing the device boot animation and boot logo, highlight the brand.</p>
+                    >{{ $t('home.lifecycle.customization.detail1') }}</p>
                   </div>
                 </div>
               </div>
@@ -335,7 +328,7 @@
       <div class="container container-fluid" data-aos="fade-up" data-aos-duration="1200">
         <div class="section-title">
           <div class="text-center">
-            <h2>Value-Added Service</h2>
+            <h2>{{$t('home.vas.title')}}</h2>
           </div>
         </div>
         <div class="text-center">
@@ -346,7 +339,7 @@
               :key="index"
               @click="() => activeServiceIndex = index"
               :data-index="index"
-            >{{item}}</li>
+            >{{$t(item)}}</li>
             <div class="indicator" :style="serviceIndicatorStyle"></div>
           </ul>
         </div>
@@ -356,27 +349,27 @@
           <!-- FlyKey -->
           <template v-if="activeServiceIndex === 0">
             <div class="col-md-5" data-aos="fade-right" data-aos-duration="1200">
-              <h1 class="value-add-service__title">Flykey</h1>
+              <h1 class="value-add-service__title">{{$t('home.vas.flykey.title')}}</h1>
               <div class="line"></div>
               <p
                 class="service-info"
-              >Integrate FlyKey management portal onto TOMS. FlyKey is a remote key injection tool. Certified PCI-PIN3.0 secure.Remote key injection can be used for remote key filling and updating of POS terminals without door-to-door filling, which is flexible and fast and reduces labor cost.</p>
+              >{{$t('home.vas.flykey.detail')}}</p>
               <ul class="service-features">
                 <li>
                   <img src="~/assets/Value-Added Service/1.png" alt />
-                  Safe & Reliable
+                  {{$t('home.vas.flykey.f1')}}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/2.png" alt />
-                  Flexible & Fast
+                  {{$t('home.vas.flykey.f2')}}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/3.png" alt />
-                  Reduce Manpower
+                  {{$t('home.vas.flykey.f3')}}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/4.png" alt />
-                  Repeated Injection
+                  {{$t('home.vas.flykey.f4')}}
                 </li>
               </ul>
             </div>
@@ -401,27 +394,27 @@
           <!-- FlyDesk -->
           <template v-else-if="activeServiceIndex === 1">
             <div class="col-md-5" data-aos="fade-right" data-aos-duration="1200">
-              <h1 class="value-add-service__title">FlyDesk</h1>
+              <h1 class="value-add-service__title">{{$t('home.vas.flydesk.title')}}</h1>
               <div class="line"></div>
               <p
                 class="service-info"
-              >FlyDesk is a remote desktop control tool provided by the TOMS platform. With FlyDesk, you can control the POS terminal at any time and deal instantly with the Merchant. Improve merchant support processes while significantly reducing your costs.</p>
+              >{{$t('home.vas.flydesk.detail')}}</p>
               <ul class="service-features">
                 <li>
                   <img src="~/assets/Value-Added Service/1.png" alt />
-                  Remote Troubleshooting
+                  {{$t('home.vas.flydesk.f1')}}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/2.png" alt />
-                  Instant Support
+                  {{$t('home.vas.flydesk.f2')}}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/3.png" alt />
-                  Easy & Efficient
+                  {{$t('home.vas.flydesk.f3')}}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/4.png" alt />
-                  Low cost
+                  {{$t('home.vas.flydesk.f4')}}
                 </li>
               </ul>
             </div>
@@ -463,27 +456,27 @@
           <!-- Hardware -->
           <template v-else-if="activeServiceIndex === 2">
             <div class="col-md-5" data-aos="fade-right" data-aos-duration="1200">
-              <h1 class="value-add-service__title">Hardware Diagnostics</h1>
+              <h1 class="value-add-service__title">{{$t('home.vas.diagnosis.title')}}</h1>
               <div class="line"></div>
               <p
                 class="service-info"
-              >Hardware Diagnostics enables rapid detection of the Hardware capabilities of the device, supports automated and semi-automated detection, and generates diagnostic reports. Reduce unnecessary door-to-door support and improve personnel efficiency.</p>
+              >{{$t('home.vas.diagnosis.detail')}}</p>
               <ul class="service-features">
                 <li>
                   <img src="~/assets/Value-Added Service/1.png" alt />
-                  Automation
+                  {{$t('home.vas.diagnosis.f1')}}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/2.png" alt />
-                  Generate Report
+                  {{$t('home.vas.diagnosis.f2')}}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/3.png" alt />
-                  Quick Positioning
+                  {{$t('home.vas.diagnosis.f3')}}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/4.png" alt />
-                  Improve Efficiency
+                  {{$t('home.vas.diagnosis.f4')}}
                 </li>
               </ul>
             </div>
@@ -500,27 +493,27 @@
           <!-- Geo-fencing -->
           <template v-else-if="activeServiceIndex === 3">
             <div class="col-md-5" data-aos="fade-right" data-aos-duration="1200">
-              <h1 class="value-add-service__title">Geo-fencing</h1>
+              <h1 class="value-add-service__title">{{$t('home.vas.geo_fencing.title')}}</h1>
               <div class="line"></div>
               <p
                 class="service-info"
-              >The Geo-fencing limits the use area of device. When the device out the fence area, an alarm is triggered to notify the administrator. Automatic locking can be set up to prevent improper or illegal use.</p>
+              >{{$t('home.vas.geo_fencing.detail')}}</p>
               <ul class="service-features">
                 <li>
                   <img src="~/assets/Value-Added Service/1.png" alt />
-                  Out Fence Warning
+                  {{$t('home.vas.geo_fencing.f1')}}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/2.png" alt />
-                  Track Device
+                  {{$t('home.vas.geo_fencing.f2')}}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/3.png" alt />
-                  Auto Look
+                  {{$t('home.vas.geo_fencing.f3')}}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/4.png" alt />
-                  Trace export
+                  {{$t('home.vas.geo_fencing.f4')}}
                 </li>
               </ul>
             </div>
@@ -537,27 +530,27 @@
           <!-- Pre-warning -->
           <template v-else-if="activeServiceIndex === 4">
             <div class="col-md-5" data-aos="fade-right" data-aos-duration="1200">
-              <h1 class="value-add-service__title">Pre-warning</h1>
+              <h1 class="value-add-service__title">{{$t('home.vas.pre_warning.title')}}</h1>
               <div class="line"></div>
               <p
                 class="service-info"
-              >When the device storage, traffic, printer, and battery trigger the user-set threshold, the user is warned to deal with it. Guarantee the production and avoid losses</p>
+              >{{$t('home.vas.pre_warning.detail')}}</p>
               <ul class="service-features">
                 <li>
                   <img src="~/assets/Value-Added Service/1.png" alt />
-                  In-station Alert
+                  {{$t('home.vas.pre_warning.f1')}}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/2.png" alt />
-                  Email Alert
+                  {{$t('home.vas.pre_warning.f2')}}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/3.png" alt />
-                  Threshold customization
+                  {{$t('home.vas.pre_warning.f3')}}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/4.png" alt />
-                  Avoid Loss
+                  {{$t('home.vas.pre_warning.f4')}}
                 </li>
               </ul>
             </div>
@@ -580,23 +573,23 @@
             <!-- <img src="~assets/macbook.png" alt class="mac-book w-full" /> -->
           </div>
           <div class="col-md-5 text-white" data-aos="fade-up" data-aos-duration="1200">
-            <h3 class="mb-10">Own Brand Store</h3>
+            <h3 class="mb-10">{{$t('home.appstore.title')}}</h3>
             <ul>
               <li class="mb-10">
                 <img src="~assets/OwnBrandStore/icon-1.png" alt />
-                Private application store
+                {{$t('home.appstore.f1')}}
               </li>
               <li class="mb-10">
                 <img src="~assets/OwnBrandStore/icon-2.png" alt />
-                Control application content by yourself
+                {{$t('home.appstore.f2')}}
               </li>
               <li class="mb-10">
                 <img src="~assets/OwnBrandStore/icon-3.png" alt />
-                Free to build application
+                {{$t('home.appstore.f3')}}
               </li>
               <li>
                 <img src="~assets/OwnBrandStore/icon-4.png" alt />
-                Flexible choice and more focus on industry
+                {{$t('home.appstore.f4')}}
               </li>
             </ul>
           </div>
@@ -614,19 +607,19 @@ export default {
       activeIndex: 0,
       activeServiceIndex: 0,
       terminalTabs: [
-        "Zero-touch Deployment",
-        "Multi-dimensional",
-        "Software",
-        "Device Monitoring",
-        "Remote Diagnosis",
-        "Customization",
+        "home.lifecycle.deployment.title",
+        "home.lifecycle.multi_dimen.title",
+        "home.lifecycle.software.title",
+        "home.lifecycle.monitor.title",
+        "home.lifecycle.diagnosis.title",
+        "home.lifecycle.customization.title",
       ],
       serviceTabs: [
-        "Flykey",
-        "FlyDesk",
-        "Hardware Diagnostics",
-        "Geo-fencing",
-        "Pre-warning",
+        "home.vas.flykey.title",
+        "home.vas.flydesk.title",
+        "home.vas.diagnosis.title",
+        "home.vas.geo_fencing.title",
+        "home.vas.pre_warning.title",
       ],
       mounted: false,
     };

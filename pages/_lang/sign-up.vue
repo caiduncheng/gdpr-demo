@@ -7,8 +7,8 @@
           <div class="row py-14 justify-center">
             <div class="col-md-6">
               <div class="text-white mb-8 contact-title">
-                <h3 class="mb-2">Information</h3>
-                <p class="text-xs">Please fill in your information</p>
+                <h3 class="mb-2">{{$t('login.title_sign_up')}}</h3>
+                <p class="text-xs">{{$t('login.sign_up_tip')}}</p>
               </div>
               <el-card :class="{'card-success': success}" class="card--sign-up">
                 <div v-if="!success" class="flex">
@@ -21,7 +21,7 @@
                         <div class="vertical-line"></div>
                       </div>
                       <div class="flex-1">
-                        <el-form-item label="E-mail" prop="email">
+                        <el-form-item :label="$t('login.email')" prop="email">
                           <el-input disabled v-model="form.email"></el-input>
                         </el-form-item>
                         <el-form-item required prop="name" :label="$t('login.name')">
@@ -58,7 +58,7 @@
                         <div class="vertical-line"></div>
                       </div>
                       <div class="flex-1">
-                        <el-form-item label="CSR" required prop="file" class="csr">
+                        <el-form-item :label="$t('login.csr')" required prop="file" class="csr">
                           <div style="display: flex; align-items: flex-start" class="mb-10">
                             <el-upload
                               style="float: left; margin-right: 30px"
@@ -104,7 +104,7 @@
                           <div class="password-strength" v-show="showPasswordStrength">
                             <div
                               class="text"
-                            >Password strength: {{mapPasswordStrength[passwordStrength]}}</div>
+                            >{{$t('login.password_strength')}} {{mapPasswordStrength[passwordStrength]}}</div>
                             <div class="indicator">
                               <span :class="['weak', {active: passwordStrength >= 1}]"></span>
                               <span :class="['moderate', {active: passwordStrength >= 2}]"></span>

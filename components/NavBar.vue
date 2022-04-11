@@ -67,7 +67,7 @@
                     </li>
                     <li class="dropdown">
                       <a>
-                        Production
+                        {{ $t('common.production') }}
                         <i class="fa fa-caret-down"></i>
                       </a>
                       <ul role="menu" class="link-menu">
@@ -105,7 +105,7 @@
                 </li>
                 <li>
                   <NuxtLink :to="{ name: 'lang', params: { lang: 'zh-CN' } }" class="sign-in">
-                    <img src="~assets/chinese.png" width="20" class="mr-2" />Chinese
+                    <img src="~assets/chinese.png" width="20" class="mr-2" />中文
                   </NuxtLink>
                 </li>
               </ul>
@@ -138,7 +138,7 @@ export default {
   computed: {
     language() {
       const lang = this.$i18n.locale;
-      return lang === "en-US" ? "English" : "Chinese";
+      return lang === "en-US" ? "English" : "中文";
     },
     scrollNavBarStyle() {
       if (this.alwaysShow || this.show) {
