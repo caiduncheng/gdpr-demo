@@ -36,7 +36,8 @@ export const mutations = {
     state.platform = platform;
   },
   REMOVE_TOKEN(state) {
-    removeToken();
+    removeToken("TOMS_TOKEN");
+    removeToken("token");
     state.platform = "";
     state.name = "";
     state.hasLogin = false;

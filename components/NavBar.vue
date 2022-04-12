@@ -116,7 +116,7 @@
               <span>{{ $t('common.sign_in') }}</span>
             </NuxtLink>
 
-            <div class="dropdown">
+            <div class="dropdown language">
               <a>
                 {{language}}
                 <i class="fa fa-caret-down"></i>
@@ -285,6 +285,15 @@ export default {
     display: block;
     width: 100%;
     padding: 20px 0;
+  }
+  &.language {
+    a {
+      padding: 40px 0;
+    }
+
+    .link-menu {
+      top: 80px;
+    }
   }
   &:hover {
     & > .link-menu {
