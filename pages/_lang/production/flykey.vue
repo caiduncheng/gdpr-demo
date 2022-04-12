@@ -9,12 +9,10 @@
         <div class="container">
           <div class="row">
             <div class="col-6">
-              <h2 class="mb-3">Flykey Remoto Key Injection</h2>
-              <p class="text-lg mb-3">
-                Flykey is a value-added solution that provides
-                <br />customers with completely secore remote key loading.
+              <h2 class="mb-3">{{ $t('flykey.about_flykey_title') }}</h2>
+              <p class="text-lg mb-3" v-html="$t('flykey.about_flykey_content')">
               </p>
-              <el-button type="primary">Start now</el-button>
+              <el-button type="primary">{{ $t('flykey.start_now') }}</el-button>
             </div>
             <div class="col-6">
               <div class="video-panel">
@@ -22,7 +20,7 @@
                   src="~assets/FLYKEY/FlyKey1.mp4"
                   id="video"
                   controls="controls"
-                >Your browser does not support the video tag.</video>
+                >{{ $t('flykey.not_support_video_tip') }}</video>
               </div>
             </div>
           </div>
@@ -32,16 +30,16 @@
         <div class="container">
           <ul>
             <li>
-              <a v-scroll-to="'#Flykey'">About Flykey</a>
+              <a v-scroll-to="'#Flykey'">{{ $t('flykey.about_flykey') }}</a>
             </li>
             <li>
-              <a v-scroll-to="'#Features'">Features</a>
+              <a v-scroll-to="'#Features'">{{ $t('flykey.features') }}</a>
             </li>
             <li>
-              <a v-scroll-to="'#Functionality'">Functionality</a>
+              <a v-scroll-to="'#Functionality'">{{ $t('flykey.functionality') }}</a>
             </li>
             <li>
-              <a v-scroll-to="'#Service'">Service & Support</a>
+              <a v-scroll-to="'#Service'">{{ $t('flykey.services_and_support') }}</a>
             </li>
           </ul>
         </div>
@@ -54,22 +52,22 @@
             </div>
             <div class="col-md-6" data-aos="fade-left" data-aos-duration="1200">
               <div class="pl-8">
-                <h3 class="mb-3">Safe and convenient service</h3>
+                <h3 class="mb-3">{{ $t('flykey.feature1_title') }}</h3>
                 <p
                   class="mb-5"
-                >FFlyKey can integrates us more closely with customers, allowing us to further participate in customers use of financial payment products in addition to selling POS products to customers,and jointly improve the payment ecological chain, and through safe and convenient services Create value for customers and achieve a win-win situation.</p>
+                >{{ $t('flykey.feature1_content') }}</p>
                 <ul>
                   <li>
-                    <i class="fa fa-check mr-2" />Create a customer account
+                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature1_list_item1') }}
                   </li>
                   <li>
-                    <i class="fa fa-check mr-2" />Upload and store keys in secure enviroment
+                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature1_list_item2') }}
                   </li>
                   <li>
-                    <i class="fa fa-check mr-2" />Configure the key group and associate with terminals
+                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature1_list_item3') }}
                   </li>
                   <li>
-                    <i class="fa fa-check mr-2" />Remote key loading on POS device
+                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature1_list_item4') }}
                   </li>
                 </ul>
               </div>
@@ -82,22 +80,28 @@
           <div class="row items-center">
             <div class="col-md-6" data-aos="fade-right" data-aos-duration="1200">
               <div>
-                <h3 class="mb-3">Solve pain points in all aspects</h3>
+                <h3 class="mb-3">{{ $t('flykey.feature2_title') }}</h3>
                 <p
                   class="mb-5"
-                >FlyKey not only complies with the specification standards throughout the process, but also provides stable services and rich scalability. Compared to traditional key injection methods, FlyKey makes everything easier and more cost-effective.FlyKey not only complies with the specification standards throughout</p>
+                >{{ $t('flykey.feature2_content') }}</p>
                 <ul>
                   <li>
-                    <i class="fa fa-check mr-2" />Pass PCI PIN 3.0 and P2PE certifications
+                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature2_list_item1') }}
                   </li>
                   <li>
-                    <i class="fa fa-check mr-2" />Manages the key injection remotelyand securely
+                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature2_list_item2') }}
                   </li>
                   <li>
-                    <i class="fa fa-check mr-2" />Secure room in warehouse
+                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature2_list_item3') }}
                   </li>
                   <li>
-                    <i class="fa fa-check mr-2" />Mainstream security standards
+                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature2_list_item4') }}
+                  </li>
+                  <li>
+                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature2_list_item5') }}
+                  </li>
+                  <li>
+                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature2_list_item6') }}
                   </li>
                 </ul>
               </div>
@@ -111,7 +115,7 @@
       <div class="flykey-bar">
         <div class="container">
           <div>
-            <h3>Safe and efficient management</h3>
+            <h3>{{ $t('flykey.functionality_title') }}</h3>
           </div>
         </div>
       </div>
@@ -125,13 +129,8 @@
               <div class="flex items-start" data-aos="fade-up" data-aos-duration="1200">
                 <img src="~assets/FLYKEY/09.png" />
                 <div class="ml-3">
-                  <h3>Remote Key Injection</h3>
-                  <p>
-                    A solution for remote secure flexible inject keys.
-                    Supported key types:
-                    <br />DUKPT, MK/SK
-                    <br />Supported POS:
-                    <br />Android/Linux/RTOS
+                  <h3>{{ $t('flykey.functionality_content1_title') }}</h3>
+                  <p v-html="$t('flykey.functionality_content1_content')">
                   </p>
                 </div>
               </div>
@@ -145,8 +144,8 @@
               >
                 <img src="~assets/FLYKEY/07.png" alt />
                 <div class="ml-3">
-                  <h3>Key Security</h3>
-                  <p>Realize key security, standardization, efficiency, centralized and unified, full-life cycle security and compliance management, and include advanced key package management, group management,full monitoring.</p>
+                  <h3>{{ $t('flykey.functionality_content2_title') }}</h3>
+                  <p>{{ $t('flykey.functionality_content2_content') }}</p>
                 </div>
               </div>
             </div>
@@ -161,8 +160,8 @@
               >
                 <img src="~assets/FLYKEY/06.png" alt />
                 <div class="ml-3">
-                  <h3>Terminal Management</h3>
-                  <p>Provides a better management operation interface and supports exporting terminal key inject records.</p>
+                  <h3>{{ $t('flykey.functionality_content3_title') }}</h3>
+                  <p>{{ $t('flykey.functionality_content3_content') }}</p>
                 </div>
               </div>
             </div>
@@ -176,8 +175,8 @@
               >
                 <img src="~assets/FLYKEY/08.png" alt />
                 <div class="ml-3">
-                  <h3>Dashboard</h3>
-                  <p>Provides visual and up-to-date RKI information, terminal information, and account information.</p>
+                  <h3>{{ $t('flykey.functionality_content4_title') }}</h3>
+                  <p>{{ $t('flykey.functionality_content4_content') }}</p>
                 </div>
               </div>
             </div>
@@ -189,13 +188,13 @@
           <div class="container">
             <div class="row">
               <div class="col-md-5" data-aos="fade-right" data-aos-duration="1800">
-                <h3 class="mb-5">Service & Support</h3>
-                <p>FlyKey can integrates us more closely with customers, allowing us to further participate in customers use of financial payment products in addition to selling POS products to customers, and jointly improve the payment ecological chain, and through safe and convenient services Create value for customers and achieve a win-win situation.</p>
+                <h3 class="mb-5">{{ $t('flykey.services_title') }}</h3>
+                <p>{{ $t('flykey.services_content') }}</p>
               </div>
               <div class="col-md-6 offset-md-1">
                 <div class="feature-box" data-aos="fade-left" data-aos-duration="1200">
                   <img src="~assets/FLYKEY/17.png" />
-                  <span>Technical Traning</span>
+                  <span>{{ $t('flykey.services_list_item1') }}</span>
                 </div>
 
                 <div
@@ -205,7 +204,7 @@
                   data-aos-delay="300"
                 >
                   <img src="~assets/FLYKEY/15.png" />
-                  <span>Quick response team</span>
+                  <span>{{ $t('flykey.services_list_item2') }}</span>
                 </div>
 
                 <div
@@ -215,7 +214,7 @@
                   data-aos-delay="600"
                 >
                   <img src="~assets/FLYKEY/16.png" />
-                  <span>Global support service</span>
+                  <span>{{ $t('flykey.services_list_item3') }}</span>
                 </div>
               </div>
             </div>
@@ -228,7 +227,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <h3 class="mb-5">Contact Us</h3>
+            <h3 class="mb-5">{{ $t('contact.contact_us') }}</h3>
             <div class="contact-info">
               <address class="mb-5 flex">
                 <i class="fa fa-map-marker" style="margin-right: 12px"></i>
@@ -315,19 +314,19 @@ export default {
       types: [
         {
           value: 0,
-          label: "Contact Sales",
+          label: this.$t('contact.contact_sales'),
         },
         {
           value: 1,
-          label: "Support",
+          label: this.$t('contact.support'),
         },
         {
           value: 2,
-          label: "Partner",
+          label: this.$t('contact.partner'),
         },
         {
           value: 3,
-          label: "Marketing",
+          label: this.$t('contact.marketing'),
         },
       ],
       countries: [],
@@ -346,7 +345,7 @@ export default {
     submit() {
       this.$store.dispatch("contactUs", { ...this.form, role: 1 }).then(() => {
         this.$message({
-          message: "Message successfully sent.",
+          message: this.$t('contact.message_successfully_sent'),
           type: "success",
         });
       });
