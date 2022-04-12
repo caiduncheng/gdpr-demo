@@ -132,15 +132,15 @@ module.exports = {
         f4: "Improve Efficiency",
       },
       geo_fencing: {
-        title: "Geo-fencing",
-        detail: "The Geo-fencing limits the use area of device. When the device out the fence area, an alarm is triggered to notify the administrator. Automatic locking can be set up to prevent improper or illegal use",
+        title: "Geo-Fencing",
+        detail: "The Geo-Fencing limits the use area of device. When the device out the fence area, an alarm is triggered to notify the administrator. Automatic locking can be set up to prevent improper or illegal use",
         f1: "Out Fence Warning",
         f2: "Track Device",
         f3: "Auto Lock",
         f4: "Trace export",
       },
       pre_warning: {
-        title: "Pre-warning",
+        title: "Pre-Warning",
         detail: "When the device storage, traffic, printer, and battery trigger the user-set threshold, the user is warned to deal with it. Guarantee the production and avoid losses",
         f1: "In-station Alert",
         f2: "Email Alert",
