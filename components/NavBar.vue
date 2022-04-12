@@ -78,7 +78,7 @@
                               <span>FlyKey</span>
                               <p
                                 class="production-intro"
-                              >FlyKey is a secure remote key injection platform.</p>
+                              >{{ $t('flykey.navbar_tip') }}</p>
                             </div>
                           </NuxtLink>
                         </li>
@@ -96,15 +96,16 @@
             </div>
             <div v-if="$store.state.hasLogin" class="user-name dropdown">
               <a>
-                Hi!&nbsp;{{$store.state.name}}
+                {{ $t('common.hi') }}!&nbsp;{{$store.state.name}}
                 <i class="fa fa-caret-down"></i>
               </a>
               <ul role="menu" class="link-menu" style="width: 350px">
                 <li class="dropdown">
-                  <a :href="location">{{$store.state.platform}} Platform</a>
+                  <!--<a :href="location">{{$store.state.platform}} Platform</a>-->
+                  <a :href="location">{{ $t('common.management_platform') }}</a>
                 </li>
                 <li>
-                  <a @click.prevent="logout">Log out</a>
+                  <a @click.prevent="logout">{{ $t('common.sign_out') }}</a>
                 </li>
               </ul>
             </div>
