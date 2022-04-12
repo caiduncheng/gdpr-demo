@@ -8,7 +8,7 @@ export default function ({ $axios }) {
   // request拦截器
   $axios.onRequest((config) => {
     // 将获取到token加入到请求头中
-    config.headers["WEB-TOKEN"] = getCookie("TOMS_TOKEN");
+    config.headers["WEB-TOKEN"] = getCookie("TOMS_TOKEN") || getCookie("token");
     config.headers["TOMS-LANG"] =
       (localStorage && localStorage.getItem("LANG")) || "en-US";
   });
@@ -22,7 +22,7 @@ export default function ({ $axios }) {
       const status = error.response.status;
       if (status === 401) {
         removeToken();
-        return;
+        return Promise.reject(error);
       }
       let errorMessage;
       if (error.response.data.message) {

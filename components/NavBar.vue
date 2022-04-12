@@ -70,9 +70,17 @@
                         {{ $t('common.production') }}
                         <i class="fa fa-caret-down"></i>
                       </a>
-                      <ul role="menu" class="link-menu">
-                        <li>
-                          <NuxtLink to="/production/flykey">FlyKey</NuxtLink>
+                      <ul role="menu" class="link-menu" style="width: 400px">
+                        <li class="flex">
+                          <NuxtLink to="/production/flykey" class="production">
+                            <img src="~assets/flykey-logo.png" width="40px" class="mr-2" />
+                            <div>
+                              <span>FlyKey</span>
+                              <p
+                                class="production-intro"
+                              >FlyKey is a secure remote key injection platform.</p>
+                            </div>
+                          </NuxtLink>
                         </li>
                       </ul>
                     </li>
@@ -91,17 +99,9 @@
                 Hi!&nbsp;{{$store.state.name}}
                 <i class="fa fa-caret-down"></i>
               </a>
-              <ul role="menu" class="link-menu" style="width: 300px">
+              <ul role="menu" class="link-menu" style="width: 350px">
                 <li class="dropdown">
-                  <a :href="operatorLocation">Operator Platform</a>
-                  <!-- <ul role="menu" class="link-menu sub" style="width: 300px">
-                    <li>
-                      <a>Operator Platform</a>
-                    </li>
-                    <li>
-                      <a>Log out</a>
-                    </li>
-                  </ul>-->
+                  <a :href="location">{{$store.state.platform}} Platform</a>
                 </li>
                 <li>
                   <a @click.prevent="logout">Log out</a>
@@ -117,7 +117,7 @@
             </NuxtLink>
 
             <div class="dropdown">
-              <a class="relative">
+              <a>
                 {{language}}
                 <i class="fa fa-caret-down"></i>
               </a>
@@ -161,7 +161,6 @@ export default {
       active: false,
       show: false,
       visible: false,
-      operatorLocation: envConfig.VUE_APP_OPERATOR_ADDRESS,
     };
   },
   computed: {
@@ -178,6 +177,9 @@ export default {
       } else {
         return {};
       }
+    },
+    location() {
+      return envConfig[`VUE_APP_${this.$store.state.platform}_ADDRESS`];
     },
   },
   methods: {
@@ -205,9 +207,13 @@ export default {
       this.active = !window.innerWidth > 992;
     });
 
-    if (getCookie("TOMS_TOKEN") && (this.alwaysShow || !this.fixed)) {
+    if (
+      (getCookie("TOMS_TOKEN") || getCookie("token")) &&
+      (this.alwaysShow || !this.fixed)
+    ) {
       this.$store.dispatch("getInfo").then((data) => {
         this.$store.commit("SET_USER_NAME", data.name);
+        this.$store.commit("SET_PLATFORM", data.characterCode);
       });
     }
   },
@@ -465,6 +471,7 @@ export default {
   .link-menu {
     display: none;
     opacity: 0;
+    border-radius: 5px;
     position: absolute;
     top: 60px;
     transition: 0.125s all ease-in-out;
@@ -494,7 +501,7 @@ export default {
     & > li:not(:last-child) {
       border-bottom: 1px solid #eaeefb;
     }
-    & > li > a {
+    & > li a {
       color: #000000;
       text-transform: uppercase;
       letter-spacing: 2.8px;
@@ -504,6 +511,16 @@ export default {
       padding: 10px 0;
       &:hover {
         color: variables.$linkColor;
+      }
+      &.production {
+        display: flex;
+        align-items: center;
+      }
+      .production-intro {
+        font-size: 12px;
+        color: #6c6c6c;
+        text-transform: initial;
+        letter-spacing: initial;
       }
     }
   }

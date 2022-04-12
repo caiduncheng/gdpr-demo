@@ -8,6 +8,7 @@ export const state = () => ({
   privacyCatalogs: [],
   name: "",
   hasLogin: false,
+  platform: "",
 });
 
 export const mutations = {
@@ -31,8 +32,13 @@ export const mutations = {
     state.name = name;
     state.hasLogin = true;
   },
+  SET_PLATFORM(state, platform) {
+    state.platform = platform;
+  },
   REMOVE_TOKEN(state) {
     removeToken();
+    state.platform = "";
+    state.name = "";
     state.hasLogin = false;
   },
 };
