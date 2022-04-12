@@ -10,12 +10,9 @@
       </div>
       <div class="container">
         <div class="header-info w-2/4">
-          <h1 class="header-title" v-html="$t('home.first_screen.slogan')">
-          </h1>
+          <h1 class="header-title" v-html="$t('home.first_screen.slogan')"></h1>
 
-          <p v-html="$t('home.first_screen.target')">
-            
-          </p>
+          <p v-html="$t('home.first_screen.target')"></p>
           <a class="start-button btn">
             <span>{{ $t('home.first_screen.start') }}</span>
           </a>
@@ -64,17 +61,13 @@
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
                     <h3 class="mb-2">{{ $t('home.lifecycle.deployment.feature1') }}</h3>
-                    <p
-                      class="pr-2"
-                    >{{ $t('home.lifecycle.deployment.detail1') }}</p>
+                    <p class="pr-2">{{ $t('home.lifecycle.deployment.detail1') }}</p>
                   </div>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-2.png" alt class="mb-2" />
                   <h3 class="mb-2">{{ $t('home.lifecycle.deployment.feature2') }}</h3>
-                  <p
-                    class="pr-2"
-                  >{{ $t('home.lifecycle.deployment.detail2') }}</p>
+                  <p class="pr-2">{{ $t('home.lifecycle.deployment.detail2') }}</p>
                 </div>
               </div>
               <div class="row mb-3">
@@ -86,8 +79,7 @@
                 <div class="col-6">
                   <img src="~assets/img-4.png" alt class="mb-2" />
                   <h3 class="mb-2">{{ $t('home.lifecycle.deployment.feature4') }}</h3>
-                  <p class="pr-2"
-                  > {{ $t('home.lifecycle.deployment.detail4') }}</p>
+                  <p class="pr-2">{{ $t('home.lifecycle.deployment.detail4') }}</p>
                 </div>
               </div>
             </div>
@@ -112,33 +104,25 @@
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
                     <h3 class="mb-2">{{ $t('home.lifecycle.multi_dimen.feature1') }}</h3>
-                    <p
-                      class="pr-2"
-                    >{{ $t('home.lifecycle.multi_dimen.detail1') }}</p>
+                    <p class="pr-2">{{ $t('home.lifecycle.multi_dimen.detail1') }}</p>
                   </div>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-2.png" alt class="mb-2" />
                   <h3 class="mb-2">{{ $t('home.lifecycle.multi_dimen.feature2') }}</h3>
-                  <p
-                    class="pr-2"
-                  >{{ $t('home.lifecycle.multi_dimen.detail2') }}</p>
+                  <p class="pr-2">{{ $t('home.lifecycle.multi_dimen.detail2') }}</p>
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-3.png" alt class="mb-2" />
                   <h3 class="mb-2">{{ $t('home.lifecycle.multi_dimen.feature3') }}</h3>
-                  <p
-                    class="pr-2"
-                  >{{ $t('home.lifecycle.multi_dimen.detail3') }}</p>
+                  <p class="pr-2">{{ $t('home.lifecycle.multi_dimen.detail3') }}</p>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-4.png" alt class="mb-2" />
                   <h3 class="mb-2">{{ $t('home.lifecycle.multi_dimen.feature4') }}</h3>
-                  <p
-                    class="pr-2"
-                  >{{ $t('home.lifecycle.multi_dimen.detail4') }}</p>
+                  <p class="pr-2">{{ $t('home.lifecycle.multi_dimen.detail4') }}</p>
                 </div>
               </div>
             </div>
@@ -163,33 +147,25 @@
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
                     <h3 class="mb-2">{{ $t('home.lifecycle.software.feature1') }}</h3>
-                    <p
-                      class="pr-2"
-                    >{{ $t('home.lifecycle.software.detail1') }}</p>
+                    <p class="pr-2">{{ $t('home.lifecycle.software.detail1') }}</p>
                   </div>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-2.png" alt class="mb-2" />
                   <h3 class="mb-2">{{ $t('home.lifecycle.software.feature2') }}</h3>
-                  <p
-                    class="pr-2"
-                  >{{ $t('home.lifecycle.software.detail2') }}</p>
+                  <p class="pr-2">{{ $t('home.lifecycle.software.detail2') }}</p>
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-3.png" alt class="mb-2" />
                   <h3 class="mb-2">{{ $t('home.lifecycle.software.feature3') }}</h3>
-                  <p
-                    class="pr-2"
-                  >{{ $t('home.lifecycle.software.detail3') }}</p>
+                  <p class="pr-2">{{ $t('home.lifecycle.software.detail3') }}</p>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-4.png" alt class="mb-2" />
                   <h3 class="mb-2">{{ $t('home.lifecycle.software.feature4') }}</h3>
-                  <p
-                    class="pr-2"
-                  >{{ $t('home.lifecycle.software.detail4') }}</p>
+                  <p class="pr-2">{{ $t('home.lifecycle.software.detail4') }}</p>
                 </div>
               </div>
             </div>
@@ -227,16 +203,12 @@
                 <div class="col-6">
                   <img src="~assets/img-3.png" alt class="mb-2" />
                   <h3 class="mb-2">{{ $t('home.lifecycle.monitor.feature3') }}</h3>
-                  <p
-                    class="pr-2"
-                  >{{ $t('home.lifecycle.monitor.detail3') }}</p>
+                  <p class="pr-2">{{ $t('home.lifecycle.monitor.detail3') }}</p>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-4.png" alt class="mb-2" />
                   <h3 class="mb-2">{{ $t('home.lifecycle.monitor.feature4') }}</h3>
-                  <p
-                    class="pr-2"
-                  >{{ $t('home.lifecycle.monitor.detail4') }}</p>
+                  <p class="pr-2">{{ $t('home.lifecycle.monitor.detail4') }}</p>
                 </div>
               </div>
             </div>
@@ -261,33 +233,25 @@
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
                     <h3 class="mb-2">{{ $t('home.lifecycle.diagnosis.feature1') }}</h3>
-                    <p
-                      class="pr-2"
-                    >{{ $t('home.lifecycle.diagnosis.detail1') }}</p>
+                    <p class="pr-2">{{ $t('home.lifecycle.diagnosis.detail1') }}</p>
                   </div>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-2.png" alt class="mb-2" />
                   <h3 class="mb-2">{{ $t('home.lifecycle.diagnosis.feature2') }}</h3>
-                  <p
-                    class="pr-2"
-                  >{{ $t('home.lifecycle.diagnosis.detail2') }}</p>
+                  <p class="pr-2">{{ $t('home.lifecycle.diagnosis.detail2') }}</p>
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-3.png" alt class="mb-2" />
                   <h3 class="mb-2">{{ $t('home.lifecycle.diagnosis.feature3') }}</h3>
-                  <p
-                    class="pr-2"
-                  >{{ $t('home.lifecycle.diagnosis.detail3') }}</p>
+                  <p class="pr-2">{{ $t('home.lifecycle.diagnosis.detail3') }}</p>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-4.png" alt class="mb-2" />
                   <h3 class="mb-2">{{ $t('home.lifecycle.diagnosis.feature4') }}</h3>
-                  <p
-                    class="pr-2"
-                  >{{ $t('home.lifecycle.diagnosis.detail4') }}</p>
+                  <p class="pr-2">{{ $t('home.lifecycle.diagnosis.detail4') }}</p>
                 </div>
               </div>
             </div>
@@ -312,9 +276,7 @@
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
                     <h3 class="mb-2">{{ $t('home.lifecycle.customization.feature1') }}</h3>
-                    <p
-                      class="pr-2"
-                    >{{ $t('home.lifecycle.customization.detail1') }}</p>
+                    <p class="pr-2">{{ $t('home.lifecycle.customization.detail1') }}</p>
                   </div>
                 </div>
               </div>
@@ -351,9 +313,7 @@
             <div class="col-md-5" data-aos="fade-right" data-aos-duration="1200">
               <h1 class="value-add-service__title">{{$t('home.vas.flykey.title')}}</h1>
               <div class="line"></div>
-              <p
-                class="service-info"
-              >{{$t('home.vas.flykey.detail')}}</p>
+              <p class="service-info">{{$t('home.vas.flykey.detail')}}</p>
               <ul class="service-features">
                 <li>
                   <img src="~/assets/Value-Added Service/1.png" alt />
@@ -396,9 +356,7 @@
             <div class="col-md-5" data-aos="fade-right" data-aos-duration="1200">
               <h1 class="value-add-service__title">{{$t('home.vas.flydesk.title')}}</h1>
               <div class="line"></div>
-              <p
-                class="service-info"
-              >{{$t('home.vas.flydesk.detail')}}</p>
+              <p class="service-info">{{$t('home.vas.flydesk.detail')}}</p>
               <ul class="service-features">
                 <li>
                   <img src="~/assets/Value-Added Service/1.png" alt />
@@ -458,9 +416,7 @@
             <div class="col-md-5" data-aos="fade-right" data-aos-duration="1200">
               <h1 class="value-add-service__title">{{$t('home.vas.diagnosis.title')}}</h1>
               <div class="line"></div>
-              <p
-                class="service-info"
-              >{{$t('home.vas.diagnosis.detail')}}</p>
+              <p class="service-info">{{$t('home.vas.diagnosis.detail')}}</p>
               <ul class="service-features">
                 <li>
                   <img src="~/assets/Value-Added Service/1.png" alt />
@@ -495,9 +451,7 @@
             <div class="col-md-5" data-aos="fade-right" data-aos-duration="1200">
               <h1 class="value-add-service__title">{{$t('home.vas.geo_fencing.title')}}</h1>
               <div class="line"></div>
-              <p
-                class="service-info"
-              >{{$t('home.vas.geo_fencing.detail')}}</p>
+              <p class="service-info">{{$t('home.vas.geo_fencing.detail')}}</p>
               <ul class="service-features">
                 <li>
                   <img src="~/assets/Value-Added Service/1.png" alt />
@@ -532,9 +486,7 @@
             <div class="col-md-5" data-aos="fade-right" data-aos-duration="1200">
               <h1 class="value-add-service__title">{{$t('home.vas.pre_warning.title')}}</h1>
               <div class="line"></div>
-              <p
-                class="service-info"
-              >{{$t('home.vas.pre_warning.detail')}}</p>
+              <p class="service-info">{{$t('home.vas.pre_warning.detail')}}</p>
               <ul class="service-features">
                 <li>
                   <img src="~/assets/Value-Added Service/1.png" alt />

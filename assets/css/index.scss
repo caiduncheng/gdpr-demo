@@ -1,6 +1,8 @@
 @use 'mixin';
+@use "~assets/css/variables";
 @import './grid.css';
 @import './element-ui.scss';
+
 
 :root {
   --default-font-family: "Cerebri Sans";
@@ -82,7 +84,7 @@ span {
   &.link {
     font-weight: 700;
     font-size: 12px;
-    color: #3e80e5;
+    color: variables.$linkColor;
   }
 }
 

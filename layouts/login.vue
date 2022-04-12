@@ -29,6 +29,7 @@
         </div>
       </div>
     </div>
+    <Cookie />
   </div>
 </template>
 

@@ -1,14 +1,14 @@
 import { Message } from "element-ui";
 import config from "../config";
+import { getCookie, removeToken } from "@/utils";
 
-export default function ({ store, redirect, req, router, app: { $axios } }) {
+export default function ({ $axios }) {
   // 数据访问前缀
   $axios.defaults.baseURL = config[process.env.NODE_ENV].VUE_APP_BASE_API;
   // request拦截器
   $axios.onRequest((config) => {
     // 将获取到token加入到请求头中
-    config.headers["WEB-TOKEN"] =
-      sessionStorage && sessionStorage.getItem("token");
+    config.headers["WEB-TOKEN"] = getCookie("TOMS_TOKEN");
     config.headers["TOMS-LANG"] =
       (localStorage && localStorage.getItem("LANG")) || "en-US";
   });
@@ -19,7 +19,11 @@ export default function ({ store, redirect, req, router, app: { $axios } }) {
       return res;
     },
     (error) => {
-      console.log(error);
+      const status = error.response.status;
+      if (status === 401) {
+        removeToken();
+        return;
+      }
       let errorMessage;
       if (error.response.data.message) {
         errorMessage = error.response.data.message;

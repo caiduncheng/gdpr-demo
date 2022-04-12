@@ -86,12 +86,36 @@
                 </nav>
               </div>
             </div>
+            <div v-if="$store.state.hasLogin" class="user-name dropdown">
+              <a>
+                Hi!&nbsp;{{$store.state.name}}
+                <i class="fa fa-caret-down"></i>
+              </a>
+              <ul role="menu" class="link-menu" style="width: 300px">
+                <li class="dropdown">
+                  <a :href="operatorLocation">Operator Platform</a>
+                  <!-- <ul role="menu" class="link-menu sub" style="width: 300px">
+                    <li>
+                      <a>Operator Platform</a>
+                    </li>
+                    <li>
+                      <a>Log out</a>
+                    </li>
+                  </ul>-->
+                </li>
+                <li>
+                  <a @click.prevent="logout">Log out</a>
+                </li>
+              </ul>
+            </div>
             <NuxtLink
+              v-else
               :to="{name: 'lang-login', params: { lang: $store.state.locale}}"
               :class="['btn',  'btn-light','sign-in__btn', {primary: fixed}]"
             >
               <span>{{ $t('common.sign_in') }}</span>
             </NuxtLink>
+
             <div class="dropdown">
               <a class="relative">
                 {{language}}
@@ -114,13 +138,16 @@
         </div>
       </div>
     </header>
+    <LazyLogoutDialog title="Log out" :visible.sync="visible" />
   </div>
 </template>
 
 <script>
-import SvgIcon from "./SvgIcon.vue";
+import { getCookie, removeToken } from "@/utils";
+import config from "../config";
+const envConfig = config[process.env.NODE_ENV];
+
 export default {
-  components: { SvgIcon },
   props: {
     fixed: Boolean,
     alwaysShow: {
@@ -133,6 +160,8 @@ export default {
       selectRoledialogVisible: false,
       active: false,
       show: false,
+      visible: false,
+      operatorLocation: envConfig.VUE_APP_OPERATOR_ADDRESS,
     };
   },
   computed: {
@@ -156,6 +185,9 @@ export default {
       this.active = !this.active;
       this.$store.commit("SET_MENU", this.active);
     },
+    logout() {
+      this.visible = true;
+    },
   },
   mounted() {
     if (process.browser && !this.alwaysShow) {
@@ -172,6 +204,12 @@ export default {
     window.addEventListener("resize", () => {
       this.active = !window.innerWidth > 992;
     });
+
+    if (getCookie("TOMS_TOKEN") && (this.alwaysShow || !this.fixed)) {
+      this.$store.dispatch("getInfo").then((data) => {
+        this.$store.commit("SET_USER_NAME", data.name);
+      });
+    }
   },
   beforeDestroy() {},
 };
@@ -190,6 +228,7 @@ export default {
 
 <style lang="scss" scoped>
 @use "../assets/css/mixin";
+@use "~assets/css/variables";
 .header {
   /* position: fixed; */
   position: relative;
@@ -235,13 +274,14 @@ export default {
   }
 }
 .dropdown {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   a {
+    display: block;
     width: 100%;
     padding: 20px 0;
   }
   &:hover {
-    .link-menu {
+    & > .link-menu {
       opacity: 1;
       display: block;
     }
@@ -401,6 +441,12 @@ export default {
     }
   }
 
+  .user-name {
+    cursor: pointer;
+    margin-right: 40px;
+    position: relative;
+  }
+
   .sign-in__btn {
     color: #000000;
     margin-right: 40px;
@@ -423,26 +469,33 @@ export default {
     top: 60px;
     transition: 0.125s all ease-in-out;
     width: 200px;
-    background: #454748;
+    background: #fafafa;
     text-align: left;
     margin: 0;
     padding: 17px;
+    &.sub {
+      top: 0;
+      right: 300px;
+      &::before {
+        display: none;
+      }
+    }
     &::before {
       width: 0;
       height: 0;
       border-style: solid;
       border-width: 0 6.5px 6.5px 6.5px;
-      border-color: transparent transparent #454748 transparent;
+      border-color: transparent transparent #fafafa transparent;
       content: "";
       display: block;
       position: absolute;
       top: -6px;
     }
     & > li:not(:last-child) {
-      border-bottom: 1px solid #56595a;
+      border-bottom: 1px solid #eaeefb;
     }
     & > li > a {
-      color: white;
+      color: #000000;
       text-transform: uppercase;
       letter-spacing: 2.8px;
       display: inline-block;
@@ -450,7 +503,7 @@ export default {
       transition: 0.125s all ease-in-out;
       padding: 10px 0;
       &:hover {
-        color: #269ccc;
+        color: variables.$linkColor;
       }
     }
   }

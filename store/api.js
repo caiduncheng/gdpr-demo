@@ -91,4 +91,18 @@ export const api = {
       data,
     });
   },
+
+  async getInfo() {
+    return await this.$axios({
+      url: "/online/authorization/auth/user/info",
+      method: "get",
+    });
+  },
+
+  async logout(store) {
+    return await this.$axios({
+      url: "/online/authorization/auth/logout",
+      method: "post",
+    });
+  },
 };

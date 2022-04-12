@@ -11,9 +11,7 @@
           <div class="login-form">
             <div class="login-form__header">{{$t('login.sign_in')}}</div>
             <div class="login-form__body">
-              <p
-                class="text-xs text-gray text-center mb-4"
-              >{{$t('login.sign_in_tip')}}</p>
+              <p class="text-xs text-gray text-center mb-4">{{$t('login.sign_in_tip')}}</p>
               <el-form
                 @validate="validate"
                 class="small"
@@ -113,7 +111,10 @@
                   </a>
                 </p>
                 <div class="text-center">
-                  <a @click.prevent="resetPassword" class="text-xs link">{{$t('login.forgot_password')}}</a>
+                  <a
+                    @click.prevent="resetPassword"
+                    class="text-xs link"
+                  >{{$t('login.forgot_password')}}</a>
                 </div>
               </div>
             </div>
@@ -149,7 +150,10 @@
       </div>
     </div>
     <LazySignupDialog :visible.sync="signUpDialogVisible" :title="$t('login.sign_up')" />
-    <LazyResetPasswordDialog :visible.sync="resetPasswordDialogVisible" :title="$t('login.title_reset_password')" />
+    <LazyResetPasswordDialog
+      :visible.sync="resetPasswordDialogVisible"
+      :title="$t('login.title_reset_password')"
+    />
   </div>
 </template>
 

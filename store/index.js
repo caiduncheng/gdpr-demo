@@ -1,10 +1,13 @@
 import { api } from "./api";
+import { removeToken } from "@/utils";
 
 export const state = () => ({
   locales: ["zh-CN", "en-US"],
   locale: "",
   menuActive: false,
   privacyCatalogs: [],
+  name: "",
+  hasLogin: false,
 });
 
 export const mutations = {
@@ -23,6 +26,14 @@ export const mutations = {
   },
   SET_CATALOGS(state, catalogs) {
     state.privacyCatalogs = catalogs;
+  },
+  SET_USER_NAME(state, name) {
+    state.name = name;
+    state.hasLogin = true;
+  },
+  REMOVE_TOKEN(state) {
+    removeToken();
+    state.hasLogin = false;
   },
 };
 

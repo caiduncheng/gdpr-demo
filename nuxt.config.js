@@ -41,6 +41,7 @@ export default {
     },
     "~/plugins/i18n.js",
     "~/plugins/axios",
+    // { src: "~/plugins/auth.js", mode: "client" },
     { src: "~/plugins/aos.js", mode: "client" },
   ],
   components: true,
@@ -51,7 +52,7 @@ export default {
   generate: {
     routes: ["/", "zh-CN"],
   },
-  modules: ["@nuxtjs/axios"],
+  modules: ["@nuxtjs/axios", "vue-scrollto/nuxt"],
   axios: {
     proxy: true,
     credentials: true,
