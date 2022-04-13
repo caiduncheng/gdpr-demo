@@ -169,7 +169,7 @@ export default {
         callback(new Error(this.$t("login.validate_password_tip")));
       } else if (value.length < 8) {
         callback(new Error(this.$t("login.validate_password_tip")));
-      } else if (value.length > 16) {
+      } else if (value.length > 18) {
         callback(new Error(this.$t("login.validate_password_tip")));
       } else {
         callback();
