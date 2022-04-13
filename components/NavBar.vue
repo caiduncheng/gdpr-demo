@@ -72,13 +72,14 @@
                       </a>
                       <ul role="menu" class="link-menu" style="width: 400px">
                         <li class="flex">
-                          <NuxtLink to="/production/flykey" class="production">
+                          <NuxtLink
+                            :to="{name: 'lang-production-flykey', params: { lang: $store.state.locale} }"
+                            class="production"
+                          >
                             <img src="~assets/flykey-logo.png" width="40px" class="mr-2" />
                             <div>
                               <span>FlyKey</span>
-                              <p
-                                class="production-intro"
-                              >{{ $t('flykey.navbar_tip') }}</p>
+                              <p class="production-intro">{{ $t('flykey.navbar_tip') }}</p>
                             </div>
                           </NuxtLink>
                         </li>
@@ -124,12 +125,16 @@
               </a>
               <ul role="menu" class="link-menu">
                 <li>
-                  <NuxtLink :to="{ name: 'lang', params: { lang: 'en-US' } }" class="sign-in">
+                  <NuxtLink
+                    :to="$store.state.locale === 'en-US' ? '' : { name: $route.name === 'index' ? 'lang': `${$route.name}`, params: { lang: 'en-US' } }"
+                  >
                     <img src="~assets/english.png" width="20" class="mr-2" />English
                   </NuxtLink>
                 </li>
                 <li>
-                  <NuxtLink :to="{ name: 'lang', params: { lang: 'zh-CN' } }" class="sign-in">
+                  <NuxtLink
+                    :to="$store.state.locale === 'zh-CN' ? '' : { name: $route.name === 'index' ? 'lang': `lang-${$route.name}`, params: { lang: 'zh-CN' } }"
+                  >
                     <img src="~assets/chinese.png" width="20" class="mr-2" />中文
                   </NuxtLink>
                 </li>

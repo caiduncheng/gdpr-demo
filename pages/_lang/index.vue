@@ -13,7 +13,7 @@
           <h1 class="header-title" v-html="$t('home.first_screen.slogan')"></h1>
 
           <p v-html="$t('home.first_screen.target')"></p>
-          <a class="start-button btn">
+          <a class="start-button btn" :href="platformLocation">
             <span>{{ $t('home.first_screen.start') }}</span>
           </a>
         </div>
@@ -553,6 +553,8 @@
 </template>
 
 <script>
+import config from "../../config";
+const envConfig = config[process.env.NODE_ENV];
 export default {
   data() {
     return {
@@ -577,6 +579,13 @@ export default {
     };
   },
   computed: {
+    platformLocation() {
+      if (this.$store.state.hasLogin) {
+        return envConfig[`VUE_APP_${this.$store.state.platform}_ADDRESS`];
+      } else {
+        return `/${this.$store.state.locale}/contact-us`;
+      }
+    },
     indicatorStyle() {
       if (this.mounted && process.browser) {
         let left = 0;

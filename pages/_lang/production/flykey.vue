@@ -10,9 +10,10 @@
           <div class="row">
             <div class="col-6">
               <h2 class="mb-3">{{ $t('flykey.about_flykey_title') }}</h2>
-              <p class="text-lg mb-3" v-html="$t('flykey.about_flykey_content')">
-              </p>
-              <el-button type="primary">{{ $t('flykey.start_now') }}</el-button>
+              <p class="text-lg mb-3" v-html="$t('flykey.about_flykey_content')"></p>
+              <a class="start-button btn" @click.prevent="playVideo">
+                <span>{{ $t('flykey.start_now') }}</span>
+              </a>
             </div>
             <div class="col-6">
               <div class="video-panel">
@@ -53,21 +54,23 @@
             <div class="col-md-6" data-aos="fade-left" data-aos-duration="1200">
               <div class="pl-8">
                 <h3 class="mb-3">{{ $t('flykey.feature1_title') }}</h3>
-                <p
-                  class="mb-5"
-                >{{ $t('flykey.feature1_content') }}</p>
+                <p class="mb-5">{{ $t('flykey.feature1_content') }}</p>
                 <ul>
                   <li>
-                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature1_list_item1') }}
+                    <i class="fa fa-check mr-2" />
+                    {{ $t('flykey.feature1_list_item1') }}
                   </li>
                   <li>
-                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature1_list_item2') }}
+                    <i class="fa fa-check mr-2" />
+                    {{ $t('flykey.feature1_list_item2') }}
                   </li>
                   <li>
-                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature1_list_item3') }}
+                    <i class="fa fa-check mr-2" />
+                    {{ $t('flykey.feature1_list_item3') }}
                   </li>
                   <li>
-                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature1_list_item4') }}
+                    <i class="fa fa-check mr-2" />
+                    {{ $t('flykey.feature1_list_item4') }}
                   </li>
                 </ul>
               </div>
@@ -81,27 +84,31 @@
             <div class="col-md-6" data-aos="fade-right" data-aos-duration="1200">
               <div>
                 <h3 class="mb-3">{{ $t('flykey.feature2_title') }}</h3>
-                <p
-                  class="mb-5"
-                >{{ $t('flykey.feature2_content') }}</p>
+                <p class="mb-5">{{ $t('flykey.feature2_content') }}</p>
                 <ul>
                   <li>
-                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature2_list_item1') }}
+                    <i class="fa fa-check mr-2" />
+                    {{ $t('flykey.feature2_list_item1') }}
                   </li>
                   <li>
-                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature2_list_item2') }}
+                    <i class="fa fa-check mr-2" />
+                    {{ $t('flykey.feature2_list_item2') }}
                   </li>
                   <li>
-                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature2_list_item3') }}
+                    <i class="fa fa-check mr-2" />
+                    {{ $t('flykey.feature2_list_item3') }}
                   </li>
                   <li>
-                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature2_list_item4') }}
+                    <i class="fa fa-check mr-2" />
+                    {{ $t('flykey.feature2_list_item4') }}
                   </li>
                   <li>
-                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature2_list_item5') }}
+                    <i class="fa fa-check mr-2" />
+                    {{ $t('flykey.feature2_list_item5') }}
                   </li>
                   <li>
-                    <i class="fa fa-check mr-2" />{{ $t('flykey.feature2_list_item6') }}
+                    <i class="fa fa-check mr-2" />
+                    {{ $t('flykey.feature2_list_item6') }}
                   </li>
                 </ul>
               </div>
@@ -130,8 +137,7 @@
                 <img src="~assets/FLYKEY/09.png" />
                 <div class="ml-3">
                   <h3>{{ $t('flykey.functionality_content1_title') }}</h3>
-                  <p v-html="$t('flykey.functionality_content1_content')">
-                  </p>
+                  <p v-html="$t('flykey.functionality_content1_content')"></p>
                 </div>
               </div>
             </div>
@@ -223,7 +229,8 @@
       </section>
     </div>
     <div id="map-panel"></div>
-    <div class="flykey-footer">
+    <Footer />
+    <!-- <div class="flykey-footer">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
@@ -302,31 +309,33 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
   </div>
 </template>
 
 <script>
 import mapboxgl from "mapbox-gl";
+import config from "../../../config";
+const envConfig = config[process.env.NODE_ENV];
 export default {
   data() {
     return {
       types: [
         {
           value: 0,
-          label: this.$t('contact.contact_sales'),
+          label: this.$t("contact.contact_sales"),
         },
         {
           value: 1,
-          label: this.$t('contact.support'),
+          label: this.$t("contact.support"),
         },
         {
           value: 2,
-          label: this.$t('contact.partner'),
+          label: this.$t("contact.partner"),
         },
         {
           value: 3,
-          label: this.$t('contact.marketing'),
+          label: this.$t("contact.marketing"),
         },
       ],
       countries: [],
@@ -345,10 +354,23 @@ export default {
     submit() {
       this.$store.dispatch("contactUs", { ...this.form, role: 1 }).then(() => {
         this.$message({
-          message: this.$t('contact.message_successfully_sent'),
+          message: this.$t("contact.message_successfully_sent"),
           type: "success",
         });
       });
+    },
+    playVideo() {
+      const video = document.getElementById("video");
+      video.play();
+    },
+  },
+  computed: {
+    platformLocation() {
+      if (this.$store.state.hasLogin) {
+        return envConfig[`VUE_APP_${this.$store.state.platform}_ADDRESS`];
+      } else {
+        return `/${this.$store.state.locale}/contact-us`;
+      }
     },
   },
   mounted() {
@@ -414,6 +436,23 @@ $bgBlue: rgb(0, 108, 252);
 .flykey {
   .flykey-background {
     @include mixin.background-cover;
+  }
+
+  .start-button {
+    width: 200px;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-align: center;
+    span {
+      color: #ffffff;
+      position: relative;
+      font-size: 14px;
+      z-index: 2;
+      vertical-align: middle;
+    }
+    @include mixin.btn-animated(#3982e9, #1d1d1d);
   }
 
   .flykey-main {
