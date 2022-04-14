@@ -185,6 +185,8 @@ module.exports = {
     marketing: "市场营销",
   },
   login: {
+    welcome: "欢迎！",
+    slogan: "放弃复杂性，拥抱世界。",
     sign_in: "登录",
     sign_in_tip: "登录并操作您的终端。",
     account_email: "账号(邮箱)",
