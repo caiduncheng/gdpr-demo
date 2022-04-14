@@ -1,7 +1,7 @@
 <template>
   <el-dialog v-bind="$attrs" v-on="$listeners" @closed="handleClose" width="40%">
     <div class="text-center">
-      <p class="text-lg mb-5">Are you sure you want to exit?</p>
+      <p class="text-lg mb-5">{{ $t('logout.logout_tip') }}</p>
       <el-button type="primary" style="width: 400px;" @click="confirm">{{$t('common.confirm')}}</el-button>
     </div>
   </el-dialog>

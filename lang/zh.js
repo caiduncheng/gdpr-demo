@@ -250,6 +250,9 @@ module.exports = {
     title_sign_up: "信息",
     sign_up_tip: "请填写您的信息",
   },
+  logout: {
+    logout_tip: '您确定要退出登录吗？'
+  },
   flykey: {
     navbar_tip: "FlyKey是一个安全的远程密钥流入平台",
     about_flykey_title: "FlyKey远程密钥灌装",

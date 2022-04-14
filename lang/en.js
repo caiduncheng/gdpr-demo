@@ -272,6 +272,9 @@ module.exports = {
     title_sign_up: "Information",
     sign_up_tip: "Please fill in your information",
   },
+  logout: {
+    logout_tip: 'Are you sure you want to exit?'
+  },
   flykey: {
     navbar_tip: "FlyKey is a secure remote key injection platform.",
     about_flykey_title: "Flykey Remote Key Injection",

@@ -144,7 +144,7 @@
         </div>
       </div>
     </header>
-    <LazyLogoutDialog title="Log out" :visible.sync="visible" />
+    <LazyLogoutDialog :title="$t('common.sign_out')" :visible.sync="visible" />
   </div>
 </template>
 
