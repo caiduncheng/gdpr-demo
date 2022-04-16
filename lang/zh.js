@@ -20,7 +20,7 @@ module.exports = {
     confirm: "确认",
     submit: "提交",
     social: "社交平台",
-    contact_toms: "联系 Toms",
+    contact_toms: "联系TOMS",
     address: "地址:",
     address1: "中国福建省福州市马尾区儒江西路1号 新大陆科技园",
     address2: "",
@@ -110,9 +110,9 @@ module.exports = {
     vas: {
       title: "增值服务",
       flykey: {
-        title: "Flykey",
+        title: "FlyKey",
         detail:
-          "将 FlyKey 管理门户集成到 TOMS 上。FlyKey 是一个远程密钥下载工具。经认证的 PCI-PIN3.0 安全。远程钥匙下载可用于POS终端的远程钥匙灌装和更新，无需上门灌装，灵活快捷，降低了人工成本",
+          "将 FlyKey 管理门户集成到 TOMS 上。FlyKey 是一个远程密钥下载工具。通过了 PCI-PIN3.0 认证。远程钥匙下载可用于POS终端的远程密钥的灌装和更新，无需上门灌装，灵活快捷，降低了人工成本",
         f1: "安全 & 可靠",
         f2: "灵活 & 快速",
         f3: "减少人力",
@@ -121,7 +121,7 @@ module.exports = {
       flydesk: {
         title: "FlyDesk",
         detail:
-          "FlyDesk是由TOMS平台提供的远程桌面控制工具。使用 FlyDesk，您可以随时控制 POS 终端，立即处理商户设备。改进商家支持流程，同时显著降低成本",
+          "FlyDesk是由TOMS平台提供的远程桌面控制工具。使用 FlyDesk，您可以随时远程控制终端然后立即处理商户的设备，改进商家支持流程，同时显著降低成本",
         f1: "远程故障排除",
         f2: "即时支持",
         f3: "简单 & 高效",
@@ -158,7 +158,7 @@ module.exports = {
     appstore: {
       title: "自有品牌市场",
       f1: "私有应用商店",
-      f2: "可自行控制应用程序内容",
+      f2: "可管理自己的应用",
       f3: "免费构建应用程序",
       f4: "选择灵活更专注于行业",
     },
