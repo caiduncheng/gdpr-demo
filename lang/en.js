@@ -63,7 +63,7 @@ module.exports = {
         title: "Multi-dimensional",
         feature1: "Organization",
         detail1:
-            "Clearly know the equipment distribution of each organization and each store",
+            "Clearly know the device distribution of each organization and each store",
         feature2: "Group",
         detail2:
             "By combining devices with the same label, devices can be repeatedly bound to groups, batch operation is easy and labor-saving",
@@ -87,7 +87,7 @@ module.exports = {
             "Set up the application to start automatically with the device boot, no development adaptation, reduce the application development investment",
         feature4: "Kiosk",
         detail4:
-            "Lock down devices to one or some special apps, keep equipment in working condition at all times",
+            "Lock down devices to one or some special apps, keep device in working condition at all times",
       },
       monitor: {
         title: "Device Monitoring",
@@ -116,7 +116,7 @@ module.exports = {
             "Extract the device-specified path file to get the application's own log and crash files",
         feature4: "System Settings",
         detail4:
-            "Remote setting WIFI IME language. Imitation terminal interface, abandon complex steps, immediately start",
+            "Remote setting Wi-Fi IME language. Imitation terminal interface, abandon complex steps, immediately start",
       },
       customization: {
         title: "Customization",
@@ -130,7 +130,7 @@ module.exports = {
       flykey: {
         title: "FlyKey",
         detail:
-            "Integrate FlyKey management portal onto TOMS. FlyKey is a remote key injection tool. Certified PCI-PIN3.0 secure.Remote key injection can be used for remote key filling and updating of POS terminals without door-to-door filling, which is flexible and fast and reduces labor cost",
+            "Integrate FlyKey management portal onto TOMS. FlyKey is a remote key injection tool. Certified PCI PIN 3.1 secure.Remote key injection can be used for remote key filling and updating of POS terminals without door-to-door filling, which is flexible and fast and reduces labor cost",
         f1: "Safe & Reliable",
         f2: "Flexible & Fast",
         f3: "Reduce Manpower",
@@ -260,7 +260,7 @@ module.exports = {
     illegal_mobile: "Illegal mobile phone number",
     agree_terms_and_conditions_tip: "You need to accept the Terms & conditions",
     file_required: "CSR file is required.",
-    country_required: "Please select a country",
+    country_required: "Please select a country or region",
     congratulations: "Congratulations!",
     email_sent_successfully: "The e-mail was sent successfully!",
     email_required: "Email is required",
@@ -322,6 +322,6 @@ module.exports = {
         "In order to meet the needs of customers using FlyKey in complex environments and improve the experience of using FlyKey, we will provide you with comprehensive technical training, and a professional quick response team to provide support services to solve timely and efficient solutions customer problem.",
     services_list_item1: "Technical training",
     services_list_item2: "Quick response team",
-    services_list_item3: "Global support service",
-  },
+    services_list_item3: "Global support service"
+  }
 };
