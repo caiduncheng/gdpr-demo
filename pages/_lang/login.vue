@@ -309,6 +309,12 @@ export default {
               envConfig.VUE_APP_DOMAIN
             };expires=${exp.toGMTString()}"`;
 
+            exp.setTime(exp.getTime() + 30 * 24 * 3600 * 1000);
+
+            document.cookie = `lang=${this.$store.state.locale};path=/;domain=${
+              envConfig.VUE_APP_DOMAIN
+            };expires=${exp.toGMTString()}"`;
+
             const location = envConfig[`VUE_APP_${characterCode}_ADDRESS`];
             window.location.href = location;
           }
