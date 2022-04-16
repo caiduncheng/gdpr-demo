@@ -232,8 +232,10 @@ module.exports = {
     go_to_home_page: "Go to Home Page",
     invalid_link: "Invalid Link.",
     validate_username_less5_tip: "The account cannot be less than 5 letters.",
+    validate_code_less5_tip: "The code cannot be less than 5 letters.",
     validate_username_required_tip: "The account cannot be empty.",
     validate_password_required: "Password is required",
+    validate_code_required: "Code is required",
     validate_password_tip: "Password must be between 8 and 18 characters",
     validate_password_strength:
         "Password must be a combination of letters, numbers and symbols",
