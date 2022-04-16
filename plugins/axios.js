@@ -1,13 +1,12 @@
 import { Message } from "element-ui";
 import config from "../config";
 import { getCookie, removeToken } from "@/utils";
-import store from '../store'
 
-export default function ({ $axios }) {
+export default function ({ $axios, store }) {
   // 数据访问前缀
   $axios.defaults.baseURL = config[process.env.NODE_ENV].VUE_APP_BASE_API;
   // request拦截器
-  $axios.onRequest((config) => {
+  $axios.onRequest((config) => {    
     // 将获取到token加入到请求头中
     config.headers["WEB-TOKEN"] = getCookie("TOMS_TOKEN") || getCookie("token");
     config.headers["TOMS-LANG"] =
