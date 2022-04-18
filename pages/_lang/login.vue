@@ -64,6 +64,7 @@
                           tabindex="3"
                           @focus="hidePopovers"
                           slot="reference"
+                          maxlength="5"
                           :placeholder="$t('login.captcha')"
                           v-model.trim="loginForm.code"
                           @keyup.enter.native="handleLogin"
@@ -186,6 +187,16 @@ export default {
       }
     };
 
+    const validateVerifyCode = (rule, value, callback) => {
+      if (!value) {
+        callback(new Error(this.$t("login.validate_code_required")));
+      } else if (value.length < 5) {
+        callback(new Error(this.$t("login.validate_code_less5_tip")));
+      } else {
+        callback();
+      }
+    };
+
     const isChecked = (rule, value, callback) => {
       if (!value) {
         callback(new Error(this.$t("login.agree_terms_and_conditions_tip")));
@@ -209,7 +220,7 @@ export default {
         password: [
           { required: true, trigger: "manual", validator: validatePassword },
         ],
-        code: [{ required: true, trigger: "manual" }],
+        code: [{ required: true, trigger: "manual", validator: validateVerifyCode }],
         checked: [{ validator: isChecked, trigger: "manual" }],
       },
       loading: false,
@@ -306,6 +317,12 @@ export default {
             }
           } else {
             document.cookie = `${tokenKey}=${token};path=/;domain=${
+              envConfig.VUE_APP_DOMAIN
+            };expires=${exp.toGMTString()}"`;
+
+            exp.setTime(exp.getTime() + 30 * 24 * 3600 * 1000);
+
+            document.cookie = `lang=${this.$store.state.locale};path=/;domain=${
               envConfig.VUE_APP_DOMAIN
             };expires=${exp.toGMTString()}"`;
 
