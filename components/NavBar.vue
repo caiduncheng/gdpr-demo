@@ -127,16 +127,12 @@
                 <li>
                   <NuxtLink
                     :to="$store.state.locale === 'en-US' ? '' : { name: $route.name === 'index' ? 'lang': `${$route.name}`, params: { lang: 'en-US' } }"
-                  >
-                    <img src="~assets/english.png" width="20" class="mr-2" />English
-                  </NuxtLink>
+                  >English</NuxtLink>
                 </li>
                 <li>
                   <NuxtLink
                     :to="$store.state.locale === 'zh-CN' ? '' : { name: $route.name === 'index' ? 'lang': `lang-${$route.name}`, params: { lang: 'zh-CN' } }"
-                  >
-                    <img src="~assets/chinese.png" width="20" class="mr-2" />中文
-                  </NuxtLink>
+                  >中文</NuxtLink>
                 </li>
               </ul>
             </div>
