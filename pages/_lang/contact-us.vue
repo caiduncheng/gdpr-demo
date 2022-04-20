@@ -11,25 +11,36 @@
             </div>
             <el-card class="px-4">
               <el-form class="small" :model="form" @submit.prevent.native="submit">
-                <el-form-item :label="$t('contact.email')" prop="email">
-                  <el-input v-model="form.email"></el-input>
-                </el-form-item>
                 <el-form-item :label="$t('contact.full_name')" prop="name">
                   <el-input v-model="form.name"></el-input>
                 </el-form-item>
-                <el-form-item :label="$t('contact.character')" prop="mobile">
-                  <el-input v-model="form.mobile"></el-input>
+                <el-form-item :label="$t('contact.email')" prop="email">
+                  <el-input v-model="form.email"></el-input>
+                </el-form-item>
+                <el-form-item :label="$t('contact.company')" prop="company">
+                  <el-input v-model="form.company"></el-input>
                 </el-form-item>
                 <el-form-item :label="$t('contact.country_region')" prop="country" class="form-select">
                   <el-select v-model="form.countryCode" size="small">
                     <el-option
                       v-for="item in countries"
                       :key="item.countryCode3"
-                      :label="item.countryNameEn"
+                      :label="$t('country_or_region.' + item.countryCode3)"
                       :value="item.countryCode3"
                     ></el-option>
                   </el-select>
                 </el-form-item>
+                <el-form-item :label="$t('contact.character')" prop="role" class="form-select">
+                  <el-select v-model="form.role">
+                    <el-option
+                      v-for="item in roles"
+                      :key="item.value"
+                      :value="item.value"
+                      :label="item.label"
+                    ></el-option>
+                  </el-select>
+                </el-form-item>
+
                 <el-form-item :label="$t('contact.type')" prop="type" class="form-select">
                   <el-select v-model="form.type">
                     <el-option
@@ -40,13 +51,10 @@
                     ></el-option>
                   </el-select>
                 </el-form-item>
-                <el-form-item :label="$t('contact.company')" prop="company">
-                  <el-input v-model="form.company"></el-input>
-                </el-form-item>
 
-                <el-form-item :label="$t('contact.industry')" prop="industry">
+                <!-- <el-form-item :label="$t('contact.industry')" prop="industry">
                   <el-input v-model="form.industry"></el-input>
-                </el-form-item>
+                </el-form-item> -->
 
                 <el-form-item :label="$t('contact.message')" prop="content">
                   <el-input type="textarea" rows="5" v-model="form.content"></el-input>
@@ -92,19 +100,41 @@ export default {
       types: [
         {
           value: 0,
-          label: "Contact Sales",
+          label: this.$t('contact.bank_or_acquirer'),
         },
         {
           value: 1,
-          label: "Support",
+          label: this.$t('contact.distributor_or_reseller'),
         },
         {
           value: 2,
-          label: "Partner",
+          label: this.$t('contact.psp'),
         },
         {
           value: 3,
-          label: "Marketing",
+          label: this.$t('contact.isv'),
+        },
+        {
+          value: 4,
+          label: this.$t('contact.others'),
+        },
+      ],
+      roles: [
+        {
+          value: 0,
+          label: this.$t('contact.manager'),
+        },
+        {
+          value: 1,
+          label: this.$t('contact.marketing'),
+        },
+        {
+          value: 2,
+          label: this.$t('contact.developer'),
+        },
+        {
+          value: 3,
+          label: this.$t('contact.others_role'),
         },
       ],
       countries: [],
@@ -116,6 +146,7 @@ export default {
         company: "",
         industry: "",
         content: "",
+        role: ""
       },
     };
   },
