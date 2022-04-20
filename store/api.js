@@ -105,4 +105,11 @@ export const api = {
       method: "post",
     });
   },
+
+  async getOperatorInfo({ state }, token) {
+    return await this.$axios({
+      url: `/online/authorization/operator/self`,
+      method: "GET",
+    });
+  },
 };

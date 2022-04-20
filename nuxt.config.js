@@ -48,6 +48,8 @@ export default {
   router: {
     middleware: "i18n",
     base: "/",
+    prefetchLinks: false,
+    prefetchPayloads: false,
   },
   generate: {
     routes: ["/", "zh-CN"],

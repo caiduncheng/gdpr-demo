@@ -1,5 +1,5 @@
 import { api } from "./api";
-import { removeToken } from "@/utils";
+import { removeToken, getCookie } from "@/utils";
 
 export const state = () => ({
   locales: ["zh-CN", "en-US"],
@@ -9,7 +9,15 @@ export const state = () => ({
   name: "",
   hasLogin: false,
   platform: "",
+  // 重新注册时提交的token
+  registerToken: "",
 });
+
+export const getters = {
+  token: () => {
+    return getCookie("TOMS_TOKEN") || getCookie("token");
+  },
+};
 
 export const mutations = {
   SET_LANG(state, locale) {
@@ -41,6 +49,9 @@ export const mutations = {
     state.platform = "";
     state.name = "";
     state.hasLogin = false;
+  },
+  SET_TOKEN(state, token) {
+    state.registerToken = token;
   },
 };
 

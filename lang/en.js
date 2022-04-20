@@ -1,7 +1,7 @@
 module.exports = {
   common: {
     home: "Home",
-    production: "Production",
+    production: "Products",
     support: "Support",
     contact_us: "Contact Us",
     sign_in: "Sign In",
