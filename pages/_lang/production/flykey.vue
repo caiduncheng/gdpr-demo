@@ -199,7 +199,7 @@
               </div>
               <div class="col-md-6 offset-md-1">
                 <div class="feature-box" data-aos="fade-left" data-aos-duration="1200">
-                  <img src="~assets/FLYKEY/17.png" />
+                  <img src="~assets/FLYKEY/1.png" />
                   <span>{{ $t('flykey.services_list_item1') }}</span>
                 </div>
 
@@ -209,7 +209,7 @@
                   data-aos-duration="1200"
                   data-aos-delay="300"
                 >
-                  <img src="~assets/FLYKEY/15.png" />
+                  <img src="~assets/FLYKEY/2.png" />
                   <span>{{ $t('flykey.services_list_item2') }}</span>
                 </div>
 
@@ -219,7 +219,7 @@
                   data-aos-duration="1200"
                   data-aos-delay="600"
                 >
-                  <img src="~assets/FLYKEY/16.png" />
+                  <img src="~assets/FLYKEY/3.png" />
                   <span>{{ $t('flykey.services_list_item3') }}</span>
                 </div>
               </div>
@@ -228,7 +228,7 @@
         </div>
       </section>
     </div>
-    <div id="map-panel"></div>
+    <!-- <div id="map-panel"></div> -->
     <Footer />
     <!-- <div class="flykey-footer">
       <div class="container">
@@ -314,7 +314,7 @@
 </template>
 
 <script>
-import mapboxgl from "mapbox-gl";
+// import mapboxgl from "mapbox-gl";
 import config from "../../../config";
 const envConfig = config[process.env.NODE_ENV];
 export default {
@@ -361,6 +361,7 @@ export default {
     },
     playVideo() {
       const video = document.getElementById("video");
+      video.requestFullscreen();
       video.play();
     },
   },
@@ -378,19 +379,19 @@ export default {
       this.countries = data;
     });
 
-    mapboxgl.accessToken =
-      "pk.eyJ1IjoieGlhb2hxIiwiYSI6ImNrdTUzbG5pdTJqdmMyb3FoY2hnMG84Z2oifQ.3CVuWTmyV5YJSsjVCI9qQA";
+    // mapboxgl.accessToken =
+    //   "pk.eyJ1IjoieGlhb2hxIiwiYSI6ImNrdTUzbG5pdTJqdmMyb3FoY2hnMG84Z2oifQ.3CVuWTmyV5YJSsjVCI9qQA";
 
-    const map = new mapboxgl.Map({
-      container: "map-panel",
-      style: "mapbox://styles/mapbox/light-v9",
-      center: [119.4049, 26.0202],
-      zoom: 15,
-    });
-    map.on("idle", function () {
-      map.resize();
-    });
-    new mapboxgl.Marker().setLngLat([119.4049, 26.0202]).addTo(map);
+    // const map = new mapboxgl.Map({
+    //   container: "map-panel",
+    //   style: "mapbox://styles/mapbox/light-v9",
+    //   center: [119.4049, 26.0202],
+    //   zoom: 15,
+    // });
+    // map.on("idle", function () {
+    //   map.resize();
+    // });
+    // new mapboxgl.Marker().setLngLat([119.4049, 26.0202]).addTo(map);
   },
 };
 </script>
@@ -536,9 +537,9 @@ $bgBlue: rgb(0, 108, 252);
     padding: 100px 0;
     background-repeat: no-repeat;
     .feature-box {
-      color: #000000;
+      color: #ffffff;
       font-size: 24px;
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.28);
       padding: 20px;
       width: 450px;
       border-radius: 5px;
