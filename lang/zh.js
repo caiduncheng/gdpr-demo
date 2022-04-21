@@ -199,6 +199,7 @@ module.exports = {
       content_not_null_tip: '留言信息不能为空',
       country_or_region_not_null_tip: '国家/地区不能为空',
       message_successfully_sent: '留言成功！',
+      email_format_error_tip: '邮箱格式错误'
     }
   },
   login: {

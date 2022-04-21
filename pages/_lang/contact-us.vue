@@ -12,13 +12,13 @@
             <el-card class="px-4">
               <el-form class="small" ref="messageForm" :rules="messageRules" :model="form" @submit.prevent.native="submit">
                 <el-form-item :label="$t('contact.full_name')" prop="name" class="form-item">
-                  <el-input v-model="form.name"></el-input>
+                  <el-input v-model="form.name" maxlength="64" show-word-limit></el-input>
                 </el-form-item>
                 <el-form-item :label="$t('contact.email')" prop="email" class="form-item">
-                  <el-input v-model="form.email"></el-input>
+                  <el-input v-model="form.email" maxlength="64" show-word-limit></el-input>
                 </el-form-item>
                 <el-form-item :label="$t('contact.company')" prop="company" class="form-item">
-                  <el-input v-model="form.company"></el-input>
+                  <el-input v-model="form.company" maxlength="64" show-word-limit></el-input>
                 </el-form-item>
                 <el-form-item :label="$t('contact.country_region')" prop="countryCode" class="form-select form-item">
                   <el-select v-model="form.countryCode" size="small">
@@ -57,7 +57,7 @@
                 </el-form-item> -->
 
                 <el-form-item :label="$t('contact.message_info')" prop="content" class="form-item">
-                  <el-input type="textarea" rows="5" v-model="form.content"></el-input>
+                  <el-input type="textarea" rows="5" v-model="form.content" maxlength="1024" show-word-limit></el-input>
                 </el-form-item>
                 <el-form-item>
                   <div class="text-center">
@@ -110,6 +110,11 @@ export default {
             required: true,
             trigger: 'blur',
             message: this.$t('contact.message.email_not_null_tip')
+          },
+          {
+            type: 'email',
+            message: this.$t('contact.message.email_format_error_tip'),
+            trigger: 'blur'
           }
         ],
         countryCode: [
