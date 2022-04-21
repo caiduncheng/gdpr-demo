@@ -218,6 +218,7 @@ module.exports = {
       content_not_null_tip: "Message cannot be blank",
       country_or_region_not_null_tip: "Country / Region cannnot be blank",
       message_successfully_sent: "Message successfully sent!",
+      email_format_error_tip: "Email format error",
     },
   },
   login: {
