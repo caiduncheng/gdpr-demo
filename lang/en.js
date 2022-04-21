@@ -191,7 +191,7 @@ module.exports = {
     type: "Business Type",
     company: "Company",
     industry: "Industry",
-    message: "Message",
+    message_info: "Message",
     btn_send_msg: "Send Message",
     address:
       "Science & Technology Park, No.1 Rujiang Xi Rd., Mawei Dist., Fuzhou 350015, Fujian, China",
@@ -210,6 +210,15 @@ module.exports = {
     manager: "Manager",
     developer: "Developer",
     others_role: "Others",
+    message: {
+      name_not_null_tip: "You full name cannot be blank",
+      email_not_null_tip: "Email cannot be blank",
+      type_not_null_tip: "Business type cannot be blank",
+      role_not_null_tip: "Your role cannot be blank",
+      content_not_null_tip: "Message cannot be blank",
+      country_or_region_not_null_tip: "Country / Region cannnot be blank",
+      message_successfully_sent: "Message successfully sent!",
+    },
   },
   login: {
     welcome: "Welcome!",
