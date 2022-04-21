@@ -10,17 +10,17 @@
               <p class="text-xs">{{ $t('contact.main_tip')}}</p>
             </div>
             <el-card class="px-4">
-              <el-form class="small" :model="form" @submit.prevent.native="submit">
-                <el-form-item :label="$t('contact.full_name')" prop="name">
+              <el-form class="small" ref="messageForm" :rules="messageRules" :model="form" @submit.prevent.native="submit">
+                <el-form-item :label="$t('contact.full_name')" prop="name" class="form-item">
                   <el-input v-model="form.name"></el-input>
                 </el-form-item>
-                <el-form-item :label="$t('contact.email')" prop="email">
+                <el-form-item :label="$t('contact.email')" prop="email" class="form-item">
                   <el-input v-model="form.email"></el-input>
                 </el-form-item>
-                <el-form-item :label="$t('contact.company')" prop="company">
+                <el-form-item :label="$t('contact.company')" prop="company" class="form-item">
                   <el-input v-model="form.company"></el-input>
                 </el-form-item>
-                <el-form-item :label="$t('contact.country_region')" prop="country" class="form-select">
+                <el-form-item :label="$t('contact.country_region')" prop="countryCode" class="form-select form-item">
                   <el-select v-model="form.countryCode" size="small">
                     <el-option
                       v-for="item in countries"
@@ -30,7 +30,7 @@
                     ></el-option>
                   </el-select>
                 </el-form-item>
-                <el-form-item :label="$t('contact.character')" prop="role" class="form-select">
+                <el-form-item :label="$t('contact.character')" prop="role" class="form-select form-item">
                   <el-select v-model="form.role">
                     <el-option
                       v-for="item in roles"
@@ -41,7 +41,7 @@
                   </el-select>
                 </el-form-item>
 
-                <el-form-item :label="$t('contact.type')" prop="type" class="form-select">
+                <el-form-item :label="$t('contact.type')" prop="type" class="form-select form-item">
                   <el-select v-model="form.type">
                     <el-option
                       v-for="item in types"
@@ -56,7 +56,7 @@
                   <el-input v-model="form.industry"></el-input>
                 </el-form-item> -->
 
-                <el-form-item :label="$t('contact.message')" prop="content">
+                <el-form-item :label="$t('contact.message_info')" prop="content" class="form-item">
                   <el-input type="textarea" rows="5" v-model="form.content"></el-input>
                 </el-form-item>
                 <el-form-item>
@@ -97,6 +97,50 @@
 export default {
   data() {
     return {
+      messageRules: {
+        name: [
+          {
+            required: true,
+            trigger: 'blur',
+            message: this.$t('contact.message.name_not_null_tip')
+          }
+        ],
+        email: [
+          {
+            required: true,
+            trigger: 'blur',
+            message: this.$t('contact.message.email_not_null_tip')
+          }
+        ],
+        countryCode: [
+          {
+            required: true,
+            trigger: 'change',
+            message: this.$t('contact.message.country_or_region_not_null_tip')
+          }
+        ],
+        role: [
+          {
+            required: true,
+            trigger: 'change',
+            message: this.$t('contact.message.role_not_null_tip')
+          }
+        ],
+        type: [
+          {
+            required: true,
+            trigger: 'change',
+            message: this.$t('contact.message.type_not_null_tip')
+          }
+        ],
+        content: [
+          {
+            required: true,
+            trigger: 'blur',
+            message: this.$t('contact.message.content_not_null_tip')
+          }
+        ],
+      },
       types: [
         {
           value: 0,
@@ -139,25 +183,36 @@ export default {
       ],
       countries: [],
       form: {
-        email: "",
         name: "",
-        mobile: "",
-        countryCode: "",
+        email: "",
         company: "",
-        industry: "",
-        content: "",
-        role: ""
+        countryCode: "",
+        role: "",
+        type: "",
+        content: ""
       },
     };
   },
   methods: {
     submit() {
-      this.$store.dispatch("contactUs", { ...this.form, role: 1 }).then(() => {
-        this.$message({
-          message: "Message successfully sent.",
-          type: "success",
-        });
-      });
+      this.$refs.messageForm.validate((valid) => {
+        if (valid) {
+          this.loading = true
+          this.$store.dispatch("contactUs", { ...this.form }).then(() => {
+            this.loading = false
+            this.$message({
+              message: this.$t('contact.message.message_successfully_sent'),
+              type: "success",
+            })
+          }).catch((e) => {
+            this.loading = false
+            this.$message.error(e.message)
+          })
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
     },
   },
   mounted() {
@@ -200,4 +255,9 @@ export default {
   line-height: 1.2;
   color: #6e84a3;
 }
+
+.form-item {
+  margin-bottom: 16px !important;
+}
+
 </style>

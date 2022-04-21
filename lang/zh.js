@@ -173,7 +173,7 @@ module.exports = {
     type: "所属行业",
     company: "公司名称",
     industry: "行业",
-    message: "留言信息",
+    message_info: "留言信息",
     btn_send_msg: "发送",
     address: "中国福建省福州市马尾区儒江西路1号 新大陆科技园 350015",
     email_box: "TOMS-support@newlandnpt.com",
@@ -191,6 +191,15 @@ module.exports = {
     manager: '管理人员',
     developer: '开发人员',
     others_role: '其他',
+    message: {
+      name_not_null_tip: '您的称呼不能为空',
+      email_not_null_tip: '电子邮箱不能为空',
+      type_not_null_tip: '所属行业不能为空',
+      role_not_null_tip: '您的角色不能为空',
+      content_not_null_tip: '留言信息不能为空',
+      country_or_region_not_null_tip: '国家/地区不能为空',
+      message_successfully_sent: '留言成功！',
+    }
   },
   login: {
     welcome: "欢迎！",
