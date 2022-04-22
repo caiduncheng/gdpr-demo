@@ -7,8 +7,11 @@ export default function ({ $axios, store }) {
   $axios.defaults.baseURL = config[process.env.NODE_ENV].VUE_APP_BASE_API;
   // request拦截器
   $axios.onRequest((config) => {
+    console.log(config);
+    if (!config.headers["WEB-TOKEN"]) {
+      config.headers["WEB-TOKEN"] = store.getters.token;
+    }
     // 将获取到token加入到请求头中
-    config.headers["WEB-TOKEN"] = store.getters.token;
     config.headers["TOMS-LANG"] = store.state.locale || "en-US";
   });
   // response拦截器，数据返回后，可以先在这里进行一个简单的判断
@@ -29,12 +32,12 @@ export default function ({ $axios, store }) {
       } else {
         errorMessage = error.message;
       }
-      Message({
-        message: errorMessage,
-        type: "error",
-        duration: 5 * 1000,
-      });
-      return Promise.reject(error);
+      // Message({
+      //   message: errorMessage,
+      //   type: "error",
+      //   duration: 5 * 1000,
+      // });
+      return Promise.reject(errorMessage);
     }
   );
 }

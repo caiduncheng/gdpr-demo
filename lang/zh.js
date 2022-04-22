@@ -165,6 +165,7 @@ module.exports = {
   contact: {
     contact_us: "联系我们",
     main_tip: "请填写以下表格与我们取得联系",
+    sent_successfully: "我们收到了您的信息，谢谢！",
     email: "电子邮箱",
     full_name: "您的称呼",
     character: "您的角色",

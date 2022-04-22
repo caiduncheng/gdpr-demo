@@ -86,6 +86,7 @@
                     type="primary"
                     @click="handleLogin"
                   >{{$t('common.sign_in')}}</el-button>
+                  <div class="el-form-item__error text-center">{{errorMsg}}</div>
                 </el-form-item>
                 <el-form-item prop="checked">
                   <div class="text-center">
@@ -220,7 +221,9 @@ export default {
         password: [
           { required: true, trigger: "manual", validator: validatePassword },
         ],
-        code: [{ required: true, trigger: "manual", validator: validateVerifyCode }],
+        code: [
+          { required: true, trigger: "manual", validator: validateVerifyCode },
+        ],
         checked: [{ validator: isChecked, trigger: "manual" }],
       },
       loading: false,
@@ -233,6 +236,7 @@ export default {
       passwordPopover: false,
       checkedPopover: false,
       showFlag: false,
+      errorMsg: "", // 请求登录接口返回的错误信息
     };
   },
   methods: {
@@ -299,6 +303,7 @@ export default {
             token = res.token;
           } catch (err) {
             this.getCaptcha();
+            this.errorMsg = err;
             return;
           } finally {
             this.loading = false;

@@ -193,6 +193,7 @@ module.exports = {
     industry: "Industry",
     message_info: "Message",
     btn_send_msg: "Send Message",
+    sent_successfully: "We have received your information, thanks!",
     address:
       "Science & Technology Park, No.1 Rujiang Xi Rd., Mawei Dist., Fuzhou 350015, Fujian, China",
     email_box: "TOMS-support@newlandnpt.com",

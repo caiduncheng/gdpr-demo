@@ -108,6 +108,9 @@ export const api = {
 
   async getOperatorInfo({ state }, token) {
     return await this.$axios({
+      headers: {
+        "WEB-TOKEN": token,
+      },
       url: `/online/authorization/operator/self`,
       method: "GET",
     });
