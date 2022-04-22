@@ -8,14 +8,14 @@
             <div class="col-md-6">
               <div class="text-white mb-8 contact-title">
                 <h3 class="mb-2">{{$t('login.title_sign_up')}}</h3>
-                <p class="text-xs">{{$t('login.sign_up_tip')}}</p>
+                <p class="text-ms">{{$t('login.sign_up_tip')}}</p>
               </div>
               <el-card :class="{'card-success': success}" class="card--sign-up">
                 <div v-if="!success" class="flex">
                   <el-form class="signup-form" ref="form" :rules="rules" :model="form">
                     <div class="flex">
                       <div class="vertical-line-container">
-                        <div style class="vertical-line-icon">
+                        <div class="vertical-line-icon">
                           <img src="../../assets/sign-up/7.png" alt />
                         </div>
                         <div class="vertical-line"></div>
@@ -24,7 +24,7 @@
                         <el-form-item :label="$t('login.email')" prop="email">
                           <el-input disabled v-model="form.email"></el-input>
                         </el-form-item>
-                        <el-form-item required prop="name" :label="$t('login.name')">
+                        <el-form-item required prop="name" :label="$t('login.company_name')">
                           <el-input v-model.trim="form.name" :maxlength="128"></el-input>
                         </el-form-item>
                         <el-form-item required :label="$t('login.contacts')" prop="contactName">
@@ -382,6 +382,7 @@ export default {
       float: none;
       text-align: left;
       display: block;
+      font-size: 15px;
     }
   }
 
