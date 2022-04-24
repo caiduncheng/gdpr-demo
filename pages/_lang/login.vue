@@ -101,6 +101,18 @@
                         >{{$t('login.terms_and_conditions')}}</NuxtLink>
                       </el-checkbox>
                     </el-popover>
+                    <div class="text-center">
+                      <div class="website-icon mr-10">
+                        <a href='https://npsc.newlandpayment.com/npsc'>
+                          <img src="~/assets/sign-in/flykey.png" alt="">
+                        </a>
+                      </div >
+                      <div class="website-icon">
+                      <a href="https://flykey.newlandpayment.com">
+                        <img src="~assets/sign-in/npsc.png" alt="">
+                      </a>
+                      </div>
+                    </div>
                   </div>
                 </el-form-item>
               </el-form>
@@ -388,6 +400,22 @@ export default {
   padding: 20px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
+  .website-icon {
+    background-color: #297BE2;
+    padding: 0 10px;     
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color .3s;
+    cursor: pointer;
+    & > a > img {
+      user-select: none;
+      width: 20px;
+      height: auto;
+    }
+    &:hover {
+      background-color: #1a5fbb;
+    }
+  }
 }
 
 .login-footer {

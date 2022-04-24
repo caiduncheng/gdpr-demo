@@ -83,7 +83,7 @@
                     <el-input
                       type="textarea"
                       rows="5"
-                      v-model="form.content"                    
+                      v-model="form.content"                                     
                       maxlength="1024"
                       show-word-limit
                     ></el-input>
@@ -137,7 +137,15 @@
 
 <script>
 export default {
+
   data() {
+    const validateBlank = (rule, message, cb) => {
+      if(!message || !/\S/.test(message)) {
+        cb(new Error(this.$t('contact.message.content_not_null_tip')))
+      } else {
+        cb()
+      }
+    }
     return {
       messageRules: {
         name: [
@@ -182,9 +190,7 @@ export default {
         ],
         content: [
           {
-            required: true,
-            trigger: "blur",
-            message: this.$t("contact.message.content_not_null_tip"),
+           validator: validateBlank
           },
         ],
       },
@@ -250,6 +256,7 @@ export default {
           this.$store
             .dispatch("contactUs", { ...this.form })
             .then(() => {
+              window.scrollTo(0, 0);
               this.success = true;
               this.loading = false;
             })
@@ -278,8 +285,8 @@ export default {
     .el-input__inner {
       width: 230px;
     }
-    .el-form-item__label {
-      float: none;
+    .el-form-item__label {   
+      float: none;   
       text-align: left;
       display: block;
     }
@@ -293,6 +300,7 @@ export default {
   background-image: linear-gradient(352deg, #ffffff 59%, transparent 60%),
     url("~assets/bg-4.png");
   @include mixin.background-cover;
+  min-height: auto;
   position: relative;
 }
 
