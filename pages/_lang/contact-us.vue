@@ -19,10 +19,10 @@
                   @submit.prevent.native="submit"
                 >
                   <el-form-item :label="$t('contact.full_name')" prop="name" class="form-item">
-                    <el-input v-model="form.name" maxlength="64" show-word-limit></el-input>
+                    <el-input v-model="form.name" @blur="() => form.name = form.name.trim()" maxlength="64" show-word-limit></el-input>
                   </el-form-item>
                   <el-form-item :label="$t('contact.email')" prop="email" class="form-item">
-                    <el-input v-model.trim="form.email" maxlength="64" show-word-limit></el-input>
+                    <el-input v-model="form.email" @blur="() => form.email = form.email.trim()" maxlength="64" show-word-limit></el-input>
                   </el-form-item>
                   <el-form-item :label="$t('contact.company')" prop="company" class="form-item">
                     <el-input v-model="form.company" maxlength="64" show-word-limit></el-input>
@@ -83,7 +83,7 @@
                     <el-input
                       type="textarea"
                       rows="5"
-                      v-model="form.content"
+                      v-model="form.content"                    
                       maxlength="1024"
                       show-word-limit
                     ></el-input>
