@@ -103,12 +103,12 @@
                     </el-popover>
                     <div class="text-center">
                       <div class="website-icon mr-10">
-                        <a href='https://npsc.newlandpayment.com/npsc'>
+                        <a href='https://flykey.newlandpayment.com'>
                           <img src="~/assets/sign-in/flykey.png" alt="">
                         </a>
                       </div >
-                      <div class="website-icon">
-                      <a href="https://flykey.newlandpayment.com">
+                      <div class="website-icon">                        
+                      <a href="https://npsc.newlandpayment.com/npsc">
                         <img src="~assets/sign-in/npsc.png" alt="">
                       </a>
                       </div>

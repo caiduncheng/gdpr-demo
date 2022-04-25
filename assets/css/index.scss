@@ -196,6 +196,10 @@ button {
   }
 }
 
+.el-form-item .error-message {
+  color: variables.$errorColor;
+}
+
 
 .aos-init {
   opacity: 0;
