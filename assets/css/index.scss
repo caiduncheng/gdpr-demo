@@ -196,8 +196,11 @@ button {
   }
 }
 
-.el-form-item .error-message {
-  color: variables.$errorColor;
+.el-form,
+.el-form-item {
+  & .error-message {
+    color: variables.$errorColor;
+  }
 }
 
 

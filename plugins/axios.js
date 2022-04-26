@@ -7,7 +7,6 @@ export default function ({ $axios, store }) {
   $axios.defaults.baseURL = config[process.env.NODE_ENV].VUE_APP_BASE_API;
   // request拦截器
   $axios.onRequest((config) => {
-    console.log(config);
     if (!config.headers["WEB-TOKEN"]) {
       config.headers["WEB-TOKEN"] = store.getters.token;
     }

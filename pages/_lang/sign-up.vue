@@ -35,7 +35,7 @@
                         </el-form-item>
                         <el-form-item required prop="countryCode" class="country-code">
                           <div slot="label" class="inline-block">{{$t('login.country_region')}}</div>
-                          <el-select v-model="form.countryCode">
+                          <el-select v-model="form.countryCode" :no-match-text="$t('common.no_data')" filterable >
                             <el-option
                               v-for="item in countries"
                               :key="item.countryCode3"
@@ -130,6 +130,9 @@
                         @click="submit"
                         :loading="buttonLoading"
                       >{{ $t('common.submit') }}</el-button>
+                      <div class="text-center error-message" v-if="errorMessage">
+                        {{errorMessage}}
+                      </div>
                     </el-form-item>
                   </el-form>
                 </div>
@@ -241,6 +244,7 @@ export default {
       loaded: true,
       verified: true,
       success: false,
+      errorMessage: '',
       email: "",
       remark: "",
       resubmit: false,
@@ -355,6 +359,9 @@ export default {
                 this.success = true;
                 window.scrollTo(0, 0);
               })
+              .catch(err => {
+                this.errorMessage = err
+              })
               .finally(() => {
                 this.buttonLoading = false;
               });
@@ -378,6 +385,9 @@ export default {
     max-width: 400px;
   }
   .country-code {
+    .el-input__inner {
+      width: 400px;
+    }
     .el-form-item__label {
       float: none;
       text-align: left;

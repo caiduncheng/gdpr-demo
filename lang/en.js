@@ -28,6 +28,7 @@ module.exports = {
     phone1: "+86 591 83979622",
     email: "EMAIL:",
     email1: "TOMS-support@newlandnpt.com",
+    no_data: 'No Data',
   },
   home: {
     description: {
@@ -238,6 +239,7 @@ module.exports = {
     terms_and_conditions: "Terms & Conditions",
     donnot_have_account: "Don`t have an account yet?",
     sign_up: "Sign up",
+    under_verification: 'Your account is under verification',
     title_reset_password: "Reset Password",
     mailbox_reset: "Mailbox Reset",
     email: "E-mail",

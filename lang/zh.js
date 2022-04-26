@@ -28,6 +28,7 @@ module.exports = {
     phone1: "+86 591 83979622",
     email: "邮箱:",
     email1: "TOMS-support@newlandnpt.com",
+    no_data: '无数据'
   },
   home: {
     description: {
@@ -217,6 +218,7 @@ module.exports = {
     terms_and_conditions: "条款与细则",
     donnot_have_account: "还没有账号吗？",
     sign_up: "请注册",
+    under_verification: "你的账号正在审核中",
     title_reset_password: "重置密码",
     mailbox_reset: "重置邮箱",
     email: "邮箱",

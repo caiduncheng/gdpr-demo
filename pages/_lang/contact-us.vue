@@ -12,6 +12,7 @@
               </div>
               <el-card class="px-4">
                 <el-form
+                  autocomplete="off"
                   class="small"
                   ref="messageForm"
                   :rules="messageRules"
@@ -32,7 +33,7 @@
                     prop="countryCode"
                     class="form-select form-item"
                   >
-                    <el-select v-model.trim="form.countryCode" size="small">
+                    <el-select v-model.trim="form.countryCode"  :no-match-text="$t('common.no_data')" filterable size="small">
                       <el-option
                         v-for="item in countries"
                         :key="item.countryCode3"
@@ -283,7 +284,7 @@ export default {
 .contact-us {
   .form-select {
     .el-input__inner {
-      width: 230px;
+      width: 372px;
     }
     .el-form-item__label {   
       float: none;   
