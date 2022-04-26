@@ -23,7 +23,7 @@ module.exports = {
     contact_toms: "Contact TOMS",
     address: "Address:",
     address1: "Newland Science & Technology Park, NO.1 Rujiang Xi Rd.,",
-    address2: "Mawei Dist., Fuzhou 350015, Fujian China",
+    address2: "Mawei Dist., Fuzhou 350015, Fujian, China",
     phone: "Phone:",
     phone1: "+86 591 83979622",
     email: "EMAIL:",
@@ -37,7 +37,7 @@ module.exports = {
     },
     first_screen: {
       slogan:
-        "The TOMS platform was born for <br/> terminal lifecycle management",
+        "The TOMS platform was born for <br/> Terminal Lifecycle Management",
       target:
         "Reduce manpower investment, improve management efficiency and<br/>reduce operating costs",
       start: "START NOW",
@@ -45,78 +45,78 @@ module.exports = {
     lifecycle: {
       title: "Terminal Lifecycle Management",
       deployment: {
-        title: "Zero-touch Deployment",
-        feature1: "Out of the box",
+        title: "Zero-Touch Deployment",
+        feature1: "Out-of-the-box",
         detail1:
-          "The TOMS Client is pre-installed at the factory, access the TOMS platform instantly when booted",
+          "The TOMS client is pre-installed in the factory, you can access the TOMS platform instantly when booted.",
         feature2: "Batch Deployment",
         detail2:
-          "The device can bind the Deployment Template in batch, this sets up the pre-installation environment to reduce repetitive labor",
-        feature3: "Auto Pre-install",
+          "Deployment template can be used to bind devices in batches. By using the preset parameters, You don't need to configure terminals repeatly.",
+        feature3: "Auto Pre-installation",
         detail3:
-          "Automatic Template Installation, rapid and efficient deployment",
+          "Automatically pre-install firmware and applications which are preset in the template, it makes deployment rapidly and efficiently.",
         feature4: "Zero-touch Transfer",
         detail4:
-          "Can be allocated before deployment, making management one step faster",
+          "Allow to preset before deployment, making management more convenient.",
       },
       multi_dimen: {
         title: "Multi-dimensional",
         feature1: "Organization",
         detail1:
-          "Clearly know the device distribution of each organization and each store",
+          "Make the device deployment more clearly at the organization and merchant level.",
         feature2: "Group",
         detail2:
-          "By combining devices with the same label, devices can be repeatedly bound to groups, batch operation is easy and labor-saving",
+          "Devices can be binded to different groups, it's flexible to implement batch operations.",
         feature3: "Renewal Schedule",
         detail3:
-          "In addition to real-time updates, we also provide task plans which are scheduled for execution",
-        feature4: "Single Device",
+          "By setting a specific period of update, avoid interrupting the normal operation of merchants.",
+        feature4: "Single Device Management",
         detail4:
-          "Not only can be set in batch, but also can be specific to a single device operation, both convenient and accurate",
+          "It can be managed for a single device, which is convenient and accurate.",
       },
       software: {
-        title: "Software",
+        title: "Firmware & App",
         feature1: "Remote Management",
         detail1:
-          "Remote firmware and application upgrades, and apply configurable parameters independently",
+          "Remote firmware and application upgrade, application can configure parameters independently.",
         feature2: "Parameter Template",
         detail2:
-          "Set the parameter template and default values for the application, and push the parameters in a smooth way",
-        feature3: "Launch on Boot",
+          "You can set different parameter templates for different applications.",
+        feature3: "Auto Run",
         detail3:
-          "Set up the application to start automatically with the device boot, no development adaptation, reduce the application development investment",
-        feature4: "Kiosk",
+          "Enable applications to automatically run upon device startup to improve application efficiency.",
+        feature4: "Kiosk Mode",
         detail4:
-          "Lock down devices to one or some special apps, keep device in working condition at all times",
+          "Restricting the devices to a set of specific apps, to raise employee productivity and workplace efficiency.",
       },
       monitor: {
         title: "Device Monitoring",
         feature1: "Rich Chart",
         detail1:
-          "Graphical display of network usage, power, hardware life etc.intuitive generous",
-        feature2: "Device Location",
-        detail2: "Find the exact location of your devices",
+          "Graphical display of storage, network traffic, module health etc., intuitive and generous.",
+        feature2: "Geo Location",
+        detail2: "View the exact location of your devices.",
         feature3: "History",
         detail3:
-          "Device operation logs, asset flow, and application installation records help partners quickly understand devices",
-        feature4: "More Info",
+          "Enable to easier control the devices through device operation logs, estate status, and application installation records.",
+        feature4: "More Profile Info",
         detail4:
-          "Card type display Organization, application, firmware, system settings information, loud and clear",
+          "Applications version, firmware version, and system settings.",
       },
       diagnosis: {
-        title: "Remote Diagnosis",
-        feature1: "Log Extraction",
+        title: "Remote Assistance",
+        feature1: "Remote Device Diagnostics",
         detail1:
-          "Remote log extraction, no need to reproduce, help development locate problems, not to miss any exceptions",
-        feature2: "Real-time Logcat",
+          "Remotely diagnose the device automatically or manually to learn the basic running status of the device.",
+        feature2: "Remote Desktop",
         detail2:
-          "Real-time access to logs for troubleshooting can be performed by one-click solution",
-        feature3: "Extract File",
+          "Connect to the device through the remote desktop to guide online operations or locate issues.",
+        feature3: "Extract Logs",
         detail3:
-          "Extract the device-specified path file to get the application's own log and crash files",
-        feature4: "System Settings",
+          "Extract the real-time or historical logs to help locate issues.",
+        feature4: "Extract Files",
         detail4:
-          "Remote setting Wi-Fi, IME, language. Imitation terminal interface, abandon complex steps, immediately start",
+          "Extract device files in the specified path, which can be used to locate issues",
       },
       customization: {
         title: "Customization",
@@ -126,11 +126,11 @@ module.exports = {
       },
     },
     vas: {
-      title: "Value-Added Service",
+      title: "Value-Added Services",
       flykey: {
         title: "FlyKey",
         detail:
-          "Integrate FlyKey management portal onto TOMS. FlyKey is a remote key injection tool. Certified PCI PIN 3.1 secure.Remote key injection can be used for remote key filling and updating of POS terminals without door-to-door filling, which is flexible and fast and reduces labor cost",
+          "Integrate FlyKey management portal onto TOMS. FlyKey is a remote key injection tool. With key injection systems fully compliant with the latest PCI PIN 3.0 and P2PE, FlyKey provides solutions for Remote Key lnjection(RKI) as well as Direct Key Injection (DK), which is flexible and fast and reduces labor cost",
         f1: "Safe & Reliable",
         f2: "Flexible & Fast",
         f3: "Reduce Manpower",
@@ -139,16 +139,16 @@ module.exports = {
       flydesk: {
         title: "FlyDesk",
         detail:
-          "FlyDesk is a remote desktop control tool provided by the TOMS platform. With FlyDesk, you can control the POS terminal at any time and deal instantly with the Merchant. Improve merchant support processes while significantly reducing your costs",
+          "FlyDesk is a remote desktop tool provided by the TOMS platform. With FlyDesk, you can control the POS terminal at any time. It raises merchant satisfaction together reduces your cost",
         f1: "Remote Troubleshooting",
         f2: "Instant Support",
         f3: "Easy & Efficient",
         f4: "Low cost",
       },
       diagnosis: {
-        title: "Hardware Diagnostics",
+        title: "Device Diagnostics",
         detail:
-          "Hardware Diagnostics enables rapid detection of the Hardware capabilities of the device, supports automated and semi-automated detection, and generates diagnostic reports. Reduce unnecessary door-to-door support and improve personnel efficiency",
+          "Device Diagnostics enables rapid detection of module status of the device. It supports automated and semi-automated detection, and generates diagnostic reports. It totally reduces unnecessary field services and improves personnel efficiency.",
         f1: "Automation",
         f2: "Generate Report",
         f3: "Quick Positioning",
@@ -157,16 +157,16 @@ module.exports = {
       geo_fencing: {
         title: "Geo-Fencing",
         detail:
-          "The Geo-Fencing limits the use area of device. When the device out the fence area, an alarm is triggered to notify the administrator. Automatic locking can be set up to prevent improper or illegal use",
-        f1: "Out Fence Warning",
+          "The Geo-Fencing limits the use area of device. When the device is out of range, an alarm is triggered. The device will be locked down to prevent improper or illegal use",
+        f1: "Out of Range Warning",
         f2: "Track Device",
-        f3: "Auto Lock",
+        f3: "Auto Lock Down",
         f4: "Trace export",
       },
       pre_warning: {
         title: "Pre-Warning",
         detail:
-          "When the device storage, traffic, printer, and battery trigger the user-set threshold, the user is warned to deal with it. Guarantee the production and avoid losses",
+          "When the device storage, traffic, or module health triggers a preset threshold, the system warns the user to handle the threshold. It ensures production and avoids loss.",
         f1: "In-station Alert",
         f2: "Email Alert",
         f3: "Threshold customization",
@@ -176,28 +176,28 @@ module.exports = {
     appstore: {
       title: "Own Brand Store",
       f1: "Private application store",
-      f2: "Control application content by yourself",
-      f3: "Free to build application",
+      f2: "Control application profile by yourself",
+      f3: "Free to develop applications",
       f4: "Flexible choice and more focus on industry",
     },
   },
   contact: {
     contact_us: "Contact Us",
-    main_tip: "Get in touch with by completing the below form",
+    main_tip: "Please leave your contact information below",
     email: "Email",
-    full_name: "You Full Name",
+    full_name: "Your Name",
     character: "Your Role",
     country_region: "Country / Region",
     type: "Business Type",
     company: "Company",
     industry: "Industry",
     message_info: "Message",
-    btn_send_msg: "Send Message",
+    btn_send_msg: "Submit",
     address:
       "Science & Technology Park, No.1 Rujiang Xi Rd., Mawei Dist., Fuzhou 350015, Fujian, China",
     email_box: "TOMS-support@newlandnpt.com",
     service_phone: "+86(591) 83979921",
-    message_successfully_sent: "Message successfully sent.",
+    message_successfully_sent: "Message was sent successfully.",
     contact_sales: "Contact Sales",
     support: "Support",
     partner: "Partner",
@@ -211,14 +211,14 @@ module.exports = {
     developer: 'Developer',
     others_role: 'Others',
     message: {
-      name_not_null_tip: 'You full name cannot be blank',
+      name_not_null_tip: 'Your name cannot be blank',
       email_not_null_tip: 'Email cannot be blank',
       type_not_null_tip: 'Business type cannot be blank',
       role_not_null_tip: 'Your role cannot be blank',
       content_not_null_tip: 'Message cannot be blank',
       country_or_region_not_null_tip: 'Country / Region cannnot be blank',
-      message_successfully_sent: 'Message successfully sent!',
-      email_format_error_tip: 'Email format error'
+      message_successfully_sent: 'Message was sent successfully!',
+      email_format_error_tip: 'Mailbox format error'
     }
   },
   login: {
@@ -227,19 +227,19 @@ module.exports = {
     sign_in: "Sign In",
     sign_in_tip:
       "Sign in to your account using email and password provided during registration",
-    account_email: "Account(E-Mail)",
-    account_email_placeholder: "Enter your e-mail",
+    account_email: "Account(Email)",
+    account_email_placeholder: "Enter your email",
     password: "Password",
     password_placeholder: "Enter your password",
     forgot_password: "Forgot password?",
     captcha: "Captcha",
     i_accept: "I accept",
     terms_and_conditions: "Terms & Conditions",
-    donnot_have_account: "Don`t have an account yet?",
+    donnot_have_account: "Don`t have account?",
     sign_up: "Sign up",
     title_reset_password: "Reset Password",
-    mailbox_reset: "Mailbox Reset",
-    email: "E-mail",
+    mailbox_reset: "Email Reset",
+    email: "Email",
     email_to_reset_password_tip:
       "An email to reset the password was sent to mailbox <span class='link'>{email}</span>. Please log in to the mailbox and click the link to complete the operation. The validity of this email is <span class='link'>24 hours</span>",
     check_mail_now: "Check mail now",
@@ -264,15 +264,15 @@ module.exports = {
     name: "Name",
     name_placeholder: "Please enter name",
     contacts: "Contacts",
-    contacts_placeholder: "Please enter contacts name",
+    contacts_placeholder: "Please enter contact name",
     phone_number: "Phone number",
     phone_number_placeholder: "Please enter phone number",
-    country_region: "Country/Region",
+    country_region: "Country / Region",
     csr: "CSR",
     upload: "Upload",
-    upload_tip1: "Please upload the CSR (file end with .csr)",
+    upload_tip1: "Please upload the CSR (file extension .csr)",
     upload_tip2:
-      "We will use the certificate signing request (CSR) to create your certificate(Payment.crt file) which using for platform verification terminal.",
+      "We will use the certificate signing request (CSR) to create your certificate(Payment.crt file) which is used for terminal verification.",
     upload_tip3:
       "You can get CSR from <a class='link' href='https://npsc.newlandpayment.com/npsc'>NPSC</a> or generated by tool",
     confirm_password_tip: "Please confirm password",
@@ -282,18 +282,18 @@ module.exports = {
     file_required: "CSR file is required.",
     country_required: "Please select a country or region",
     congratulations: "Congratulations!",
-    email_sent_successfully: "The e-mail was sent successfully!",
+    email_sent_successfully: "The email was sent successfully!",
     email_required: "Email is required",
     enter_email_tip:
-      "Please fill in your e-mail address <br> so that we can send you an activation link",
-    enter_email_placeholder: "Enter your e-mail address",
+      "Please fill in your email address <br> so that we can send you an activation link",
+    enter_email_placeholder: "Enter your email address",
     invalid_email_format: "Invalid email format",
     invalid_email_length: "The max length of email is 64.",
     title_sign_up: "Information",
     sign_up_tip: "Please fill in your information",
   },
   logout: {
-    logout_tip: "Are you sure to exit?",
+    logout_tip: "Do you want to log out?",
   },
   flykey: {
     navbar_tip: "FlyKey is a secure remote key injection platform.",
@@ -308,7 +308,7 @@ module.exports = {
     services_and_support: "Services & Support",
     feature1_title: "Safe and convenient service",
     feature1_content:
-      "FlyKey can integrates us more closely with customers, allowing us to further participate in customers use of financial payment products in addition to selling POS products to customers, and jointly improve the payment ecological chain, and through safe and convenient services create value for customers and achieve a win-win situation.",
+      "FlyKey can integrates us more closely with customers, allows us to further participate in customers use of financial payment products in addition to sell POS terminals to customer, and jointly improves the payment ecological chain. And through safe and convenient services it creates value for customers and achieves a win-win situation.",
     feature1_list_item1: "Customer exclusive account",
     feature1_list_item2: "Upload and store keys in secure environment",
     feature1_list_item3: "Configure the key group and associate with terminals",
@@ -320,26 +320,26 @@ module.exports = {
     feature2_list_item2: "Remote key injection",
     feature2_list_item3: "Reduce labor costs",
     feature2_list_item4:
-      "Support a large number of devices to inject keys at the same time",
+      "Support a large batch of devices to inject keys at one time",
     feature2_list_item5:
-      "UPS real-time guarantee, support 7 * 24 hours service",
-    feature2_list_item6: "Provide rich interfaces for third-party calls",
+      "UPS support, support 7 * 24 hours service",
+    feature2_list_item6: "Provide rich interfaces for third-party services",
     functionality_title: "Safe and efficient management",
     functionality_content1_title: "Remote Key Injection",
     functionality_content1_content:
       "A solution for remote secure flexible inject keys. <br>Supported key types: <br>DUKPT, MK/SK<br>Supported POS types: <br>Android/Linux/RTOS",
     functionality_content2_title: "Key Security",
     functionality_content2_content:
-      "Realize key security, standardization, efficiency, centralized and unified, full-life cycle security and compliance management, and include advanced key package management, group management, full monitoring.",
+      "Implement key security, standardization, efficiency, centralized and unified, full life cycle security and compliance management, and include advanced key package management, group management, full monitoring.",
     functionality_content3_title: "Terminal Management",
     functionality_content3_content:
-      "Provides a better management operation interface and supports exporting terminal key inject records.",
+      "Provide a better management operation interface and support exporting terminal key inject records.",
     functionality_content4_title: "Dashboard",
     functionality_content4_content:
-      "Provides visual and up-to-date RKI information, terminal information, and account information.",
+      "Provide visual and up-to-date RKI information, terminal information, and account information.",
     services_title: "Services & Support",
     services_content:
-      "In order to meet the needs of customers using FlyKey in complex environments and improve the experience of using FlyKey, we will provide you with comprehensive technical training, and a professional quick response team to provide support services to solve timely and efficient solutions customer problem.",
+      "In order to meet the customer requirement of using FlyKey in complex environments, and improve the operation experience, we will provide you with comprehensive technical training, and a professional quick response team to solve customer problems timely.",
     services_list_item1: "Technical training",
     services_list_item2: "Quick response team",
     services_list_item3: "Global support service",
