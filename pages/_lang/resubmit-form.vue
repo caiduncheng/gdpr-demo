@@ -7,15 +7,26 @@
           <div class="row py-14 justify-center">
             <div class="col-md-6">
               <div class="text-white mb-8 contact-title">
-                <h3 class="mb-2">{{$t('login.title_sign_up')}}</h3>
-                <p class="text-ms">{{$t('login.sign_up_tip')}}</p>
+                <h3 class="mb-2">{{ $t("login.title_sign_up") }}</h3>
+                <p class="text-xs">{{ $t("login.sign_up_tip") }}</p>
               </div>
-              <el-card :class="{'card-success': success}" class="card--sign-up">
+              <el-card
+                :class="{ 'card-success': success }"
+                class="card--sign-up"
+              >
                 <div v-if="!success" class="flex">
-                  <el-form class="signup-form" ref="form" :rules="rules" :model="form">
+                  <el-form
+                    class="signup-form"
+                    ref="form"
+                    :rules="rules"
+                    :model="form"
+                  >
+                    <div class="error-message text-center">
+                      {{remark}}
+                    </div>                                 
                     <div class="flex">
                       <div class="vertical-line-container">
-                        <div class="vertical-line-icon">
+                        <div style class="vertical-line-icon">
                           <img src="../../assets/sign-up/7.png" alt />
                         </div>
                         <div class="vertical-line"></div>
@@ -24,18 +35,45 @@
                         <el-form-item :label="$t('login.email')" prop="email">
                           <el-input disabled v-model="form.email"></el-input>
                         </el-form-item>
-                        <el-form-item required prop="name" :label="$t('login.company_name')">
-                          <el-input v-model.trim="form.name" :maxlength="128"></el-input>
+                        <el-form-item
+                          required
+                          prop="name"
+                          :label="$t('login.name')"
+                        >
+                          <el-input
+                            v-model.trim="form.name"
+                            :maxlength="128"
+                          ></el-input>
                         </el-form-item>
-                        <el-form-item required :label="$t('login.contacts')" prop="contactName">
-                          <el-input :maxlength="32" v-model.trim="form.contactName"></el-input>
+                        <el-form-item
+                          required
+                          :label="$t('login.contacts')"
+                          prop="contactName"
+                        >
+                          <el-input
+                            :maxlength="32"
+                            v-model.trim="form.contactName"
+                          ></el-input>
                         </el-form-item>
-                        <el-form-item :label="$t('login.phone_number')" prop="mobile" required>
-                          <el-input v-model.trim="form.mobile" :maxlength="16"></el-input>
+                        <el-form-item
+                          :label="$t('login.phone_number')"
+                          prop="mobile"
+                          required
+                        >
+                          <el-input
+                            v-model.trim="form.mobile"
+                            :maxlength="16"
+                          ></el-input>
                         </el-form-item>
-                        <el-form-item required prop="countryCode" class="country-code">
-                          <div slot="label" class="inline-block">{{$t('login.country_region')}}</div>
-                          <el-select v-model="form.countryCode" :no-match-text="$t('common.no_data')" filterable >
+                        <el-form-item
+                          required
+                          prop="countryCode"
+                          class="country-code"
+                        >
+                          <div slot="label" class="inline-block">
+                            {{ $t("login.country_region") }}
+                          </div>
+                          <el-select v-model="form.countryCode" :no-match-text="$t('common.no_data')" filterable>
                             <el-option
                               v-for="item in countries"
                               :key="item.countryCode3"
@@ -45,7 +83,10 @@
                           </el-select>
                         </el-form-item>
                         <el-form-item :label="$t('login.address')">
-                          <el-input v-model="form.address" :maxlength="128"></el-input>
+                          <el-input
+                            v-model="form.address"
+                            :maxlength="128"
+                          ></el-input>
                         </el-form-item>
                         <hr class="my-6" />
                       </div>
@@ -58,8 +99,16 @@
                         <div class="vertical-line"></div>
                       </div>
                       <div class="flex-1">
-                        <el-form-item :label="$t('login.csr')" required prop="file" class="csr">
-                          <div style="display: flex; align-items: flex-start" class="mb-10">
+                        <el-form-item
+                          :label="$t('login.csr')"
+                          required
+                          prop="file"
+                          class="csr"
+                        >
+                          <div
+                            style="display: flex; align-items: flex-start"
+                            class="mb-10"
+                          >
                             <el-upload
                               style="float: left; margin-right: 30px"
                               action="#"
@@ -68,16 +117,18 @@
                               :limit="1"
                               :on-change="handleChange"
                               :on-remove="handleRemove"
-                              :class="{hide: uploadDisabled}"
+                              :class="{ hide: uploadDisabled }"
                               class="upload"
                             >
-                              <el-button type="primary">{{ $t('login.upload') }}</el-button>
+                              <el-button type="primary">{{
+                                $t("login.upload")
+                              }}</el-button>
                             </el-upload>
                           </div>
                           <div class="upload-hint">
                             <p>
-                              {{ $t('login.upload_tip1') }}
-                              {{ $t('login.upload_tip2') }}
+                              {{ $t("login.upload_tip1") }}
+                              {{ $t("login.upload_tip2") }}
                             </p>
                             <p v-html="$t('login.upload_tip3')"></p>
                           </div>
@@ -100,15 +151,37 @@
                           prop="password"
                           type="password"
                         >
-                          <el-input v-model="form.password" type="password"></el-input>
-                          <div class="password-strength" v-show="showPasswordStrength">
-                            <div
-                              class="text"
-                            >{{$t('login.password_strength')}} {{mapPasswordStrength[passwordStrength]}}</div>
+                          <el-input
+                            v-model="form.password"
+                            type="password"
+                          ></el-input>
+                          <div
+                            class="password-strength"
+                            v-show="showPasswordStrength"
+                          >
+                            <div class="text">
+                              {{ $t("login.password_strength") }}
+                              {{ mapPasswordStrength[passwordStrength] }}
+                            </div>
                             <div class="indicator">
-                              <span :class="['weak', {active: passwordStrength >= 1}]"></span>
-                              <span :class="['moderate', {active: passwordStrength >= 2}]"></span>
-                              <span :class="['strong', {active: passwordStrength === 3}]"></span>
+                              <span
+                                :class="[
+                                  'weak',
+                                  { active: passwordStrength >= 1 },
+                                ]"
+                              ></span>
+                              <span
+                                :class="[
+                                  'moderate',
+                                  { active: passwordStrength >= 2 },
+                                ]"
+                              ></span>
+                              <span
+                                :class="[
+                                  'strong',
+                                  { active: passwordStrength === 3 },
+                                ]"
+                              ></span>
                             </div>
                           </div>
                         </el-form-item>
@@ -118,7 +191,10 @@
                           prop="confirmPassword"
                           type="password"
                         >
-                          <el-input v-model="form.confirmPassword" type="password"></el-input>
+                          <el-input
+                            v-model="form.confirmPassword"
+                            type="password"
+                          ></el-input>
                         </el-form-item>
                         <hr class="my-6" />
                       </div>
@@ -129,16 +205,27 @@
                         style="width: 200px"
                         @click="submit"
                         :loading="buttonLoading"
-                      >{{ $t('common.submit') }}</el-button>
-                      <div class="text-center error-message" v-if="errorMessage">
-                        {{errorMessage}}
+                        >{{ $t("common.submit") }}</el-button
+                      >
+                      <div
+                        class="text-center error-message"
+                        v-if="errorMessage"
+                      >
+                        {{ errorMessage }}
                       </div>
                     </el-form-item>
                   </el-form>
                 </div>
-                <div class="flex flex-col items-center justify-center h-full" v-else>
-                  <img src="~assets/sign-up/sign-up-success.png" alt width="250" />
-                  <p>{{$t('login.contact_you_in_some_days')}}</p>
+                <div
+                  class="flex flex-col items-center justify-center h-full"
+                  v-else
+                >
+                  <img
+                    src="~assets/sign-up/sign-up-success.png"
+                    alt
+                    width="250"
+                  />
+                  <p>{{ $t("login.contact_you_in_some_days") }}</p>
                 </div>
               </el-card>
             </div>
@@ -153,7 +240,7 @@
 
 <script>
 import { checkPhoneNum } from "@/utils/validation.js";
-import { getQueryParam } from "@/utils";
+import axios from "axios";
 
 const MAP_PASSWORD_STRENGTH = {
   1: "Weak",
@@ -165,18 +252,19 @@ let email = "";
 let registerToken = "";
 
 export default {
-  async validate({ params, query, store }) {
-    email = getQueryParam("email");
-    registerToken = getQueryParam("key");
+  async validate({ params, query, store, $axios }) {
     try {
-      await store.dispatch("verifyRegisterToken", {
-        email,
-        token: registerToken,
+      const operInfo = await $axios({
+        url: "/online/authorization/operator/self",
+        headers: {
+          "WEB-TOKEN": query.token,
+        },
       });
+      store.commit("SET_OPER_INFO", operInfo);
     } catch {
       return false;
     }
-
+    registerToken = query.token;
     return true;
   },
   data() {
@@ -244,7 +332,7 @@ export default {
       loaded: true,
       verified: true,
       success: false,
-      errorMessage: '',
+      errorMessage: "",
       email: "",
       remark: "",
       resubmit: false,
@@ -338,40 +426,35 @@ export default {
           formData.append("email", this.form.email);
           formData.append("mobile", this.form.mobile);
 
-          if (this.resubmit) {
-            formData.append("registerToken", this.form.registerToken);
-            this.$store
-              .dispatch("reRegister", formData)
-              .then(() => {
-                this.success = true;
-                window.scrollTo(0, 0);
-              })
-              .finally(() => {
-                this.buttonLoading = false;
-              });
-          } else {
-            formData.append("password", this.form.password);
-            formData.append("registerToken", this.form.registerToken);
-
-            this.$store
-              .dispatch("register", formData)
-              .then(() => {
-                this.success = true;
-                window.scrollTo(0, 0);
-              })
-              .catch(err => {
-                this.errorMessage = err
-              })
-              .finally(() => {
-                this.buttonLoading = false;
-              });
-          }
+          formData.append("registerToken", this.form.registerToken);
+          this.$store
+            .dispatch("reRegister", formData)
+            .then(() => {
+              this.success = true;
+              window.scrollTo(0, 0);
+            })
+            .catch(err => {
+              this.errorMessage = err
+            })
+            .finally(() => {
+              this.buttonLoading = false;
+            });
         }
       });
     },
   },
   mounted() {
     this.getCountryList();
+
+    const operInfo = this.$store.state.operInfo;
+
+    this.remark = operInfo.remark;
+    // // populate the form
+    Object.assign(this.form, {
+      ...operInfo,
+      contactName: operInfo.linkman,
+    });
+    this.email = operInfo.email;
   },
 };
 </script>
@@ -385,14 +468,10 @@ export default {
     max-width: 400px;
   }
   .country-code {
-    .el-input__inner {
-      width: 400px;
-    }
     .el-form-item__label {
       float: none;
       text-align: left;
       display: block;
-      font-size: 15px;
     }
   }
 
@@ -411,8 +490,6 @@ export default {
 }
 </style>
 
-<style lang='scss'>
-</style>
 
 <style lang="scss" scoped>
 @use "~assets/css/mixin";

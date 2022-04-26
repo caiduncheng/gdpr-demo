@@ -228,93 +228,11 @@
         </div>
       </section>
     </div>
-    <!-- <div id="map-panel"></div> -->
     <Footer />
-    <!-- <div class="flykey-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h3 class="mb-5">{{ $t('contact.contact_us') }}</h3>
-            <div class="contact-info">
-              <address class="mb-5 flex">
-                <i class="fa fa-map-marker" style="margin-right: 12px"></i>
-                {{$t('contact.address')}}
-              </address>
-              <div class="mb-5 flex">
-                <i class="fa fa-envelope-o mr-2"></i>
-                <a href="javacsript:;" class="mail-link">
-                  <span>{{$t('contact.email_box')}}</span>
-                </a>
-              </div>
-              <div class="flex">
-                <i class="fa fa-phone mr-2"></i>
-                {{$t('contact.service_phone')}}
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <el-card class="footer-form">
-              <el-form class="small" :model="form" @submit.prevent.native="submit">
-                <el-form-item :label="$t('contact.email')" prop="email">
-                  <el-input v-model="form.email"></el-input>
-                </el-form-item>
-                <el-form-item :label="$t('contact.full_name')" prop="name">
-                  <el-input v-model="form.name"></el-input>
-                </el-form-item>
-                <el-form-item :label="$t('contact.character')" prop="mobile">
-                  <el-input v-model="form.mobile"></el-input>
-                </el-form-item>
-                <el-form-item
-                  :label="$t('contact.country_region')"
-                  prop="country"
-                  class="form-select"
-                >
-                  <el-select v-model="form.countryCode" size="small">
-                    <el-option
-                      v-for="item in countries"
-                      :key="item.countryCode3"
-                      :label="item.countryNameEn"
-                      :value="item.countryCode3"
-                    ></el-option>
-                  </el-select>
-                </el-form-item>
-                <el-form-item :label="$t('contact.type')" prop="type" class="form-select">
-                  <el-select v-model="form.type">
-                    <el-option
-                      v-for="item in types"
-                      :key="item.value"
-                      :value="item.value"
-                      :label="item.label"
-                    ></el-option>
-                  </el-select>
-                </el-form-item>
-                <el-form-item :label="$t('contact.company')" prop="company">
-                  <el-input v-model="form.company"></el-input>
-                </el-form-item>
-
-                <el-form-item :label="$t('contact.industry')" prop="industry">
-                  <el-input v-model="form.industry"></el-input>
-                </el-form-item>
-
-                <el-form-item :label="$t('contact.message')" prop="content">
-                  <el-input type="textarea" rows="5" v-model="form.content"></el-input>
-                </el-form-item>
-                <el-form-item>
-                  <div class="text-center">
-                    <el-button type="primary" native-type="submit">{{$t('contact.btn_send_msg')}}</el-button>
-                  </div>
-                </el-form-item>
-              </el-form>
-            </el-card>
-          </div>
-        </div>
-      </div>
-    </div>-->
   </div>
 </template>
 
 <script>
-// import mapboxgl from "mapbox-gl";
 import config from "../../../config";
 const envConfig = config[process.env.NODE_ENV];
 export default {

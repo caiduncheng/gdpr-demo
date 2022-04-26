@@ -32,6 +32,7 @@
               :loading="loading"
               @click="submit"
             >{{ $t('common.confirm') }}</el-button>
+            <div class="text-center error-message" v-if="errorMessage">{{errorMessage}}</div>
           </el-form-item>
         </el-form>
       </div>
@@ -58,6 +59,7 @@ export default {
     return {
       success: false,
       loading: false,
+      errorMessage: '',
       formData: {
         email: "",
       },
@@ -82,6 +84,7 @@ export default {
   methods: {
     handleClose() {
       this.success = false;
+      this.errorMessage = ""
       this.$refs.form.resetFields();
       this.$emit("update:visible", false);
     },
@@ -93,6 +96,9 @@ export default {
             .dispatch("sendEmail", this.formData.email)
             .then(() => {
               this.success = true;
+            })
+            .catch(error => {
+              this.errorMessage = error
             })
             .finally(() => {
               this.loading = false;

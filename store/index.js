@@ -11,6 +11,7 @@ export const state = () => ({
   platform: "",
   // 重新注册时提交的token
   registerToken: "",
+  operInfo: {},
 });
 
 export const getters = {
@@ -52,6 +53,9 @@ export const mutations = {
   },
   SET_TOKEN(state, token) {
     state.registerToken = token;
+  },
+  SET_OPER_INFO(state, info) {
+    state.operInfo = info;
   },
 };
 

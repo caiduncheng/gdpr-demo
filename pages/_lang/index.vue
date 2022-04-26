@@ -671,6 +671,7 @@ export default {
   background-image: url("~assets/bg.png");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 }
 .header-content {
   position: relative;
@@ -910,18 +911,5 @@ export default {
   li {
     margin-bottom: 10px;
   }
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.mac-book {
-  /* transform: translateX(-300px); */
 }
 </style>

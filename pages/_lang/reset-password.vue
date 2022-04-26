@@ -9,7 +9,9 @@
               <el-form-item :label=" $t('login.new_password')" prop="password">
                 <el-input v-model="form.password" type="password"></el-input>
                 <div class="password-strength" v-show="showPasswordStrength">
-                  <div class="text"> {{$t('login.password_strength')}} {{mapPasswordStrength[passwordStrength]}}</div>
+                  <div
+                    class="text"
+                  >{{$t('login.password_strength')}} {{mapPasswordStrength[passwordStrength]}}</div>
                   <div class="indicator">
                     <span :class="['weak', {active: passwordStrength >= 1}]"></span>
                     <span :class="['moderate', {active: passwordStrength >= 2}]"></span>
@@ -30,9 +32,9 @@
               <h2 slot="title" class="text-3xl">{{ $t('login.password_set_successfully') }}</h2>
             </el-result>
 
-            <router-link to="/">
+            <NuxtLink :to="{name: 'lang', params: { lang: $store.state.locale} }">
               <el-button type="primary">{{ $t('login.go_to_home_page') }}</el-button>
-            </router-link>
+            </NuxtLink>
           </div>
         </el-card>
       </div>
