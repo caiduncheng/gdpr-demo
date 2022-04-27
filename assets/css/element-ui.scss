@@ -1,0 +1,42 @@
+@use "~assets/css/variables";
+
+
+.el-form.small {
+  .el-input__inner {
+    height: 30px;
+  }
+
+  .el-form-item {
+    margin-bottom: 10px;
+  }
+}
+
+
+.el-button--primary {
+  background-color: #3E80E5;
+  border-color: #3E80E5;
+}
+
+.el-button {
+  border-radius: 6px;
+  // font-size: 12px;
+}
+
+.el-form-item__label {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.el-checkbox__input.is-checked+.el-checkbox__label {
+  color: inherit;
+}
+
+.el-dialog__title {
+  color: #ffffff;
+}
+
+.el-dialog__header {
+  // border-top-left-radius: 5px;
+  // border-top-right-radius: 5px;
+  background: variables.$loginFormHeaderBackground;
+}

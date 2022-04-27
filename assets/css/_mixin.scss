@@ -1,0 +1,33 @@
+@mixin btn-animated($color1, $color2) {
+  &:before {
+    background: $color1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  &::after {
+    background: $color2;
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    transition: 0.3s ease-in-out;
+  }
+
+  &:hover::after {
+    height: 100%;
+  }
+}
+
+@mixin background-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}

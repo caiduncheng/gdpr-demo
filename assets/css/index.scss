@@ -1,0 +1,209 @@
+@use 'mixin';
+@use "~assets/css/variables";
+@import './grid.css';
+@import './element-ui.scss';
+
+
+:root {
+  --default-font-family: "Cerebri Sans";
+
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  mix-blend-mode: overlay;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+*::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+}
+
+*::-webkit-scrollbar-corner {
+  height: 0;
+  width: 0;
+}
+
+@font-face {
+  font-family: "Cerebri Sans Book Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/cerebrisans/cerebrisans-medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Cerebri Sans";
+  src: url("../fonts/cerebrisans/cerebrisans-medium.eot");
+  src: url("../fonts/cerebrisans/cerebrisans-medium.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/cerebrisans/cerebrisans-medium.woff") format("woff"),
+    url("../fonts/cerebrisans/cerebrisans-medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cerebri Sans";
+  src: url("../fonts/cerebrisans/cerebrisans-semibold.eot");
+  src: url("../fonts/cerebrisans/cerebrisans-semibold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/cerebrisans/cerebrisans-semibold.woff") format("woff"),
+    url("../fonts/cerebrisans/cerebrisans-semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: var(--default-font-family), sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  cursor: pointer;
+}
+
+a,
+span {
+  &.link {
+    font-weight: 700;
+    font-size: 12px;
+    color: variables.$linkColor;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+address {
+  font-style: normal;
+  display: inline-block;
+}
+
+.font-500 {
+  font-weight: 500;
+}
+
+.font-600 {
+  font-weight: 600;
+}
+
+.font-700 {
+  font-weight: 700;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  // font-family: --default-font-family, sans-serif;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+#app {
+  // background: #000000;
+}
+
+button {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+}
+
+.max-w-570 {
+  max-width: 570px;
+  width: 70%;
+}
+
+.flickity-page-dots .dot {
+  background: rgb(65, 81, 100);
+  opacity: 1;
+}
+
+.flickity-page-dots .dot.is-selected {
+  background-color: #ffffff;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.container,
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.btn {
+  user-select: none;
+  position: relative;
+  display: inline-block;
+  padding: 14px 20px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+
+  &.btn-light {
+    padding: 8px 20px;
+  }
+}
+
+.el-form,
+.el-form-item {
+  & .error-message {
+    color: variables.$errorColor;
+  }
+}
+
+
+.aos-init {
+  opacity: 0;
+}
