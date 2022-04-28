@@ -131,7 +131,7 @@ module.exports = {
       flykey: {
         title: "FlyKey",
         detail:
-          "Integrate FlyKey management portal onto TOMS. FlyKey is a remote key injection tool. With key injection systems fully compliant with the latest PCI PIN 3.0 and P2PE, FlyKey provides solutions for Remote Key lnjection(RKI) as well as Direct Key Injection (DK), which is flexible and fast and reduces labor cost",
+          "Integrate FlyKey management portal onto TOMS. FlyKey is a remote key injection tool. With key injection systems fully compliant with the latest PCI PIN 3.1 and P2PE, FlyKey provides solutions for Remote Key lnjection(RKI) as well as Direct Key Injection (DK), which is flexible and fast and reduces labor cost",
         f1: "Safe & Reliable",
         f2: "Flexible & Fast",
         f3: "Reduce Manpower",
