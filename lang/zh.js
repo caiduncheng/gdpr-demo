@@ -109,7 +109,7 @@ module.exports = {
       flykey: {
         title: "FlyKey",
         detail:
-          "将 FlyKey 管理门户集成到 TOMS 上。FlyKey 是一个远程密钥下载工具。由于密钥注入系统完全符合最新的PCI PIN 3.0和P2PE标准，FlyKey为远程密钥注入(RKI)和直接密钥注入(DK)提供了解决方案，灵活快捷，降低了人工成本",
+            "将 FlyKey 管理门户集成到 TOMS 上。FlyKey 是一个远程密钥下载工具。由于密钥注入系统完全符合最新的PCI PIN 3.1和P2PE标准，FlyKey为远程密钥注入(RKI)和直接密钥注入(DK)提供了解决方案，灵活快捷，降低了人工成本",
         f1: "安全 & 可靠",
         f2: "灵活 & 快速",
         f3: "减少人力",
