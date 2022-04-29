@@ -28,7 +28,7 @@ module.exports = {
     phone1: "+86 591 83979622",
     email: "EMAIL:",
     email1: "TOMS-support@newlandnpt.com",
-    no_data: 'No Data',
+    no_data: "No Data",
   },
   home: {
     description: {
@@ -38,7 +38,7 @@ module.exports = {
     },
     first_screen: {
       slogan:
-        "The TOMS platform was born for <br/> Terminal Lifecycle Management",
+        "The <span class='text-header-blue italic font-bold text-6xl'>TOMS</span> platform was born for <br/> Terminal Lifecycle Management",
       target:
         "Reduce manpower investment, improve management efficiency and<br/>reduce operating costs",
       start: "START NOW",
@@ -101,8 +101,7 @@ module.exports = {
         detail3:
           "Enable to easier control the devices through device operation logs, estate status, and application installation records.",
         feature4: "More Profile Info",
-        detail4:
-          "Applications version, firmware version, and system settings.",
+        detail4: "Applications version, firmware version, and system settings.",
       },
       diagnosis: {
         title: "Remote Assistance",
@@ -212,15 +211,15 @@ module.exports = {
     developer: "Developer",
     others_role: "Others",
     message: {
-      name_not_null_tip: 'Your name cannot be blank',
-      email_not_null_tip: 'Email cannot be blank',
-      type_not_null_tip: 'Business type cannot be blank',
-      role_not_null_tip: 'Your role cannot be blank',
-      content_not_null_tip: 'Message cannot be blank',
-      country_or_region_not_null_tip: 'Country / Region cannnot be blank',
-      message_successfully_sent: 'Message was sent successfully!',
-      email_format_error_tip: 'Mailbox format error'
-    }
+      name_not_null_tip: "Your name cannot be blank",
+      email_not_null_tip: "Email cannot be blank",
+      type_not_null_tip: "Business type cannot be blank",
+      role_not_null_tip: "Your role cannot be blank",
+      content_not_null_tip: "Message cannot be blank",
+      country_or_region_not_null_tip: "Country / Region cannnot be blank",
+      message_successfully_sent: "Message was sent successfully!",
+      email_format_error_tip: "Mailbox format error",
+    },
   },
   login: {
     welcome: "Welcome!",
@@ -234,11 +233,13 @@ module.exports = {
     password_placeholder: "Enter your password",
     forgot_password: "Forgot password?",
     captcha: "Captcha",
+    agree_terms_conditions:
+      'I agree to <a class="link" href="/privacy/privacy-policy"> Privacy Policy </a> and <a class="link" href="/privacy/terms"> Terms & Conditions</a>',
     i_accept: "I accept",
     terms_and_conditions: "Terms & Conditions",
     donnot_have_account: "Don`t have account?",
     sign_up: "Sign up",
-    under_verification: 'Your account is under verification',
+    under_verification: "Your account is under verification",
     title_reset_password: "Reset Password",
     mailbox_reset: "Email Reset",
     email: "Email",
@@ -299,8 +300,9 @@ module.exports = {
     logout_tip: "Do you want to log out?",
   },
   flykey: {
+    fly_key: "FlyKey",
     navbar_tip: "FlyKey is a secure remote key injection platform.",
-    about_flykey_title: "FlyKey Remote Key Injection",
+    about_flykey_title: "Remote Key Injection",
     about_flykey_content:
       "FlyKey is a value-added solution that provides<br> customers with completely secure remote key loading.",
     start_now: "Play Video",
@@ -324,8 +326,7 @@ module.exports = {
     feature2_list_item3: "Reduce labor costs",
     feature2_list_item4:
       "Support a large batch of devices to inject keys at one time",
-    feature2_list_item5:
-      "UPS support, support 7 * 24 hours service",
+    feature2_list_item5: "UPS support, support 7 * 24 hours service",
     feature2_list_item6: "Provide rich interfaces for third-party services",
     functionality_title: "Safe and efficient management",
     functionality_content1_title: "Remote Key Injection",

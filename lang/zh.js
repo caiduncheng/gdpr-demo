@@ -28,7 +28,7 @@ module.exports = {
     phone1: "+86 591 83979622",
     email: "邮箱:",
     email1: "TOMS-support@newlandnpt.com",
-    no_data: '无数据'
+    no_data: "无数据",
   },
   home: {
     description: {
@@ -48,8 +48,7 @@ module.exports = {
         feature1: "开箱即用",
         detail1: "TOMS客户端在出厂时已预装，开机后即可访问TOMS平台",
         feature2: "批量部署",
-        detail2:
-            "部署模板可以批量绑定设备，使用预先设置的参数，终端无需再配置",
+        detail2: "部署模板可以批量绑定设备，使用预先设置的参数，终端无需再配置",
         feature3: "自动预安装",
         detail3: "自动安装部署模板中预设的固件或应用，快速高效部署",
         feature4: "零接触划拨",
@@ -60,8 +59,7 @@ module.exports = {
         feature1: "机构",
         detail1: "清楚地了解每个机构和商户的设备分布",
         feature2: "分组",
-        detail2:
-            "设备可以绑定到多个分组中，批量操作简单且省力",
+        detail2: "设备可以绑定到多个分组中，批量操作简单且省力",
         feature3: "计划更新",
         detail3: "通过设置特定时段更新，避免打扰商户正常经营",
         feature4: "单台设备管理",
@@ -85,8 +83,7 @@ module.exports = {
         feature2: "地理位置",
         detail2: "查看设备的准确位置",
         feature3: "历史",
-        detail3:
-            "设备操作日志、资产生命周期和应用安装记录，帮助快速掌握设备",
+        detail3: "设备操作日志、资产生命周期和应用安装记录，帮助快速掌握设备",
         feature4: "更多档案信息",
         detail4: "应用、固件、系统设置信息",
       },
@@ -99,8 +96,7 @@ module.exports = {
         feature3: "日志提取",
         detail3: "可获取实时或历史日志，帮助定位问题",
         feature4: "文件提取",
-        detail4:
-            "提取指定路径的设备文件，帮助定位问题",
+        detail4: "提取指定路径的设备文件，帮助定位问题",
       },
       customization: {
         title: "可定制化",
@@ -113,7 +109,7 @@ module.exports = {
       flykey: {
         title: "FlyKey",
         detail:
-            "将 FlyKey 管理门户集成到 TOMS 上。FlyKey 是一个远程密钥下载工具。由于密钥注入系统完全符合最新的PCI PIN 3.0和P2PE标准，FlyKey为远程密钥注入(RKI)和直接密钥注入(DK)提供了解决方案，灵活快捷，降低了人工成本",
+          "将 FlyKey 管理门户集成到 TOMS 上。FlyKey 是一个远程密钥下载工具。由于密钥注入系统完全符合最新的PCI PIN 3.0和P2PE标准，FlyKey为远程密钥注入(RKI)和直接密钥注入(DK)提供了解决方案，灵活快捷，降低了人工成本",
         f1: "安全 & 可靠",
         f2: "灵活 & 快速",
         f3: "减少人力",
@@ -122,7 +118,7 @@ module.exports = {
       flydesk: {
         title: "FlyDesk",
         detail:
-            "FlyDesk是TOMS平台提供的远程桌面控制工具。使用 FlyDesk，您可以随时远程控制终端，即刻处理商户的问题，提升商户满意度，同时显著降低成本",
+          "FlyDesk是TOMS平台提供的远程桌面控制工具。使用 FlyDesk，您可以随时远程控制终端，即刻处理商户的问题，提升商户满意度，同时显著降低成本",
         f1: "远程故障排除",
         f2: "即时支持",
         f3: "简单 & 高效",
@@ -140,7 +136,7 @@ module.exports = {
       geo_fencing: {
         title: "地理围栏",
         detail:
-            "地理围栏限制设备的使用区域。当设备超出围栏区域时，会触发警报通知管理员。设备会被自动锁定，避免被不当或非法使用",
+          "地理围栏限制设备的使用区域。当设备超出围栏区域时，会触发警报通知管理员。设备会被自动锁定，避免被不当或非法使用",
         f1: "越界警告",
         f2: "设备追踪",
         f3: "自动锁定",
@@ -149,7 +145,7 @@ module.exports = {
       pre_warning: {
         title: "预警服务",
         detail:
-            "当设备存储、流量，以及各模块健康状况触发用户预设的阈值时，系统会警告用户处理它。保证生产，避免损失",
+          "当设备存储、流量，以及各模块健康状况触发用户预设的阈值时，系统会警告用户处理它。保证生产，避免损失",
         f1: "站内警告",
         f2: "邮件提醒",
         f3: "阈值自定义",
@@ -261,6 +257,8 @@ module.exports = {
     confirm_password_tip: "请确认密码",
     contact_you_in_some_days: "我们将在1-2个工作日内与您联系",
     illegal_mobile: "电话号码格式有误",
+    agree_terms_conditions:
+      '我同意 <a class="link" href="/zh-CN/privacy/privacy-policy"> 隐私条款 </a> 与 <a class="link" href="/zh-CN/privacy/terms"> 条款和条件</a>',
     agree_terms_and_conditions_tip: "你需要接受条款与细则",
     file_required: "请上传CSR证书文件",
     country_required: "请选择国家或地区",
