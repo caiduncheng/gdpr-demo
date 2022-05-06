@@ -30,6 +30,28 @@
                 :show-message="false"
               >
                 <el-form-item prop="username">
+                  <el-input
+                    @focus="hidePopovers"                    
+                    ref="username"
+                    v-model.trim="loginForm.username"
+                    :placeholder="$t('login.account_email_placeholder')"
+                    tabindex="1"
+                    auto-complete="on"
+                    prefix-icon="el-icon-message"
+                  ></el-input>
+                </el-form-item>
+                <el-form-item prop="password">
+                  <el-input
+                    @focus="hidePopovers"                    
+                    :placeholder="$t('login.password')"
+                    v-model="loginForm.password"
+                    type="password"
+                    tabindex="2"
+                    auto-complete="on"
+                    prefix-icon="el-icon-lock"
+                  ></el-input>
+                </el-form-item>
+                <!-- <el-form-item prop="username">
                   <el-popover
                     trigger="manual"
                     v-model="usernamePopover"
@@ -68,7 +90,7 @@
                       prefix-icon="el-icon-lock"
                     ></el-input>
                   </el-popover>
-                </el-form-item>
+                </el-form-item> -->
                 <el-form-item prop="code">
                   <el-row :gutter="20" type="flex" class="items-center">
                     <el-col :span="14">
@@ -125,10 +147,13 @@
                       <i class="el-icon-warning text-yellow-500"></i>
                       {{ invalidMessage }}
                       <el-checkbox slot="reference" v-model="loginForm.checked">
-                        <span class="text-xs">{{ $t("login.i_accept") }}</span>
-                        <NuxtLink to="/privacy/terms" class="link">{{
+                        <span
+                          class="text-xs"
+                          v-html="$t('login.agree_terms_conditions')"
+                        ></span>
+                        <!-- <NuxtLink to="/privacy/terms" class="link">{{
                           $t("login.terms_and_conditions")
-                        }}</NuxtLink>
+                        }}</NuxtLink> -->
                       </el-checkbox>
                     </el-popover>
                     <div class="text-center">
