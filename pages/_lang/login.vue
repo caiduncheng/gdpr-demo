@@ -30,28 +30,6 @@
                 :show-message="false"
               >
                 <el-form-item prop="username">
-                  <el-input
-                    @focus="hidePopovers"                    
-                    ref="username"
-                    v-model.trim="loginForm.username"
-                    :placeholder="$t('login.account_email_placeholder')"
-                    tabindex="1"
-                    auto-complete="on"
-                    prefix-icon="el-icon-message"
-                  ></el-input>
-                </el-form-item>
-                <el-form-item prop="password">
-                  <el-input
-                    @focus="hidePopovers"                    
-                    :placeholder="$t('login.password')"
-                    v-model="loginForm.password"
-                    type="password"
-                    tabindex="2"
-                    auto-complete="on"
-                    prefix-icon="el-icon-lock"
-                  ></el-input>
-                </el-form-item>
-                <!-- <el-form-item prop="username">
                   <el-popover
                     trigger="manual"
                     v-model="usernamePopover"
@@ -90,7 +68,7 @@
                       prefix-icon="el-icon-lock"
                     ></el-input>
                   </el-popover>
-                </el-form-item> -->
+                </el-form-item>
                 <el-form-item prop="code">
                   <el-row :gutter="20" type="flex" class="items-center">
                     <el-col :span="14">
