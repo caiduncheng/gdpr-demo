@@ -38,7 +38,7 @@ module.exports = {
     },
     first_screen: {
       slogan:
-        "The <span class='text-header-blue italic font-bold text-6xl'>TOMS</span> platform was born for <br/> Terminal Lifecycle Management",
+        "The <span class='text-header-blue header-toms'>TOMS</span> platform was born for <br/> Terminal Lifecycle Management",
       target:
         "Reduce manpower investment, improve management efficiency and<br/>reduce operating costs",
       start: "START NOW",

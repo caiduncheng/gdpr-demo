@@ -37,7 +37,8 @@ module.exports = {
         "我们为您提供良好的售后服务、跟踪机制、评估机制和丰富的技术支持工具。",
     },
     first_screen: {
-      slogan: "TOMS平台为终端生命周期管理而生",
+      slogan:
+        "<span class='text-header-blue header-toms'>TOMS</span>&nbsp;平台为终端生命周期管理而生",
       target: "提高终端运营效率，精简人员<br/>降低总运营成本",
       start: "马上体验",
     },
@@ -109,7 +110,7 @@ module.exports = {
       flykey: {
         title: "FlyKey",
         detail:
-            "将 FlyKey 管理门户集成到 TOMS 上。FlyKey 是一个远程密钥下载工具。由于密钥注入系统完全符合最新的PCI PIN 3.1和P2PE标准，FlyKey为远程密钥注入(RKI)和直接密钥注入(DK)提供了解决方案，灵活快捷，降低了人工成本",
+          "将 FlyKey 管理门户集成到 TOMS 上。FlyKey 是一个远程密钥下载工具。由于密钥注入系统完全符合最新的PCI PIN 3.1和P2PE标准，FlyKey为远程密钥注入(RKI)和直接密钥注入(DK)提供了解决方案，灵活快捷，降低了人工成本",
         f1: "安全 & 可靠",
         f2: "灵活 & 快速",
         f3: "减少人力",

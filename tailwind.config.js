@@ -34,6 +34,7 @@ module.exports = {
         "application-yellow": "rgb(245,195,68)",
       },
       textColor: {
+        'header-blue': '#2B7BE5',
         primary: "#2C7BE5",
         secondary: "#6E84A3",
         gray: "#6485AD",

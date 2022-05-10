@@ -20,6 +20,9 @@ export default function ({ $axios, store }) {
       return res;
     },
     (error) => {
+      if (error.message.indexOf('timeout') !== -1) {
+        return Promise.reject('Connection timeout')
+      }
       const status = error.response.status;
       if (status === 401) {
         removeToken();

@@ -1,6 +1,11 @@
 export const api = {
   async login({ commit }, form) {
-    return await this.$axios.post("/online/authorization/auth/login", form);
+    return await this.$axios({
+      url: "/online/authorization/auth/login",
+      data: form,
+      method: "POST",
+      timeout: 1000 * 30
+    });
   },
 
   async sendEmail(store, email) {

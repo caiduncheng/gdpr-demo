@@ -9,6 +9,7 @@
         <div class="container">
           <div class="row">
             <div class="col-6">
+              <h1 class="text-header-blue">{{$t('flykey.fly_key')}}</h1>
               <h2 class="mb-3">{{ $t('flykey.about_flykey_title') }}</h2>
               <p class="text-lg mb-3" v-html="$t('flykey.about_flykey_content')"></p>
               <a class="start-button btn" @click.prevent="playVideo">
@@ -48,10 +49,10 @@
       <section class="section-1 section" id="Flykey">
         <div class="container">
           <div class="row items-center">
-            <div class="col-md-6" data-aos="fade-right" data-aos-duration="1200">
+            <div class="col-md-7" data-aos="fade-right" data-aos-duration="1200">
               <img src="~assets/FLYKEY/02.png" />
             </div>
-            <div class="col-md-6" data-aos="fade-left" data-aos-duration="1200">
+            <div class="col-md-5" data-aos="fade-left" data-aos-duration="1200">
               <div class="pl-8">
                 <h3 class="mb-3">{{ $t('flykey.feature1_title') }}</h3>
                 <p class="mb-5">{{ $t('flykey.feature1_content') }}</p>
