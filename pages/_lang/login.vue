@@ -220,8 +220,6 @@
 </template>
 
 <script>
-import config from "../../config";
-const envConfig = config[process.env.NODE_ENV];
 let JSEncrypt = null;
 
 export default {
@@ -301,7 +299,7 @@ export default {
   },
   methods: {
     getCaptcha() {
-      const prefix = envConfig.VUE_APP_BASE_API;
+      const prefix = process.env.VUE_APP_BASE_API;
       this.$refs.captcha.src =
         prefix +
         "/online/authorization/auth/verify/code?time=" +
@@ -382,16 +380,29 @@ export default {
             }
           } else {
             document.cookie = `${tokenKey}=${token};path=/;domain=${
-              envConfig.VUE_APP_DOMAIN
+              process.env.VUE_APP_DOMAIN
             };expires=${exp.toGMTString()}"`;
 
             exp.setTime(exp.getTime() + 30 * 24 * 3600 * 1000);
 
             document.cookie = `lang=${this.$store.state.locale};path=/;domain=${
-              envConfig.VUE_APP_DOMAIN
+              process.env.VUE_APP_DOMAIN
             };expires=${exp.toGMTString()}"`;
+            let location = ''
 
-            const location = envConfig[`VUE_APP_${characterCode}_ADDRESS`];
+            switch (characterCode) {
+              case 'OPERATOR':
+                location = process.env.VUE_APP_OPERATOR_ADDRESS
+                break;
+              case 'MANUFACTURER':
+                location = process.env.VUE_APP_MANUFACTURER_ADDRESS
+                break;
+              case 'ADMIN':
+                location = process.env.VUE_APP_ADMIN_ADDRESS
+                break;
+            }
+
+            debugger
             window.location.href = location;
           }
         } else {
@@ -400,10 +411,10 @@ export default {
       });
     },
   },
-  async mounted() {
+  async mounted() {        
+    debugger
     const { default: _JSEncrypt } = await import("jsencrypt");
     JSEncrypt = _JSEncrypt;
-    console.log(process.env.NODE_ENV);
     this.getCaptcha();
   },
 };

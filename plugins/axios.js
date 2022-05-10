@@ -1,10 +1,9 @@
 import { Message } from "element-ui";
-import config from "../config";
 import { getCookie, removeToken } from "@/utils";
 
 export default function ({ $axios, store }) {
   // 数据访问前缀
-  $axios.defaults.baseURL = config[process.env.NODE_ENV].VUE_APP_BASE_API;
+  $axios.defaults.baseURL = process.env.VUE_APP_BASE_API;
   // request拦截器
   $axios.onRequest((config) => {
     if (!config.headers["WEB-TOKEN"]) {

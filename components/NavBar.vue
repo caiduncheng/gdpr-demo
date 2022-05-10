@@ -1,14 +1,20 @@
 <template>
   <div>
     <header
-      :class="['header', 'container-fluid', {'fixed-header': fixed, containerXL: !fixed}]"
+      :class="[
+        'header',
+        'container-fluid',
+        { 'fixed-header': fixed, containerXL: !fixed },
+      ]"
       :style="scrollNavBarStyle"
     >
-      <div class="mobile-menu" :class="{show: active}">
+      <div class="mobile-menu" :class="{ show: active }">
         <div class="content">
           <div class="row">
             <div class="col-12 text-center">
-              <NuxtLink :to="{name: 'lang', params: { lang: $store.state.locale} }">
+              <NuxtLink
+                :to="{ name: 'lang', params: { lang: $store.state.locale } }"
+              >
                 <img src="~assets/logo.png" alt="toms logo" />
               </NuxtLink>
             </div>
@@ -17,22 +23,35 @@
                 <ul>
                   <li class="menu-item">
                     <NuxtLink
-                      :to="{name: 'lang', params: { lang: $store.state.locale} }"
+                      :to="{
+                        name: 'lang',
+                        params: { lang: $store.state.locale },
+                      }"
                       exact
-                    >{{ $t('common.home') }}</NuxtLink>
+                      >{{ $t("common.home") }}</NuxtLink
+                    >
                   </li>
                   <li class="menu-item">
                     <NuxtLink to="/production/flykey">FlyKey</NuxtLink>
                   </li>
                   <li class="menu-item">
                     <NuxtLink
-                      :to="{name: 'lang-contact-us', params: { lang: $store.state.locale} }"
+                      :to="{
+                        name: 'lang-contact-us',
+                        params: { lang: $store.state.locale },
+                      }"
                       exact
-                    >{{ $t('common.contact_us') }}</NuxtLink>
+                      >{{ $t("common.contact_us") }}</NuxtLink
+                    >
                   </li>
                   <li class="menu-item">
-                    <NuxtLink :to="{name: 'lang-login', params: { lang: $store.state.locale}}">
-                      <span>{{ $t('common.sign_in') }}</span>
+                    <NuxtLink
+                      :to="{
+                        name: 'lang-login',
+                        params: { lang: $store.state.locale },
+                      }"
+                    >
+                      <span>{{ $t("common.sign_in") }}</span>
                     </NuxtLink>
                   </li>
                 </ul>
@@ -44,10 +63,12 @@
       <div class="header-wrapper">
         <div class="header-inner">
           <div class="col-lg-2 col-12 text-center lg:text-left">
-            <NuxtLink :to="{name: 'lang', params: { lang: $store.state.locale} }">
+            <NuxtLink
+              :to="{ name: 'lang', params: { lang: $store.state.locale } }"
+            >
               <img src="~assets/logo.png" alt="toms logo" />
             </NuxtLink>
-            <div class="menu-toggle" :class="{active}" @click="toggleMenu">
+            <div class="menu-toggle" :class="{ active }" @click="toggleMenu">
               <div class="top"></div>
               <div class="mid"></div>
               <div class="btm"></div>
@@ -61,25 +82,38 @@
                   <ul class="navbar" style="font-weight: 500">
                     <li>
                       <NuxtLink
-                        :to="{name: 'lang', params: { lang: $store.state.locale} }"
+                        :to="{
+                          name: 'lang',
+                          params: { lang: $store.state.locale },
+                        }"
                         exact
-                      >{{ $t('common.home') }}</NuxtLink>
+                        >{{ $t("common.home") }}</NuxtLink
+                      >
                     </li>
                     <li class="dropdown">
                       <a>
-                        {{ $t('common.production') }}
+                        {{ $t("common.production") }}
                         <i class="fa fa-caret-down"></i>
                       </a>
                       <ul role="menu" class="link-menu" style="width: 400px">
                         <li class="flex">
                           <NuxtLink
-                            :to="{name: 'lang-production-flykey', params: { lang: $store.state.locale} }"
+                            :to="{
+                              name: 'lang-production-flykey',
+                              params: { lang: $store.state.locale },
+                            }"
                             class="production"
                           >
-                            <img src="~assets/flykey-logo.png" width="40px" class="mr-2" />
+                            <img
+                              src="~assets/flykey-logo.png"
+                              width="40px"
+                              class="mr-2"
+                            />
                             <div>
                               <span>FlyKey</span>
-                              <p class="production-intro">{{ $t('flykey.navbar_tip') }}</p>
+                              <p class="production-intro">
+                                {{ $t("flykey.navbar_tip") }}
+                              </p>
                             </div>
                           </NuxtLink>
                         </li>
@@ -87,9 +121,13 @@
                     </li>
                     <li>
                       <NuxtLink
-                        :to="{name: 'lang-contact-us', params: { lang: $store.state.locale} }"
+                        :to="{
+                          name: 'lang-contact-us',
+                          params: { lang: $store.state.locale },
+                        }"
                         exact
-                      >{{ $t('common.contact_us') }}</NuxtLink>
+                        >{{ $t("common.contact_us") }}</NuxtLink
+                      >
                     </li>
                   </ul>
                 </nav>
@@ -97,42 +135,67 @@
             </div>
             <div v-if="$store.state.hasLogin" class="user-name dropdown">
               <a>
-                {{ $t('common.hi') }}!&nbsp;{{$store.state.name}}
+                {{ $t("common.hi") }}!&nbsp;{{ $store.state.name }}
                 <i class="fa fa-caret-down"></i>
               </a>
               <ul role="menu" class="link-menu" style="width: 350px">
                 <li class="dropdown">
                   <!--<a :href="location">{{$store.state.platform}} Platform</a>-->
-                  <a :href="location">{{ $t('common.management_platform') }}</a>
+                  <a :href="location">{{ $t("common.management_platform") }}</a>
                 </li>
                 <li>
-                  <a @click.prevent="logout">{{ $t('common.sign_out') }}</a>
+                  <a @click.prevent="logout">{{ $t("common.sign_out") }}</a>
                 </li>
               </ul>
             </div>
             <NuxtLink
               v-else
-              :to="{name: 'lang-login', params: { lang: $store.state.locale}}"
-              :class="['btn',  'btn-light','sign-in__btn', {primary: fixed}]"
+              :to="{
+                name: 'lang-login',
+                params: { lang: $store.state.locale },
+              }"
+              :class="['btn', 'btn-light', 'sign-in__btn', { primary: fixed }]"
             >
-              <span>{{ $t('common.sign_in') }}</span>
+              <span>{{ $t("common.sign_in") }}</span>
             </NuxtLink>
 
             <div class="dropdown language">
               <a>
-                {{language}}
+                {{ language }}
                 <i class="fa fa-caret-down"></i>
               </a>
               <ul role="menu" class="link-menu">
                 <li>
                   <NuxtLink
-                    :to="$store.state.locale === 'en-US' ? '' : { name: $route.name === 'index' ? 'lang': `${$route.name}`, params: { lang: 'en-US' } }"
-                  >English</NuxtLink>
+                    :to="
+                      $store.state.locale === 'en-US'
+                        ? ''
+                        : {
+                            name:
+                              $route.name === 'index'
+                                ? 'lang'
+                                : `${$route.name}`,
+                            params: { lang: 'en-US' },
+                          }
+                    "
+                    >English</NuxtLink
+                  >
                 </li>
                 <li>
                   <NuxtLink
-                    :to="$store.state.locale === 'zh-CN' ? '' : { name: $route.name === 'index' ? 'lang': `lang-${$route.name}`, params: { lang: 'zh-CN' } }"
-                  >中文</NuxtLink>
+                    :to="
+                      $store.state.locale === 'zh-CN'
+                        ? ''
+                        : {
+                            name:
+                              $route.name === 'index'
+                                ? 'lang'
+                                : `lang-${$route.name}`,
+                            params: { lang: 'zh-CN' },
+                          }
+                    "
+                    >中文</NuxtLink
+                  >
                 </li>
               </ul>
             </div>
@@ -146,8 +209,6 @@
 
 <script>
 import { getCookie, removeToken } from "@/utils";
-import config from "../config";
-const envConfig = config[process.env.NODE_ENV];
 
 export default {
   props: {
@@ -181,7 +242,19 @@ export default {
       }
     },
     location() {
-      return envConfig[`VUE_APP_${this.$store.state.platform}_ADDRESS`];
+      let location = ''
+      switch (this.$store.state.platform) {
+        case "OPERATOR":
+          location = process.env.VUE_APP_OPERATOR_ADDRESS;
+          break;
+        case "MANUFACTURER":
+          location = process.env.VUE_APP_MANUFACTURER_ADDRESS;
+          break;
+        case "ADMIN":
+          location = process.env.VUE_APP_ADMIN_ADDRESS;
+          break;
+      }
+      return location
     },
   },
   methods: {

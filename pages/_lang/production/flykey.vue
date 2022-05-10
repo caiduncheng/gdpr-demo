@@ -234,8 +234,6 @@
 </template>
 
 <script>
-import config from "../../../config";
-const envConfig = config[process.env.NODE_ENV];
 export default {
   data() {
     return {
@@ -287,7 +285,7 @@ export default {
   computed: {
     platformLocation() {
       if (this.$store.state.hasLogin) {
-        return envConfig[`VUE_APP_${this.$store.state.platform}_ADDRESS`];
+        return process.env[`VUE_APP_${this.$store.state.platform}_ADDRESS`];
       } else {
         return `/${this.$store.state.locale}/contact-us`;
       }

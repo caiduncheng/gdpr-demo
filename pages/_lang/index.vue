@@ -9,35 +9,46 @@
         <NavBar />
       </div>
       <div class="container">
-        <div class="header-info w-2/4">
+        <div class="header-info md:w-2/4 w-full">
           <h1 class="header-title" v-html="$t('home.first_screen.slogan')"></h1>
 
           <p v-html="$t('home.first_screen.target')"></p>
           <a class="start-button btn" :href="platformLocation">
-            <span>{{ $t('home.first_screen.start') }}</span>
+            <span>{{ $t("home.first_screen.start") }}</span>
           </a>
         </div>
       </div>
     </div>
     <section class="section">
-      <div class="container container-fluid" data-aos="fade-up" data-aos-duration="1200">
+      <div
+        class="container container-fluid"
+        data-aos="fade-up"
+        data-aos-duration="1200"
+      >
         <div class="section-title">
           <div class="text-center">
-            <h2>{{ $t('home.lifecycle.title') }}</h2>
+            <h2>{{ $t("home.lifecycle.title") }}</h2>
           </div>
         </div>
-        <div class="text-center">
+        <div class="text-center hidden md:block">
           <ul class="tabs">
             <li
-              :class="['tab', 'lifecycle-tab', {active: activeIndex === index}]"
+              :class="[
+                'tab',
+                'lifecycle-tab',
+                { active: activeIndex === index },
+              ]"
               v-for="(item, index) in terminalTabs"
               :key="index"
-              @click="() => activeIndex = index "
+              @click="() => (activeIndex = index)"
               :data-index="index"
-            >{{ $t(item) }}</li>
+            >
+              {{ $t(item) }}
+            </li>
             <div class="indicator" :style="indicatorStyle"></div>
           </ul>
         </div>
+        <div class="dropdown block md:hidden"></div>
       </div>
       <div class="containerXL container-fluid">
         <div class="row tab-content justify-between items-center">
@@ -60,26 +71,42 @@
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
-                    <h3 class="mb-2">{{ $t('home.lifecycle.deployment.feature1') }}</h3>
-                    <p class="pr-2">{{ $t('home.lifecycle.deployment.detail1') }}</p>
+                    <h3 class="mb-2">
+                      {{ $t("home.lifecycle.deployment.feature1") }}
+                    </h3>
+                    <p class="pr-2">
+                      {{ $t("home.lifecycle.deployment.detail1") }}
+                    </p>
                   </div>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-2.png" alt class="mb-2" />
-                  <h3 class="mb-2">{{ $t('home.lifecycle.deployment.feature2') }}</h3>
-                  <p class="pr-2">{{ $t('home.lifecycle.deployment.detail2') }}</p>
+                  <h3 class="mb-2">
+                    {{ $t("home.lifecycle.deployment.feature2") }}
+                  </h3>
+                  <p class="pr-2">
+                    {{ $t("home.lifecycle.deployment.detail2") }}
+                  </p>
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-3.png" alt class="mb-2" />
-                  <h3 class="mb-2">{{ $t('home.lifecycle.deployment.feature3') }}</h3>
-                  <p class="pr-2">{{ $t('home.lifecycle.deployment.detail3') }}</p>
+                  <h3 class="mb-2">
+                    {{ $t("home.lifecycle.deployment.feature3") }}
+                  </h3>
+                  <p class="pr-2">
+                    {{ $t("home.lifecycle.deployment.detail3") }}
+                  </p>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-4.png" alt class="mb-2" />
-                  <h3 class="mb-2">{{ $t('home.lifecycle.deployment.feature4') }}</h3>
-                  <p class="pr-2">{{ $t('home.lifecycle.deployment.detail4') }}</p>
+                  <h3 class="mb-2">
+                    {{ $t("home.lifecycle.deployment.feature4") }}
+                  </h3>
+                  <p class="pr-2">
+                    {{ $t("home.lifecycle.deployment.detail4") }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -103,26 +130,42 @@
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
-                    <h3 class="mb-2">{{ $t('home.lifecycle.multi_dimen.feature1') }}</h3>
-                    <p class="pr-2">{{ $t('home.lifecycle.multi_dimen.detail1') }}</p>
+                    <h3 class="mb-2">
+                      {{ $t("home.lifecycle.multi_dimen.feature1") }}
+                    </h3>
+                    <p class="pr-2">
+                      {{ $t("home.lifecycle.multi_dimen.detail1") }}
+                    </p>
                   </div>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-2.png" alt class="mb-2" />
-                  <h3 class="mb-2">{{ $t('home.lifecycle.multi_dimen.feature2') }}</h3>
-                  <p class="pr-2">{{ $t('home.lifecycle.multi_dimen.detail2') }}</p>
+                  <h3 class="mb-2">
+                    {{ $t("home.lifecycle.multi_dimen.feature2") }}
+                  </h3>
+                  <p class="pr-2">
+                    {{ $t("home.lifecycle.multi_dimen.detail2") }}
+                  </p>
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-3.png" alt class="mb-2" />
-                  <h3 class="mb-2">{{ $t('home.lifecycle.multi_dimen.feature3') }}</h3>
-                  <p class="pr-2">{{ $t('home.lifecycle.multi_dimen.detail3') }}</p>
+                  <h3 class="mb-2">
+                    {{ $t("home.lifecycle.multi_dimen.feature3") }}
+                  </h3>
+                  <p class="pr-2">
+                    {{ $t("home.lifecycle.multi_dimen.detail3") }}
+                  </p>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-4.png" alt class="mb-2" />
-                  <h3 class="mb-2">{{ $t('home.lifecycle.multi_dimen.feature4') }}</h3>
-                  <p class="pr-2">{{ $t('home.lifecycle.multi_dimen.detail4') }}</p>
+                  <h3 class="mb-2">
+                    {{ $t("home.lifecycle.multi_dimen.feature4") }}
+                  </h3>
+                  <p class="pr-2">
+                    {{ $t("home.lifecycle.multi_dimen.detail4") }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -146,26 +189,42 @@
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
-                    <h3 class="mb-2">{{ $t('home.lifecycle.software.feature1') }}</h3>
-                    <p class="pr-2">{{ $t('home.lifecycle.software.detail1') }}</p>
+                    <h3 class="mb-2">
+                      {{ $t("home.lifecycle.software.feature1") }}
+                    </h3>
+                    <p class="pr-2">
+                      {{ $t("home.lifecycle.software.detail1") }}
+                    </p>
                   </div>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-2.png" alt class="mb-2" />
-                  <h3 class="mb-2">{{ $t('home.lifecycle.software.feature2') }}</h3>
-                  <p class="pr-2">{{ $t('home.lifecycle.software.detail2') }}</p>
+                  <h3 class="mb-2">
+                    {{ $t("home.lifecycle.software.feature2") }}
+                  </h3>
+                  <p class="pr-2">
+                    {{ $t("home.lifecycle.software.detail2") }}
+                  </p>
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-3.png" alt class="mb-2" />
-                  <h3 class="mb-2">{{ $t('home.lifecycle.software.feature3') }}</h3>
-                  <p class="pr-2">{{ $t('home.lifecycle.software.detail3') }}</p>
+                  <h3 class="mb-2">
+                    {{ $t("home.lifecycle.software.feature3") }}
+                  </h3>
+                  <p class="pr-2">
+                    {{ $t("home.lifecycle.software.detail3") }}
+                  </p>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-4.png" alt class="mb-2" />
-                  <h3 class="mb-2">{{ $t('home.lifecycle.software.feature4') }}</h3>
-                  <p class="pr-2">{{ $t('home.lifecycle.software.detail4') }}</p>
+                  <h3 class="mb-2">
+                    {{ $t("home.lifecycle.software.feature4") }}
+                  </h3>
+                  <p class="pr-2">
+                    {{ $t("home.lifecycle.software.detail4") }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -189,26 +248,36 @@
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
-                    <h3 class="mb-2">{{ $t('home.lifecycle.monitor.feature1') }}</h3>
-                    <p class="pr-2">{{ $t('home.lifecycle.monitor.detail1') }}</p>
+                    <h3 class="mb-2">
+                      {{ $t("home.lifecycle.monitor.feature1") }}
+                    </h3>
+                    <p class="pr-2">
+                      {{ $t("home.lifecycle.monitor.detail1") }}
+                    </p>
                   </div>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-2.png" alt class="mb-2" />
-                  <h3 class="mb-2">{{ $t('home.lifecycle.monitor.feature2') }}</h3>
-                  <p class="pr-2">{{ $t('home.lifecycle.monitor.detail2') }}</p>
+                  <h3 class="mb-2">
+                    {{ $t("home.lifecycle.monitor.feature2") }}
+                  </h3>
+                  <p class="pr-2">{{ $t("home.lifecycle.monitor.detail2") }}</p>
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-3.png" alt class="mb-2" />
-                  <h3 class="mb-2">{{ $t('home.lifecycle.monitor.feature3') }}</h3>
-                  <p class="pr-2">{{ $t('home.lifecycle.monitor.detail3') }}</p>
+                  <h3 class="mb-2">
+                    {{ $t("home.lifecycle.monitor.feature3") }}
+                  </h3>
+                  <p class="pr-2">{{ $t("home.lifecycle.monitor.detail3") }}</p>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-4.png" alt class="mb-2" />
-                  <h3 class="mb-2">{{ $t('home.lifecycle.monitor.feature4') }}</h3>
-                  <p class="pr-2">{{ $t('home.lifecycle.monitor.detail4') }}</p>
+                  <h3 class="mb-2">
+                    {{ $t("home.lifecycle.monitor.feature4") }}
+                  </h3>
+                  <p class="pr-2">{{ $t("home.lifecycle.monitor.detail4") }}</p>
                 </div>
               </div>
             </div>
@@ -232,26 +301,42 @@
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
-                    <h3 class="mb-2">{{ $t('home.lifecycle.diagnosis.feature1') }}</h3>
-                    <p class="pr-2">{{ $t('home.lifecycle.diagnosis.detail1') }}</p>
+                    <h3 class="mb-2">
+                      {{ $t("home.lifecycle.diagnosis.feature1") }}
+                    </h3>
+                    <p class="pr-2">
+                      {{ $t("home.lifecycle.diagnosis.detail1") }}
+                    </p>
                   </div>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-2.png" alt class="mb-2" />
-                  <h3 class="mb-2">{{ $t('home.lifecycle.diagnosis.feature2') }}</h3>
-                  <p class="pr-2">{{ $t('home.lifecycle.diagnosis.detail2') }}</p>
+                  <h3 class="mb-2">
+                    {{ $t("home.lifecycle.diagnosis.feature2") }}
+                  </h3>
+                  <p class="pr-2">
+                    {{ $t("home.lifecycle.diagnosis.detail2") }}
+                  </p>
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-6">
                   <img src="~assets/img-3.png" alt class="mb-2" />
-                  <h3 class="mb-2">{{ $t('home.lifecycle.diagnosis.feature3') }}</h3>
-                  <p class="pr-2">{{ $t('home.lifecycle.diagnosis.detail3') }}</p>
+                  <h3 class="mb-2">
+                    {{ $t("home.lifecycle.diagnosis.feature3") }}
+                  </h3>
+                  <p class="pr-2">
+                    {{ $t("home.lifecycle.diagnosis.detail3") }}
+                  </p>
                 </div>
                 <div class="col-6">
                   <img src="~assets/img-4.png" alt class="mb-2" />
-                  <h3 class="mb-2">{{ $t('home.lifecycle.diagnosis.feature4') }}</h3>
-                  <p class="pr-2">{{ $t('home.lifecycle.diagnosis.detail4') }}</p>
+                  <h3 class="mb-2">
+                    {{ $t("home.lifecycle.diagnosis.feature4") }}
+                  </h3>
+                  <p class="pr-2">
+                    {{ $t("home.lifecycle.diagnosis.detail4") }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -275,8 +360,12 @@
                 <div class="col-6">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div>
-                    <h3 class="mb-2">{{ $t('home.lifecycle.customization.feature1') }}</h3>
-                    <p class="pr-2">{{ $t('home.lifecycle.customization.detail1') }}</p>
+                    <h3 class="mb-2">
+                      {{ $t("home.lifecycle.customization.feature1") }}
+                    </h3>
+                    <p class="pr-2">
+                      {{ $t("home.lifecycle.customization.detail1") }}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -287,21 +376,31 @@
     </section>
 
     <section class="section value-add-service">
-      <div class="container container-fluid" data-aos="fade-up" data-aos-duration="1200">
+      <div
+        class="container container-fluid"
+        data-aos="fade-up"
+        data-aos-duration="1200"
+      >
         <div class="section-title">
           <div class="text-center">
-            <h2>{{$t('home.vas.title')}}</h2>
+            <h2>{{ $t("home.vas.title") }}</h2>
           </div>
         </div>
         <div class="text-center">
           <ul class="tabs relative">
             <li
-              :class="['tab', 'service-tab', {active: activeServiceIndex === index}]"
+              :class="[
+                'tab',
+                'service-tab',
+                { active: activeServiceIndex === index },
+              ]"
               v-for="(item, index) in serviceTabs"
               :key="index"
-              @click="() => activeServiceIndex = index"
+              @click="() => (activeServiceIndex = index)"
               :data-index="index"
-            >{{$t(item)}}</li>
+            >
+              {{ $t(item) }}
+            </li>
             <div class="indicator" :style="serviceIndicatorStyle"></div>
           </ul>
         </div>
@@ -310,26 +409,32 @@
         <div class="row items-center no-gutters">
           <!-- FlyKey -->
           <template v-if="activeServiceIndex === 0">
-            <div class="col-md-5" data-aos="fade-right" data-aos-duration="1200">
-              <h1 class="value-add-service__title">{{$t('home.vas.flykey.title')}}</h1>
+            <div
+              class="col-md-5"
+              data-aos="fade-right"
+              data-aos-duration="1200"
+            >
+              <h1 class="value-add-service__title">
+                {{ $t("home.vas.flykey.title") }}
+              </h1>
               <div class="line"></div>
-              <p class="service-info">{{$t('home.vas.flykey.detail')}}</p>
+              <p class="service-info">{{ $t("home.vas.flykey.detail") }}</p>
               <ul class="service-features">
                 <li>
                   <img src="~/assets/Value-Added Service/1.png" alt />
-                  {{$t('home.vas.flykey.f1')}}
+                  {{ $t("home.vas.flykey.f1") }}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/2.png" alt />
-                  {{$t('home.vas.flykey.f2')}}
+                  {{ $t("home.vas.flykey.f2") }}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/3.png" alt />
-                  {{$t('home.vas.flykey.f3')}}
+                  {{ $t("home.vas.flykey.f3") }}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/4.png" alt />
-                  {{$t('home.vas.flykey.f4')}}
+                  {{ $t("home.vas.flykey.f4") }}
                 </li>
               </ul>
             </div>
@@ -338,7 +443,11 @@
               data-aos="fade-left"
               data-aos-duration="1200"
             >
-              <img src="~assets/Value-Added Service/flykey/3.png" alt class="device" />
+              <img
+                src="~assets/Value-Added Service/flykey/3.png"
+                alt
+                class="device"
+              />
               <img
                 src="~assets/Value-Added Service/flykey/1.png"
                 alt
@@ -347,32 +456,42 @@
                 data-aos-duration="1200"
                 data-aos-delay="1000"
               />
-              <img src="~assets/Value-Added Service/flykey/2.png" alt class="cloud" />
+              <img
+                src="~assets/Value-Added Service/flykey/2.png"
+                alt
+                class="cloud"
+              />
               <!-- <img src="~assets/Value-Added Service/FlyDesk/7.png" alt class="w-full" /> -->
             </div>
           </template>
           <!-- FlyDesk -->
           <template v-else-if="activeServiceIndex === 1">
-            <div class="col-md-5" data-aos="fade-right" data-aos-duration="1200">
-              <h1 class="value-add-service__title">{{$t('home.vas.flydesk.title')}}</h1>
+            <div
+              class="col-md-5"
+              data-aos="fade-right"
+              data-aos-duration="1200"
+            >
+              <h1 class="value-add-service__title">
+                {{ $t("home.vas.flydesk.title") }}
+              </h1>
               <div class="line"></div>
-              <p class="service-info">{{$t('home.vas.flydesk.detail')}}</p>
+              <p class="service-info">{{ $t("home.vas.flydesk.detail") }}</p>
               <ul class="service-features">
                 <li>
                   <img src="~/assets/Value-Added Service/1.png" alt />
-                  {{$t('home.vas.flydesk.f1')}}
+                  {{ $t("home.vas.flydesk.f1") }}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/2.png" alt />
-                  {{$t('home.vas.flydesk.f2')}}
+                  {{ $t("home.vas.flydesk.f2") }}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/3.png" alt />
-                  {{$t('home.vas.flydesk.f3')}}
+                  {{ $t("home.vas.flydesk.f3") }}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/4.png" alt />
-                  {{$t('home.vas.flydesk.f4')}}
+                  {{ $t("home.vas.flydesk.f4") }}
                 </li>
               </ul>
             </div>
@@ -381,9 +500,21 @@
               data-aos="fade-left"
               data-aos-duration="1200"
             >
-              <img src="~assets/Value-Added Service/FlyDesk/6.png" alt class="left" />
-              <img src="~assets/Value-Added Service/FlyDesk/1.png" alt class="right" />
-              <img src="~assets/Value-Added Service/FlyDesk/4.png" alt class="green-dot" />
+              <img
+                src="~assets/Value-Added Service/FlyDesk/6.png"
+                alt
+                class="left"
+              />
+              <img
+                src="~assets/Value-Added Service/FlyDesk/1.png"
+                alt
+                class="right"
+              />
+              <img
+                src="~assets/Value-Added Service/FlyDesk/4.png"
+                alt
+                class="green-dot"
+              />
               <img
                 src="~assets/Value-Added Service/FlyDesk/2.png"
                 alt
@@ -413,26 +544,32 @@
           </template>
           <!-- Hardware -->
           <template v-else-if="activeServiceIndex === 2">
-            <div class="col-md-5" data-aos="fade-right" data-aos-duration="1200">
-              <h1 class="value-add-service__title">{{$t('home.vas.diagnosis.title')}}</h1>
+            <div
+              class="col-md-5"
+              data-aos="fade-right"
+              data-aos-duration="1200"
+            >
+              <h1 class="value-add-service__title">
+                {{ $t("home.vas.diagnosis.title") }}
+              </h1>
               <div class="line"></div>
-              <p class="service-info">{{$t('home.vas.diagnosis.detail')}}</p>
+              <p class="service-info">{{ $t("home.vas.diagnosis.detail") }}</p>
               <ul class="service-features">
                 <li>
                   <img src="~/assets/Value-Added Service/1.png" alt />
-                  {{$t('home.vas.diagnosis.f1')}}
+                  {{ $t("home.vas.diagnosis.f1") }}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/2.png" alt />
-                  {{$t('home.vas.diagnosis.f2')}}
+                  {{ $t("home.vas.diagnosis.f2") }}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/3.png" alt />
-                  {{$t('home.vas.diagnosis.f3')}}
+                  {{ $t("home.vas.diagnosis.f3") }}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/4.png" alt />
-                  {{$t('home.vas.diagnosis.f4')}}
+                  {{ $t("home.vas.diagnosis.f4") }}
                 </li>
               </ul>
             </div>
@@ -441,33 +578,49 @@
               data-aos="fade-left"
               data-aos-duration="1200"
             >
-              <img src="~assets/Value-Added Service/hardware-diagnostics/1.png" alt class="left" />
-              <img src="~assets/Value-Added Service/hardware-diagnostics/5.png" alt class="right" />
+              <img
+                src="~assets/Value-Added Service/hardware-diagnostics/1.png"
+                alt
+                class="left"
+              />
+              <img
+                src="~assets/Value-Added Service/hardware-diagnostics/5.png"
+                alt
+                class="right"
+              />
               <!-- <img src="~assets/Value-Added Service/FlyDesk/7.png" alt class="w-full" /> -->
             </div>
           </template>
           <!-- Geo-fencing -->
           <template v-else-if="activeServiceIndex === 3">
-            <div class="col-md-5" data-aos="fade-right" data-aos-duration="1200">
-              <h1 class="value-add-service__title">{{$t('home.vas.geo_fencing.title')}}</h1>
+            <div
+              class="col-md-5"
+              data-aos="fade-right"
+              data-aos-duration="1200"
+            >
+              <h1 class="value-add-service__title">
+                {{ $t("home.vas.geo_fencing.title") }}
+              </h1>
               <div class="line"></div>
-              <p class="service-info">{{$t('home.vas.geo_fencing.detail')}}</p>
+              <p class="service-info">
+                {{ $t("home.vas.geo_fencing.detail") }}
+              </p>
               <ul class="service-features">
                 <li>
                   <img src="~/assets/Value-Added Service/1.png" alt />
-                  {{$t('home.vas.geo_fencing.f1')}}
+                  {{ $t("home.vas.geo_fencing.f1") }}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/2.png" alt />
-                  {{$t('home.vas.geo_fencing.f2')}}
+                  {{ $t("home.vas.geo_fencing.f2") }}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/3.png" alt />
-                  {{$t('home.vas.geo_fencing.f3')}}
+                  {{ $t("home.vas.geo_fencing.f3") }}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/4.png" alt />
-                  {{$t('home.vas.geo_fencing.f4')}}
+                  {{ $t("home.vas.geo_fencing.f4") }}
                 </li>
               </ul>
             </div>
@@ -476,33 +629,49 @@
               data-aos="fade-left"
               data-aos-duration="1200"
             >
-              <img src="~assets/Value-Added Service/Geo-fencing/1.png" alt class="left" />
-              <img src="~assets/Value-Added Service/Geo-fencing/4.png" alt class="right" />
+              <img
+                src="~assets/Value-Added Service/Geo-fencing/1.png"
+                alt
+                class="left"
+              />
+              <img
+                src="~assets/Value-Added Service/Geo-fencing/4.png"
+                alt
+                class="right"
+              />
               <!-- <img src="~assets/Value-Added Service/FlyDesk/7.png" alt class="w-full" /> -->
             </div>
           </template>
           <!-- Pre-warning -->
           <template v-else-if="activeServiceIndex === 4">
-            <div class="col-md-5" data-aos="fade-right" data-aos-duration="1200">
-              <h1 class="value-add-service__title">{{$t('home.vas.pre_warning.title')}}</h1>
+            <div
+              class="col-md-5"
+              data-aos="fade-right"
+              data-aos-duration="1200"
+            >
+              <h1 class="value-add-service__title">
+                {{ $t("home.vas.pre_warning.title") }}
+              </h1>
               <div class="line"></div>
-              <p class="service-info">{{$t('home.vas.pre_warning.detail')}}</p>
+              <p class="service-info">
+                {{ $t("home.vas.pre_warning.detail") }}
+              </p>
               <ul class="service-features">
                 <li>
                   <img src="~/assets/Value-Added Service/1.png" alt />
-                  {{$t('home.vas.pre_warning.f1')}}
+                  {{ $t("home.vas.pre_warning.f1") }}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/2.png" alt />
-                  {{$t('home.vas.pre_warning.f2')}}
+                  {{ $t("home.vas.pre_warning.f2") }}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/3.png" alt />
-                  {{$t('home.vas.pre_warning.f3')}}
+                  {{ $t("home.vas.pre_warning.f3") }}
                 </li>
                 <li>
                   <img src="~/assets/Value-Added Service/4.png" alt />
-                  {{$t('home.vas.pre_warning.f4')}}
+                  {{ $t("home.vas.pre_warning.f4") }}
                 </li>
               </ul>
             </div>
@@ -511,7 +680,11 @@
               data-aos="fade-left"
               data-aos-duration="1200"
             >
-              <img src="~assets/Value-Added Service/Pre-warning/1.png" alt class="left" />
+              <img
+                src="~assets/Value-Added Service/Pre-warning/1.png"
+                alt
+                class="left"
+              />
             </div>
           </template>
         </div>
@@ -524,24 +697,28 @@
           <div class="col-md-7 brand-store-left">
             <!-- <img src="~assets/macbook.png" alt class="mac-book w-full" /> -->
           </div>
-          <div class="col-md-5 text-white" data-aos="fade-up" data-aos-duration="1200">
-            <h3 class="mb-10">{{$t('home.appstore.title')}}</h3>
+          <div
+            class="col-md-5 text-white"
+            data-aos="fade-up"
+            data-aos-duration="1200"
+          >
+            <h3 class="mb-10">{{ $t("home.appstore.title") }}</h3>
             <ul>
               <li class="mb-10">
                 <img src="~assets/OwnBrandStore/icon-1.png" alt />
-                {{$t('home.appstore.f1')}}
+                {{ $t("home.appstore.f1") }}
               </li>
               <li class="mb-10">
                 <img src="~assets/OwnBrandStore/icon-2.png" alt />
-                {{$t('home.appstore.f2')}}
+                {{ $t("home.appstore.f2") }}
               </li>
               <li class="mb-10">
                 <img src="~assets/OwnBrandStore/icon-3.png" alt />
-                {{$t('home.appstore.f3')}}
+                {{ $t("home.appstore.f3") }}
               </li>
               <li>
                 <img src="~assets/OwnBrandStore/icon-4.png" alt />
-                {{$t('home.appstore.f4')}}
+                {{ $t("home.appstore.f4") }}
               </li>
             </ul>
           </div>
@@ -553,8 +730,6 @@
 </template>
 
 <script>
-import config from "../../config";
-const envConfig = config[process.env.NODE_ENV];
 export default {
   data() {
     return {
@@ -581,7 +756,19 @@ export default {
   computed: {
     platformLocation() {
       if (this.$store.state.hasLogin) {
-        return envConfig[`VUE_APP_${this.$store.state.platform}_ADDRESS`];
+        let location = "";
+        switch (this.$store.state.platform) {
+          case "OPERATOR":
+            location = process.env.VUE_APP_OPERATOR_ADDRESS;
+            break;
+          case "MANUFACTURER":
+            location = process.env.VUE_APP_MANUFACTURER_ADDRESS;
+            break;
+          case "ADMIN":
+            location = process.env.VUE_APP_ADMIN_ADDRESS;
+            break;
+        }
+        return location;
       } else {
         return `/${this.$store.state.locale}/contact-us`;
       }
@@ -688,10 +875,27 @@ export default {
 
   & > h1 {
     animation: fade 1s;
-    font-size: 2.5rem;
+    line-height: 40px;
+    font-size: 2rem;
     margin-bottom: 40px;
-    line-height: 50px;
-    text-transform: uppercase;
+    padding: 0px 20px;
+
+    @screen sm {
+      padding: 0;
+      font-size: 2.5rem;
+      line-height: 50px;
+      /* font-size:  */
+    }
+
+    .header-toms {
+      font-style: italic;
+      font-weight: bold;
+      font-size: 40px;
+      @screen sm {
+        font-size: 60px;
+      }
+    }
+    /* text-transform: uppercase; */
     /* line-height: 1.2; */
   }
 
@@ -758,6 +962,14 @@ export default {
       /* border-bottom: 3px solid !important; */
       color: #000000;
     }
+  }
+}
+
+.dropdown {
+  .dropdown-toggle {
+    background: #1d1d1d;
+    color: #ffffff;
+    padding: 16px;
   }
 }
 

@@ -1,5 +1,43 @@
 const webpack = require("webpack");
 
+require("dotenv").config();
+let baseUrl = "";
+let operatorAddress = "";
+let manufacturerAddress = "";
+let adminAddress = "";
+let domain = "";
+
+switch (process.env.BASE) {
+  case "dev":
+    baseUrl = process.env.DEV_BASE_URL;
+    operatorAddress = process.env.DEV_OPERATOR_ADDRESS;
+    manufacturerAddress = process.env.DEV_MANUFACTURER_ADDRESS;
+    adminAddress = process.env.DEV_ADMIN_ADDRESS;
+    domain = process.env.DEV_APP_DOMAIN;    
+    break;
+  case "test":
+    baseUrl = process.env.TEST_BASE_URL;
+    operatorAddress = process.env.TEST_OPERATOR_ADDRESS;
+    manufacturerAddress = process.env.TEST_MANUFACTURER_ADDRESS;
+    adminAddress = process.env.TEST_ADMIN_ADDRESS;
+    domain = process.env.TEST_APP_DOMAIN;
+    break;
+  case 'inte':
+    baseUrl = process.env.INTE_BASE_URL;
+    operatorAddress = process.env.INTE_OPERATOR_ADDRESS;
+    manufacturerAddress = process.env.INTE_MANUFACTURER_ADDRESS;
+    adminAddress = process.env.INTE_ADMIN_ADDRESS;
+    domain = process.env.INTE_APP_DOMAIN;
+    break;
+  case "production":
+    baseUrl = process.env.PROD_BASE_URL;
+    operatorAddress = process.env.PROD_OPERATOR_ADDRESS;
+    manufacturerAddress = process.env.PROD_MANUFACTURER_ADDRESS;
+    adminAddress = process.env.PROD_ADMIN_ADDRESS;
+    domain = process.env.PROD_APP_DOMAIN;
+    break;
+}
+
 export default {
   mode: "universal",
   target: "static",
@@ -54,7 +92,7 @@ export default {
   generate: {
     routes: ["/", "zh-CN"],
   },
-  modules: ["@nuxtjs/axios", "vue-scrollto/nuxt"],
+  modules: ["@nuxtjs/axios", "vue-scrollto/nuxt", "@nuxtjs/dotenv"],
   axios: {
     proxy: true,
     credentials: true,
@@ -80,6 +118,10 @@ export default {
     },
   },
   env: {
-    VUE_APP_BASE_API: process.env.VUE_APP_BASE_API,
+    VUE_APP_BASE_API: baseUrl,    
+    VUE_APP_OPERATOR_ADDRESS: operatorAddress,
+    VUE_APP_MANUFACTURER_ADDRESS: manufacturerAddress,
+    VUE_APP_ADMIN_ADDRESS: adminAddress,
+    VUE_APP_DOMAIN: domain
   },
 };

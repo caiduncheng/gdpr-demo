@@ -1,13 +1,16 @@
 {
   "name": "TOMS",
   "scripts": {
-    "dev": "nuxt",
+    "dev": "cross-env NODE_ENV=development BASE=dev nuxt",
     "build": "nuxt build",
-    "generate": "nuxt generate",
+    "generate:test": "cross-env NODE_ENV=production BASE=test nuxt generate",
+    "generate:inte": "cross-env NODE_ENV=production BASE=inte nuxt generate",    
+    "generate": "cross-env NODE_ENV=production BASE=production nuxt generate",
     "start": "nuxt start"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@tailwindcss/postcss7-compat": "^2.2.17",
     "aos": "^2.3.4",
     "autoprefixer": "^9.8.8",
