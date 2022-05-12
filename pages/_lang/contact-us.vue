@@ -121,7 +121,7 @@
           <div v-else class="text-center col-6 offset-3">
             <el-card>
               <el-result icon="success">
-                <h2 slot="title" class="text-3xl">{{ $t('contact.sent_successfully') }}</h2>
+                <h2 slot="title" class="text-3xl">{{ $t('contact.message_successfully_sent') }}</h2>
               </el-result>
 
               <NuxtLink :to="{name: 'lang', params: { lang: $store.state.locale} }">
