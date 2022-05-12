@@ -203,7 +203,7 @@ module.exports = {
   },
   login: {
     welcome: "欢迎！",
-    slogan: "放弃复杂性，拥抱世界。",
+    slogan: "摒弃繁杂，拥抱世界！",
     sign_in: "登录",
     sign_in_tip: "登录并操作您的终端。",
     account_email: "账号(邮箱)",
@@ -259,7 +259,7 @@ module.exports = {
     contact_you_in_some_days: "我们将在1-2个工作日内与您联系",
     illegal_mobile: "电话号码格式有误",
     agree_terms_conditions:
-      '我同意 <a class="link" href="/zh-CN/privacy/privacy-policy"> 隐私条款 </a> 与 <a class="link" href="/zh-CN/privacy/terms"> 条款和条件</a>',
+      '我同意 <a class="link" href="/zh-CN/privacy/privacy-policy"> Privacy Policy </a> 与 <a class="link" href="/zh-CN/privacy/terms"> Terms & Conditions</a>',
     agree_terms_and_conditions_tip: "你需要接受条款与细则",
     file_required: "请上传CSR证书文件",
     country_required: "请选择国家或地区",
