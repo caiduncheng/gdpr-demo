@@ -411,8 +411,7 @@ export default {
       });
     },
   },
-  async mounted() {        
-    debugger
+  async mounted() {            
     const { default: _JSEncrypt } = await import("jsencrypt");
     JSEncrypt = _JSEncrypt;
     this.getCaptcha();
