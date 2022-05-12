@@ -13,7 +13,7 @@ switch (process.env.BASE) {
     operatorAddress = process.env.DEV_OPERATOR_ADDRESS;
     manufacturerAddress = process.env.DEV_MANUFACTURER_ADDRESS;
     adminAddress = process.env.DEV_ADMIN_ADDRESS;
-    domain = process.env.DEV_APP_DOMAIN;    
+    domain = process.env.DEV_APP_DOMAIN;
     break;
   case "test":
     baseUrl = process.env.TEST_BASE_URL;
@@ -22,7 +22,7 @@ switch (process.env.BASE) {
     adminAddress = process.env.TEST_ADMIN_ADDRESS;
     domain = process.env.TEST_APP_DOMAIN;
     break;
-  case 'inte':
+  case "inte":
     baseUrl = process.env.INTE_BASE_URL;
     operatorAddress = process.env.INTE_OPERATOR_ADDRESS;
     manufacturerAddress = process.env.INTE_MANUFACTURER_ADDRESS;
@@ -35,6 +35,13 @@ switch (process.env.BASE) {
     manufacturerAddress = process.env.PROD_MANUFACTURER_ADDRESS;
     adminAddress = process.env.PROD_ADMIN_ADDRESS;
     domain = process.env.PROD_APP_DOMAIN;
+    break;
+  default:
+    baseUrl = process.env.BASE_URL;
+    operatorAddress = process.env.OPERATOR_ADDRESS;
+    manufacturerAddress = process.env.MANUFACTURER_ADDRESS;
+    adminAddress = process.env.ADMIN_ADDRESS;
+    domain = process.env.APP_DOMAIN;
     break;
 }
 
@@ -118,10 +125,10 @@ export default {
     },
   },
   env: {
-    VUE_APP_BASE_API: baseUrl,    
+    VUE_APP_BASE_API: baseUrl,
     VUE_APP_OPERATOR_ADDRESS: operatorAddress,
     VUE_APP_MANUFACTURER_ADDRESS: manufacturerAddress,
     VUE_APP_ADMIN_ADDRESS: adminAddress,
-    VUE_APP_DOMAIN: domain
+    VUE_APP_DOMAIN: domain,
   },
 };
