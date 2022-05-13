@@ -22,6 +22,7 @@ export default function ({ $axios, store }) {
       if (error.message.indexOf('timeout') !== -1) {
         return Promise.reject('Connection timeout')
       }
+      if (error.response) {
       const status = error.response.status;
       if (status === 401) {
         removeToken();
@@ -33,12 +34,14 @@ export default function ({ $axios, store }) {
       } else {
         errorMessage = error.message;
       }
+        return Promise.reject(errorMessage);
+      }
+      return Promise.reject('Network Error')
       // Message({
       //   message: errorMessage,
       //   type: "error",
       //   duration: 5 * 1000,
       // });
-      return Promise.reject(errorMessage);
     }
   );
 }

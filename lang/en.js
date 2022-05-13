@@ -265,7 +265,7 @@ module.exports = {
     address: "Company Address",
     address_placeholder: "Please enter company address",
     name: "Name",
-    company_name: "Company Name",
+    company_name: "Operator Name",
     name_placeholder: "Please enter name",
     contacts: "Contacts",
     contacts_placeholder: "Please enter contact name",

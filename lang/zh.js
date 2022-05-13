@@ -241,7 +241,7 @@ module.exports = {
     address: "公司地址",
     address_placeholder: "请输入公司地址",
     name: "名称",
-    company_name: "公司名称",
+    company_name: "运营商名称",
     name_placeholder: "请输入名称",
     contacts: "联系人",
     contacts_placeholder: "请输入联系人名称",
