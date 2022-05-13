@@ -8,14 +8,14 @@ let adminAddress = "";
 let domain = "";
 
 switch (process.env.BASE) {
-  case "dev":
+  case "test":
     baseUrl = process.env.DEV_BASE_URL;
     operatorAddress = process.env.DEV_OPERATOR_ADDRESS;
     manufacturerAddress = process.env.DEV_MANUFACTURER_ADDRESS;
     adminAddress = process.env.DEV_ADMIN_ADDRESS;
     domain = process.env.DEV_APP_DOMAIN;
     break;
-  case "test":
+  case "dev":
     baseUrl = process.env.TEST_BASE_URL;
     operatorAddress = process.env.TEST_OPERATOR_ADDRESS;
     manufacturerAddress = process.env.TEST_MANUFACTURER_ADDRESS;
