@@ -392,7 +392,7 @@ export default {
       float: none;
       text-align: left;
       display: block;
-      font-size: 15px;
+      /* font-size: 15px; */
     }
   }
 
