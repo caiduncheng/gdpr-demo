@@ -12,9 +12,7 @@
         <div class="content">
           <div class="row">
             <div class="col-12 text-center">
-              <NuxtLink
-                :to="{ name: 'lang', params: { lang: $store.state.locale } }"
-              >
+              <NuxtLink :to="{ name: 'lang', params: { lang: $store.state.locale } }">
                 <img src="~assets/logo.png" alt="toms logo" />
               </NuxtLink>
             </div>
@@ -28,11 +26,10 @@
                         params: { lang: $store.state.locale },
                       }"
                       exact
-                      >{{ $t("common.home") }}</NuxtLink
-                    >
+                    >{{ $t("common.home") }}</NuxtLink>
                   </li>
                   <li class="menu-item">
-                    <NuxtLink to="/production/flykey">FlyKey</NuxtLink>
+                    <NuxtLink to="/products/flykey">FlyKey</NuxtLink>
                   </li>
                   <li class="menu-item">
                     <NuxtLink
@@ -41,8 +38,7 @@
                         params: { lang: $store.state.locale },
                       }"
                       exact
-                      >{{ $t("common.contact_us") }}</NuxtLink
-                    >
+                    >{{ $t("common.contact_us") }}</NuxtLink>
                   </li>
                   <li class="menu-item">
                     <NuxtLink
@@ -63,9 +59,7 @@
       <div class="header-wrapper">
         <div class="header-inner">
           <div class="col-lg-2 col-12 text-center lg:text-left">
-            <NuxtLink
-              :to="{ name: 'lang', params: { lang: $store.state.locale } }"
-            >
+            <NuxtLink :to="{ name: 'lang', params: { lang: $store.state.locale } }">
               <img src="~assets/logo.png" alt="toms logo" />
             </NuxtLink>
             <div class="menu-toggle" :class="{ active }" @click="toggleMenu">
@@ -87,8 +81,7 @@
                           params: { lang: $store.state.locale },
                         }"
                         exact
-                        >{{ $t("common.home") }}</NuxtLink
-                      >
+                      >{{ $t("common.home") }}</NuxtLink>
                     </li>
                     <li class="dropdown">
                       <a>
@@ -99,21 +92,15 @@
                         <li class="flex">
                           <NuxtLink
                             :to="{
-                              name: 'lang-production-flykey',
+                              name: 'lang-products-flykey',
                               params: { lang: $store.state.locale },
                             }"
                             class="production"
                           >
-                            <img
-                              src="~assets/flykey-logo.png"
-                              width="40px"
-                              class="mr-2"
-                            />
+                            <img src="~assets/flykey-logo.png" width="40px" class="mr-2" />
                             <div>
                               <span>FlyKey</span>
-                              <p class="production-intro">
-                                {{ $t("flykey.navbar_tip") }}
-                              </p>
+                              <p class="production-intro">{{ $t("flykey.navbar_tip") }}</p>
                             </div>
                           </NuxtLink>
                         </li>
@@ -126,8 +113,7 @@
                           params: { lang: $store.state.locale },
                         }"
                         exact
-                        >{{ $t("common.contact_us") }}</NuxtLink
-                      >
+                      >{{ $t("common.contact_us") }}</NuxtLink>
                     </li>
                   </ul>
                 </nav>
@@ -178,8 +164,7 @@
                             params: { lang: 'en-US' },
                           }
                     "
-                    >English</NuxtLink
-                  >
+                  >English</NuxtLink>
                 </li>
                 <li>
                   <NuxtLink
@@ -194,8 +179,7 @@
                             params: { lang: 'zh-CN' },
                           }
                     "
-                    >中文</NuxtLink
-                  >
+                  >中文</NuxtLink>
                 </li>
               </ul>
             </div>
@@ -242,7 +226,7 @@ export default {
       }
     },
     location() {
-      let location = ''
+      let location = "";
       switch (this.$store.state.platform) {
         case "OPERATOR":
           location = process.env.VUE_APP_OPERATOR_ADDRESS;
@@ -254,7 +238,7 @@ export default {
           location = process.env.VUE_APP_ADMIN_ADDRESS;
           break;
       }
-      return location
+      return location;
     },
   },
   methods: {
