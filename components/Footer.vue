@@ -2,9 +2,9 @@
   <footer class="footer">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 offset-md-3">
+        <div class="col-md-3 offset-md-3 mb-5 md:mb-0">
           <div class="footer-info">
-            <div class="flex items-center mb-5">
+            <div class="flex items-center mb-5 justify-center md:justify-start">
               <div class="divider"></div>
               <h4>{{ $t("common.social") }}</h4>
             </div>
@@ -28,13 +28,16 @@
         </div>
         <div class="col-md-6">
           <div class="footer-info">
-            <div class="flex items-center mb-5">
+            <div class="flex items-center mb-5 justify-center md:justify-start">
               <div class="divider"></div>
               <h4>{{ $t("common.contact_toms") }}</h4>
             </div>
             <div>
-              <address >
-                <span class="label fix-width" style="vertical-align: top;">{{ $t("common.address") }}</span>
+              <address>
+                <span
+                  class="label fix-width"
+                  style="vertical-align: top;"
+                >{{ $t("common.address") }}</span>
                 <p style="display: inline-block">
                   <span>{{ $t("common.address1") }}</span>
                   <br />
@@ -43,17 +46,21 @@
               </address>
               <div>
                 <span class="label fix-width">{{ $t("common.phone") }}</span>
-                <span >{{
+                <span>
+                  {{
                   $t("common.phone1")
-                }}</span>
+                  }}
+                </span>
               </div>
               <div>
                 <address>
                   <span class="label fix-width">{{ $t("common.email") }}</span>
                   <a href="javacsript:;" class="mail-link">
-                    <span >{{
+                    <span>
+                      {{
                       $t("common.email1")
-                    }}</span>
+                      }}
+                    </span>
                   </a>
                 </address>
               </div>
@@ -75,8 +82,7 @@
                   name: 'lang-privacy-privacy-policy',
                   params: { lang: $store.state.locale },
                 }"
-                >Privacy Policy</NuxtLink
-              >-
+              >Privacy Policy</NuxtLink>-
             </li>
             <li>
               <NuxtLink
@@ -84,8 +90,7 @@
                   name: 'lang-privacy-terms',
                   params: { lang: $store.state.locale },
                 }"
-                >Terms & Conditions</NuxtLink
-              >-
+              >Terms & Conditions</NuxtLink>-
             </li>
             <li>
               <NuxtLink
@@ -93,16 +98,15 @@
                   name: 'lang-privacy-cookies',
                   params: { lang: $store.state.locale },
                 }"
-                >Cookies Policy</NuxtLink
-              >
+              >Cookies Policy</NuxtLink>
             </li>
           </ul>
         </div>
         <div class="col-md-6">
-          <span class="links"
-            >Copyright © 2021 Newland Payment Technology(newlandnpt.com). All
-            rights reserved.</span
-          >
+          <span class="links">
+            Copyright © 2021 Newland Payment Technology(newlandnpt.com). All
+            rights reserved.
+          </span>
         </div>
       </div>
     </div>
@@ -115,6 +119,7 @@ export default {};
 
 <style lang="scss">
 .footer {
+  text-align: center;
   color: #ffffff;
   font-size: 14px;
   /* background: #283041; */
@@ -122,7 +127,10 @@ export default {};
   padding: 80px 0 30px;
   hr {
     border-top: 1px solid #5a5959;
-    margin: 90px 0 40px;
+    margin: 40px 0;
+    @screen md {
+      margin: 90px 0 40px;
+    }
   }
   .links {
     color: #7b7b7b;
@@ -135,6 +143,9 @@ export default {};
         color: #ffffff;
       }
     }
+  }
+  @screen md {
+    text-align: left;
   }
 }
 
@@ -152,8 +163,11 @@ export default {};
     margin-right: 14px;
   }
   .fix-width {
-    display: inline-block;
-    width: 4.2em;
+    display: none;
+    @screen md {
+      display: inline-block;
+      width: 4.2em;
+    }
   }
   h4 {
     text-transform: uppercase;

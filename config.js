@@ -7,14 +7,14 @@ export default {
     VUE_APP_ADMIN_ADDRESS: "https://admin.opennl.com",
     VUE_APP_DOMAIN: "localhost",
   },
-  production: {
-    VUE_APP_BASE_API: "",
-    VUE_APP_OPERATOR_ADDRESS: "https://toms.opennl.com/operator/#/",
-    VUE_APP_MANUFACTURER_ADDRESS: "https://toms.opennl.com/vendor/#/",
-    VUE_APP_DEV_ADDRESS: "https://developer.opennl.com",
-    VUE_APP_ADMIN_ADDRESS: "https://toms.opennl.com/admin/#/",
-    VUE_APP_DOMAIN: ".opennl.com",
-  },
+  // production: {
+  //   VUE_APP_BASE_API: "",
+  //   VUE_APP_OPERATOR_ADDRESS: "https://toms.opennl.com/operator/#/",
+  //   VUE_APP_MANUFACTURER_ADDRESS: "https://toms.opennl.com/vendor/#/",
+  //   VUE_APP_DEV_ADDRESS: "https://developer.opennl.com",
+  //   VUE_APP_ADMIN_ADDRESS: "https://toms.opennl.com/admin/#/",
+  //   VUE_APP_DOMAIN: ".opennl.com",
+  // },
   // production: {
   //   VUE_APP_BASE_API: "",
   //   VUE_APP_OPERATOR_ADDRESS: "https://toms.opennl-inte.com/operator/#/",
@@ -22,5 +22,20 @@ export default {
   //   VUE_APP_DEV_ADDRESS: "https://developer.opennl.com",
   //   VUE_APP_ADMIN_ADDRESS: "https://toms.opennl-inte.com/admin/#/",
   //   VUE_APP_DOMAIN: ".opennl-inte.com",
+  // },
+  production: {
+    VUE_APP_BASE_API: "",
+    VUE_APP_OPERATOR_ADDRESS: "https://toms.opennl-dev.com/operator/#/",
+    VUE_APP_MANUFACTURER_ADDRESS: "https://toms.opennl-dev.com/vendor/#/",
+    VUE_APP_ADMIN_ADDRESS: "https://toms.opennl-dev.com/admin/#/",
+    VUE_APP_DOMAIN: ".opennl-dev.com",
+  },
+  // production: {
+  //   VUE_APP_BASE_API: "",
+  //   VUE_APP_OPERATOR_ADDRESS: "https://toms.newlandnpt.com/operator/#/",
+  //   VUE_APP_MANUFACTURER_ADDRESS: "https://toms.newlandnpt.com/vendor/#/",
+  //   VUE_APP_DEV_ADDRESS: "https://developer.opennl.com",
+  //   VUE_APP_ADMIN_ADDRESS: "https://toms.newlandnpt.com/admin/#/",
+  //   VUE_APP_DOMAIN: ".newlandnpt.com",
   // },
 };
