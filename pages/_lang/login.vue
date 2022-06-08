@@ -69,7 +69,7 @@
                     ></el-input>
                   </el-popover>
                 </el-form-item>
-                <el-form-item prop="code">
+                <el-form-item  v-if="VUE_APP_CAPTCHA == '1'" prop="code">
                   <el-row :gutter="20" type="flex" class="items-center">
                     <el-col :span="14">
                       <el-popover
@@ -161,8 +161,8 @@
                   </div>
                 </el-form-item>
               </el-form>
-              <hr class="my-5" />
-              <div class="text-center">
+              <hr v-if="VUE_APP_EMAIL == '1'" class="my-5" />
+              <div v-if="VUE_APP_EMAIL == '1'" class="text-center">
                 <p class="text-gray text-xs text-center mb-3">
                   {{ $t("login.donnot_have_account") }}
                   <a @click.prevent="startSignUp" class="link">
@@ -180,7 +180,7 @@
         </div>
       </div>
     </div>
-    <div class="login-footer">
+    <div v-if="VUE_APP_EMAIL == '1'" class="login-footer">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
@@ -264,6 +264,8 @@ export default {
       }
     };
     return {
+      VUE_APP_EMAIL: process.env.VUE_APP_EMAIL,
+      VUE_APP_CAPTCHA: process.env.VUE_APP_CAPTCHA,
       signUpDialogVisible: false,
       resetPasswordDialogVisible: false,
       loginForm: {
@@ -299,11 +301,18 @@ export default {
   },
   methods: {
     getCaptcha() {
-      const prefix = process.env.VUE_APP_BASE_API;
-      this.$refs.captcha.src =
-        prefix +
-        "/online/authorization/auth/verify/code?time=" +
-        new Date().getTime();
+
+      if (this.VUE_APP_CAPTCHA == '1') {
+        const prefix = process.env.VUE_APP_BASE_API;
+        this.$refs.captcha.src =
+          prefix +
+          "/online/authorization/auth/verify/code?time=" +
+          new Date().getTime();
+  
+          console.log(process.env.VUE_APP_EMAIL);
+          console.log(process.env.VUE_APP_CAPTCHA);
+        
+      }
     },
     encryptPassword(json) {
       var encryptor = new JSEncrypt();
@@ -415,6 +424,7 @@ export default {
     },
   },
   async mounted() {
+    
     const { default: _JSEncrypt } = await import("jsencrypt");
     JSEncrypt = _JSEncrypt;
     this.getCaptcha();

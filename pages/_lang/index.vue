@@ -13,8 +13,8 @@
           <h1 class="header-title" v-html="$t('home.first_screen.slogan')"></h1>
 
           <p v-html="$t('home.first_screen.target')"></p>
-          <a class="start-button btn" :href="platformLocation">
-            <span>{{ $t("home.first_screen.start") }}</span>
+          <a v-if="VUE_APP_EMAIL == '1'" class="start-button btn" :href="platformLocation">
+            <span >{{ $t("home.first_screen.start") }}</span>
           </a>
         </div>
       </div>
@@ -649,6 +649,8 @@ import { computePosition, offset } from "@floating-ui/dom";
 export default {
   data() {
     return {
+
+      VUE_APP_EMAIL: process.env.VUE_APP_EMAIL,
       activeIndex: 0,
       activeServiceIndex: 0,
       terminalTabs: [

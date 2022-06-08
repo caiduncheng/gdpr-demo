@@ -83,7 +83,7 @@
                         exact
                       >{{ $t("common.home") }}</NuxtLink>
                     </li>
-                    <li class="dropdown">
+                    <li v-if="VUE_APP_EMAIL == '1'" class="dropdown">
                       <a>
                         {{ $t("common.production") }}
                         <i class="fa fa-caret-down"></i>
@@ -106,7 +106,7 @@
                         </li>
                       </ul>
                     </li>
-                    <li>
+                    <li v-if="VUE_APP_EMAIL == '1'">
                       <NuxtLink
                         :to="{
                           name: 'lang-contact-us',
@@ -208,6 +208,7 @@ export default {
       active: false,
       show: false,
       visible: false,
+      VUE_APP_EMAIL: process.env.VUE_APP_EMAIL,
     };
   },
   computed: {
