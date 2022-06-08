@@ -48,6 +48,9 @@ switch (process.env.BASE) {
 export default {
   mode: "universal",
   target: "static",
+  server: {
+    host: "0.0.0.0",
+  },
   build: {
     plugins: [
       new webpack.ProvidePlugin({
