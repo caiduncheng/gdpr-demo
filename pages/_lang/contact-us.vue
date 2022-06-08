@@ -3,10 +3,12 @@
     <div class="background">
       <NavBar />
       <div class="containerXL" style="margin: 0 auto">
-        <div class="row py-14 items-center">
+        <div class="row py-14 items-center no-gutters">
           <template v-if="!success">
-            <div class="col-4 offset-md-3 mr-10">
-              <div class="text-white mb-8 contact-title">
+            <div
+              class="col-12 col-sm-8 col-xl-5 col-lg-6 offset-xl-2 offset-lg-1 m-auto lg:mr-10 lg:ml-0"
+            >
+              <div class="text-white mb-8 contact-title text-center lg:text-left">
                 <h3 class="mb-2">{{ $t('contact.contact_us')}}</h3>
                 <p class="text-xs">{{ $t('contact.main_tip')}}</p>
               </div>
@@ -20,10 +22,20 @@
                   @submit.prevent.native="submit"
                 >
                   <el-form-item :label="$t('contact.full_name')" prop="name" class="form-item">
-                    <el-input v-model="form.name" @blur="() => form.name = form.name.trim()" maxlength="64" show-word-limit></el-input>
+                    <el-input
+                      v-model="form.name"
+                      @blur="() => form.name = form.name.trim()"
+                      maxlength="64"
+                      show-word-limit
+                    ></el-input>
                   </el-form-item>
                   <el-form-item :label="$t('contact.email')" prop="email" class="form-item">
-                    <el-input v-model="form.email" @blur="() => form.email = form.email.trim()" maxlength="64" show-word-limit></el-input>
+                    <el-input
+                      v-model="form.email"
+                      @blur="() => form.email = form.email.trim()"
+                      maxlength="64"
+                      show-word-limit
+                    ></el-input>
                   </el-form-item>
                   <el-form-item :label="$t('contact.company')" prop="company" class="form-item">
                     <el-input v-model="form.company" maxlength="64" show-word-limit></el-input>
@@ -33,7 +45,12 @@
                     prop="countryCode"
                     class="form-select form-item"
                   >
-                    <el-select v-model.trim="form.countryCode"  :no-match-text="$t('common.no_data')" filterable size="small">
+                    <el-select
+                      v-model.trim="form.countryCode"
+                      :no-match-text="$t('common.no_data')"
+                      filterable
+                      size="small"
+                    >
                       <el-option
                         v-for="item in countries"
                         :key="item.countryCode3"
@@ -84,7 +101,7 @@
                     <el-input
                       type="textarea"
                       rows="5"
-                      v-model="form.content"                                     
+                      v-model="form.content"
                       maxlength="1024"
                       show-word-limit
                     ></el-input>
@@ -98,7 +115,7 @@
                 </el-form>
               </el-card>
             </div>
-            <div class="col-3">
+            <div class="col-3 hidden lg:block">
               <h3 class="mb-5">{{$t('contact.contact_us')}}</h3>
               <div class="contact-info">
                 <address class="mb-5 flex">
@@ -138,15 +155,14 @@
 
 <script>
 export default {
-
   data() {
     const validateBlank = (rule, message, cb) => {
-      if(!message || !/\S/.test(message)) {
-        cb(new Error(this.$t('contact.message.content_not_null_tip')))
+      if (!message || !/\S/.test(message)) {
+        cb(new Error(this.$t("contact.message.content_not_null_tip")));
       } else {
-        cb()
+        cb();
       }
-    }
+    };
     return {
       messageRules: {
         name: [
@@ -191,7 +207,7 @@ export default {
         ],
         content: [
           {
-           validator: validateBlank
+            validator: validateBlank,
           },
         ],
       },
@@ -273,6 +289,7 @@ export default {
     },
   },
   mounted() {
+    this.$store.commit("SET_MENU", false);
     this.$store.dispatch("getCountryList").then((data) => {
       this.countries = data;
     });
@@ -283,11 +300,11 @@ export default {
 <style lang="scss">
 .contact-us {
   .form-select {
-    .el-input__inner {
-      width: 372px;
+    .el-select {
+      width: 100%;
     }
-    .el-form-item__label {   
-      float: none;   
+    .el-form-item__label {
+      float: none;
       text-align: left;
       display: block;
     }

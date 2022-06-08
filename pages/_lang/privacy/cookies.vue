@@ -76,6 +76,9 @@ export default {
   props: {
     // generateCatalog: Function,
   },
+  mounted() {
+    this.$store.commit("SET_MENU", false);
+  },
   mixins: [privacy],
 };
 </script>

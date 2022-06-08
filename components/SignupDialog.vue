@@ -1,6 +1,6 @@
 <template>
   <div class="sign-up-dialog">
-    <el-dialog v-bind="$attrs" v-on="$listeners" @closed="handleClose" width="40%">
+    <el-dialog v-bind="$attrs" v-on="$listeners" @closed="handleClose">
       <div v-show="!success">
         <div class="text-center mb-6">
           <div class="text-lg m-auto">
@@ -59,7 +59,7 @@ export default {
     return {
       success: false,
       loading: false,
-      errorMessage: '',
+      errorMessage: "",
       formData: {
         email: "",
       },
@@ -84,7 +84,7 @@ export default {
   methods: {
     handleClose() {
       this.success = false;
-      this.errorMessage = ""
+      this.errorMessage = "";
       this.$refs.form.resetFields();
       this.$emit("update:visible", false);
     },
@@ -97,8 +97,8 @@ export default {
             .then(() => {
               this.success = true;
             })
-            .catch(error => {
-              this.errorMessage = error
+            .catch((error) => {
+              this.errorMessage = error;
             })
             .finally(() => {
               this.loading = false;
@@ -109,6 +109,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.sign-up-dialog {
+}
+</style>
 
 <style lang="scss" scoped>
 .email-collect-input {

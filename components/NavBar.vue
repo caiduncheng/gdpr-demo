@@ -609,9 +609,12 @@ export default {
 }
 .header-inner {
   display: flex;
-  height: 90px;
+  height: 70px;
   align-items: center;
   justify-content: space-between;
+  @screen md {
+    height: 90px;
+  }
   & > .header-links {
     .sign-in,
     .sign-up {

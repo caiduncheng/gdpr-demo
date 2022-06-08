@@ -2,9 +2,9 @@
   <footer class="footer">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 offset-md-3 mb-5 md:mb-0">
+        <div class="col-lg-3 offset-lg-3 mb-5 lg:mb-0">
           <div class="footer-info">
-            <div class="flex items-center mb-5 justify-center md:justify-start">
+            <div class="flex items-center mb-5 justify-center lg:justify-start">
               <div class="divider"></div>
               <h4>{{ $t("common.social") }}</h4>
             </div>
@@ -26,9 +26,9 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-lg-6">
           <div class="footer-info">
-            <div class="flex items-center mb-5 justify-center md:justify-start">
+            <div class="flex items-center mb-5 justify-center lg:justify-start">
               <div class="divider"></div>
               <h4>{{ $t("common.contact_toms") }}</h4>
             </div>
@@ -74,7 +74,7 @@
     </div>
     <div class="containerXL container-fluid">
       <div class="row">
-        <div class="col-md-4 offset-md-2">
+        <div class="col-lg-4 offset-lg-2">
           <ul class="links">
             <li>
               <NuxtLink
@@ -128,7 +128,7 @@ export default {};
   hr {
     border-top: 1px solid #5a5959;
     margin: 40px 0;
-    @screen md {
+    @screen lg {
       margin: 90px 0 40px;
     }
   }
@@ -144,7 +144,7 @@ export default {};
       }
     }
   }
-  @screen md {
+  @screen lg {
     text-align: left;
   }
 }

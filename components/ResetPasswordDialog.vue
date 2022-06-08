@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-bind="$attrs" v-on="$listeners" @closed="handleClose" width="40%">
+  <el-dialog v-bind="$attrs" v-on="$listeners" @closed="handleClose">
     <div v-if="!success">
       <el-form
         class="w-4/5 m-auto"
@@ -12,7 +12,12 @@
           <el-input v-model="form.email" :placeholder="$t('login.enter_email_placeholder')"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button native-type="submit" type="primary" class="w-full" :loading="loading">{{$t('common.confirm')}}</el-button>
+          <el-button
+            native-type="submit"
+            type="primary"
+            class="w-full"
+            :loading="loading"
+          >{{$t('common.confirm')}}</el-button>
         </el-form-item>
       </el-form>
     </div>
