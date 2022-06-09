@@ -50,6 +50,38 @@
                       <span>{{ $t("common.sign_in") }}</span>
                     </NuxtLink>
                   </li>
+                  <li class="language-switcher">
+                    <NuxtLink
+                      :class="{'current-language': $store.state.locale === 'zh-CN'}"
+                      :to="
+                      $store.state.locale === 'zh-CN'
+                        ? ''
+                        : {
+                            name:
+                              $route.name === 'index'
+                                ? 'lang'
+                                : `lang-${$route.name}`,
+                            params: { lang: 'zh-CN' },
+                          }
+                    "
+                    >中文</NuxtLink>
+                  </li>
+                  <li class="language-switcher">
+                    <NuxtLink
+                      :class="{'current-language': $store.state.locale === 'en-US'}"
+                      :to="
+                      $store.state.locale === 'en-US'
+                        ? ''
+                        : {
+                            name:
+                              $route.name === 'index'
+                                ? 'lang'
+                                : `${$route.name}`,
+                            params: { lang: 'en-US' },
+                          }
+                    "
+                    >English</NuxtLink>
+                  </li>
                 </ul>
               </nav>
             </div>
@@ -395,6 +427,9 @@ export default {
       display: none;
     }
   }
+  ul {
+    text-align: center;
+  }
   .menu-item {
     text-align: center;
     text-transform: uppercase;
@@ -420,6 +455,24 @@ export default {
         height: 1px;
         background: rgba(255, 255, 255, 0.6);
         transition: all 0.7s ease-in-out;
+      }
+    }
+  }
+  .language-switcher {
+    display: inline-block;
+    a {
+      display: block;
+      color: #fff;
+      text-transform: uppercase;
+      margin-top: 30px;
+      font-weight: 300;
+      padding: 2px 10px;
+      font-size: 16px;
+      border: 2px solid transparent;
+      letter-spacing: 1px;
+      &.current-language {
+        border: 2px solid #fff;
+        font-weight: 500;
       }
     }
   }

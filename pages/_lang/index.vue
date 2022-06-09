@@ -12,7 +12,7 @@
         <div class="header-info md:w-2/4 w-full">
           <h1 class="header-title" v-html="$t('home.first_screen.slogan')"></h1>
 
-          <p v-html="$t('home.first_screen.target')"></p>
+          <p class="header-intro" v-html="$t('home.first_screen.target')"></p>
           <a class="start-button btn" :href="platformLocation">
             <span>{{ $t("home.first_screen.start") }}</span>
           </a>
@@ -803,6 +803,9 @@ export default {
 }
 .header-content {
   position: relative;
+}
+.header-intro {
+  padding: 10px;
 }
 .header-info {
   color: #ffffff;

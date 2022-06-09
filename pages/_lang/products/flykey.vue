@@ -32,16 +32,20 @@
         <div class="container">
           <ul>
             <li>
-              <a v-scroll-to="'#Flykey'">{{ $t('flykey.about_flykey') }}</a>
+              <a v-scroll-to="{element: '#Flykey', offset: -200}">{{ $t('flykey.about_flykey') }}</a>
             </li>
             <li>
-              <a v-scroll-to="'#Features'">{{ $t('flykey.features') }}</a>
+              <a v-scroll-to="{element: '#Features', offset: -200}">{{ $t('flykey.features') }}</a>
             </li>
             <li>
-              <a v-scroll-to="'#Functionality'">{{ $t('flykey.functionality') }}</a>
+              <a
+                v-scroll-to="{element: '#Functionality', offset: -200}"
+              >{{ $t('flykey.functionality') }}</a>
             </li>
             <li>
-              <a v-scroll-to="'#Service'">{{ $t('flykey.services_and_support') }}</a>
+              <a
+                v-scroll-to="{element: '#Service', offset: -200}"
+              >{{ $t('flykey.services_and_support') }}</a>
             </li>
           </ul>
         </div>
@@ -392,8 +396,12 @@ $bgBlue: rgb(0, 108, 252);
     }
   }
   .flykey-tabs {
+    position: sticky;
+    top: 90px;
+    z-index: 1;
     background-color: $bgGray;
     padding: 40px 0px;
+    @apply hidden md:block;
 
     ul {
       display: flex;

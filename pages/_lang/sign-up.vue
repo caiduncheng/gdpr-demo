@@ -381,19 +381,23 @@ export default {
 
 <style lang="scss">
 .sign-up {
+  .el-select {
+    width: 100%;
+  }
   .el-card.card--sign-up {
     /* padding-left: 40px; */
   }
   .el-form .el-input__inner {
-    max-width: 300px;
+    /* max-width: 300px; */
     width: 100%;
     @screen sm {
       max-width: 100%;
+      /* width: 400px; */
     }
   }
   .country-code {
     .el-input__inner {
-      width: 400px;
+      /* width: 400px; */
     }
     .el-form-item__label {
       float: none;
@@ -492,7 +496,7 @@ export default {
   color: #999999;
   font-size: 14px;
   @screen md {
-    width: 500px;
+    /* width: 500px; */
   }
 }
 .upload-hint > p {

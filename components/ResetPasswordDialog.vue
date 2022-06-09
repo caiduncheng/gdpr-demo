@@ -18,6 +18,7 @@
             class="w-full"
             :loading="loading"
           >{{$t('common.confirm')}}</el-button>
+          <div class="text-center error-message" v-if="errorMessage">{{errorMessage}}</div>
         </el-form-item>
       </el-form>
     </div>
@@ -34,6 +35,7 @@ export default {
     return {
       success: false,
       loading: false,
+      errorMessage: "",
       form: {
         email: "",
       },
@@ -74,6 +76,9 @@ export default {
             })
             .then(() => {
               this.success = true;
+            })
+            .catch((error) => {
+              this.errorMessage = error;
             })
             .finally(() => {
               this.loading = false;
