@@ -29,7 +29,12 @@
                     >{{ $t("common.home") }}</NuxtLink>
                   </li>
                   <li class="menu-item">
-                    <NuxtLink to="/products/flykey">FlyKey</NuxtLink>
+                    <NuxtLink
+                      :to="{
+                              name: 'lang-products-flykey',
+                              params: { lang: $store.state.locale },
+                            }"
+                    >FlyKey</NuxtLink>
                   </li>
                   <li class="menu-item">
                     <NuxtLink

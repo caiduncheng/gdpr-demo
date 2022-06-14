@@ -135,7 +135,7 @@
               </div>
             </div>
           </template>
-          <div v-else class="text-center col-6 offset-3">
+          <div v-else class="text-center col-12 col-md-6 offset-md-3">
             <el-card>
               <el-result icon="success">
                 <h2 slot="title" class="text-3xl">{{ $t('contact.message_successfully_sent') }}</h2>

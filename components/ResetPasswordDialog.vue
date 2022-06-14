@@ -63,6 +63,7 @@ export default {
       this.$nextTick(() => {
         this.$refs.form.resetFields();
       });
+      this.errorMessage = "";
       this.$emit("update:visible", false);
     },
     submit() {
@@ -75,6 +76,7 @@ export default {
               email: this.form.email,
             })
             .then(() => {
+              this.$refs.form.resetFields();
               this.success = true;
             })
             .catch((error) => {
