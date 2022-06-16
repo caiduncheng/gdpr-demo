@@ -156,6 +156,9 @@ import privacy from "@/mixins/privacy";
 export default {
   layout: "privacy",
   mixins: [privacy],
+  mounted() {
+    this.$store.commit("SET_MENU", false);
+  },
 };
 </script>
 

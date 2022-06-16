@@ -34,6 +34,26 @@
           </div>
         </div>
       </div>
+      <ul class="tabs__links--mobile">
+        <li class="tabs__links-item">
+          <NuxtLink
+            to="/privacy/privacy-policy"
+            :class="{active: $route.path.includes('/privacy/privacy-policy')}"
+          >Privacy Policy</NuxtLink>
+        </li>
+        <li class="tabs__links-item">
+          <NuxtLink
+            to="/privacy/terms"
+            :class="{active: $route.path.includes('/privacy/terms')}"
+          >Terms & Conditions</NuxtLink>
+        </li>
+        <li class="tabs__links-item">
+          <NuxtLink
+            :to="{name: 'lang-privacy-cookies', params: { lang: $store.state.locale} }"
+            :class="{active: $route.path.includes('/privacy/cookies')}"
+          >Cookies Policy</NuxtLink>
+        </li>
+      </ul>
       <div class="page-title">
         <div class="container">
           <div class="wrap">
@@ -42,7 +62,7 @@
         </div>
       </div>
       <div class="wrap">
-        <div class="pt-20 px-10">
+        <div class="pt-8 md:pt-20 px-10">
           <el-row type="flex" class="mx-5" :gutter="40">
             <el-col :md="8" class="contents-col">
               <div class="contents__col-inner">
@@ -203,6 +223,12 @@ export default {
   .tabs__title {
     font-size: 700;
     margin-top: 3px;
+    text-align: center;
+    flex: 1;
+    @screen md {
+      text-align: left;
+      flex: 0;
+    }
   }
 
   .tabs__link {
@@ -214,8 +240,22 @@ export default {
     margin-right: 30px;
   }
 
-  .tabs__links {
+  .tabs__links--mobile {
+    margin-top: 82px;
     display: flex;
+    justify-content: center;
+    padding: 20px;
+    flex-direction: column;
+    @screen md {
+      display: none;
+    }
+  }
+
+  .tabs__links {
+    display: none;
+    @screen md {
+      display: flex;
+    }
   }
 
   .tabs__links-item {
@@ -239,11 +279,14 @@ export default {
     width: 100%;
   }
   .heading {
-    font-size: 48px;
     line-height: 1.17;
     font-weight: 700;
     width: 100%;
     display: inline-block;
+    font-size: 36px;
+    @screen md {
+      font-size: 48px;
+    }
   }
   .privacy-contents {
     display: block;
@@ -321,9 +364,12 @@ export default {
 }
 
 .privacy .page-title {
-  padding-top: 160px;
+  padding-top: 80px;
   padding-bottom: 40px;
   @apply text-center;
+  @screeen md {
+    padding-top: 160px;
+  }
 }
 
 .privacy .container {
@@ -351,9 +397,12 @@ export default {
   line-height: 1.35;
 }
 .privacy .content h3 {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   margin-bottom: 40px;
+  @screen md {
+    font-size: 32px;
+  }
   &:before {
     counter-increment: number;
     content: counter(number) ".";

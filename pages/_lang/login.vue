@@ -2,23 +2,16 @@
   <div class="background">
     <NavBar />
     <div class="container container-fluid">
-      <div
-        class="row login items-center mb-10"
-        style="padding-top: 40px; padding-bottom: 130px"
-      >
+      <div class="row login items-center mb-10" style="padding-top: 40px; padding-bottom: 130px">
         <div class="col-6 col-lg-7 col-xl-8 login-title-wrapper">
           <h1 class="text-white mb-3">{{ $t("login.welcome") }}</h1>
-          <p class="text-white text-2xl lg:text-3xl">
-            {{ $t("login.slogan") }}
-          </p>
+          <p class="text-white text-2xl lg:text-3xl">{{ $t("login.slogan") }}</p>
         </div>
-        <div class="col-8 col-md-6 col-lg-5 col-xl-4 offset-2 offset-md-0">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4 offset-md-0">
           <div class="login-form">
             <div class="login-form__header">{{ $t("login.sign_in") }}</div>
             <div class="login-form__body">
-              <p class="text-xs text-gray text-center mb-4">
-                {{ $t("login.sign_in_tip") }}
-              </p>
+              <p class="text-xs text-gray text-center mb-4">{{ $t("login.sign_in_tip") }}</p>
               <el-form
                 @validate="validate"
                 class="small"
@@ -30,11 +23,7 @@
                 :show-message="false"
               >
                 <el-form-item prop="username">
-                  <el-popover
-                    trigger="manual"
-                    v-model="usernamePopover"
-                    placement="top"
-                  >
+                  <el-popover trigger="manual" v-model="usernamePopover" placement="top">
                     <i class="el-icon-warning text-yellow-500"></i>
                     {{ invalidMessage }}
                     <el-input
@@ -50,11 +39,7 @@
                   </el-popover>
                 </el-form-item>
                 <el-form-item prop="password">
-                  <el-popover
-                    trigger="manual"
-                    v-model="passwordPopover"
-                    placement="top"
-                  >
+                  <el-popover trigger="manual" v-model="passwordPopover" placement="top">
                     <i class="el-icon-warning text-yellow-500"></i>
                     {{ invalidMessage }}
                     <el-input
@@ -72,11 +57,7 @@
                 <el-form-item  v-if="VUE_APP_CAPTCHA == '1'" prop="code">
                   <el-row :gutter="20" type="flex" class="items-center">
                     <el-col :span="14">
-                      <el-popover
-                        trigger="manual"
-                        v-model="codePopover"
-                        placement="top"
-                      >
+                      <el-popover trigger="manual" v-model="codePopover" placement="top">
                         <i class="el-icon-warning text-yellow-500"></i>
                         {{ invalidMessage }}
                         <el-input
@@ -92,12 +73,7 @@
                     </el-col>
                     <el-col :span="10" class="login-captcha">
                       <button>
-                        <img
-                          ref="captcha"
-                          alt
-                          @click="getCaptcha"
-                          style="height: 30px"
-                        />
+                        <img ref="captcha" alt @click="getCaptcha" style="height: 30px" />
                       </button>
                     </el-col>
                   </el-row>
@@ -109,51 +85,33 @@
                     :loading="loading"
                     type="primary"
                     @click="handleLogin"
-                    >{{ $t("common.sign_in") }}</el-button
-                  >
-                  <div class="el-form-item__error text-center">
-                    {{ errorMsg }}
-                  </div>
+                  >{{ $t("common.sign_in") }}</el-button>
+                  <div class="el-form-item__error text-center">{{ errorMsg }}</div>
                 </el-form-item>
                 <el-form-item prop="checked">
                   <div class="text-center">
-                    <el-popover
-                      trigger="manual"
-                      v-model="checkedPopover"
-                      placement="bottom"
-                    >
+                    <el-popover trigger="manual" v-model="checkedPopover" placement="bottom">
                       <i class="el-icon-warning text-yellow-500"></i>
                       {{ invalidMessage }}
                       <el-checkbox slot="reference" v-model="loginForm.checked">
-                        <span
-                          class="text-xs"
-                          v-html="$t('login.agree_terms_conditions')"
-                        ></span>
+                        <span class="text-xs" v-html="$t('login.agree_terms_conditions')"></span>
                         <!-- <NuxtLink to="/privacy/terms" class="link">{{
                           $t("login.terms_and_conditions")
-                        }}</NuxtLink> -->
+                        }}</NuxtLink>-->
                       </el-checkbox>
                     </el-popover>
                     <div class="text-center">
-                      <el-tooltip
-                        effect="dark"
-                        content="FlyKey"
-                        placement="bottom"
-                      >
+                      <el-tooltip effect="dark" content="FlyKey" placement="bottom">
                         <div class="website-icon mr-10">
                           <a href="https://flykey.newlandpayment.com">
-                            <img src="~/assets/sign-in/flykey.png" alt="" />
+                            <img src="~/assets/sign-in/flykey.png" alt />
                           </a>
                         </div>
                       </el-tooltip>
-                      <el-tooltip
-                        effect="dark"
-                        content="NPSC"
-                        placement="bottom"
-                      >
+                      <el-tooltip effect="dark" content="NPSC" placement="bottom">
                         <div class="website-icon">
                           <a href="https://npsc.newlandpayment.com/npsc">
-                            <img src="~assets/sign-in/npsc.png" alt="" />
+                            <img src="~assets/sign-in/npsc.png" alt />
                           </a>
                         </div>
                       </el-tooltip>
@@ -170,9 +128,11 @@
                   </a>
                 </p>
                 <div class="text-center">
-                  <a @click.prevent="resetPassword" class="text-xs link">{{
+                  <a @click.prevent="resetPassword" class="text-xs link">
+                    {{
                     $t("login.forgot_password")
-                  }}</a>
+                    }}
+                  </a>
                 </div>
               </div>
             </div>
@@ -208,10 +168,7 @@
         </div>
       </div>
     </div>
-    <LazySignupDialog
-      :visible.sync="signUpDialogVisible"
-      :title="$t('login.sign_up')"
-    />
+    <LazySignupDialog :visible.sync="signUpDialogVisible" :title="$t('login.sign_up')" />
     <LazyResetPasswordDialog
       :visible.sync="resetPasswordDialogVisible"
       :title="$t('login.title_reset_password')"
@@ -397,24 +354,24 @@ export default {
             document.cookie = `lang=${this.$store.state.locale};path=/;domain=${
               process.env.VUE_APP_DOMAIN
             };expires=${exp.toGMTString()}"`;
-            let location = ''
+            let location = "";
 
             switch (characterCode) {
-              case 'OPERATOR':
-                location = process.env.VUE_APP_OPERATOR_ADDRESS
+              case "OPERATOR":
+                location = process.env.VUE_APP_OPERATOR_ADDRESS;
                 break;
-              case 'DEVELOPER':
-                location = process.env.VUE_APP_DEVELOPER_ADDRESS
+              case "DEVELOPER":
+                location = process.env.VUE_APP_DEVELOPER_ADDRESS;
                 break;
-              case 'MANUFACTURER':
-                location = process.env.VUE_APP_MANUFACTURER_ADDRESS
+              case "MANUFACTURER":
+                location = process.env.VUE_APP_MANUFACTURER_ADDRESS;
                 break;
-              case 'ADMIN':
-                location = process.env.VUE_APP_ADMIN_ADDRESS
+              case "ADMIN":
+                location = process.env.VUE_APP_ADMIN_ADDRESS;
                 break;
             }
 
-            debugger
+            debugger;
             window.location.href = location;
           }
         } else {
@@ -428,6 +385,7 @@ export default {
     const { default: _JSEncrypt } = await import("jsencrypt");
     JSEncrypt = _JSEncrypt;
     this.getCaptcha();
+    this.$store.commit("SET_MENU", false);
   },
 };
 </script>
@@ -491,11 +449,14 @@ export default {
 
 .login-footer {
   background: #f8f9fb;
-  padding: 20px 0;
+  padding: 10px 0;
   /* position: absolute; */
   position: fixed;
   bottom: 0;
   width: 100%;
   z-index: 2;
+  @screen md {
+    padding: 20px 0;
+  }
 }
 </style>

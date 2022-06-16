@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-bind="$attrs" v-on="$listeners" @closed="handleClose" width="40%">
+  <el-dialog v-bind="$attrs" v-on="$listeners" @closed="handleClose">
     <div v-if="!success">
       <el-form
         class="w-4/5 m-auto"
@@ -12,7 +12,13 @@
           <el-input v-model="form.email" :placeholder="$t('login.enter_email_placeholder')"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button native-type="submit" type="primary" class="w-full" :loading="loading">{{$t('common.confirm')}}</el-button>
+          <el-button
+            native-type="submit"
+            type="primary"
+            class="w-full"
+            :loading="loading"
+          >{{$t('common.confirm')}}</el-button>
+          <div class="text-center error-message" v-if="errorMessage">{{errorMessage}}</div>
         </el-form-item>
       </el-form>
     </div>
@@ -29,6 +35,7 @@ export default {
     return {
       success: false,
       loading: false,
+      errorMessage: "",
       form: {
         email: "",
       },
@@ -56,6 +63,7 @@ export default {
       this.$nextTick(() => {
         this.$refs.form.resetFields();
       });
+      this.errorMessage = "";
       this.$emit("update:visible", false);
     },
     submit() {
@@ -68,7 +76,11 @@ export default {
               email: this.form.email,
             })
             .then(() => {
+              this.$refs.form.resetFields();
               this.success = true;
+            })
+            .catch((error) => {
+              this.errorMessage = error;
             })
             .finally(() => {
               this.loading = false;

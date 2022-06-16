@@ -1,11 +1,11 @@
 <template>
   <div class="container container-fluid reset-password pt-24">
     <div class="row">
-      <div class="col-6 offset-3">
+      <div class="col-10 col-lg-6 m-auto">
         <el-card>
           <div v-if="!success">
             <h2 class="text-2xl text-center">{{ $t('login.title_reset_password') }}</h2>
-            <el-form :model="form" :rules="loginRules" ref="form">
+            <el-form :model="form" :rules="loginRules" ref="form" class="p-5">
               <el-form-item :label=" $t('login.new_password')" prop="password">
                 <el-input v-model="form.password" type="password"></el-input>
                 <div class="password-strength" v-show="showPasswordStrength">
@@ -157,6 +157,9 @@ export default {
           this.success = true;
         });
     },
+  },
+  mounted() {
+    this.$store.commit("SET_MENU", false);
   },
 };
 </script>

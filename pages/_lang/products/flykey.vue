@@ -8,7 +8,7 @@
       <div class="flykey-header">
         <div class="container">
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-lg-6 mb-5">
               <h1 class="text-header-blue">{{$t('flykey.fly_key')}}</h1>
               <h2 class="mb-3">{{ $t('flykey.about_flykey_title') }}</h2>
               <p class="text-lg mb-3" v-html="$t('flykey.about_flykey_content')"></p>
@@ -16,8 +16,8 @@
                 <span>{{ $t('flykey.start_now') }}</span>
               </a>
             </div>
-            <div class="col-6">
-              <div class="video-panel">
+            <div class="col-12 col-lg-6">
+              <div class="video-panel flex items-center">
                 <video
                   src="~assets/FLYKEY/FlyKey1.mp4"
                   id="video"
@@ -32,16 +32,20 @@
         <div class="container">
           <ul>
             <li>
-              <a v-scroll-to="'#Flykey'">{{ $t('flykey.about_flykey') }}</a>
+              <a v-scroll-to="{element: '#Flykey', offset: -200}">{{ $t('flykey.about_flykey') }}</a>
             </li>
             <li>
-              <a v-scroll-to="'#Features'">{{ $t('flykey.features') }}</a>
+              <a v-scroll-to="{element: '#Features', offset: -200}">{{ $t('flykey.features') }}</a>
             </li>
             <li>
-              <a v-scroll-to="'#Functionality'">{{ $t('flykey.functionality') }}</a>
+              <a
+                v-scroll-to="{element: '#Functionality', offset: -200}"
+              >{{ $t('flykey.functionality') }}</a>
             </li>
             <li>
-              <a v-scroll-to="'#Service'">{{ $t('flykey.services_and_support') }}</a>
+              <a
+                v-scroll-to="{element: '#Service', offset: -200}"
+              >{{ $t('flykey.services_and_support') }}</a>
             </li>
           </ul>
         </div>
@@ -49,10 +53,14 @@
       <section class="section-1 section" id="Flykey">
         <div class="container">
           <div class="row items-center">
-            <div class="col-md-7" data-aos="fade-right" data-aos-duration="1200">
-              <img src="~assets/FLYKEY/02.png" />
+            <div
+              class="m-auto col-12 col-md-10 col-lg-7 mb-5 lg:mb-0"
+              data-aos="fade-right-new"
+              data-aos-duration="1200"
+            >
+              <img src="~assets/FLYKEY/02.png" class="w-full" />
             </div>
-            <div class="col-md-5" data-aos="fade-left" data-aos-duration="1200">
+            <div class="col-12 col-lg-5" data-aos="fade-left-new" data-aos-duration="1200">
               <div class="pl-8">
                 <h3 class="mb-3">{{ $t('flykey.feature1_title') }}</h3>
                 <p class="mb-5">{{ $t('flykey.feature1_content') }}</p>
@@ -82,8 +90,12 @@
       <section class="section-2 section" id="Features">
         <div class="container">
           <div class="row items-center">
-            <div class="col-md-6" data-aos="fade-right" data-aos-duration="1200">
-              <div>
+            <div
+              class="col-lg-6 order-2 lg:order-1"
+              data-aos="fade-right-new"
+              data-aos-duration="1200"
+            >
+              <div class="pl-8">
                 <h3 class="mb-3">{{ $t('flykey.feature2_title') }}</h3>
                 <p class="mb-5">{{ $t('flykey.feature2_content') }}</p>
                 <ul>
@@ -114,8 +126,12 @@
                 </ul>
               </div>
             </div>
-            <div class="col-md-6" data-aos="fade-left" data-aos-duration="1200">
-              <img src="~assets/FLYKEY/04.png" alt />
+            <div
+              class="col-lg-6 col-md-10 m-auto order-1 lg:order-2 mb-5 lg:mb-0"
+              data-aos="fade-left-new"
+              data-aos-duration="1200"
+            >
+              <img src="~assets/FLYKEY/04.png" alt class="w-full" />
             </div>
           </div>
         </div>
@@ -128,12 +144,12 @@
         </div>
       </div>
       <div class="laptop section flex items-center justify-center">
-        <img src="~assets/FLYKEY/14.png" alt />
+        <img src="~assets/FLYKEY/14.png" alt class="max-w-full" />
       </div>
       <section class="section section-4" id="Functionality">
         <div class="container">
-          <div class="row mb-3">
-            <div class="col-md-6">
+          <div class="row mb-5">
+            <div class="col-md-6 mb-5 md:mb-0">
               <div class="flex items-start" data-aos="fade-up" data-aos-duration="1200">
                 <img src="~assets/FLYKEY/09.png" />
                 <div class="ml-3">
@@ -157,8 +173,8 @@
               </div>
             </div>
           </div>
-          <div class="row mb-3">
-            <div class="col-md-6">
+          <div class="row mb-5">
+            <div class="col-md-6 mb-5 md:mb-0">
               <div
                 class="flex items-start"
                 data-aos="fade-up"
@@ -194,19 +210,19 @@
         <div class="row no-gutters">
           <div class="container">
             <div class="row">
-              <div class="col-md-5" data-aos="fade-right" data-aos-duration="1800">
+              <div class="col-md-5 mb-5 md:mb-0" data-aos="fade-right-new" data-aos-duration="1800">
                 <h3 class="mb-5">{{ $t('flykey.services_title') }}</h3>
                 <p>{{ $t('flykey.services_content') }}</p>
               </div>
               <div class="col-md-6 offset-md-1">
-                <div class="feature-box" data-aos="fade-left" data-aos-duration="1200">
+                <div class="feature-box" data-aos="fade-left-new" data-aos-duration="1200">
                   <img src="~assets/FLYKEY/1.png" />
                   <span>{{ $t('flykey.services_list_item1') }}</span>
                 </div>
 
                 <div
                   class="feature-box"
-                  data-aos="fade-left"
+                  data-aos="fade-left-new"
                   data-aos-duration="1200"
                   data-aos-delay="300"
                 >
@@ -216,7 +232,7 @@
 
                 <div
                   class="feature-box"
-                  data-aos="fade-left"
+                  data-aos="fade-left-new"
                   data-aos-duration="1200"
                   data-aos-delay="600"
                 >
@@ -292,23 +308,10 @@ export default {
     },
   },
   mounted() {
+    this.$store.commit("SET_MENU", false);
     this.$store.dispatch("getCountryList").then((data) => {
       this.countries = data;
     });
-
-    // mapboxgl.accessToken =
-    //   "pk.eyJ1IjoieGlhb2hxIiwiYSI6ImNrdTUzbG5pdTJqdmMyb3FoY2hnMG84Z2oifQ.3CVuWTmyV5YJSsjVCI9qQA";
-
-    // const map = new mapboxgl.Map({
-    //   container: "map-panel",
-    //   style: "mapbox://styles/mapbox/light-v9",
-    //   center: [119.4049, 26.0202],
-    //   zoom: 15,
-    // });
-    // map.on("idle", function () {
-    //   map.resize();
-    // });
-    // new mapboxgl.Marker().setLngLat([119.4049, 26.0202]).addTo(map);
   },
 };
 </script>
@@ -380,9 +383,11 @@ $bgBlue: rgb(0, 108, 252);
 
   .flykey-header {
     background-image: url("~assets/FLYKEY/01.png");
-    padding: 100px 0 200px;
     background-size: cover;
-
+    padding: 100px 0;
+    @screen md {
+      padding: 100px 0 200px;
+    }
     .video-panel {
       & > video {
         border-radius: 10px;
@@ -391,12 +396,22 @@ $bgBlue: rgb(0, 108, 252);
     }
   }
   .flykey-tabs {
+    position: sticky;
+    top: 90px;
+    z-index: 1;
     background-color: $bgGray;
     padding: 40px 0px;
+    @apply hidden md:block;
 
     ul {
       display: flex;
-
+      flex-direction: column;
+      li {
+        text-align: center;
+      }
+      @screen md {
+        flex-direction: row;
+      }
       font-size: 24px;
       justify-content: space-between;
       a:hover {
@@ -446,7 +461,9 @@ $bgBlue: rgb(0, 108, 252);
   }
 
   .section-5 {
-    height: 550px;
+    @screen lg {
+      height: 550px;
+    }
     background-color: rgb(0, 110, 252);
     background-image: url("~assets/FLYKEY/10.png");
     color: #ffffff;
@@ -455,10 +472,14 @@ $bgBlue: rgb(0, 108, 252);
     background-repeat: no-repeat;
     .feature-box {
       color: #ffffff;
-      font-size: 24px;
+      font-size: 18px;
+      @scren md {
+        font-size: 24px;
+      }
       background: rgba(255, 255, 255, 0.28);
       padding: 20px;
       width: 450px;
+      max-width: 100%;
       border-radius: 5px;
       &:not(:last-child) {
         margin-bottom: 15px;

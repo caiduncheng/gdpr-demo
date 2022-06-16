@@ -14,7 +14,7 @@
                 <div v-if="!success" class="flex">
                   <el-form class="signup-form" ref="form" :rules="rules" :model="form">
                     <div class="flex">
-                      <div class="vertical-line-container">
+                      <div class="vertical-line-container hidden md:block">
                         <div class="vertical-line-icon">
                           <img src="../../assets/sign-up/7.png" alt />
                         </div>
@@ -35,7 +35,11 @@
                         </el-form-item>
                         <el-form-item required prop="countryCode" class="country-code">
                           <div slot="label" class="inline-block">{{$t('login.country_region')}}</div>
-                          <el-select v-model="form.countryCode" :no-match-text="$t('common.no_data')" filterable >
+                          <el-select
+                            v-model="form.countryCode"
+                            :no-match-text="$t('common.no_data')"
+                            filterable
+                          >
                             <el-option
                               v-for="item in countries"
                               :key="item.countryCode3"
@@ -51,7 +55,7 @@
                       </div>
                     </div>
                     <div class="flex">
-                      <div class="vertical-line-container">
+                      <div class="vertical-line-container hidden md:block">
                         <div style class="vertical-line-icon">
                           <img src="../../assets/sign-up/8.png" alt />
                         </div>
@@ -87,7 +91,7 @@
                     </div>
 
                     <div class="flex">
-                      <div class="vertical-line-container">
+                      <div class="vertical-line-container hidden md:block">
                         <div style class="vertical-line-icon">
                           <img src="../../assets/sign-up/9.png" alt />
                         </div>
@@ -130,9 +134,7 @@
                         @click="submit"
                         :loading="buttonLoading"
                       >{{ $t('common.submit') }}</el-button>
-                      <div class="text-center error-message" v-if="errorMessage">
-                        {{errorMessage}}
-                      </div>
+                      <div class="text-center error-message" v-if="errorMessage">{{errorMessage}}</div>
                     </el-form-item>
                   </el-form>
                 </div>
@@ -244,7 +246,7 @@ export default {
       loaded: true,
       verified: true,
       success: false,
-      errorMessage: '',
+      errorMessage: "",
       email: "",
       remark: "",
       resubmit: false,
@@ -359,8 +361,8 @@ export default {
                 this.success = true;
                 window.scrollTo(0, 0);
               })
-              .catch(err => {
-                this.errorMessage = err
+              .catch((err) => {
+                this.errorMessage = err;
               })
               .finally(() => {
                 this.buttonLoading = false;
@@ -372,21 +374,30 @@ export default {
   },
   mounted() {
     this.getCountryList();
+    this.$store.commit("SET_MENU", false);
   },
 };
 </script>
 
 <style lang="scss">
 .sign-up {
+  .el-select {
+    width: 100%;
+  }
   .el-card.card--sign-up {
     /* padding-left: 40px; */
   }
   .el-form .el-input__inner {
-    max-width: 400px;
+    /* max-width: 300px; */
+    width: 100%;
+    @screen sm {
+      max-width: 100%;
+      /* width: 400px; */
+    }
   }
   .country-code {
     .el-input__inner {
-      width: 400px;
+      /* width: 400px; */
     }
     .el-form-item__label {
       float: none;
@@ -457,6 +468,13 @@ export default {
     }
   }
 }
+
+.contact-title {
+  text-align: center;
+  @screen md {
+    text-align: left;
+  }
+}
 .upload {
   float: left;
   margin-right: 30px;
@@ -472,11 +490,14 @@ export default {
 .upload-hint {
   float: left;
   line-height: 1.5;
-  width: 500px;
+  width: 100%;
   /* padding-left: 50px; */
   display: inline-block;
   color: #999999;
   font-size: 14px;
+  @screen md {
+    /* width: 500px; */
+  }
 }
 .upload-hint > p {
   margin: 0;

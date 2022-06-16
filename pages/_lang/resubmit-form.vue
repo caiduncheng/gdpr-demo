@@ -10,22 +10,12 @@
                 <h3 class="mb-2">{{ $t("login.title_sign_up") }}</h3>
                 <p class="text-xs">{{ $t("login.sign_up_tip") }}</p>
               </div>
-              <el-card
-                :class="{ 'card-success': success }"
-                class="card--sign-up"
-              >
+              <el-card :class="{ 'card-success': success }" class="card--sign-up">
                 <div v-if="!success" class="flex">
-                  <el-form
-                    class="signup-form"
-                    ref="form"
-                    :rules="rules"
-                    :model="form"
-                  >
-                    <div class="error-message text-center">
-                      {{remark}}
-                    </div>                                 
+                  <el-form class="signup-form" ref="form" :rules="rules" :model="form">
+                    <div class="error-message text-center">{{remark}}</div>
                     <div class="flex">
-                      <div class="vertical-line-container">
+                      <div class="vertical-line-container hidden md:block">
                         <div style class="vertical-line-icon">
                           <img src="../../assets/sign-up/7.png" alt />
                         </div>
@@ -35,45 +25,22 @@
                         <el-form-item :label="$t('login.email')" prop="email">
                           <el-input disabled v-model="form.email"></el-input>
                         </el-form-item>
-                        <el-form-item
-                          required
-                          prop="name"
-                          :label="$t('login.name')"
-                        >
-                          <el-input
-                            v-model.trim="form.name"
-                            :maxlength="128"
-                          ></el-input>
+                        <el-form-item required prop="name" :label="$t('login.name')">
+                          <el-input v-model.trim="form.name" :maxlength="128"></el-input>
                         </el-form-item>
-                        <el-form-item
-                          required
-                          :label="$t('login.contacts')"
-                          prop="contactName"
-                        >
-                          <el-input
-                            :maxlength="32"
-                            v-model.trim="form.contactName"
-                          ></el-input>
+                        <el-form-item required :label="$t('login.contacts')" prop="contactName">
+                          <el-input :maxlength="32" v-model.trim="form.contactName"></el-input>
                         </el-form-item>
-                        <el-form-item
-                          :label="$t('login.phone_number')"
-                          prop="mobile"
-                          required
-                        >
-                          <el-input
-                            v-model.trim="form.mobile"
-                            :maxlength="16"
-                          ></el-input>
+                        <el-form-item :label="$t('login.phone_number')" prop="mobile" required>
+                          <el-input v-model.trim="form.mobile" :maxlength="16"></el-input>
                         </el-form-item>
-                        <el-form-item
-                          required
-                          prop="countryCode"
-                          class="country-code"
-                        >
-                          <div slot="label" class="inline-block">
-                            {{ $t("login.country_region") }}
-                          </div>
-                          <el-select v-model="form.countryCode" :no-match-text="$t('common.no_data')" filterable>
+                        <el-form-item required prop="countryCode" class="country-code">
+                          <div slot="label" class="inline-block">{{ $t("login.country_region") }}</div>
+                          <el-select
+                            v-model="form.countryCode"
+                            :no-match-text="$t('common.no_data')"
+                            filterable
+                          >
                             <el-option
                               v-for="item in countries"
                               :key="item.countryCode3"
@@ -83,32 +50,21 @@
                           </el-select>
                         </el-form-item>
                         <el-form-item :label="$t('login.address')">
-                          <el-input
-                            v-model="form.address"
-                            :maxlength="128"
-                          ></el-input>
+                          <el-input v-model="form.address" :maxlength="128"></el-input>
                         </el-form-item>
                         <hr class="my-6" />
                       </div>
                     </div>
                     <div class="flex">
-                      <div class="vertical-line-container">
+                      <div class="vertical-line-container hidden md:block">
                         <div style class="vertical-line-icon">
                           <img src="../../assets/sign-up/8.png" alt />
                         </div>
                         <div class="vertical-line"></div>
                       </div>
                       <div class="flex-1">
-                        <el-form-item
-                          :label="$t('login.csr')"
-                          required
-                          prop="file"
-                          class="csr"
-                        >
-                          <div
-                            style="display: flex; align-items: flex-start"
-                            class="mb-10"
-                          >
+                        <el-form-item :label="$t('login.csr')" required prop="file" class="csr">
+                          <div style="display: flex; align-items: flex-start" class="mb-10">
                             <el-upload
                               style="float: left; margin-right: 30px"
                               action="#"
@@ -120,9 +76,11 @@
                               :class="{ hide: uploadDisabled }"
                               class="upload"
                             >
-                              <el-button type="primary">{{
+                              <el-button type="primary">
+                                {{
                                 $t("login.upload")
-                              }}</el-button>
+                                }}
+                              </el-button>
                             </el-upload>
                           </div>
                           <div class="upload-hint">
@@ -138,7 +96,7 @@
                     </div>
 
                     <div class="flex">
-                      <div class="vertical-line-container">
+                      <div class="vertical-line-container hidden md:block">
                         <div style class="vertical-line-icon">
                           <img src="../../assets/sign-up/9.png" alt />
                         </div>
@@ -151,14 +109,8 @@
                           prop="password"
                           type="password"
                         >
-                          <el-input
-                            v-model="form.password"
-                            type="password"
-                          ></el-input>
-                          <div
-                            class="password-strength"
-                            v-show="showPasswordStrength"
-                          >
+                          <el-input v-model="form.password" type="password"></el-input>
+                          <div class="password-strength" v-show="showPasswordStrength">
                             <div class="text">
                               {{ $t("login.password_strength") }}
                               {{ mapPasswordStrength[passwordStrength] }}
@@ -191,10 +143,7 @@
                           prop="confirmPassword"
                           type="password"
                         >
-                          <el-input
-                            v-model="form.confirmPassword"
-                            type="password"
-                          ></el-input>
+                          <el-input v-model="form.confirmPassword" type="password"></el-input>
                         </el-form-item>
                         <hr class="my-6" />
                       </div>
@@ -205,26 +154,13 @@
                         style="width: 200px"
                         @click="submit"
                         :loading="buttonLoading"
-                        >{{ $t("common.submit") }}</el-button
-                      >
-                      <div
-                        class="text-center error-message"
-                        v-if="errorMessage"
-                      >
-                        {{ errorMessage }}
-                      </div>
+                      >{{ $t("common.submit") }}</el-button>
+                      <div class="text-center error-message" v-if="errorMessage">{{ errorMessage }}</div>
                     </el-form-item>
                   </el-form>
                 </div>
-                <div
-                  class="flex flex-col items-center justify-center h-full"
-                  v-else
-                >
-                  <img
-                    src="~assets/sign-up/sign-up-success.png"
-                    alt
-                    width="250"
-                  />
+                <div class="flex flex-col items-center justify-center h-full" v-else>
+                  <img src="~assets/sign-up/sign-up-success.png" alt width="250" />
                   <p>{{ $t("login.contact_you_in_some_days") }}</p>
                 </div>
               </el-card>
@@ -433,8 +369,8 @@ export default {
               this.success = true;
               window.scrollTo(0, 0);
             })
-            .catch(err => {
-              this.errorMessage = err
+            .catch((err) => {
+              this.errorMessage = err;
             })
             .finally(() => {
               this.buttonLoading = false;
@@ -444,6 +380,7 @@ export default {
     },
   },
   mounted() {
+    this.$store.commit("SET_MENU", false);
     this.getCountryList();
 
     const operInfo = this.$store.state.operInfo;
@@ -461,11 +398,17 @@ export default {
 
 <style lang="scss">
 .sign-up {
+  .el-select {
+    width: 100%;
+  }
   .el-card.card--sign-up {
     /* padding-left: 40px; */
   }
   .el-form .el-input__inner {
-    max-width: 400px;
+    width: 100%;
+    @screen sm {
+      max-width: 100%;
+    }
   }
   .country-code {
     .el-form-item__label {
@@ -534,6 +477,13 @@ export default {
     }
   }
 }
+
+.contact-title {
+  text-align: center;
+  @screen md {
+    text-align: left;
+  }
+}
 .upload {
   float: left;
   margin-right: 30px;
@@ -549,11 +499,14 @@ export default {
 .upload-hint {
   float: left;
   line-height: 1.5;
-  width: 500px;
+  width: 100%;
   /* padding-left: 50px; */
   display: inline-block;
   color: #999999;
   font-size: 14px;
+  @screen md {
+    /* width: 500px; */
+  }
 }
 .upload-hint > p {
   margin: 0;

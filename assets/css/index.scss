@@ -6,7 +6,14 @@
 
 :root {
   --default-font-family: "Cerebri Sans";
+}
 
+.el-dialog {
+  width: 90%;
+
+  @screen md {
+    width: 40%;
+  }
 }
 
 *::-webkit-scrollbar {
@@ -207,7 +214,7 @@ button {
   opacity: 0;
 }
 
-[data-aos="new-animation"] {
+[data-aos="fade-left-new"] {
   opacity: 0;
   transform: translateY(100px);
   transition-property: transform, opacity;
@@ -219,6 +226,25 @@ button {
 
   @media screen and (min-width: 768px) {
     transform: translateX(100px);
+
+    &.aos-animate {
+      transform: translateX(0);
+    }
+  }
+}
+
+[data-aos="fade-right-new"] {
+  opacity: 0;
+  transform: translateY(100px);
+  transition-property: transform, opacity;
+
+  &.aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media screen and (min-width: 768px) {
+    transform: translateX(-100px);
 
     &.aos-animate {
       transform: translateX(0);

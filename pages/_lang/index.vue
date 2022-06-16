@@ -12,9 +12,15 @@
         <div class="header-info md:w-2/4 w-full">
           <h1 class="header-title" v-html="$t('home.first_screen.slogan')"></h1>
 
+<<<<<<< HEAD
           <p v-html="$t('home.first_screen.target')"></p>
           <a v-if="VUE_APP_EMAIL == '1'" class="start-button btn" :href="platformLocation">
             <span >{{ $t("home.first_screen.start") }}</span>
+=======
+          <p class="header-intro" v-html="$t('home.first_screen.target')"></p>
+          <a class="start-button btn" :href="platformLocation">
+            <span>{{ $t("home.first_screen.start") }}</span>
+>>>>>>> 340a02d72851bb1e20b53245313ec38dc25e0de4
           </a>
         </div>
       </div>
@@ -76,7 +82,7 @@
             </div>
             <div
               class="col-md-6 relative"
-              data-aos="new-animation"
+              data-aos="fade-left-new"
               data-aos-duration="1200"
               style="padding: 0 50px; z-index: -1;"
             >
@@ -125,7 +131,7 @@
             </div>
             <div
               class="col-md-6 relative"
-              data-aos="new-animation"
+              data-aos="fade-left-new"
               data-aos-duration="1200"
               style="padding: 0 50px; z-index: -1;"
             >
@@ -174,7 +180,7 @@
             </div>
             <div
               class="col-md-6 relative"
-              data-aos="new-animation"
+              data-aos="fade-left-new"
               data-aos-duration="1200"
               style="padding: 0 50px; z-index: -1;"
             >
@@ -224,7 +230,7 @@
             <div
               class="col-md-6 relative"
               style="padding: 0 50px; z-index: -1;"
-              data-aos="new-animation"
+              data-aos="fade-left-new"
               data-aos-duration="1200"
             >
               <div class="row mb-3 text-center md:text-left">
@@ -273,7 +279,7 @@
             <div
               class="col-md-6 relative"
               style="padding: 0 50px; z-index: -1;"
-              data-aos="new-animation"
+              data-aos="fade-left-new"
               data-aos-duration="1200"
             >
               <div class="row mb-3 text-center md:text-left">
@@ -322,7 +328,7 @@
             <div
               class="col-md-6 relative"
               style="padding: 0 50px; z-index: -1;"
-              data-aos="new-animation"
+              data-aos="fade-left-new"
               data-aos-duration="1200"
             >
               <div class="row mb-3 text-center md:text-left">
@@ -387,7 +393,7 @@
         <div class="row items-center no-gutters">
           <!-- FlyKey -->
           <template v-if="activeServiceIndex === 0">
-            <div class="col-md-5" data-aos="new-animation" data-aos-duration="1200">
+            <div class="col-md-5" data-aos="fade-left-new" data-aos-duration="1200">
               <div class="value-add-service__title">
                 <h1 class="value-add-service__title">{{ $t("home.vas.flykey.title") }}</h1>
               </div>
@@ -432,7 +438,7 @@
           </template>
           <!-- FlyDesk -->
           <template v-else-if="activeServiceIndex === 1">
-            <div class="col-md-5" data-aos="new-animation" data-aos-duration="1200">
+            <div class="col-md-5" data-aos="fade-left-new" data-aos-duration="1200">
               <div class="value-add-service__title">
                 <h1>{{ $t("home.vas.flydesk.title") }}</h1>
               </div>
@@ -494,7 +500,7 @@
           </template>
           <!-- Hardware -->
           <template v-else-if="activeServiceIndex === 2">
-            <div class="col-md-5" data-aos="new-animation" data-aos-duration="1200">
+            <div class="col-md-5" data-aos="fade-left-new" data-aos-duration="1200">
               <div class="value-add-service__title">
                 <h1>{{ $t("home.vas.diagnosis.title") }}</h1>
               </div>
@@ -531,7 +537,7 @@
           </template>
           <!-- Geo-fencing -->
           <template v-else-if="activeServiceIndex === 3">
-            <div class="col-md-5" data-aos="new-animation" data-aos-duration="1200">
+            <div class="col-md-5" data-aos="fade-left-new" data-aos-duration="1200">
               <div class="value-add-service__title">
                 <h1>{{ $t("home.vas.geo_fencing.title") }}</h1>
               </div>
@@ -568,7 +574,7 @@
           </template>
           <!-- Pre-warning -->
           <template v-else-if="activeServiceIndex === 4">
-            <div class="col-md-5" data-aos="new-animation" data-aos-duration="1200">
+            <div class="col-md-5" data-aos="fade-left-new" data-aos-duration="1200">
               <div class="value-add-service__title">
                 <h1>{{ $t("home.vas.pre_warning.title") }}</h1>
               </div>
@@ -644,7 +650,7 @@
 </template>
 
 <script>
-import { computePosition, offset } from "@floating-ui/dom";
+import { computePosition } from "@floating-ui/dom";
 
 export default {
   data() {
@@ -745,7 +751,7 @@ export default {
   },
   mounted() {
     this.mounted = true;
-
+    this.$store.commit("SET_MENU", false);
     const button = document.querySelector(".dropdown-toggle");
     const tooltip = document.querySelector(".dropdown-menu");
 
@@ -805,6 +811,9 @@ export default {
 }
 .header-content {
   position: relative;
+}
+.header-intro {
+  padding: 10px;
 }
 .header-info {
   color: #ffffff;

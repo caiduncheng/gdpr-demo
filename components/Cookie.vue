@@ -46,6 +46,7 @@ export default {
   height: auto;
   animation: 0.6s cubic-bezier(0.4, 0, 1, 1) 0s 1 slideFromDown;
   box-shadow: 0 -1px 10px 0 rgb(172 171 171 / 30%);
+  z-index: 1000;
 }
 
 .cookie-bar-container {
