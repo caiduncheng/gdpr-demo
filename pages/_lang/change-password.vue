@@ -27,7 +27,8 @@
                 <el-input v-model="form.confirmPassword" type="password"></el-input>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" class="w-full" @click="confirm">{{ $t('common.confirm') }}</el-button>
+                <el-button type="primary" class="w-full" @click="confirm" :loading='loading'>{{ $t('common.confirm') }}
+                </el-button>
               </el-form-item>
             </el-form>
           </div>
@@ -143,6 +144,7 @@ export default {
     };
     return {
       verified: false,
+      loading: false,
       loaded: false,
       success: false,
       mapPasswordStrength: MAP_PASSWORD_STRENGTH,
@@ -186,12 +188,15 @@ export default {
       var rsaPassWord = encryptor.encrypt(json);
       return rsaPassWord;
     },
-   async confirm() {
-
+    async confirm() {
+      this.loading = true;
+      setTimeout(() => {
+        this.loading = false;
+      }, 1500);
       const { timestamp } = await this.$store.dispatch("getTimeStamp");
       let json = JSON.stringify({
         timestamp,
-        password: this.form.Password
+        password: this.form.password
       });
 
       const encryptedNewPassword = this.encryptPassword(json)
@@ -214,14 +219,14 @@ export default {
         }).catch((err) => {
           console.log(err);
           this.$message({
-            type: 'info',
-            message: err.message,
-          })
+            type: 'error',
+            message: err,
+          });
         });
     },
   },
-   async mounted() {
-    
+  async mounted() {
+
     const { default: _JSEncrypt } = await import("jsencrypt");
     JSEncrypt = _JSEncrypt;
   },
