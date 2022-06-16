@@ -246,6 +246,7 @@ module.exports = {
     email_to_reset_password_tip:
       "An email to reset the password was sent to mailbox <span class='link'>{email}</span>. Please log in to the mailbox and click the link to complete the operation. The validity of this email is <span class='link'>24 hours</span>",
     check_mail_now: "Check mail now",
+    old_password: "Old password",
     new_password: "New password",
     password_strength: "Password strength:",
     confirm_password: "Confirm Password",
@@ -262,6 +263,7 @@ module.exports = {
       "Password must be a combination of letters, numbers and symbols",
     validate_confirm_password_required: "Confirm password is required",
     consistent_password_tip: "The 2 passwords must be consistent",
+    validate_password_same: "New password is the same as the old password",
     address: "Company Address",
     address_placeholder: "Please enter company address",
     name: "Name",

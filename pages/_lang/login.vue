@@ -265,10 +265,6 @@ export default {
           prefix +
           "/online/authorization/auth/verify/code?time=" +
           new Date().getTime();
-  
-          console.log(process.env.VUE_APP_EMAIL);
-          console.log(process.env.VUE_APP_CAPTCHA);
-        
       }
     },
     encryptPassword(json) {
@@ -309,7 +305,7 @@ export default {
       this.$refs.loginForm.validate(async (valid) => {
         if (valid) {
           this.loading = true;
-          let characterCode, characterStatus, token;
+          let characterCode, characterStatus, token, needPasswdChange;
 
           try {
             const { timestamp } = await this.$store.dispatch("getTimeStamp");
@@ -325,6 +321,7 @@ export default {
             characterCode = res.characterCode;
             characterStatus = res.characterStatus;
             token = res.token;
+            needPasswdChange = res.needPasswdChange;
           } catch (err) {
             this.getCaptcha();
             this.errorMsg = err;
@@ -370,9 +367,18 @@ export default {
                 location = process.env.VUE_APP_ADMIN_ADDRESS;
                 break;
             }
+            console.log(needPasswdChange);
+            console.log(typeof(needPasswdChange) );
 
-            debugger;
-            window.location.href = location;
+            debugger; 
+            if (needPasswdChange == 1) {
+             window.open('/change-password');
+             this.loginForm.code = '';
+             this.loginForm.password = '';
+             this.getCaptcha();
+            } else {
+              window.location.href = location;
+            }
           }
         } else {
           return false;
