@@ -309,9 +309,6 @@ export default {
   },
   mounted() {
     this.$store.commit("SET_MENU", false);
-    this.$store.dispatch("getCountryList").then((data) => {
-      this.countries = data;
-    });
   },
 };
 </script>
