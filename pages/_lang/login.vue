@@ -54,7 +54,7 @@
                     ></el-input>
                   </el-popover>
                 </el-form-item>
-                <el-form-item prop="code">
+                <el-form-item  v-if="VUE_APP_CAPTCHA == '1'" prop="code">
                   <el-row :gutter="20" type="flex" class="items-center">
                     <el-col :span="14">
                       <el-popover trigger="manual" v-model="codePopover" placement="top">
@@ -119,8 +119,8 @@
                   </div>
                 </el-form-item>
               </el-form>
-              <hr class="my-5" />
-              <div class="text-center">
+              <hr v-if="VUE_APP_EMAIL == '1'" class="my-5" />
+              <div v-if="VUE_APP_EMAIL == '1'" class="text-center">
                 <p class="text-gray text-xs text-center mb-3">
                   {{ $t("login.donnot_have_account") }}
                   <a @click.prevent="startSignUp" class="link">
@@ -140,7 +140,7 @@
         </div>
       </div>
     </div>
-    <div class="login-footer">
+    <div v-if="VUE_APP_EMAIL == '1'" class="login-footer">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
@@ -221,6 +221,8 @@ export default {
       }
     };
     return {
+      VUE_APP_EMAIL: process.env.VUE_APP_EMAIL,
+      VUE_APP_CAPTCHA: process.env.VUE_APP_CAPTCHA,
       signUpDialogVisible: false,
       resetPasswordDialogVisible: false,
       loginForm: {
@@ -256,11 +258,14 @@ export default {
   },
   methods: {
     getCaptcha() {
-      const prefix = process.env.VUE_APP_BASE_API;
-      this.$refs.captcha.src =
-        prefix +
-        "/online/authorization/auth/verify/code?time=" +
-        new Date().getTime();
+
+      if (this.VUE_APP_CAPTCHA == '1') {
+        const prefix = process.env.VUE_APP_BASE_API;
+        this.$refs.captcha.src =
+          prefix +
+          "/online/authorization/auth/verify/code?time=" +
+          new Date().getTime();
+      }
     },
     encryptPassword(json) {
       var encryptor = new JSEncrypt();
@@ -300,7 +305,7 @@ export default {
       this.$refs.loginForm.validate(async (valid) => {
         if (valid) {
           this.loading = true;
-          let characterCode, characterStatus, token;
+          let characterCode, characterStatus, token, needPasswdChange;
 
           try {
             const { timestamp } = await this.$store.dispatch("getTimeStamp");
@@ -316,6 +321,7 @@ export default {
             characterCode = res.characterCode;
             characterStatus = res.characterStatus;
             token = res.token;
+            needPasswdChange = res.needPasswdChange;
           } catch (err) {
             this.getCaptcha();
             this.errorMsg = err;
@@ -361,9 +367,18 @@ export default {
                 location = process.env.VUE_APP_ADMIN_ADDRESS;
                 break;
             }
+            console.log(needPasswdChange);
+            console.log(typeof(needPasswdChange) );
 
-            debugger;
-            window.location.href = location;
+            debugger; 
+            if (needPasswdChange == 1) {
+             window.open('/change-password');
+             this.loginForm.code = '';
+             this.loginForm.password = '';
+             this.getCaptcha();
+            } else {
+              window.location.href = location;
+            }
           }
         } else {
           return false;
@@ -372,6 +387,7 @@ export default {
     },
   },
   async mounted() {
+    
     const { default: _JSEncrypt } = await import("jsencrypt");
     JSEncrypt = _JSEncrypt;
     this.getCaptcha();

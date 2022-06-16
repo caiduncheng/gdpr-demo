@@ -223,6 +223,7 @@ module.exports = {
     email_to_reset_password_tip:
       "已向邮箱<span class='link'>{email}</span>.发送重置密码的电子邮件。 请登录邮箱并点击链接完成操作。 邮件有效期 <span class='link'>24 小时</span>",
     check_mail_now: "查看邮件",
+    old_password: "旧密码",
     new_password: "新密码",
     password_strength: "密码强度:",
     confirm_password: "确认密码",
@@ -238,6 +239,7 @@ module.exports = {
     validate_password_strength: "密码必须是包含字母、数字、符号的组合",
     validate_confirm_password_required: "确认密码不能为空",
     consistent_password_tip: "两次输入密码必须一致",
+    validate_password_same: "新密码与旧密码相同",
     address: "公司地址",
     address_placeholder: "请输入公司地址",
     name: "名称",

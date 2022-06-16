@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer v-if="VUE_APP_EMAIL == '1'" class="footer">
     <div class="container">
       <div class="row">
         <div class="col-lg-3 offset-lg-3 mb-5 lg:mb-0">
@@ -114,7 +114,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      VUE_APP_EMAIL : process.env.VUE_APP_EMAIL,
+    }
+  }
+};
 </script>
 
 <style lang="scss">

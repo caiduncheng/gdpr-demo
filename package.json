@@ -6,11 +6,13 @@
     "generate:test": "cross-env NODE_ENV=production BASE=test nuxt generate",
     "generate:inte": "cross-env NODE_ENV=production BASE=inte nuxt generate",
     "generate:dev": "cross-env NODE_ENV=production BASE=dev nuxt generate",
+    "generate:ld": "cross-env NODE_ENV=production BASE=ld nuxt generate",
     "generate": "cross-env NODE_ENV=production BASE=production nuxt generate",
     "start": "nuxt start"
   },
   "dependencies": {
     "@floating-ui/dom": "^0.5.2",
+    "@nuxt/kit": "^3.0.0-rc.1",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/dotenv": "^1.4.1",
     "@tailwindcss/postcss7-compat": "^2.2.17",
