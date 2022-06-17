@@ -5,7 +5,7 @@
         <el-card>
           <div v-if="!success">
             <h2 class="text-2xl text-center">{{ $t('login.title_reset_password') }}</h2>
-            <el-form :model="form" :rules="loginRules" ref="form">
+            <el-form :model="form" :rules="loginRules" ref="form"  @validate="validate">
               <el-form-item :label="$t('login.old_password')" prop="oldPassword">
                 <el-input v-model="form.oldPassword" type="password"></el-input>
               </el-form-item>
@@ -188,8 +188,21 @@ export default {
       var rsaPassWord = encryptor.encrypt(json);
       return rsaPassWord;
     },
+        validate(prop, isValid, message) {
+      if (this.showFlag) {
+        return;
+      }
+      this.showFlag = !isValid;
+      this[prop + "Popover"] = !isValid;
+
+      if (!isValid) {
+        this.invalidMessage = message;
+      }
+    },
     async confirm() {
-      this.loading = true;
+      this.$refs.form.validate(async (valid) => {
+        if (valid) {
+           this.loading = true;
       setTimeout(() => {
         this.loading = false;
       }, 1500);
@@ -223,6 +236,9 @@ export default {
             message: err,
           });
         });
+         }
+      });
+     
     },
   },
   async mounted() {
