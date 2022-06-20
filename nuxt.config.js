@@ -7,8 +7,8 @@ let developerAddress = "";
 let manufacturerAddress = "";
 let adminAddress = "";
 let domain = "";
-let mail = "1";
-let captcha = "1";
+let mail = "";
+let captcha = "";
 
 switch (process.env.BASE) {
   case "test":
@@ -18,6 +18,8 @@ switch (process.env.BASE) {
     manufacturerAddress = process.env.DEV_MANUFACTURER_ADDRESS;
     adminAddress = process.env.DEV_ADMIN_ADDRESS;
     domain = process.env.DEV_APP_DOMAIN;
+    mail = process.env.EMAIL;
+    captcha = process.env.CAPTCHA;
     break;
   case "dev":
     baseUrl = process.env.TEST_BASE_URL;
@@ -26,6 +28,8 @@ switch (process.env.BASE) {
     manufacturerAddress = process.env.TEST_MANUFACTURER_ADDRESS;
     adminAddress = process.env.TEST_ADMIN_ADDRESS;
     domain = process.env.TEST_APP_DOMAIN;
+    mail = process.env.EMAIL;
+    captcha = process.env.CAPTCHA;
     break;
   case "inte":
     baseUrl = process.env.INTE_BASE_URL;
@@ -34,6 +38,8 @@ switch (process.env.BASE) {
     manufacturerAddress = process.env.INTE_MANUFACTURER_ADDRESS;
     adminAddress = process.env.INTE_ADMIN_ADDRESS;
     domain = process.env.INTE_APP_DOMAIN;
+    mail = process.env.EMAIL;
+    captcha = process.env.CAPTCHA;
     break;
   case "production":
     baseUrl = process.env.PROD_BASE_URL;
@@ -42,6 +48,8 @@ switch (process.env.BASE) {
     manufacturerAddress = process.env.PROD_MANUFACTURER_ADDRESS;
     adminAddress = process.env.PROD_ADMIN_ADDRESS;
     domain = process.env.PROD_APP_DOMAIN;
+    mail = process.env.EMAIL;
+    captcha = process.env.CAPTCHA;
     break;
   case "ld":
     baseUrl = process.env.LD_BASE_URL;
@@ -50,6 +58,8 @@ switch (process.env.BASE) {
     manufacturerAddress = process.env.LD_MANUFACTURER_ADDRESS;
     adminAddress = process.env.LD_ADMIN_ADDRESS;
     domain = process.env.LD_APP_DOMAIN;
+    mail = process.env.LD_EMAIL;
+    captcha = process.env.LD_CAPTCHA;
     break;
   default:
     baseUrl = process.env.BASE_URL;
