@@ -49,6 +49,8 @@
 
 <script>
 import { getQueryParam } from "@/utils";
+import common from "@/static/config.js"
+
 
 let JSEncrypt = null;
 
@@ -182,8 +184,7 @@ export default {
 
     encryptPassword(json) {
       var encryptor = new JSEncrypt();
-      var publicKey =
-        "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkkApKkKERcT8C9pkcH7F2YxOyK8veLXqLm06iY+XlTuvSFCxC3Fe7AudJ01nj8BAXiI947/OTEHsbX8hQUIitJl1A/AFYiiqzd+ZzsQNPDrtXUMIGMFDa2KpYzSOCwLimZ4NHShXpynEjyer5jz55iL8LjwqBiPcHeg7IfA1Itfm4moONjaCBzMCtNw+5En6i4cS0f2Tilxh+8LLnryqThJiom64Yvu9NtLJLAYr5eGxQ6ng679AaD0nckXGOiy4HqgNA3LTGfq45L4wrCbLR2UcqPba9HJ90zamXz7elrgwFy1ShLCyLQ9+SjxGKKQpdxeqLvpttX+UY/+O4S8j2wIDAQAB";
+      var publicKey = common.publicKey;
       encryptor.setPublicKey(publicKey);
       var rsaPassWord = encryptor.encrypt(json);
       return rsaPassWord;
