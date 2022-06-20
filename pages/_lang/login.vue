@@ -28,6 +28,7 @@
                     {{ invalidMessage }}
                     <el-input
                       @focus="hidePopovers"
+                      @blur="handleBlur"
                       slot="reference"
                       ref="username"
                       v-model.trim="loginForm.username"
@@ -54,7 +55,7 @@
                     ></el-input>
                   </el-popover>
                 </el-form-item>
-                <el-form-item  v-if="VUE_APP_CAPTCHA == '1'" prop="code">
+                <el-form-item v-if="VUE_APP_CAPTCHA == '1' && showCaptcha" prop="code">
                   <el-row :gutter="20" type="flex" class="items-center">
                     <el-col :span="14">
                       <el-popover trigger="manual" v-model="codePopover" placement="top">
@@ -73,7 +74,7 @@
                     </el-col>
                     <el-col :span="10" class="login-captcha">
                       <button>
-                        <img ref="captcha" alt @click="getCaptcha" style="height: 30px" />
+                        <img :src="captchaImgSrc" alt @click="getCaptcha" style="height: 30px" />
                       </button>
                     </el-col>
                   </el-row>
@@ -255,18 +256,22 @@ export default {
       passwordPopover: false,
       checkedPopover: false,
       showFlag: false,
+      showCaptcha: false,
+      captchaImgSrc: "",
       errorMsg: "", // 请求登录接口返回的错误信息
     };
   },
   methods: {
     getCaptcha() {
-
-      if (this.VUE_APP_CAPTCHA == '1') {
+      if (this.VUE_APP_CAPTCHA == "1") {
+        this.showCaptcha = true;
         const prefix = process.env.VUE_APP_BASE_API;
-        this.$refs.captcha.src =
+        this.captchaImgSrc =
           prefix +
           "/online/authorization/auth/verify/code?time=" +
-          new Date().getTime();
+          new Date().getTime() +
+          "&username=" +
+          this.loginForm.username;
       }
     },
     encryptPassword(json) {
@@ -281,6 +286,13 @@ export default {
     },
     resetPassword() {
       this.resetPasswordDialogVisible = true;
+    },
+    handleBlur() {
+      if (this.loginForm.username && !this.showCaptcha) {
+        this.getCaptcha();
+      } else if (!this.loginForm.username) {
+        this.showCaptcha = false;
+      }
     },
     validate(prop, isValid, message) {
       if (this.showFlag) {
@@ -368,15 +380,12 @@ export default {
                 location = process.env.VUE_APP_ADMIN_ADDRESS;
                 break;
             }
-            console.log(needPasswdChange);
-            console.log(typeof(needPasswdChange) );
 
-            debugger; 
             if (needPasswdChange == 1) {
-             window.open('/change-password');
-             this.loginForm.code = '';
-             this.loginForm.password = '';
-             this.getCaptcha();
+              window.open("/change-password");
+              this.loginForm.code = "";
+              this.loginForm.password = "";
+              this.getCaptcha();
             } else {
               window.location.href = location;
             }
@@ -388,10 +397,8 @@ export default {
     },
   },
   async mounted() {
-    
     const { default: _JSEncrypt } = await import("jsencrypt");
     JSEncrypt = _JSEncrypt;
-    this.getCaptcha();
     this.$store.commit("SET_MENU", false);
   },
 };
