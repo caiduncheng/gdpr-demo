@@ -1,0 +1,5 @@
+export const publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArdkqUOdToCx+EaRa2H/gesPwgnIsYDSE5OwChH3h0hcQDX2XRj7jzac+s68q4eY6zocXUhJLYgu9Zx6H5Lp+OUCEPfX+QoXmR9AZM1zov+awCP1Cluh/GRoaXfxDYnN/LwRagQr5l05L7Z410sD0v6+6/U0YTyJlt3kq6suUzHpE/74AVe0lofTxgogn5dlxmdzqmCbnkW72NjvKU0EAERfvcR4Jj8tFovYM8Pjw1k6inRGT0Wec9JlzRB5C68+cDDqTlE69AFxT/C23UT7kDqvvzWAfpX6CYufjlgl+JkizeIwKfnSTNCeFzJCPtYRyY4dO0mV2MvZtahvyS7L4JwIDAQAB";
+
+export default {
+  publicKey,
+}

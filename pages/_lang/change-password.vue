@@ -5,7 +5,7 @@
         <el-card>
           <div v-if="!success">
             <h2 class="text-2xl text-center">{{ $t('login.title_reset_password') }}</h2>
-            <el-form :model="form" :rules="loginRules" ref="form">
+            <el-form :model="form" :rules="loginRules" ref="form"  @validate="validate">
               <el-form-item :label="$t('login.old_password')" prop="oldPassword">
                 <el-input v-model="form.oldPassword" type="password"></el-input>
               </el-form-item>
@@ -27,7 +27,8 @@
                 <el-input v-model="form.confirmPassword" type="password"></el-input>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" class="w-full" @click="confirm">{{ $t('common.confirm') }}</el-button>
+                <el-button type="primary" class="w-full" @click="confirm" :loading='loading'>{{ $t('common.confirm') }}
+                </el-button>
               </el-form-item>
             </el-form>
           </div>
@@ -48,6 +49,8 @@
 
 <script>
 import { getQueryParam } from "@/utils";
+import common from "@/static/config.js"
+
 
 let JSEncrypt = null;
 
@@ -143,6 +146,7 @@ export default {
     };
     return {
       verified: false,
+      loading: false,
       loaded: false,
       success: false,
       mapPasswordStrength: MAP_PASSWORD_STRENGTH,
@@ -180,18 +184,33 @@ export default {
 
     encryptPassword(json) {
       var encryptor = new JSEncrypt();
-      var publicKey =
-        "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkkApKkKERcT8C9pkcH7F2YxOyK8veLXqLm06iY+XlTuvSFCxC3Fe7AudJ01nj8BAXiI947/OTEHsbX8hQUIitJl1A/AFYiiqzd+ZzsQNPDrtXUMIGMFDa2KpYzSOCwLimZ4NHShXpynEjyer5jz55iL8LjwqBiPcHeg7IfA1Itfm4moONjaCBzMCtNw+5En6i4cS0f2Tilxh+8LLnryqThJiom64Yvu9NtLJLAYr5eGxQ6ng679AaD0nckXGOiy4HqgNA3LTGfq45L4wrCbLR2UcqPba9HJ90zamXz7elrgwFy1ShLCyLQ9+SjxGKKQpdxeqLvpttX+UY/+O4S8j2wIDAQAB";
+      var publicKey = common.publicKey;
       encryptor.setPublicKey(publicKey);
       var rsaPassWord = encryptor.encrypt(json);
       return rsaPassWord;
     },
-   async confirm() {
+        validate(prop, isValid, message) {
+      if (this.showFlag) {
+        return;
+      }
+      this.showFlag = !isValid;
+      this[prop + "Popover"] = !isValid;
 
+      if (!isValid) {
+        this.invalidMessage = message;
+      }
+    },
+    async confirm() {
+      this.$refs.form.validate(async (valid) => {
+        if (valid) {
+           this.loading = true;
+      setTimeout(() => {
+        this.loading = false;
+      }, 1500);
       const { timestamp } = await this.$store.dispatch("getTimeStamp");
       let json = JSON.stringify({
         timestamp,
-        password: this.form.Password
+        password: this.form.password
       });
 
       const encryptedNewPassword = this.encryptPassword(json)
@@ -214,14 +233,17 @@ export default {
         }).catch((err) => {
           console.log(err);
           this.$message({
-            type: 'info',
-            message: err.message,
-          })
+            type: 'error',
+            message: err,
+          });
         });
+         }
+      });
+     
     },
   },
-   async mounted() {
-    
+  async mounted() {
+
     const { default: _JSEncrypt } = await import("jsencrypt");
     JSEncrypt = _JSEncrypt;
   },
