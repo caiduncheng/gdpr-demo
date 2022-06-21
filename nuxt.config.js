@@ -151,6 +151,13 @@ export default {
       changeOrigin: true,
       secure: false,
     },
+    "/api/online/developer": {
+      target: "http://192.168.35.83:9102",
+      pathRewrite: {
+        "/api/online/developer": "/online/developer",
+      },
+      changeOrigin: true,
+    },
     "/api/online/management": {
       target: "https://toms.opennl-dev.com",
       pathRewrite: { "/api/online/management": "/online/management" },
