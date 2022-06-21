@@ -206,7 +206,7 @@
 <script>
 let JSEncrypt = null;
 
-import common from "@/static/config.js"
+import common from "@/static/config.js";
 
 export default {
   data() {

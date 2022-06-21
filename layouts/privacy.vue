@@ -367,7 +367,7 @@ export default {
   padding-top: 80px;
   padding-bottom: 40px;
   @apply text-center;
-  @screeen md {
+  @screen md {
     padding-top: 160px;
   }
 }
