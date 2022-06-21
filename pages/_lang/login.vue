@@ -89,7 +89,7 @@
                   >{{ $t("common.sign_in") }}</el-button>
                   <div class="el-form-item__error text-center">{{ errorMsg }}</div>
                 </el-form-item>
-                <el-form-item prop="checked">
+                <el-form-item prop="checked" v-if="VUE_APP_PRIVACY == '1'">
                   <div class="text-center">
                     <el-popover trigger="manual" v-model="checkedPopover" placement="bottom">
                       <i class="el-icon-warning text-yellow-500"></i>
@@ -101,6 +101,32 @@
                         }}</NuxtLink>-->
                       </el-checkbox>
                     </el-popover>
+                    <div class="text-center">
+                      <el-tooltip effect="dark" content="FlyKey" placement="bottom">
+                        <div class="website-icon mr-10">
+                          <a href="https://flykey.newlandpayment.com">
+                            <img src="~/assets/sign-in/flykey.png" alt />
+                          </a>
+                        </div>
+                      </el-tooltip>
+                      <el-tooltip effect="dark" content="NPSC" placement="bottom">
+                        <div class="website-icon">
+                          <a href="https://npsc.newlandpayment.com/npsc">
+                            <img src="~assets/sign-in/npsc.png" alt />
+                          </a>
+                        </div>
+                      </el-tooltip>
+                    </div>
+                  </div>
+                </el-form-item>
+                                <el-form-item v-if="VUE_APP_PRIVACY == '0'">
+                  <div class="text-center">
+                  
+                        <span class="text-xs" v-html="$t('login.agree_terms_conditions1')"></span>
+                        <!-- <NuxtLink to="/privacy/terms" class="link">{{
+                          $t("login.terms_and_conditions")
+                        }}</NuxtLink>-->
+
                     <div class="text-center">
                       <el-tooltip effect="dark" content="FlyKey" placement="bottom">
                         <div class="website-icon mr-10">
@@ -226,6 +252,7 @@ export default {
     return {
       VUE_APP_EMAIL: process.env.VUE_APP_EMAIL,
       VUE_APP_CAPTCHA: process.env.VUE_APP_CAPTCHA,
+      VUE_APP_PRIVACY: process.env.VUE_APP_PRIVACY,
       signUpDialogVisible: false,
       resetPasswordDialogVisible: false,
       loginForm: {
@@ -321,6 +348,9 @@ export default {
           let characterCode, characterStatus, token, needPasswdChange;
 
           try {
+            if (this.VUE_APP_PRIVACY == '0') {
+              this.loginForm.checked = true;
+            }
             const { timestamp } = await this.$store.dispatch("getTimeStamp");
             const json = JSON.stringify({
               timestamp,

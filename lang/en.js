@@ -235,6 +235,8 @@ module.exports = {
     captcha: "Captcha",
     agree_terms_conditions:
       'I agree to <a class="link" href="/privacy/privacy-policy"> Privacy Policy </a> and <a class="link" href="/privacy/terms"> Terms & Conditions</a>',
+    agree_terms_conditions1:
+      '<a class="link" href="/privacy/privacy-policy"> Privacy Policy </a> and <a class="link" href="/privacy/terms"> Terms & Conditions</a>',
     i_accept: "I accept",
     terms_and_conditions: "Terms & Conditions",
     donnot_have_account: "Don`t have account?",

@@ -9,6 +9,7 @@ let adminAddress = "";
 let domain = "";
 let mail = "";
 let captcha = "";
+let privacy = "";
 
 switch (process.env.BASE) {
   case "test":
@@ -20,6 +21,8 @@ switch (process.env.BASE) {
     domain = process.env.DEV_APP_DOMAIN;
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
+    privacy = process.env.PRIVACY;
+
     break;
   case "dev":
     baseUrl = process.env.TEST_BASE_URL;
@@ -30,6 +33,8 @@ switch (process.env.BASE) {
     domain = process.env.TEST_APP_DOMAIN;
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
+    privacy = process.env.PRIVACY;
+
     break;
   case "inte":
     baseUrl = process.env.INTE_BASE_URL;
@@ -40,6 +45,8 @@ switch (process.env.BASE) {
     domain = process.env.INTE_APP_DOMAIN;
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
+    privacy = process.env.PRIVACY;
+
     break;
   case "production":
     baseUrl = process.env.PROD_BASE_URL;
@@ -50,6 +57,8 @@ switch (process.env.BASE) {
     domain = process.env.PROD_APP_DOMAIN;
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
+    privacy = process.env.PRIVACY;
+
     break;
   case "ld":
     baseUrl = process.env.LD_BASE_URL;
@@ -60,6 +69,8 @@ switch (process.env.BASE) {
     domain = process.env.LD_APP_DOMAIN;
     mail = process.env.LD_EMAIL;
     captcha = process.env.LD_CAPTCHA;
+    privacy = process.env.LD_PRIVACY;
+
     break;
   default:
     baseUrl = process.env.BASE_URL;
@@ -70,6 +81,7 @@ switch (process.env.BASE) {
     domain = process.env.APP_DOMAIN;
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
+    privacy = process.env.PRIVACY;
     break;
 }
 
@@ -161,5 +173,6 @@ export default {
     VUE_APP_DOMAIN: domain,
     VUE_APP_EMAIL: mail,
     VUE_APP_CAPTCHA: captcha,
+    VUE_APP_PRIVACY: privacy,
   },
 };
