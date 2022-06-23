@@ -49,7 +49,6 @@
 
 <script>
 import { getQueryParam } from "@/utils";
-import common from "@/static/config.js"
 
 
 let JSEncrypt = null;
@@ -145,6 +144,7 @@ export default {
       }
     };
     return {
+      VUE_APP_PUBKEY: process.env.VUE_APP_PUBKEY,
       verified: false,
       loading: false,
       loaded: false,
@@ -184,7 +184,7 @@ export default {
 
     encryptPassword(json) {
       var encryptor = new JSEncrypt();
-      var publicKey = common.publicKey;
+      var publicKey = this.VUE_APP_PUBKEY;
       encryptor.setPublicKey(publicKey);
       var rsaPassWord = encryptor.encrypt(json);
       return rsaPassWord;
@@ -204,9 +204,6 @@ export default {
       this.$refs.form.validate(async (valid) => {
         if (valid) {
            this.loading = true;
-      setTimeout(() => {
-        this.loading = false;
-      }, 1500);
       const { timestamp } = await this.$store.dispatch("getTimeStamp");
       let json = JSON.stringify({
         timestamp,
@@ -236,7 +233,10 @@ export default {
             type: 'error',
             message: err,
           });
-        });
+
+        }).finally(() => {
+              this.loading = false;
+            });
          }
       });
      

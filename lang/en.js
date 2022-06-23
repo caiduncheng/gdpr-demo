@@ -299,6 +299,22 @@ module.exports = {
     invalid_email_length: "The max length of email is 64.",
     title_sign_up: "Information",
     sign_up_tip: "Please fill in your information",
+    role: "Role",
+    select_role: "Please Select your role",
+    developer: "DEVELOPER",
+    operator: "OPERATOR",
+    developer_type: "Type of Developer",
+    personal: "Personal",
+    company: "Company",
+    your_name: "Your Name",
+    company_name1: "Company Name",
+    certificate_type: "Type of Certificate",
+    id_card: "Identification Card",
+    passport: "Passport",
+    certificate_num: "Certificate Number",
+    address1: "Address",
+    
+
   },
   logout: {
     logout_tip: "Do you want to log out?",

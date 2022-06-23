@@ -167,7 +167,7 @@
         </div>
       </div>
     </div>
-    <div v-if="VUE_APP_EMAIL == '1'" class="login-footer">
+    <div v-if="VUE_APP_NEWLAND_INFO == '1'" class="login-footer">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
@@ -206,7 +206,6 @@
 <script>
 let JSEncrypt = null;
 
-import common from "@/static/config.js";
 
 export default {
   data() {
@@ -250,7 +249,9 @@ export default {
       }
     };
     return {
+      VUE_APP_PUBKEY: process.env.VUE_APP_PUBKEY,
       VUE_APP_EMAIL: process.env.VUE_APP_EMAIL,
+      VUE_APP_NEWLAND_INFO: process.env.VUE_APP_NEWLAND_INFO,
       VUE_APP_CAPTCHA: process.env.VUE_APP_CAPTCHA,
       VUE_APP_PRIVACY: process.env.VUE_APP_PRIVACY,
       signUpDialogVisible: false,
@@ -303,7 +304,7 @@ export default {
     },
     encryptPassword(json) {
       var encryptor = new JSEncrypt();
-      var publicKey = common.publicKey;
+      var publicKey = this.VUE_APP_PUBKEY;
       encryptor.setPublicKey(publicKey);
       var rsaPassWord = encryptor.encrypt(json);
       return rsaPassWord;
@@ -377,7 +378,8 @@ export default {
           exp.setTime(exp.getTime() + 2 * 60 * 60 * 1000);
           const tokenKey =
             characterCode === "OPERATOR" ? "TOMS_TOKEN" : "token";
-
+            
+          //  characterStatus 1:ok 2:待审核 3:审核失败
           if (characterStatus && characterStatus !== 1) {
             if (characterStatus === 2) {
               this.$router.push(`/account-status?token=${token}`);
@@ -400,7 +402,7 @@ export default {
               case "OPERATOR":
                 location = process.env.VUE_APP_OPERATOR_ADDRESS;
                 break;
-              case "DEVELOPER":
+              case "DEV":
                 location = process.env.VUE_APP_DEVELOPER_ADDRESS;
                 break;
               case "MANUFACTURER":
@@ -410,7 +412,7 @@ export default {
                 location = process.env.VUE_APP_ADMIN_ADDRESS;
                 break;
             }
-
+            
             if (needPasswdChange == 1) {
               window.open("/change-password");
               this.loginForm.code = "";

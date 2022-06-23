@@ -1,5 +1,5 @@
 <template>
-  <footer v-if="VUE_APP_EMAIL == '1'" class="footer">
+  <footer v-if="VUE_APP_NEWLAND_INFO == '1'" class="footer">
     <div class="container">
       <div class="row">
         <div class="col-lg-3 offset-lg-3 mb-5 lg:mb-0">
@@ -117,7 +117,7 @@
 export default {
   data() {
     return {
-      VUE_APP_EMAIL : process.env.VUE_APP_EMAIL,
+      VUE_APP_NEWLAND_INFO : process.env.VUE_APP_NEWLAND_INFO,
     }
   }
 };

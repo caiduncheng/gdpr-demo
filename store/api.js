@@ -28,6 +28,13 @@ export const api = {
       data,
     });
   },
+  async registerDeveloper(store, data) {
+    return await this.$axios({
+      url: `/online/authorization/register/developer`,
+      method: "POST",
+      data,
+    });
+  },
   async verifyRegisterToken(store, data) {
     return await this.$axios({
       url: `/online/authorization/register/url/validate/email/token`,

@@ -10,6 +10,9 @@ let domain = "";
 let mail = "";
 let captcha = "";
 let privacy = "";
+let newlandInfo = "";
+let pubKey = "";
+
 
 switch (process.env.BASE) {
   case "test":
@@ -22,7 +25,8 @@ switch (process.env.BASE) {
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
     privacy = process.env.PRIVACY;
-
+    newlandInfo = process.env.NEWLAND_INFO;
+    pubKey = process.env.PUBKEY;
     break;
   case "dev":
     baseUrl = process.env.TEST_BASE_URL;
@@ -34,7 +38,8 @@ switch (process.env.BASE) {
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
     privacy = process.env.PRIVACY;
-
+    pubKey = process.env.PUBKEY;
+    newlandInfo = process.env.NEWLAND_INFO;
     break;
   case "inte":
     baseUrl = process.env.INTE_BASE_URL;
@@ -46,7 +51,8 @@ switch (process.env.BASE) {
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
     privacy = process.env.PRIVACY;
-
+    newlandInfo = process.env.NEWLAND_INFO;
+    pubKey = process.env.PUBKEY;
     break;
   case "production":
     baseUrl = process.env.PROD_BASE_URL;
@@ -58,7 +64,8 @@ switch (process.env.BASE) {
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
     privacy = process.env.PRIVACY;
-
+    newlandInfo = process.env.NEWLAND_INFO;
+    pubKey = process.env.PUBKEY;
     break;
   case "ld":
     baseUrl = process.env.LD_BASE_URL;
@@ -70,7 +77,8 @@ switch (process.env.BASE) {
     mail = process.env.LD_EMAIL;
     captcha = process.env.LD_CAPTCHA;
     privacy = process.env.LD_PRIVACY;
-
+    newlandInfo = process.env.LD_NEWLAND_INFO;
+    pubKey = process.env.LD_PUBKEY;
     break;
   default:
     baseUrl = process.env.BASE_URL;
@@ -82,6 +90,8 @@ switch (process.env.BASE) {
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
     privacy = process.env.PRIVACY;
+    newlandInfo = process.env.NEWLAND_INFO;
+    pubKey = process.env.PUBKEY;
     break;
 }
 
@@ -181,5 +191,7 @@ export default {
     VUE_APP_EMAIL: mail,
     VUE_APP_CAPTCHA: captcha,
     VUE_APP_PRIVACY: privacy,
+    VUE_APP_NEWLAND_INFO: newlandInfo,
+    VUE_APP_PUBKEY: pubKey,
   },
 };
