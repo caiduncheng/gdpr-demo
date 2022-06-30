@@ -6,16 +6,14 @@
           <div v-if="!success">
             <h2 class="text-2xl text-center">{{ $t('login.title_reset_password') }}</h2>
             <el-form :model="form" :rules="loginRules" ref="form" class="p-5">
-              <el-form-item :label=" $t('login.new_password')" prop="password">
+              <el-form-item :label="$t('login.new_password')" prop="password">
                 <el-input v-model="form.password" type="password"></el-input>
                 <div class="password-strength" v-show="showPasswordStrength">
-                  <div
-                    class="text"
-                  >{{$t('login.password_strength')}} {{mapPasswordStrength[passwordStrength]}}</div>
+                  <div class="text">{{ $t('login.password_strength') }} {{ mapPasswordStrength[passwordStrength] }}</div>
                   <div class="indicator">
-                    <span :class="['weak', {active: passwordStrength >= 1}]"></span>
-                    <span :class="['moderate', {active: passwordStrength >= 2}]"></span>
-                    <span :class="['strong', {active: passwordStrength === 3}]"></span>
+                    <span :class="['weak', { active: passwordStrength >= 1 }]"></span>
+                    <span :class="['moderate', { active: passwordStrength >= 2 }]"></span>
+                    <span :class="['strong', { active: passwordStrength === 3 }]"></span>
                   </div>
                 </div>
               </el-form-item>
@@ -32,7 +30,7 @@
               <h2 slot="title" class="text-3xl">{{ $t('login.password_set_successfully') }}</h2>
             </el-result>
 
-            <NuxtLink :to="{name: 'lang', params: { lang: $store.state.locale} }">
+            <NuxtLink :to="{ name: 'lang', params: { lang: $store.state.locale } }">
               <el-button type="primary">{{ $t('login.go_to_home_page') }}</el-button>
             </NuxtLink>
           </div>
@@ -146,16 +144,20 @@ export default {
   },
   methods: {
     confirm() {
-      this.$store
-        .dispatch("resetPassword", {
-          newPassword: this.form.password,
-          username,
-          email,
-          token,
-        })
-        .then(() => {
-          this.success = true;
-        });
+      this.$refs.form.validate(valid => {
+        if (valid) {
+          this.$store
+            .dispatch("resetPassword", {
+              newPassword: this.form.password,
+              username,
+              email,
+              token,
+            })
+            .then(() => {
+              this.success = true;
+            });
+        }
+      })
     },
   },
   mounted() {
@@ -173,11 +175,13 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     span {
       position: relative;
       height: 100%;
       width: 100%;
       background: lightgrey;
+
       &::before {
         width: 0;
         position: absolute;
@@ -187,19 +191,24 @@ export default {
         left: 0;
         transition: width 0.5s;
       }
+
       /* border-radius: 5px; */
       &.weak::before {
         background-color: #ff4757;
       }
+
       &.moderate::before {
         background-color: orange;
       }
+
       &.strong::before {
         background-color: #9acb6b;
       }
+
       &.active::before {
         width: 100%;
       }
+
       &:nth-child(2) {
         margin: 0 3px;
       }
