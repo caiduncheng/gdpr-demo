@@ -15,7 +15,7 @@ let pubKey = "";
 
 
 switch (process.env.BASE) {
-  case "test":
+  case "dev":
     baseUrl = process.env.DEV_BASE_URL;
     operatorAddress = process.env.DEV_OPERATOR_ADDRESS;
     developerAddress = process.env.DEV_DEVELOPER_ADDRESS;
@@ -28,7 +28,7 @@ switch (process.env.BASE) {
     newlandInfo = process.env.NEWLAND_INFO;
     pubKey = process.env.PUBKEY;
     break;
-  case "dev":
+  case "test":
     baseUrl = process.env.TEST_BASE_URL;
     operatorAddress = process.env.TEST_OPERATOR_ADDRESS;
     developerAddress = process.env.TEST_DEVELOPER_ADDRESS;
