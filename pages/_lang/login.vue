@@ -12,47 +12,19 @@
             <div class="login-form__header">{{ $t("login.sign_in") }}</div>
             <div class="login-form__body">
               <p class="text-xs text-gray text-center mb-4">{{ $t("login.sign_in_tip") }}</p>
-              <el-form
-                @validate="validate"
-                class="small"
-                ref="loginForm"
-                :model="loginForm"
-                :rules="loginRules"
-                auto-complete="on"
-                @submit.native.prevent
-                :show-message="false"
-              >
+              <el-form @validate="validate" class="small" ref="loginForm" :model="loginForm" :rules="loginRules" auto-complete="on" @submit.native.prevent :show-message="false">
                 <el-form-item prop="username">
                   <el-popover trigger="manual" v-model="usernamePopover" placement="top">
                     <i class="el-icon-warning text-yellow-500"></i>
                     {{ invalidMessage }}
-                    <el-input
-                      @focus="hidePopovers"
-                      @blur="handleBlur"
-                      slot="reference"
-                      ref="username"
-                      v-model.trim="loginForm.username"
-                      :placeholder="$t('login.account_email_placeholder')"
-                      tabindex="1"
-                      auto-complete="on"
-                      prefix-icon="el-icon-message"
-                    ></el-input>
+                    <el-input @focus="hidePopovers" @blur="handleBlur" slot="reference" ref="username" v-model.trim="loginForm.username" :placeholder="$t('login.account_email_placeholder')" tabindex="1" auto-complete="on" prefix-icon="el-icon-message"></el-input>
                   </el-popover>
                 </el-form-item>
                 <el-form-item prop="password">
                   <el-popover trigger="manual" v-model="passwordPopover" placement="top">
                     <i class="el-icon-warning text-yellow-500"></i>
                     {{ invalidMessage }}
-                    <el-input
-                      @focus="hidePopovers"
-                      slot="reference"
-                      :placeholder="$t('login.password')"
-                      v-model="loginForm.password"
-                      type="password"
-                      tabindex="2"
-                      auto-complete="on"
-                      prefix-icon="el-icon-lock"
-                    ></el-input>
+                    <el-input @focus="hidePopovers" slot="reference" :placeholder="$t('login.password')" v-model="loginForm.password" type="password" tabindex="2" auto-complete="on" prefix-icon="el-icon-lock"></el-input>
                   </el-popover>
                 </el-form-item>
                 <el-form-item v-if="VUE_APP_CAPTCHA == '1' && showCaptcha" prop="code">
@@ -61,15 +33,7 @@
                       <el-popover trigger="manual" v-model="codePopover" placement="top">
                         <i class="el-icon-warning text-yellow-500"></i>
                         {{ invalidMessage }}
-                        <el-input
-                          tabindex="3"
-                          @focus="hidePopovers"
-                          slot="reference"
-                          maxlength="5"
-                          :placeholder="$t('login.captcha')"
-                          v-model.trim="loginForm.code"
-                          @keyup.enter.native="handleLogin"
-                        ></el-input>
+                        <el-input tabindex="3" @focus="hidePopovers" slot="reference" maxlength="5" :placeholder="$t('login.captcha')" v-model.trim="loginForm.code" @keyup.enter.native="handleLogin"></el-input>
                       </el-popover>
                     </el-col>
                     <el-col :span="10" class="login-captcha">
@@ -81,12 +45,7 @@
                 </el-form-item>
 
                 <el-form-item>
-                  <el-button
-                    class="w-full"
-                    :loading="loading"
-                    type="primary"
-                    @click="handleLogin"
-                  >{{ $t("common.sign_in") }}</el-button>
+                  <el-button class="w-full" :loading="loading" type="primary" @click="handleLogin">{{ $t("common.sign_in") }}</el-button>
                   <div class="el-form-item__error text-center">{{ errorMsg }}</div>
                 </el-form-item>
                 <el-form-item prop="checked" v-if="VUE_APP_PRIVACY == '1'">
@@ -119,11 +78,11 @@
                     </div>
                   </div>
                 </el-form-item>
-                                <el-form-item v-if="VUE_APP_PRIVACY == '0'">
+                <el-form-item v-if="VUE_APP_PRIVACY == '0'">
                   <div class="text-center">
-                  
-                        <span class="text-xs" v-html="$t('login.agree_terms_conditions1')"></span>
-                        <!-- <NuxtLink to="/privacy/terms" class="link">{{
+
+                    <span class="text-xs" v-html="$t('login.agree_terms_conditions1')"></span>
+                    <!-- <NuxtLink to="/privacy/terms" class="link">{{
                           $t("login.terms_and_conditions")
                         }}</NuxtLink>-->
 
@@ -157,7 +116,7 @@
                 <div class="text-center">
                   <a @click.prevent="resetPassword" class="text-xs link">
                     {{
-                    $t("login.forgot_password")
+                        $t("login.forgot_password")
                     }}
                   </a>
                 </div>
@@ -180,10 +139,7 @@
                 <img class="mr-2" src="~assets/sign-in/5.png" alt />
               </a>
 
-              <a
-                href="https://www.alibaba.com/trade/search?fsb=y&IndexArea=product_en&CatId=&SearchText=newlandnpt"
-                target="_blank"
-              >
+              <a href="https://www.alibaba.com/trade/search?fsb=y&IndexArea=product_en&CatId=&SearchText=newlandnpt" target="_blank">
                 <img src="~assets/sign-in/6.png" alt />
               </a>
             </div>
@@ -196,10 +152,7 @@
       </div>
     </div>
     <LazySignupDialog :visible.sync="signUpDialogVisible" :title="$t('login.sign_up')" />
-    <LazyResetPasswordDialog
-      :visible.sync="resetPasswordDialogVisible"
-      :title="$t('login.title_reset_password')"
-    />
+    <LazyResetPasswordDialog :visible.sync="resetPasswordDialogVisible" :title="$t('login.title_reset_password')" />
   </div>
 </template>
 
@@ -338,7 +291,7 @@ export default {
         this.codePopover =
         this.passwordPopover =
         this.usernamePopover =
-          false;
+        false;
     },
     handleLogin() {
       this.showFlag = false;
@@ -376,9 +329,10 @@ export default {
 
           const exp = new Date();
           exp.setTime(exp.getTime() + 2 * 60 * 60 * 1000);
-          const tokenKey =
-            characterCode === "OPERATOR" ? "TOMS_TOKEN" : "token";
-            
+          const tokenKey = "TOMS_TOKEN"
+          // const tokenKey =
+          //   characterCode === "OPERATOR" ? "TOMS_TOKEN" : "token";
+
           //  characterStatus 1:ok 2:待审核 3:审核失败
           if (characterStatus && characterStatus !== 1) {
             if (characterStatus === 2) {
@@ -387,15 +341,13 @@ export default {
               this.$router.push(`/resubmit-form?token=${token}`);
             }
           } else {
-            document.cookie = `${tokenKey}=${token};path=/;domain=${
-              process.env.VUE_APP_DOMAIN
-            };expires=${exp.toGMTString()}"`;
+            document.cookie = `${tokenKey}=${token};path=/;domain=${process.env.VUE_APP_DOMAIN
+              };expires=${exp.toGMTString()}"`;
 
             exp.setTime(exp.getTime() + 30 * 24 * 3600 * 1000);
 
-            document.cookie = `lang=${this.$store.state.locale};path=/;domain=${
-              process.env.VUE_APP_DOMAIN
-            };expires=${exp.toGMTString()}"`;
+            document.cookie = `lang=${this.$store.state.locale};path=/;domain=${process.env.VUE_APP_DOMAIN
+              };expires=${exp.toGMTString()}"`;
             let location = "";
 
             switch (characterCode) {
@@ -412,7 +364,7 @@ export default {
                 location = process.env.VUE_APP_ADMIN_ADDRESS;
                 break;
             }
-            
+
             if (needPasswdChange == 1) {
               window.open("/change-password");
               this.loginForm.code = "";
@@ -439,6 +391,7 @@ export default {
 <style lang="scss" scoped>
 @use "~assets/css/mixin";
 @use "~assets/css/variables";
+
 .background {
   background-image: url("~assets/sign-in/bg.png");
   @include mixin.background-cover;
@@ -448,6 +401,7 @@ export default {
 
 .login-title-wrapper {
   display: none;
+
   @screen md {
     display: block;
   }
@@ -475,6 +429,7 @@ export default {
   padding: 20px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
+
   .website-icon {
     background-color: #297be2;
     padding: 0 10px;
@@ -482,11 +437,13 @@ export default {
     display: inline-block;
     transition: background-color 0.3s;
     cursor: pointer;
-    & > a > img {
+
+    &>a>img {
       user-select: none;
       width: 20px;
       height: auto;
     }
+
     &:hover {
       background-color: #1a5fbb;
     }
@@ -501,6 +458,7 @@ export default {
   bottom: 0;
   width: 100%;
   z-index: 2;
+
   @screen md {
     padding: 20px 0;
   }
