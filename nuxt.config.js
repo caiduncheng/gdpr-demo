@@ -13,7 +13,6 @@ let privacy = "";
 let newlandInfo = "";
 let pubKey = "";
 
-
 switch (process.env.BASE) {
   case "dev":
     baseUrl = process.env.DEV_BASE_URL;
@@ -80,6 +79,18 @@ switch (process.env.BASE) {
     newlandInfo = process.env.LD_NEWLAND_INFO;
     pubKey = process.env.LD_PUBKEY;
     break;
+  case "penetration":
+    baseUrl = process.env.PENETRATION_BASE_URL;
+    operatorAddress = process.env.PENETRATION_OPERATOR_ADDRESS;
+    developerAddress = process.env.PENETRATION_DEVELOPER_ADDRESS;
+    manufacturerAddress = process.env.PENETRATION_MANUFACTURER_ADDRESS;
+    adminAddress = process.env.PENETRATION_ADMIN_ADDRESS;
+    domain = process.env.PENETRATION_APP_DOMAIN;
+    mail = process.env.EMAIL;
+    captcha = process.env.CAPTCHA;
+    privacy = process.env.PRIVACY;
+    newlandInfo = process.env.NEWLAND_INFO;
+    pubKey = process.env.PUBKEY;
   default:
     baseUrl = process.env.BASE_URL;
     operatorAddress = process.env.OPERATOR_ADDRESS;

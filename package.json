@@ -7,6 +7,7 @@
     "generate:inte": "cross-env NODE_ENV=production BASE=inte nuxt generate",
     "generate:dev": "cross-env NODE_ENV=production BASE=dev nuxt generate",
     "generate:ld": "cross-env NODE_ENV=production BASE=ld nuxt generate",
+    "generate:penetration": "cross-env NODE_ENV=production BASE=penetration nuxt generate",
     "generate": "cross-env NODE_ENV=production BASE=production nuxt generate",
     "start": "nuxt start"
   },
