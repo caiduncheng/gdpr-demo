@@ -284,6 +284,8 @@ module.exports = {
     personal: "个人",
     company: "公司",
     your_name: "你的名称",
+    first_name: "名",
+    last_name: "姓",
     company_name1: "公司名称",
     certificate_type: "证件类型",
     id_card: "身份证",

@@ -152,10 +152,16 @@
                       </el-select>
                     </el-form-item>
 
-                    <el-form-item v-if="developerForm.developerType == 1" required :label="$t('login.your_name')" prop="firstName"
+                    <el-form-item v-if="developerForm.developerType == 1" required :label="$t('login.first_name')" prop="firstName"
                       key="firstName">
                       <el-input :maxlength="128" v-model.trim="developerForm.firstName"></el-input>
                     </el-form-item>
+                    <el-form-item v-if="developerForm.developerType == 1" required :label="$t('login.last_name')" prop="lastName" key="lastName"
+                      >
+                      <el-input :maxlength="128" v-model.trim="developerForm.lastName"></el-input>
+                    </el-form-item>
+                    
+                    
                     <el-form-item v-if="developerForm.developerType == 2" required :label="$t('login.company_name1')" prop="firstName"
                       key="firstName">
                       <el-input :maxlength="128" v-model.trim="developerForm.firstName"></el-input>
@@ -386,6 +392,7 @@ export default {
         developerType: 2,
         // developer_type = 1时表示名字; developer_type = 2时表示 公司名称
         firstName: "",
+        lastName: "",
         contactName: "",
         mobile: "",
         email: "",
@@ -404,6 +411,13 @@ export default {
       operatorRules: {
 
         firstName: [
+          {
+            required: true,
+            message: "Name is required",
+          },
+        ],
+
+        lastName: [
           {
             required: true,
             message: "Name is required",
@@ -548,10 +562,11 @@ export default {
           formData.username = this.developerForm.email;
           formData.developerType = this.developerForm.developerType;
           formData.firstName = this.developerForm.firstName;
+          formData.lastName = this.developerForm.lastName;
           if (this.developerForm.developerType == 2) {
             formData.contactName = this.developerForm.contactName;
           } else {
-            formData.contactName = this.developerForm.firstName;
+            formData.contactName = this.developerForm.firstName + ' ' + this.developerForm.lastName;
           }
           
           formData.mobile = this.developerForm.mobile;
