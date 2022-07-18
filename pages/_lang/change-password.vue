@@ -5,7 +5,7 @@
         <el-card>
           <div v-if="!success">
             <h2 class="text-2xl text-center">{{ $t('login.title_reset_password') }}</h2>
-            <el-form :model="form" :rules="loginRules" ref="form"  @validate="validate">
+            <el-form :model="form" :rules="loginRules" ref="form" @validate="validate">
               <el-form-item :label="$t('login.old_password')" prop="oldPassword">
                 <el-input v-model="form.oldPassword" type="password"></el-input>
               </el-form-item>
@@ -13,8 +13,9 @@
               <el-form-item :label="$t('login.new_password')" prop="password">
                 <el-input v-model="form.password" type="password"></el-input>
                 <div class="password-strength" v-show="showPasswordStrength">
-                  <div class="text">{{ $t('login.password_strength') }} {{ mapPasswordStrength[passwordStrength] }}
-                  </div>
+                  <div
+                    class="text"
+                  >{{ $t('login.password_strength') }} {{ mapPasswordStrength[passwordStrength] }}</div>
                   <div class="indicator">
                     <span :class="['weak', { active: passwordStrength >= 1 }]"></span>
                     <span :class="['moderate', { active: passwordStrength >= 2 }]"></span>
@@ -27,8 +28,12 @@
                 <el-input v-model="form.confirmPassword" type="password"></el-input>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" class="w-full" @click="confirm" :loading='loading'>{{ $t('common.confirm') }}
-                </el-button>
+                <el-button
+                  type="primary"
+                  class="w-full"
+                  @click="confirm"
+                  :loading="loading"
+                >{{ $t('common.confirm') }}</el-button>
               </el-form-item>
             </el-form>
           </div>
@@ -50,7 +55,6 @@
 <script>
 import { getQueryParam } from "@/utils";
 
-
 let JSEncrypt = null;
 
 const MAP_PASSWORD_STRENGTH = {
@@ -61,25 +65,24 @@ const MAP_PASSWORD_STRENGTH = {
 
 export default {
   layout: "login",
-  // async validate({ params, query, store }) {
-  //   username = getQueryParam("account");
-  //   email = getQueryParam("email");
-  //   token = getQueryParam("token");
-  //   try {
-  //     await store.dispatch("verifyResetToken", {
-  //       username,
-  //       email,
-  //       token,
-  //     });
-  //   } catch {
-  //     return false;
-  //   }
+  async validate({ params, query, store }) {
+    username = getQueryParam("account");
+    email = getQueryParam("email");
+    token = getQueryParam("token");
+    try {
+      await store.dispatch("verifyResetToken", {
+        username,
+        email,
+        token,
+      });
+    } catch {
+      return false;
+    }
 
-  //   return true;
-  // },
+    return true;
+  },
   data() {
     const validOldPassword = function (rule, password, cb) {
-
       if (password) {
         if (password.length < 8 || password.length > 18) {
           cb(new Error(this.$t("login.validate_password_tip")));
@@ -88,7 +91,6 @@ export default {
         cb(new Error(this.$t("login.validate_password_required")));
       }
       cb();
-
     };
 
     const validPassword = function (rule, password, cb) {
@@ -122,9 +124,6 @@ export default {
           } else if (complexity === 4) {
             this.passwordStrength = 3;
           }
-
-
-
         }
       } else {
         this.showPasswordStrength = false;
@@ -164,8 +163,7 @@ export default {
         oldPassword: [
           {
             validator: validOldPassword.bind(this),
-
-          }
+          },
         ],
         password: [
           {
@@ -181,7 +179,6 @@ export default {
     };
   },
   methods: {
-
     encryptPassword(json) {
       var encryptor = new JSEncrypt();
       var publicKey = this.VUE_APP_PUBKEY;
@@ -189,7 +186,7 @@ export default {
       var rsaPassWord = encryptor.encrypt(json);
       return rsaPassWord;
     },
-        validate(prop, isValid, message) {
+    validate(prop, isValid, message) {
       if (this.showFlag) {
         return;
       }
@@ -203,47 +200,46 @@ export default {
     async confirm() {
       this.$refs.form.validate(async (valid) => {
         if (valid) {
-           this.loading = true;
-      const { timestamp } = await this.$store.dispatch("getTimeStamp");
-      let json = JSON.stringify({
-        timestamp,
-        password: this.form.password
-      });
-
-      const encryptedNewPassword = this.encryptPassword(json)
-
-      json = JSON.stringify({
-        timestamp,
-        password: this.form.oldPassword
-      })
-
-      const encryptedOldPassword = this.encryptPassword(json)
-
-      this.$store
-        .dispatch("changePassword", {
-          oldPassword: encryptedOldPassword,
-          newPassword: encryptedNewPassword
-        })
-        .then((res) => {
-          this.success = true;
-          this.$store.commit("REMOVE_TOKEN");
-        }).catch((err) => {
-          console.log(err);
-          this.$message({
-            type: 'error',
-            message: err,
+          this.loading = true;
+          const { timestamp } = await this.$store.dispatch("getTimeStamp");
+          let json = JSON.stringify({
+            timestamp,
+            password: this.form.password,
           });
 
-        }).finally(() => {
+          const encryptedNewPassword = this.encryptPassword(json);
+
+          json = JSON.stringify({
+            timestamp,
+            password: this.form.oldPassword,
+          });
+
+          const encryptedOldPassword = this.encryptPassword(json);
+
+          this.$store
+            .dispatch("changePassword", {
+              oldPassword: encryptedOldPassword,
+              newPassword: encryptedNewPassword,
+            })
+            .then((res) => {
+              this.success = true;
+              this.$store.commit("REMOVE_TOKEN");
+            })
+            .catch((err) => {
+              console.log(err);
+              this.$message({
+                type: "error",
+                message: err,
+              });
+            })
+            .finally(() => {
               this.loading = false;
             });
-         }
+        }
       });
-     
     },
   },
   async mounted() {
-
     const { default: _JSEncrypt } = await import("jsencrypt");
     JSEncrypt = _JSEncrypt;
   },

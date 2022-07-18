@@ -13,6 +13,8 @@ let privacy = "";
 let newlandInfo = "";
 let pubKey = "";
 
+console.log(process.env.BASE);
+
 switch (process.env.BASE) {
   case "dev":
     baseUrl = process.env.DEV_BASE_URL;
@@ -91,6 +93,7 @@ switch (process.env.BASE) {
     privacy = process.env.PRIVACY;
     newlandInfo = process.env.NEWLAND_INFO;
     pubKey = process.env.PUBKEY;
+    break;
   default:
     baseUrl = process.env.BASE_URL;
     operatorAddress = process.env.OPERATOR_ADDRESS;
@@ -105,6 +108,8 @@ switch (process.env.BASE) {
     pubKey = process.env.PUBKEY;
     break;
 }
+
+console.log(baseUrl);
 
 export default {
   mode: "universal",
