@@ -8,7 +8,6 @@
             <div class="col-md-6">
               <!-- 选择角色标题 -->
               <div class="text-white mb-8 signup-title" v-if="step === 1">
-              
                 <h3 class="mb-2">{{ $t('login.role')}}</h3>
                 <p class="text-ms">{{ $t('login.select_role')}}</p>
               </div>
@@ -26,12 +25,19 @@
                       <h2>PLEASE SELECT A CHARACTER</h2>
                     </div>-->
                     <div class="text-center p-5">
-                      <div class="inline-block text-center mr-24" role="button"
-                        @click="() => handleRoleClick(ROLE_DEVELOPER)">
+                      <div
+                        class="inline-block text-center mr-24"
+                        role="button"
+                        @click="() => handleRoleClick(ROLE_DEVELOPER)"
+                      >
                         <img src="~assets/sign-up/developer.png" class="mb-5" />
                         <h2 class="text-xl">{{ $t('login.developer') }}</h2>
                       </div>
-                      <div class="inline-block mb-6" role="button" @click="() => handleRoleClick(ROLE_OPERATOR)">
+                      <div
+                        class="inline-block mb-6"
+                        role="button"
+                        @click="() => handleRoleClick(ROLE_OPERATOR)"
+                      >
                         <img src="~assets/sign-up/operator.png" class="mb-6" style="color: #b1c2d9" />
                         <h2 class="text-xl">{{ $t('login.operator') }}</h2>
                       </div>
@@ -41,8 +47,13 @@
                 <!-- 第二步：填写表单 -->
                 <div class="flex" v-else-if="step === 2">
                   <!-- 运营商表单 -->
-                  <el-form v-if="selectedRole === ROLE_OPERATOR" class="signup-form" ref="operatorForm"
-                    :rules="operatorRules" :model="operatorForm">
+                  <el-form
+                    v-if="selectedRole === ROLE_OPERATOR"
+                    class="signup-form"
+                    ref="operatorForm"
+                    :rules="operatorRules"
+                    :model="operatorForm"
+                  >
                     <div class="flex">
                       <div class="vertical-line-container hidden md:block">
                         <div class="vertical-line-icon">
@@ -65,10 +76,17 @@
                         </el-form-item>
                         <el-form-item required prop="countryCode" class="country-code">
                           <div slot="label" class="inline-block">{{ $t('login.country_region') }}</div>
-                          <el-select v-model="operatorForm.countryCode" :no-match-text="$t('common.no_data')"
-                            filterable>
-                            <el-option v-for="item in countries" :key="item.countryCode3" :label="item.countryNameEn"
-                              :value="item.countryCode3"></el-option>
+                          <el-select
+                            v-model="operatorForm.countryCode"
+                            :no-match-text="$t('common.no_data')"
+                            filterable
+                          >
+                            <el-option
+                              v-for="item in countries"
+                              :key="item.countryCode3"
+                              :label="item.countryNameEn"
+                              :value="item.countryCode3"
+                            ></el-option>
                           </el-select>
                         </el-form-item>
                         <el-form-item :label="$t('login.address')">
@@ -87,9 +105,17 @@
                       <div class="flex-1">
                         <el-form-item :label="$t('login.csr')" required prop="file" class="csr">
                           <div style="display: flex; align-items: flex-start" class="mb-10">
-                            <el-upload style="float: left; margin-right: 30px" action="#" :file-list="fileList"
-                              :auto-upload="false" :limit="1" :on-change="handleChange" :on-remove="handleRemove"
-                              :class="{ hide: uploadDisabled }" class="upload">
+                            <el-upload
+                              style="float: left; margin-right: 30px"
+                              action="#"
+                              :file-list="fileList"
+                              :auto-upload="false"
+                              :limit="1"
+                              :on-change="handleChange"
+                              :on-remove="handleRemove"
+                              :class="{ hide: uploadDisabled }"
+                              class="upload"
+                            >
                               <el-button type="primary">{{ $t('login.upload') }}</el-button>
                             </el-upload>
                           </div>
@@ -113,11 +139,18 @@
                         <div class="vertical-line" style="height: 70%"></div>
                       </div>
                       <div class="flex-1">
-                        <el-form-item :label="$t('login.password')" required prop="password" type="password">
+                        <el-form-item
+                          :label="$t('login.password')"
+                          required
+                          prop="password"
+                          type="password"
+                        >
                           <el-input v-model="operatorForm.password" type="password"></el-input>
                           <div class="password-strength" v-show="showPasswordStrength">
-                            <div class="text">{{ $t('login.password_strength') }}
-                              {{ mapPasswordStrength[passwordStrength] }}</div>
+                            <div class="text">
+                              {{ $t('login.password_strength') }}
+                              {{ mapPasswordStrength[passwordStrength] }}
+                            </div>
                             <div class="indicator">
                               <span :class="['weak', { active: passwordStrength >= 1 }]"></span>
                               <span :class="['moderate', { active: passwordStrength >= 2 }]"></span>
@@ -125,49 +158,90 @@
                             </div>
                           </div>
                         </el-form-item>
-                        <el-form-item :label="$t('login.confirm_password')" required prop="confirmPassword"
-                          type="password">
+                        <el-form-item
+                          :label="$t('login.confirm_password')"
+                          required
+                          prop="confirmPassword"
+                          type="password"
+                        >
                           <el-input v-model="operatorForm.confirmPassword" type="password"></el-input>
                         </el-form-item>
                         <hr class="my-6" />
                       </div>
                     </div>
                     <el-form-item class="text-center">
-                      <el-button type="primary" style="width: 200px" @click="submit" :loading="buttonLoading">{{
-                          $t('common.submit')
-                      }}</el-button>
+                      <el-button
+                        type="primary"
+                        style="width: 200px"
+                        @click="submit"
+                        :loading="buttonLoading"
+                      >
+                        {{
+                        $t('common.submit')
+                        }}
+                      </el-button>
                       <div class="text-center error-message" v-if="errorMessage">{{ errorMessage }}</div>
                     </el-form-item>
                   </el-form>
                   <!-- 开发者表单 -->
-                  <el-form v-else-if="selectedRole === ROLE_DEVELOPER" class="signup-form flex-1" ref="developerForm"
-                    :rules="operatorRules" :model="developerForm">
+                  <el-form
+                    v-else-if="selectedRole === ROLE_DEVELOPER"
+                    class="signup-form flex-1"
+                    ref="developerForm"
+                    :rules="operatorRules"
+                    :model="developerForm"
+                  >
                     <el-form-item :label="$t('login.email')">
                       <el-input disabled v-model="developerForm.email"></el-input>
                     </el-form-item>
-                    <el-form-item :label="$t('login.developer_type')" required prop="developerType" key="developerType">
-                      <el-select v-model="developerForm.developerType" @change="clearDeveloperValidate">
+                    <el-form-item
+                      :label="$t('login.developer_type')"
+                      required
+                      prop="developerType"
+                      key="developerType"
+                    >
+                      <el-select
+                        v-model="developerForm.developerType"
+                        @change="clearDeveloperValidate"
+                      >
                         <el-option :key="1" :value="1" :label="$t('login.personal')"></el-option>
                         <el-option :key="2" :value="2" :label="$t('login.company')"></el-option>
                       </el-select>
                     </el-form-item>
 
-                    <el-form-item v-if="developerForm.developerType == 1" required :label="$t('login.first_name')" prop="firstName"
-                      key="firstName">
+                    <el-form-item
+                      v-if="developerForm.developerType == 1"
+                      required
+                      :label="$t('login.first_name')"
+                      prop="firstName"
+                      key="firstName"
+                    >
                       <el-input :maxlength="128" v-model.trim="developerForm.firstName"></el-input>
                     </el-form-item>
-                    <el-form-item v-if="developerForm.developerType == 1" required :label="$t('login.last_name')" prop="lastName" key="lastName"
-                      >
+                    <el-form-item
+                      v-if="developerForm.developerType == 1"
+                      required
+                      :label="$t('login.last_name')"
+                      prop="lastName"
+                      key="lastName"
+                    >
                       <el-input :maxlength="128" v-model.trim="developerForm.lastName"></el-input>
                     </el-form-item>
-                    
-                    
-                    <el-form-item v-if="developerForm.developerType == 2" required :label="$t('login.company_name1')" prop="firstName"
-                      key="firstName">
+
+                    <el-form-item
+                      v-if="developerForm.developerType == 2"
+                      required
+                      :label="$t('login.company_name1')"
+                      prop="firstName"
+                      key="firstName"
+                    >
                       <el-input :maxlength="128" v-model.trim="developerForm.firstName"></el-input>
                     </el-form-item>
 
-                    <el-form-item v-if="developerForm.developerType == 1" :label="$t('login.certificate_type')">
+                    <el-form-item
+                      v-if="developerForm.developerType == 1"
+                      :label="$t('login.certificate_type')"
+                    >
                       <el-select v-model="developerForm.pidType">
                         <el-option :key="1" :value="1" :label="$t('login.id_card')"></el-option>
                         <el-option :key="2" :value="2" :label="$t('login.passport')"></el-option>
@@ -176,31 +250,61 @@
                     <el-form-item :label="$t('login.certificate_num')">
                       <el-input v-model="developerForm.pid"></el-input>
                     </el-form-item>
-                    <el-form-item v-if="developerForm.developerType == 2" required :label="$t('login.contacts')"
-                      prop="contactName" key="contactName">
+                    <el-form-item
+                      v-if="developerForm.developerType == 2"
+                      required
+                      :label="$t('login.contacts')"
+                      prop="contactName"
+                      key="contactName"
+                    >
                       <el-input :maxlength="32" v-model.trim="developerForm.contactName"></el-input>
                     </el-form-item>
-                    <el-form-item :label="$t('login.phone_number')" prop="mobile" required key="mobile">
+                    <el-form-item
+                      :label="$t('login.phone_number')"
+                      prop="mobile"
+                      required
+                      key="mobile"
+                    >
                       <el-input v-model.trim="developerForm.mobile" :maxlength="16"></el-input>
                     </el-form-item>
-                    <el-form-item required prop="countryCode" class="country-code" key="countryCode">
+                    <el-form-item
+                      required
+                      prop="countryCode"
+                      class="country-code"
+                      key="countryCode"
+                    >
                       <div slot="label" class="inline-block">{{ $t('login.country_region') }}</div>
-                      <el-select v-model="developerForm.countryCode" :no-match-text="$t('common.no_data')" filterable>
-                        <el-option v-for="item in countries" :key="item.countryCode3" :label="item.countryNameEn"
-                          :value="item.countryCode3"></el-option>
+                      <el-select
+                        v-model="developerForm.countryCode"
+                        :no-match-text="$t('common.no_data')"
+                        filterable
+                      >
+                        <el-option
+                          v-for="item in countries"
+                          :key="item.countryCode3"
+                          :label="item.countryNameEn"
+                          :value="item.countryCode3"
+                        ></el-option>
                       </el-select>
                     </el-form-item>
                     <el-form-item :label="$t('login.address1')">
                       <el-input v-model="developerForm.address" :maxlength="128"></el-input>
                     </el-form-item>
                     <div class="flex-1">
-                        <hr class="my-6" />
+                      <hr class="my-6" />
 
-                      <el-form-item :label="$t('login.password')" required prop="password" type="password">
+                      <el-form-item
+                        :label="$t('login.password')"
+                        required
+                        prop="password"
+                        type="password"
+                      >
                         <el-input v-model="developerForm.password" type="password"></el-input>
                         <div class="password-strength" v-show="showPasswordStrength">
-                          <div class="text">{{ $t('login.password_strength') }}
-                            {{ mapPasswordStrength[passwordStrength] }}</div>
+                          <div class="text">
+                            {{ $t('login.password_strength') }}
+                            {{ mapPasswordStrength[passwordStrength] }}
+                          </div>
                           <div class="indicator">
                             <span :class="['weak', { active: passwordStrength >= 1 }]"></span>
                             <span :class="['moderate', { active: passwordStrength >= 2 }]"></span>
@@ -208,12 +312,15 @@
                           </div>
                         </div>
                       </el-form-item>
-                      <el-form-item :label="$t('login.confirm_password')" required prop="confirmPassword1"
-                        type="password">
+                      <el-form-item
+                        :label="$t('login.confirm_password')"
+                        required
+                        prop="confirmPassword1"
+                        type="password"
+                      >
                         <el-input v-model="developerForm.confirmPassword1" type="password"></el-input>
                       </el-form-item>
                       <hr class="my-6" />
-
                     </div>
                     <el-form-item required prop="checked" key="checked">
                       <el-checkbox v-model="developerForm.checked">
@@ -221,15 +328,25 @@
                       </el-checkbox>
                     </el-form-item>
                     <el-form-item class="text-center">
-                      <el-button type="primary" style="width: 200px" @click="submit1" :loading="buttonLoading">{{
-                          $t('common.submit')
-                      }}</el-button>
+                      <el-button
+                        type="primary"
+                        style="width: 200px"
+                        @click="submit1"
+                        :loading="buttonLoading"
+                      >
+                        {{
+                        $t('common.submit')
+                        }}
+                      </el-button>
                       <div class="text-center error-message" v-if="errorMessage">{{ errorMessage }}</div>
                     </el-form-item>
                   </el-form>
                 </div>
                 <!-- 第三步 注册成功提示 -->
-                <div class="flex flex-col items-center justify-center h-full" v-else-if="step === 3">
+                <div
+                  class="flex flex-col items-center justify-center h-full"
+                  v-else-if="step === 3"
+                >
                   <img src="~assets/sign-up/sign-up-success.png" alt width="250" />
                   <p>{{ $t('login.contact_you_in_some_days') }}</p>
                 </div>
@@ -262,20 +379,20 @@ const STEPS = {
 };
 
 export default {
-  async validate({ params, query, store }) {
-    email = getQueryParam("email");
-    registerToken = getQueryParam("key");
-    try {
-      await store.dispatch("verifyRegisterToken", {
-        email,
-        token: registerToken,
-      });
-    } catch {
-      return false;
-    }
+  // async validate({ params, query, store }) {
+  //   email = getQueryParam("email");
+  //   registerToken = getQueryParam("key");
+  //   try {
+  //     await store.dispatch("verifyRegisterToken", {
+  //       email,
+  //       token: registerToken,
+  //     });
+  //   } catch {
+  //     return false;
+  //   }
 
-    return true;
-  },
+  //   return true;
+  // },
   data() {
     const validPassword = function (rule, password, cb) {
       if (password) {
@@ -409,7 +526,6 @@ export default {
       },
       countries: [],
       operatorRules: {
-
         firstName: [
           {
             required: true,
@@ -469,8 +585,8 @@ export default {
         checked: [
           {
             validator: validChecked.bind(this),
-          }
-        ]
+          },
+        ],
       },
     };
   },
@@ -481,7 +597,7 @@ export default {
   },
   methods: {
     clearDeveloperValidate() {
-      this.$refs['developerForm'].clearValidate();
+      this.$refs["developerForm"].clearValidate();
     },
 
     handleChange(file) {
@@ -496,10 +612,10 @@ export default {
     handleRoleClick(role) {
       this.selectedRole = role;
       this.step = 2;
-      this.operatorForm.email = getQueryParam('email');
-      this.developerForm.email = getQueryParam('email');
-      this.operatorForm.registerToken = getQueryParam('key');
-      this.developerForm.registerToken = getQueryParam('key');
+      this.operatorForm.email = getQueryParam("email");
+      this.developerForm.email = getQueryParam("email");
+      this.operatorForm.registerToken = getQueryParam("key");
+      this.developerForm.registerToken = getQueryParam("key");
     },
 
     getCountryList() {
@@ -521,36 +637,22 @@ export default {
           formData.append("email", this.operatorForm.email);
           formData.append("mobile", this.operatorForm.mobile);
 
-          if (this.resubmit) {
-            formData.append("registerToken", this.operatorForm.registerToken);
-            this.$store
-              .dispatch("reRegister", formData)
-              .then(() => {
-                this.success = true;
-                this.step = 3;
-                window.scrollTo(0, 0);
-              })
-              .finally(() => {
-                this.buttonLoading = false;
-              });
-          } else {
-            formData.append("password", this.operatorForm.password);
-            formData.append("registerToken", this.operatorForm.registerToken);
+          formData.append("password", this.operatorForm.password);
+          formData.append("registerToken", this.operatorForm.registerToken);
 
-            this.$store
-              .dispatch("register", formData)
-              .then(() => {
-                this.success = true;
-                this.step = 3;
-                window.scrollTo(0, 0);
-              })
-              .catch((err) => {
-                this.errorMessage = err;
-              })
-              .finally(() => {
-                this.buttonLoading = false;
-              });
-          }
+          this.$store
+            .dispatch("register", formData)
+            .then(() => {
+              this.success = true;
+              this.step = 3;
+              window.scrollTo(0, 0);
+            })
+            .catch((err) => {
+              this.errorMessage = err;
+            })
+            .finally(() => {
+              this.buttonLoading = false;
+            });
         }
       });
     },
@@ -566,50 +668,36 @@ export default {
           if (this.developerForm.developerType == 2) {
             formData.contactName = this.developerForm.contactName;
           } else {
-            formData.contactName = this.developerForm.firstName + ' ' + this.developerForm.lastName;
+            formData.contactName =
+              this.developerForm.firstName + " " + this.developerForm.lastName;
           }
-          
+
           formData.mobile = this.developerForm.mobile;
           formData.email = this.developerForm.email;
           formData.countryCode = this.developerForm.countryCode;
           formData.address = this.developerForm.address;
           if (this.developerForm.developerType == 2) {
-
           } else {
-          formData.pidType = this.developerForm.pidType;
+            formData.pidType = this.developerForm.pidType;
           }
           formData.pid = this.developerForm.pid;
 
-          if (this.resubmit) {
-            formData.registerToken = this.operatorForm.registerToken;
-            this.$store
-              .dispatch("registerDeveloper", formData)
-              .then(() => {
-                this.success = true;
-                this.step = 3;
-                window.scrollTo(0, 0);
-              })
-              .finally(() => {
-                this.buttonLoading = false;
-              });
-          } else {
-            formData.password = this.developerForm.password;
-            formData.registerToken = this.operatorForm.registerToken;
+          formData.password = this.developerForm.password;
+          formData.registerToken = this.operatorForm.registerToken;
 
-            this.$store
-              .dispatch("registerDeveloper", formData)
-              .then(() => {
-                this.success = true;
-                this.step = 3;
-                window.scrollTo(0, 0);
-              })
-              .catch((err) => {
-                this.errorMessage = err;
-              })
-              .finally(() => {
-                this.buttonLoading = false;
-              });
-          }
+          this.$store
+            .dispatch("registerDeveloper", formData)
+            .then(() => {
+              this.success = true;
+              this.step = 3;
+              window.scrollTo(0, 0);
+            })
+            .catch((err) => {
+              this.errorMessage = err;
+            })
+            .finally(() => {
+              this.buttonLoading = false;
+            });
         }
       });
     },
@@ -762,7 +850,7 @@ export default {
   }
 }
 
-.upload-hint>p {
+.upload-hint > p {
   margin: 0;
   display: inline-block;
 }
@@ -803,7 +891,7 @@ export default {
     align-items: center;
     justify-content: center;
 
-    &>img {
+    & > img {
       width: 20px;
       height: 20px;
     }

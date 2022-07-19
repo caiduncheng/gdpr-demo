@@ -4,7 +4,7 @@ export const api = {
       url: "/online/authorization/auth/login",
       data: form,
       method: "POST",
-      timeout: 1000 * 30
+      timeout: 1000 * 30,
     });
   },
 
@@ -12,8 +12,8 @@ export const api = {
     return await this.$axios({
       url: `/online/authorization/auth/password/change`,
       data: data,
-      method: 'POST',
-    })
+      method: "POST",
+    });
   },
 
   async sendEmail(store, email) {
@@ -79,6 +79,24 @@ export const api = {
     return await this.$axios({
       url: `/online/authorization/operator/self`,
       method: "GET",
+    });
+  },
+
+  async getDeveloperInfo(store, token) {
+    return await this.$axios({
+      url: `/online/authorization/developer/self`,
+      method: "GET",
+    });
+  },
+
+  async editDeveloperInfo(store, data) {
+    return await this.$axios({
+      headers: {
+        "WEB-TOKEN": data.registerToken,
+      },
+      url: "/online/authorization/developer/self/edit ",
+      method: "POST",
+      data,
     });
   },
 

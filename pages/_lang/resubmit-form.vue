@@ -13,7 +13,7 @@
               <el-card :class="{ 'card-success': success }" class="card--sign-up">
                 <div v-if="!success" class="flex">
                   <el-form class="signup-form" ref="form" :rules="rules" :model="form">
-                    <div class="error-message text-center">{{remark}}</div>
+                    <el-alert :title="remark" type="error"></el-alert>
                     <div class="flex">
                       <div class="vertical-line-container hidden md:block">
                         <div style class="vertical-line-icon">
@@ -31,7 +31,7 @@
                         <el-form-item required :label="$t('login.contacts')" prop="contactName">
                           <el-input :maxlength="32" v-model.trim="form.contactName"></el-input>
                         </el-form-item>
-                        <el-form-item :label="$t('login.phone_number')" prop="mobile" required>
+                        <el-form-item :label="$t('login.phone_number')" prop="mobile">
                           <el-input v-model.trim="form.mobile" :maxlength="16"></el-input>
                         </el-form-item>
                         <el-form-item required prop="countryCode" class="country-code">
@@ -95,59 +95,6 @@
                       </div>
                     </div>
 
-                    <div class="flex">
-                      <div class="vertical-line-container hidden md:block">
-                        <div style class="vertical-line-icon">
-                          <img src="../../assets/sign-up/9.png" alt />
-                        </div>
-                        <div class="vertical-line" style="height: 70%"></div>
-                      </div>
-                      <div class="flex-1">
-                        <el-form-item
-                          :label="$t('login.password')"
-                          required
-                          prop="password"
-                          type="password"
-                        >
-                          <el-input v-model="form.password" type="password"></el-input>
-                          <div class="password-strength" v-show="showPasswordStrength">
-                            <div class="text">
-                              {{ $t("login.password_strength") }}
-                              {{ mapPasswordStrength[passwordStrength] }}
-                            </div>
-                            <div class="indicator">
-                              <span
-                                :class="[
-                                  'weak',
-                                  { active: passwordStrength >= 1 },
-                                ]"
-                              ></span>
-                              <span
-                                :class="[
-                                  'moderate',
-                                  { active: passwordStrength >= 2 },
-                                ]"
-                              ></span>
-                              <span
-                                :class="[
-                                  'strong',
-                                  { active: passwordStrength === 3 },
-                                ]"
-                              ></span>
-                            </div>
-                          </div>
-                        </el-form-item>
-                        <el-form-item
-                          :label="$t('login.confirm_password')"
-                          required
-                          prop="confirmPassword"
-                          type="password"
-                        >
-                          <el-input v-model="form.confirmPassword" type="password"></el-input>
-                        </el-form-item>
-                        <hr class="my-6" />
-                      </div>
-                    </div>
                     <el-form-item class="text-center">
                       <el-button
                         type="primary"
@@ -176,7 +123,6 @@
 
 <script>
 import { checkPhoneNum } from "@/utils/validation.js";
-import axios from "axios";
 
 const MAP_PASSWORD_STRENGTH = {
   1: "Weak",
@@ -398,6 +344,9 @@ export default {
 
 <style lang="scss">
 .sign-up {
+  .el-alert {
+    margin-bottom: 10px;
+  }
   .el-select {
     width: 100%;
   }

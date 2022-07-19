@@ -12,6 +12,7 @@ export const state = () => ({
   // 重新注册时提交的token
   registerToken: "",
   operInfo: {},
+  devInfo: {},
 });
 
 export const getters = {
@@ -56,6 +57,9 @@ export const mutations = {
   },
   SET_OPER_INFO(state, info) {
     state.operInfo = info;
+  },
+  SET_DEV_INFO(state, info) {
+    state.devInfo = info;
   },
 };
 

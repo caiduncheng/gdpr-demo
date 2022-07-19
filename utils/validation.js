@@ -11,7 +11,7 @@ export function isEmail(s) {
 export function checkPhoneNum(rule, value, callback) {
   const phoneRegex = /^([0-9-]+)$/;
   if (!value) {
-    callback(new Error("Please input phone"));
+    callback();
   } else if (!phoneRegex.test(value)) {
     callback(
       new Error('Phone format error, it can only contain numbers and "-"')

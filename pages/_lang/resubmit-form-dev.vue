@@ -10,6 +10,7 @@
                 <h3 class="mb-2">{{ $t("login.title_sign_up") }}</h3>
                 <p class="text-xs">{{ $t("login.sign_up_tip") }}</p>
               </div>
+              <el-alert :title="remark" type="error" class="mb-3" v-if="!success"></el-alert>
               <el-card :class="{ 'card-success': success }" class="card--sign-up">
                 <div v-if="!success" class="flex">
                   <el-form class="signup-form flex-1" ref="form" :rules="rules" :model="form">
@@ -82,12 +83,7 @@
                     >
                       <el-input :maxlength="32" v-model.trim="form.contactName"></el-input>
                     </el-form-item>
-                    <el-form-item
-                      :label="$t('login.phone_number')"
-                      prop="mobile"
-                      required
-                      key="mobile"
-                    >
+                    <el-form-item :label="$t('login.phone_number')" prop="mobile" key="mobile">
                       <el-input v-model.trim="form.mobile" :maxlength="16"></el-input>
                     </el-form-item>
                     <el-form-item
@@ -113,38 +109,6 @@
                     <el-form-item :label="$t('login.address1')">
                       <el-input v-model="form.address" :maxlength="128"></el-input>
                     </el-form-item>
-                    <div class="flex-1">
-                      <hr class="my-6" />
-
-                      <el-form-item
-                        :label="$t('login.password')"
-                        required
-                        prop="password"
-                        type="password"
-                      >
-                        <el-input v-model="form.password" type="password"></el-input>
-                        <div class="password-strength" v-show="showPasswordStrength">
-                          <div class="text">
-                            {{ $t('login.password_strength') }}
-                            {{ mapPasswordStrength[passwordStrength] }}
-                          </div>
-                          <div class="indicator">
-                            <span :class="['weak', { active: passwordStrength >= 1 }]"></span>
-                            <span :class="['moderate', { active: passwordStrength >= 2 }]"></span>
-                            <span :class="['strong', { active: passwordStrength === 3 }]"></span>
-                          </div>
-                        </div>
-                      </el-form-item>
-                      <el-form-item
-                        :label="$t('login.confirm_password')"
-                        required
-                        prop="confirmPassword"
-                        type="password"
-                      >
-                        <el-input v-model="form.confirmPassword" type="password"></el-input>
-                      </el-form-item>
-                      <hr class="my-6" />
-                    </div>
                     <el-form-item required prop="checked" key="checked">
                       <el-checkbox v-model="form.checked">
                         <span class="text-xs" v-html="$t('login.agree_terms_conditions')"></span>
@@ -183,31 +147,25 @@
 <script>
 import { checkPhoneNum } from "@/utils/validation.js";
 
-const MAP_PASSWORD_STRENGTH = {
-  1: "Weak",
-  2: "Moderate",
-  3: "Strong",
-};
-
 let email = "";
 let registerToken = "";
 
 export default {
-  // async validate({ params, query, store, $axios }) {
-  //   try {
-  //     const operInfo = await $axios({
-  //       url: "/online/authorization/operator/self",
-  //       headers: {
-  //         "WEB-TOKEN": query.token,
-  //       },
-  //     });
-  //     store.commit("SET_OPER_INFO", operInfo);
-  //   } catch {
-  //     return false;
-  //   }
-  //   registerToken = query.token;
-  //   return true;
-  // },
+  async validate({ params, query, store, $axios }) {
+    try {
+      const developerInfo = await $axios({
+        url: "/online/authorization/developer/self",
+        headers: {
+          "WEB-TOKEN": query.token,
+        },
+      });
+      store.commit("SET_DEV_INFO", developerInfo);
+    } catch {
+      return false;
+    }
+    registerToken = query.token;
+    return true;
+  },
   data() {
     const validPassword = function (rule, password, cb) {
       if (password) {
@@ -284,10 +242,6 @@ export default {
       errorMessage: "",
       email: "",
       remark: "",
-      resubmit: false,
-      mapPasswordStrength: MAP_PASSWORD_STRENGTH,
-      showPasswordStrength: false,
-      passwordStrength: 0,
       buttonLoading: false,
       successText: "",
       fileList: [],
@@ -382,6 +336,10 @@ export default {
       this.fileList.push(file);
       this.form.file = file;
     },
+    clearDeveloperValidate() {
+      this.$refs["developerForm"].clearValidate();
+    },
+
     handleRemove() {
       this.fileList.pop();
     },
@@ -395,32 +353,33 @@ export default {
         if (valid) {
           this.buttonLoading = true;
           const formData = {};
-          formData.username = this.developerForm.email;
-          formData.developerType = this.developerForm.developerType;
-          formData.firstName = this.developerForm.firstName;
-          formData.lastName = this.developerForm.lastName;
-          if (this.developerForm.developerType == 2) {
-            formData.contactName = this.developerForm.contactName;
+          formData.username = this.form.email;
+          formData.developerType = this.form.developerType;
+          formData.firstName = this.form.firstName;
+          formData.lastName = this.form.lastName;
+          if (this.form.developerType == 2) {
+            formData.contactName = this.form.contactName;
           } else {
             formData.contactName =
-              this.developerForm.firstName + " " + this.developerForm.lastName;
+              this.form.firstName + " " + this.form.lastName;
           }
 
-          formData.mobile = this.developerForm.mobile;
-          formData.email = this.developerForm.email;
-          formData.countryCode = this.developerForm.countryCode;
-          formData.address = this.developerForm.address;
-          if (this.developerForm.developerType == 2) {
+          formData.mobile = this.form.mobile;
+          formData.email = this.form.email;
+          formData.countryCode = this.form.countryCode;
+          formData.address = this.form.address;
+          if (this.form.developerType == 2) {
           } else {
-            formData.pidType = this.developerForm.pidType;
+            formData.pidType = this.form.pidType;
           }
-          formData.pid = this.developerForm.pid;
+          formData.pid = this.form.pid;
 
-          formData.password = this.developerForm.password;
-          formData.registerToken = this.operatorForm.registerToken;
+          formData.registerToken = registerToken;
 
           this.$store
-            .dispatch("registerDeveloper", formData)
+            .dispatch("editDeveloperInfo", {
+              ...formData,
+            })
             .then(() => {
               this.success = true;
               this.step = 3;
@@ -440,15 +399,15 @@ export default {
     this.$store.commit("SET_MENU", false);
     this.getCountryList();
 
-    const operInfo = this.$store.state.operInfo;
+    const operInfo = this.$store.state.devInfo;
 
     this.remark = operInfo.remark;
+    this.email = operInfo.email;
     // // populate the form
     Object.assign(this.form, {
       ...operInfo,
       contactName: operInfo.linkman,
     });
-    this.email = operInfo.email;
   },
 };
 </script>
@@ -457,6 +416,9 @@ export default {
 .sign-up {
   .el-select {
     width: 100%;
+  }
+  .el-alert {
+    margin-bottom: 10px;
   }
   .el-card.card--sign-up {
     /* padding-left: 40px; */
