@@ -338,7 +338,13 @@ export default {
             if (characterStatus === 2) {
               this.$router.push(`/account-status?token=${token}`);
             } else if (characterStatus === 3) {
-              this.$router.push(`/resubmit-form?token=${token}`);
+              if ("DEV" === characterCode) {
+                this.$router.push(`/resubmit-form-dev?token=${token}`);
+                
+              } else {
+                this.$router.push(`/resubmit-form?token=${token}`);
+                
+              }
             }
           } else {
             document.cookie = `${tokenKey}=${token};path=/;domain=${process.env.VUE_APP_DOMAIN
