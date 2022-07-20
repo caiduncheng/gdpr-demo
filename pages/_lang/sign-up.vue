@@ -262,7 +262,6 @@
                     <el-form-item
                       :label="$t('login.phone_number')"
                       prop="mobile"
-                      required
                       key="mobile"
                     >
                       <el-input v-model.trim="developerForm.mobile" :maxlength="16"></el-input>
@@ -378,21 +377,23 @@ const STEPS = {
   SELECT_ROLE: 1,
 };
 
-export default {
-  // async validate({ params, query, store }) {
-  //   email = getQueryParam("email");
-  //   registerToken = getQueryParam("key");
-  //   try {
-  //     await store.dispatch("verifyRegisterToken", {
-  //       email,
-  //       token: registerToken,
-  //     });
-  //   } catch {
-  //     return false;
-  //   }
 
-  //   return true;
-  // },
+export default {
+
+  async validate({ params, query, store }) {
+    email = getQueryParam("email");
+    registerToken = getQueryParam("key");
+    try {
+      await store.dispatch("verifyRegisterToken", {
+        email,
+        token: registerToken,
+      });
+    } catch {
+      return false;
+    }
+
+    return true;
+  },
   data() {
     const validPassword = function (rule, password, cb) {
       if (password) {
