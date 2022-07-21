@@ -1,5 +1,5 @@
 <script>
-import Signup from "@/pages/_lang/sign-up";
+import Signup from "@/pages/_lang/signup";
 
 export default Signup;
 </script>

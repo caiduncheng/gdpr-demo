@@ -2,10 +2,10 @@
   <div>
     <header
       :class="[
-        'header',
-        'container-fluid',
-        { 'fixed-header': fixed, containerXL: !fixed },
-      ]"
+      'header',
+      'container-fluid',
+      { 'fixed-header': fixed, containerXL: !fixed },
+    ]"
       :style="scrollNavBarStyle"
     >
       <div class="mobile-menu" :class="{ show: active }">
@@ -22,68 +22,68 @@
                   <li class="menu-item">
                     <NuxtLink
                       :to="{
-                        name: 'lang',
-                        params: { lang: $store.state.locale },
-                      }"
+                      name: 'lang',
+                      params: { lang: $store.state.locale },
+                    }"
                       exact
                     >{{ $t("common.home") }}</NuxtLink>
                   </li>
                   <li class="menu-item">
                     <NuxtLink
                       :to="{
-                              name: 'lang-products-flykey',
-                              params: { lang: $store.state.locale },
-                            }"
+                      name: 'lang-products-flykey',
+                      params: { lang: $store.state.locale },
+                    }"
                     >FlyKey</NuxtLink>
                   </li>
                   <li class="menu-item">
                     <NuxtLink
                       :to="{
-                        name: 'lang-contact-us',
-                        params: { lang: $store.state.locale },
-                      }"
+                      name: 'lang-contact-us',
+                      params: { lang: $store.state.locale },
+                    }"
                       exact
                     >{{ $t("common.contact_us") }}</NuxtLink>
                   </li>
                   <li class="menu-item">
                     <NuxtLink
                       :to="{
-                        name: 'lang-login',
-                        params: { lang: $store.state.locale },
-                      }"
+                      name: 'lang-login',
+                      params: { lang: $store.state.locale },
+                    }"
                     >
                       <span>{{ $t("common.sign_in") }}</span>
                     </NuxtLink>
                   </li>
                   <li class="language-switcher">
                     <NuxtLink
-                      :class="{'current-language': $store.state.locale === 'zh-CN'}"
+                      :class="{ 'current-language': $store.state.locale === 'zh-CN' }"
                       :to="
                       $store.state.locale === 'zh-CN'
                         ? ''
                         : {
-                            name:
-                              $route.name === 'index'
-                                ? 'lang'
-                                : `lang-${$route.name}`,
-                            params: { lang: 'zh-CN' },
-                          }
+                          name:
+                            $route.name === 'index'
+                              ? 'lang'
+                              : `lang-${$route.name}`,
+                          params: { lang: 'zh-CN' },
+                        }
                     "
                     >中文</NuxtLink>
                   </li>
                   <li class="language-switcher">
                     <NuxtLink
-                      :class="{'current-language': $store.state.locale === 'en-US'}"
+                      :class="{ 'current-language': $store.state.locale === 'en-US' }"
                       :to="
                       $store.state.locale === 'en-US'
                         ? ''
                         : {
-                            name:
-                              $route.name === 'index'
-                                ? 'lang'
-                                : `${$route.name}`,
-                            params: { lang: 'en-US' },
-                          }
+                          name:
+                            $route.name === 'index'
+                              ? 'lang'
+                              : `${$route.name}`,
+                          params: { lang: 'en-US' },
+                        }
                     "
                     >English</NuxtLink>
                   </li>
@@ -114,9 +114,9 @@
                     <li>
                       <NuxtLink
                         :to="{
-                          name: 'lang',
-                          params: { lang: $store.state.locale },
-                        }"
+                        name: 'lang',
+                        params: { lang: $store.state.locale },
+                      }"
                         exact
                       >{{ $t("common.home") }}</NuxtLink>
                     </li>
@@ -129,9 +129,9 @@
                         <li class="flex">
                           <NuxtLink
                             :to="{
-                              name: 'lang-products-flykey',
-                              params: { lang: $store.state.locale },
-                            }"
+                            name: 'lang-products-flykey',
+                            params: { lang: $store.state.locale },
+                          }"
                             class="production"
                           >
                             <img src="~assets/flykey-logo.png" width="40px" class="mr-2" />
@@ -146,9 +146,9 @@
                     <li v-if="VUE_APP_NEWLAND_INFO == '1'">
                       <NuxtLink
                         :to="{
-                          name: 'lang-contact-us',
-                          params: { lang: $store.state.locale },
-                        }"
+                        name: 'lang-contact-us',
+                        params: { lang: $store.state.locale },
+                      }"
                         exact
                       >{{ $t("common.contact_us") }}</NuxtLink>
                     </li>
@@ -174,9 +174,9 @@
             <NuxtLink
               v-else
               :to="{
-                name: 'lang-login',
-                params: { lang: $store.state.locale },
-              }"
+              name: 'lang-login',
+              params: { lang: $store.state.locale },
+            }"
               :class="['btn', 'btn-light', 'sign-in__btn', { primary: fixed }]"
             >
               <span>{{ $t("common.sign_in") }}</span>
@@ -191,31 +191,33 @@
                 <li>
                   <NuxtLink
                     :to="
-                      $store.state.locale === 'en-US'
-                        ? ''
-                        : {
-                            name:
-                              $route.name === 'index'
-                                ? 'lang'
-                                : `${$route.name}`,
-                            params: { lang: 'en-US' },
-                          }
-                    "
+                    $store.state.locale === 'en-US'
+                      ? {query}
+                      : {
+                        name:
+                          $route.name === 'index'
+                            ? 'lang'
+                            : `${$route.name}`,
+                        params: { lang: 'en-US' },
+                        query
+                      }
+                  "
                   >English</NuxtLink>
                 </li>
                 <li>
                   <NuxtLink
                     :to="
-                      $store.state.locale === 'zh-CN'
-                        ? ''
-                        : {
-                            name:
-                              $route.name === 'index'
-                                ? 'lang'
-                                : `lang-${$route.name}`,
-                            params: { lang: 'zh-CN' },
-                          }
-                    "
+                    $store.state.locale === 'zh-CN'
+                      ? {query}
+                      : {
+                        name:
+                          $route.name === 'index'
+                            ? 'lang'
+                            : `lang-${$route.name}`,
+                        params: { lang: 'zh-CN' },
+                        query
+                      }
+                  "
                   >中文</NuxtLink>
                 </li>
               </ul>
@@ -229,7 +231,7 @@
 </template>
 
 <script>
-import { getCookie, removeToken } from "@/utils";
+import { getCookie, removeToken, getQueryParam } from "@/utils";
 
 export default {
   props: {
@@ -246,6 +248,7 @@ export default {
       show: false,
       visible: false,
       VUE_APP_NEWLAND_INFO: process.env.VUE_APP_NEWLAND_INFO,
+      query: null,
     };
   },
   computed: {
@@ -292,6 +295,12 @@ export default {
     },
   },
   mounted() {
+    if (this.$route.path.includes("signup")) {
+      this.query = { email: getQueryParam("email"), key: getQueryParam("key") };
+    } else if (this.$route.path.includes("resubmit-form")) {
+      this.query = { token: getQueryParam("token") };
+    }
+
     if (process.browser && !this.alwaysShow) {
       this.show = scrollY > 700;
       window.addEventListener("scroll", () => {
@@ -326,6 +335,7 @@ export default {
   .el-dropdown {
     color: #ffffff;
   }
+
   .el-button.sign-in {
     @apply text-primary;
   }
@@ -335,6 +345,7 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/css/mixin";
 @use "~assets/css/variables";
+
 .header {
   /* position: fixed; */
   position: relative;
@@ -343,10 +354,12 @@ export default {
   width: 100%;
   z-index: 100;
   color: #ffffff;
+
   /* background: #ffffff; */
   &.header-scroll {
     position: absolute;
   }
+
   &.fixed-header {
     position: fixed;
     background: #ffffff;
@@ -354,6 +367,7 @@ export default {
     visibility: hidden;
     transform: translateY(-100px);
     transition: transform 0.5s linear;
+
     .menu-toggle {
       & > .mid,
       & > .top,
@@ -361,16 +375,20 @@ export default {
         background: rgb(115, 121, 126);
       }
     }
+
     .header-links {
       color: #000000;
+
       .el-dropdown {
         color: #000000;
       }
+
       .sign-in__btn.primary {
         @include mixin.btn-animated(#3982e9, #1d1d1d);
         color: #ffffff;
       }
     }
+
     .navbar a {
       &::before,
       &::after {
@@ -379,6 +397,7 @@ export default {
     }
   }
 }
+
 .dropdown {
   /* text-transform: uppercase; */
   a {
@@ -386,6 +405,7 @@ export default {
     width: 100%;
     padding: 20px 0;
   }
+
   &.language {
     a {
       padding: 40px 0;
@@ -395,6 +415,7 @@ export default {
       top: 80px;
     }
   }
+
   &:hover {
     & > .link-menu {
       opacity: 1;
@@ -417,28 +438,35 @@ export default {
   overflow-y: scroll;
   opacity: 0;
   transition: opacity 0.5s ease;
+
   .col-nav {
     margin-top: 30px;
   }
+
   &.show {
     padding: 30px 0;
     visibility: visible;
     height: 100vh;
     display: block;
     opacity: 1;
+
     .menu-item > a::after {
       width: 100%;
     }
+
     @screen lg {
       display: none;
     }
   }
+
   ul {
     text-align: center;
   }
+
   .menu-item {
     text-align: center;
     text-transform: uppercase;
+
     & > a {
       display: block;
       letter-spacing: 1px;
@@ -464,8 +492,10 @@ export default {
       }
     }
   }
+
   .language-switcher {
     display: inline-block;
+
     a {
       display: block;
       color: #fff;
@@ -476,6 +506,7 @@ export default {
       font-size: 16px;
       border: 2px solid transparent;
       letter-spacing: 1px;
+
       &.current-language {
         border: 2px solid #fff;
         font-weight: 500;
@@ -483,6 +514,7 @@ export default {
     }
   }
 }
+
 .menu-toggle {
   position: absolute;
   cursor: pointer;
@@ -494,15 +526,18 @@ export default {
   padding: 0;
   display: flex;
   align-items: center;
+
   &.active {
     position: fixed;
     top: 30px;
     left: 45px;
+
     & > .top,
     & > .mid,
     & > .btm {
       background: #ffffff !important;
     }
+
     & > .top {
       transform: translateY(0px) rotate(45deg);
     }
@@ -515,6 +550,7 @@ export default {
       transform: translateY(0px) rotate(-45deg);
     }
   }
+
   @screen lg {
     display: none;
   }
@@ -530,6 +566,7 @@ export default {
     transition: transform 0.3s;
     background: #ffffff;
   }
+
   & > .top {
     transform: translateY(-220%);
   }
@@ -538,10 +575,12 @@ export default {
     opacity: 1;
     transition: opacity 0.2s;
   }
+
   & > .btm {
     transform: translateY(220%);
   }
 }
+
 /*  */
 
 .header-wrapper {
@@ -553,24 +592,29 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .header-links {
   flex-grow: 1;
   justify-content: flex-end;
   align-items: center;
   display: none;
+
   @screen lg {
     display: flex;
   }
+
   .sign-up {
     color: #2c7be5;
     border-color: #2c7be5;
     border-width: 2px;
     border-radius: var(--button-border-radius);
     background: transparent;
+
     &:hover {
       box-shadow: inset 0 0 0 2px #2c7be5;
     }
   }
+
   .sign-in {
     &:hover {
       @apply text-primary;
@@ -586,13 +630,16 @@ export default {
   .sign-in__btn {
     color: #000000;
     margin-right: 40px;
+
     span {
       position: relative;
       font-size: 14px;
       z-index: 2;
       vertical-align: middle;
     }
+
     @include mixin.btn-animated(#ffffff, #1d1d1d);
+
     &:hover {
       color: #ffffff;
     }
@@ -610,13 +657,16 @@ export default {
     text-align: left;
     margin: 0;
     padding: 17px;
+
     &.sub {
       top: 0;
       right: 300px;
+
       &::before {
         display: none;
       }
     }
+
     &::before {
       width: 0;
       height: 0;
@@ -628,9 +678,11 @@ export default {
       position: absolute;
       top: -6px;
     }
+
     & > li:not(:last-child) {
       border-bottom: 1px solid #eaeefb;
     }
+
     & > li a {
       color: #000000;
       text-transform: uppercase;
@@ -639,13 +691,16 @@ export default {
       /* width: 100%; */
       transition: 0.125s all ease-in-out;
       padding: 10px 0;
+
       &:hover {
         color: variables.$linkColor;
       }
+
       &.production {
         display: flex;
         align-items: center;
       }
+
       .production-intro {
         font-size: 12px;
         color: #6c6c6c;
@@ -655,28 +710,35 @@ export default {
     }
   }
 }
+
 .menu {
   & .header-links {
     border-top: 1px solid #cad1dd;
+
     .sign-in {
       margin: 12px 0 24px 0;
     }
+
     .sign-up {
       margin-bottom: 24px;
     }
   }
 }
+
 .header-nav {
   margin-right: 40px;
 }
+
 .header-inner {
   display: flex;
   height: 70px;
   align-items: center;
   justify-content: space-between;
+
   @screen md {
     height: 90px;
   }
+
   & > .header-links {
     .sign-in,
     .sign-up {
@@ -684,11 +746,13 @@ export default {
     }
   }
 }
+
 .navbar > li {
   display: block;
   position: relative;
   float: left;
   margin-left: 40px;
+
   &:not(.dropdown):hover {
     & > a::before,
     & > a::after {
@@ -703,6 +767,7 @@ export default {
     position: relative;
     letter-spacing: 1px;
     padding: 20px 0;
+
     &::before,
     &::after {
       position: absolute;
@@ -714,10 +779,12 @@ export default {
       opacity: 0;
       transition: opacity 0.3s, transform 0.3s;
     }
+
     &::before {
       top: 13px;
       transform: translateY(-8px);
     }
+
     &::after {
       bottom: 13px;
       transform: translateY(8px);

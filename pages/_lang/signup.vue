@@ -259,11 +259,7 @@
                     >
                       <el-input :maxlength="32" v-model.trim="developerForm.contactName"></el-input>
                     </el-form-item>
-                    <el-form-item
-                      :label="$t('login.phone_number')"
-                      prop="mobile"
-                      key="mobile"
-                    >
+                    <el-form-item :label="$t('login.phone_number')" prop="mobile" key="mobile">
                       <el-input v-model.trim="developerForm.mobile" :maxlength="16"></el-input>
                     </el-form-item>
                     <el-form-item
@@ -377,9 +373,7 @@ const STEPS = {
   SELECT_ROLE: 1,
 };
 
-
 export default {
-
   async validate({ params, query, store }) {
     email = getQueryParam("email");
     registerToken = getQueryParam("key");

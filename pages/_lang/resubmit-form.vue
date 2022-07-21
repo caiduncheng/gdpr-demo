@@ -13,7 +13,7 @@
               <el-card :class="{ 'card-success': success }" class="card--sign-up">
                 <div v-if="!success" class="flex">
                   <el-form class="signup-form" ref="form" :rules="rules" :model="form">
-                    <el-alert :title="remark" type="error"></el-alert>
+                    <el-alert v-if="remark" :title="remark" type="error"></el-alert>
                     <div class="flex">
                       <div class="vertical-line-container hidden md:block">
                         <div style class="vertical-line-icon">
