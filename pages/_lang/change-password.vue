@@ -65,22 +65,6 @@ const MAP_PASSWORD_STRENGTH = {
 
 export default {
   layout: "login",
-  async validate({ params, query, store }) {
-    username = getQueryParam("account");
-    email = getQueryParam("email");
-    token = getQueryParam("token");
-    try {
-      await store.dispatch("verifyResetToken", {
-        username,
-        email,
-        token,
-      });
-    } catch {
-      return false;
-    }
-
-    return true;
-  },
   data() {
     const validOldPassword = function (rule, password, cb) {
       if (password) {
