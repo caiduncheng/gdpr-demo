@@ -143,6 +143,15 @@
                         </li>
                       </ul>
                     </li>
+                    <li>
+                      <NuxtLink
+                        :to="{
+                        name: 'lang-developer',
+                        params: { lang: $store.state.locale },
+                      }"
+                        exact
+                      >{{ $t("common.developer") }}</NuxtLink>
+                    </li>
                     <li v-if="VUE_APP_NEWLAND_INFO == '1'">
                       <NuxtLink
                         :to="{

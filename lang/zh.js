@@ -3,6 +3,7 @@ module.exports = {
     home: "首页",
     production: "产品",
     support: "支持",
+    developer: "开发者",
     contact_us: "联系我们",
     sign_in: "登录",
     sign_up: "注册",

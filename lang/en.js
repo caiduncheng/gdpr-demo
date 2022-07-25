@@ -3,6 +3,7 @@ module.exports = {
     home: "Home",
     production: "Products",
     support: "Support",
+    developer: "Developer",
     contact_us: "Contact Us",
     sign_in: "Sign In",
     sign_up: "Sign Up",
@@ -314,8 +315,6 @@ module.exports = {
     passport: "Passport",
     certificate_num: "Certificate Number",
     address1: "Address",
-    
-
   },
   logout: {
     logout_tip: "Do you want to log out?",
