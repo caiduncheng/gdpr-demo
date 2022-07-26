@@ -598,7 +598,7 @@ export default {
   padding: 0 16px;
   width: 100%;
   height: auto;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
 }
 
