@@ -252,11 +252,11 @@ module.exports = {
     country_region: "国家/地区",
     csr: "CSR",
     upload: "上传",
-    upload_tip1: "请上传CSR（文件后缀.csr）",
+    upload_tip1: "请上传您的 CSR 文件（xxx.csr）",
     upload_tip2:
-      "我们将使用证书签名请求（CSR）创建用于平台验证终端的证书（Payment.crt文件）。",
+      "我们将使用它创建你的证书（Payment.crt）用于签名验证。您可以通过 新大陆母POS终端 或者 FlySigner（新大陆在线签名系统）生成 CSR 文件",
     upload_tip3:
-      "您可以从<a class='link' href='https://npsc.newlandpayment.com/npsc'>NPSC</a>获取CSR或通过工具生成CSR",
+      "如有任何问题，请随时联系NPT团队。",
     confirm_password_tip: "请确认密码",
     contact_you_in_some_days: "我们将在1-2个工作日内与您联系",
     illegal_mobile: "电话号码格式有误",
