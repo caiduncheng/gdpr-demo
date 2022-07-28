@@ -21,13 +21,13 @@
     </div>
     <!-- Terminal Lifecycle Management -->
     <section class="section">
-      <div class="container container-fluid" data-aos="fade-up" data-aos-duration="1200">
+      <div class="containerXL container-fluid" data-aos="fade-up" data-aos-duration="1200">
         <div class="section-title">
           <div class="text-center">
             <h2>{{ $t("home.lifecycle.title") }}</h2>
           </div>
         </div>
-        <div class="text-center hidden md:block">
+        <div class="text-center hidden xl:block">
           <ul class="tabs">
             <li
               :class="[
@@ -44,7 +44,7 @@
           </ul>
         </div>
         <div class="container">
-          <div class="dropdown mb-14 block md:hidden">
+          <div class="dropdown mb-14 block xl:hidden">
             <a class="btn dropdown-toggle" @click="toggleLifeCycleMenu">
               {{$t(terminalTabs[activeIndex])}}
               <i
@@ -67,7 +67,7 @@
         <div class="row tab-content justify-between items-center">
           <template v-if="activeIndex === 0">
             <div
-              class="col-md-6 text-center mb-5 md:mb-0 hidden md:block"
+              class="col-xl-6 text-center mb-5 xl:mb-0 hidden xl:block"
               style="padding: 0 50px"
               data-aos="fade-right"
               data-aos-duration="1200"
@@ -75,20 +75,20 @@
               <img src="~assets/Zero-touchDeployment.png" class="w-4/5" alt />
             </div>
             <div
-              class="col-md-6 relative"
+              class="col-xl-6 relative"
               data-aos="fade-left-new"
               data-aos-duration="1200"
               style="padding: 0 50px; z-index: -1;"
             >
-              <div class="row mb-3 text-center md:text-left">
-                <div class="col-md-6 col-12">
+              <div class="row mb-3 text-center xl:text-left">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.deployment.feature1") }}</h3>
                     <p class="pr-2">{{ $t("home.lifecycle.deployment.detail1") }}</p>
                   </div>
                 </div>
-                <div class="col-md-6 col-12">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-2.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.deployment.feature2") }}</h3>
@@ -96,15 +96,15 @@
                   </div>
                 </div>
               </div>
-              <div class="row mb-3 text-center md:text-left">
-                <div class="col-md-6 col-12">
+              <div class="row mb-3 text-center xl:text-left">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-3.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.deployment.feature3") }}</h3>
                     <p class="pr-2">{{ $t("home.lifecycle.deployment.detail3") }}</p>
                   </div>
                 </div>
-                <div class="col-md-6 col-12">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-4.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.deployment.feature4") }}</h3>
@@ -116,7 +116,7 @@
           </template>
           <template v-else-if="activeIndex === 1">
             <div
-              class="col-md-6 text-center mb-5 md:mb-0 hidden md:block"
+              class="col-xl-6 text-center mb-5 xl:mb-0 hidden xl:block"
               style="padding: 0 50px"
               data-aos="fade-right"
               data-aos-duration="1200"
@@ -124,20 +124,20 @@
               <img src="~assets/Multi-dimensional.png" class="w-4/5" alt />
             </div>
             <div
-              class="col-md-6 relative"
+              class="col-xl-6 relative"
               data-aos="fade-left-new"
               data-aos-duration="1200"
               style="padding: 0 50px; z-index: -1;"
             >
-              <div class="row mb-3 text-center md:text-left">
-                <div class="col-md-6 col-12">
+              <div class="row mb-3 text-center xl:text-left">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.multi_dimen.feature1") }}</h3>
                     <p class="pr-2">{{ $t("home.lifecycle.multi_dimen.detail1") }}</p>
                   </div>
                 </div>
-                <div class="col-md-6 col-12">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-2.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.multi_dimen.feature2") }}</h3>
@@ -145,15 +145,15 @@
                   </div>
                 </div>
               </div>
-              <div class="row mb-3 text-center md:text-left">
-                <div class="col-md-6 col-12">
+              <div class="row mb-3 text-center xl:text-left">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-3.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.multi_dimen.feature3") }}</h3>
                     <p class="pr-2">{{ $t("home.lifecycle.multi_dimen.detail3") }}</p>
                   </div>
                 </div>
-                <div class="col-md-6 col-12">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-4.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.multi_dimen.feature4") }}</h3>
@@ -165,7 +165,7 @@
           </template>
           <template v-else-if="activeIndex === 2">
             <div
-              class="col-md-6 text-center mb-5 md:mb-0 hidden md:block"
+              class="col-xl-6 text-center mb-5 xl:mb-0 hidden xl:block"
               style="padding: 0 50px"
               data-aos="fade-right"
               data-aos-duration="1200"
@@ -173,20 +173,20 @@
               <img src="~assets/Software.png" class="w-4/5" alt />
             </div>
             <div
-              class="col-md-6 relative"
+              class="col-xl-6 relative"
               data-aos="fade-left-new"
               data-aos-duration="1200"
               style="padding: 0 50px; z-index: -1;"
             >
-              <div class="row mb-3 text-center md:text-left">
-                <div class="col-md-6 col-12">
+              <div class="row mb-3 text-center xl:text-left">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.software.feature1") }}</h3>
                     <p class="pr-2">{{ $t("home.lifecycle.software.detail1") }}</p>
                   </div>
                 </div>
-                <div class="col-md-6 col-12">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-2.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.software.feature2") }}</h3>
@@ -194,15 +194,15 @@
                   </div>
                 </div>
               </div>
-              <div class="row mb-3 text-center md:text-left">
-                <div class="col-md-6 col-12">
+              <div class="row mb-3 text-center xl:text-left">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-3.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.software.feature3") }}</h3>
                     <p class="pr-2">{{ $t("home.lifecycle.software.detail3") }}</p>
                   </div>
                 </div>
-                <div class="col-md-6 col-12">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-4.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.software.feature4") }}</h3>
@@ -214,7 +214,7 @@
           </template>
           <template v-else-if="activeIndex === 3">
             <div
-              class="col-md-6 text-center mb-5 md:mb-0 hidden md:block"
+              class="col-xl-6 text-center mb-5 xl:mb-0 hidden xl:block"
               style="padding: 0 50px"
               data-aos="fade-right"
               data-aos-duration="1200"
@@ -222,20 +222,20 @@
               <img src="~assets/device-monitoring.png" class="w-4/5" alt />
             </div>
             <div
-              class="col-md-6 relative"
+              class="col-xl-6 relative"
               style="padding: 0 50px; z-index: -1;"
               data-aos="fade-left-new"
               data-aos-duration="1200"
             >
-              <div class="row mb-3 text-center md:text-left">
-                <div class="col-md-6 col-12">
+              <div class="row mb-3 text-center xl:text-left">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.monitor.feature1") }}</h3>
                     <p class="pr-2">{{ $t("home.lifecycle.monitor.detail1") }}</p>
                   </div>
                 </div>
-                <div class="col-md-6 col-12">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-2.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.monitor.feature2") }}</h3>
@@ -243,15 +243,15 @@
                   </div>
                 </div>
               </div>
-              <div class="row mb-3 text-center md:text-left">
-                <div class="col-md-6 col-12">
+              <div class="row mb-3 text-center xl:text-left">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-3.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.monitor.feature3") }}</h3>
                     <p class="pr-2">{{ $t("home.lifecycle.monitor.detail3") }}</p>
                   </div>
                 </div>
-                <div class="col-md-6 col-12">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-4.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.monitor.feature4") }}</h3>
@@ -263,7 +263,7 @@
           </template>
           <template v-else-if="activeIndex === 4">
             <div
-              class="col-md-6 text-center mb-5 md:mb-0 hidden md:block"
+              class="col-xl-6 text-center mb-5 xl:mb-0 hidden xl:block"
               style="padding: 0 50px"
               data-aos="fade-right"
               data-aos-duration="1200"
@@ -271,20 +271,20 @@
               <img src="~assets/RemoteDiagnosis.png" class="w-4/5" alt />
             </div>
             <div
-              class="col-md-6 relative"
+              class="col-xl-6 relative"
               style="padding: 0 50px; z-index: -1;"
               data-aos="fade-left-new"
               data-aos-duration="1200"
             >
-              <div class="row mb-3 text-center md:text-left">
-                <div class="col-md-6 col-12">
+              <div class="row mb-3 text-center xl:text-left">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.diagnosis.feature1") }}</h3>
                     <p class="pr-2">{{ $t("home.lifecycle.diagnosis.detail1") }}</p>
                   </div>
                 </div>
-                <div class="col-md-6 col-12">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-2.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.diagnosis.feature2") }}</h3>
@@ -292,15 +292,15 @@
                   </div>
                 </div>
               </div>
-              <div class="row mb-3 text-center md:text-left">
-                <div class="col-md-6 col-12">
+              <div class="row mb-3 text-center xl:text-left">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-3.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.diagnosis.feature3") }}</h3>
                     <p class="pr-2">{{ $t("home.lifecycle.diagnosis.detail3") }}</p>
                   </div>
                 </div>
-                <div class="col-md-6 col-12">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-4.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.diagnosis.feature4") }}</h3>
@@ -312,7 +312,7 @@
           </template>
           <template v-else-if="activeIndex === 5">
             <div
-              class="col-md-6 text-center mb-5 md:mb-0 hidden md:block"
+              class="col-xl-6 text-center mb-5 xl:mb-0 hidden xl:block"
               style="padding: 0 50px"
               data-aos="fade-right"
               data-aos-duration="1200"
@@ -320,13 +320,13 @@
               <img src="~assets/Customization.png" class="w-4/5" alt />
             </div>
             <div
-              class="col-md-6 relative"
+              class="col-xl-6 relative"
               style="padding: 0 50px; z-index: -1;"
               data-aos="fade-left-new"
               data-aos-duration="1200"
             >
-              <div class="row mb-3 text-center md:text-left">
-                <div class="col-md-6 col-12">
+              <div class="row mb-3 text-center xl:text-left">
+                <div class="col-xl-6 col-12">
                   <img src="~assets/img-1.png" alt class="mb-2" />
                   <div class="mb-3">
                     <h3 class="mb-2">{{ $t("home.lifecycle.customization.feature1") }}</h3>

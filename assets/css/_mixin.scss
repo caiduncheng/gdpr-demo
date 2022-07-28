@@ -39,3 +39,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin clearfix {
+  content: "";
+  display: table;
+  clear: both;
+}

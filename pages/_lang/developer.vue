@@ -1,11 +1,11 @@
 <template>
   <div class="developer">
-    <NavBar fixed alwaysShow />
+    <NavBar fixed alwaysShow :hasShadow="false" :logo="require('../../assets/NDP/ndp-logo.png')" />
     <div class="developer-main">
       <div class="developer-header">
         <div class="container">
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-lg-6 developer-header__title-wrapper text-center lg:text-left">
               <h1 class="mb-5">App Release</h1>
               <p
                 class="developer-intro"
@@ -23,40 +23,48 @@
           </div>
         </div>
       </div>
-      <div class="developer-tabs">
+      <div class="developer-tabs" :style="tabStyle">
         <div class="container">
           <ul>
             <li>
-              <a v-scroll-to="{element: '#Flykey', offset: -200}">App Store</a>
+              <a v-scroll-to="{element: '#AppStore', offset: -200}">App Store</a>
             </li>
             <li>
-              <a v-scroll-to="{element: '#Features', offset: -200}">Operation Process</a>
+              <a v-scroll-to="{element: '#Operation', offset: -200}">Operation Process</a>
             </li>
             <li>
-              <a v-scroll-to="{element: '#Functionality', offset: -200}">Service & Support</a>
+              <a v-scroll-to="{element: '#Service', offset: -200}">Service & Support</a>
             </li>
           </ul>
         </div>
       </div>
-      <section class="app-store section">
-        <div class="containerXL">
-          <div class="row items-center">
-            <div class="col-5" data-aos="fade-right-new" data-aos-duration="1200">
-              <h1 class="app-store__title">App Store</h1>
-              <p
-                class="app-store__intro"
-              >TOMS Appstore is aimed at Newland devices distributed in various countries around the world . Device users around the world can use TOMS App Store to download various applications to meet their daily business needs.</p>
-            </div>
-            <div class="offset-1 col-6" data-aos="fade-left-new" data-aos-duration="1200">
-              <img class="w-full" src="~assets/NDP/app-store.png" alt="app-store" />
+      <div class="overflow-hidden">
+        <section class="app-store section" id="AppStore">
+          <div class="containerXL">
+            <div class="row items-center">
+              <div class="col-lg-5" data-aos="fade-right-new" data-aos-duration="1200">
+                <h1 class="app-store__title">App Store</h1>
+                <p
+                  class="app-store__intro"
+                >TOMS Appstore is aimed at Newland devices distributed in various countries around the world . Device users around the world can use TOMS App Store to download various applications to meet their daily business needs.</p>
+              </div>
+              <div class="offset-lg-1 col-lg-6" data-aos="fade-left-new" data-aos-duration="1200">
+                <img class="w-full" src="~assets/NDP/app-store.png" alt="app-store" />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <section class="operation-process section" data-aos="fade-up" data-aos-duration="1200">
-        <div class="containerXL">
+        </section>
+      </div>
+      <section
+        class="operation-process section"
+        id="Operation"
+        data-aos="fade-up"
+        data-aos-duration="1200"
+      >
+        <div class="containerXL relative">
+          <div class="dashed-border"></div>
           <h1 class="text-center operation-process__title">Operation Process</h1>
-          <div class="row">
+          <div class="row" data-aos="fade-up" data-aos-duration="1200">
             <div class="process-card process-card--red">
               <div class="process-card__header">Register & Login</div>
               <div class="process-card__body">
@@ -136,54 +144,68 @@
           </div>
         </div>
       </section>
-      <section class="service-support section">
-        <div class="background">
-          <div class="containerXL">
-            <div class="relative">
-              <img src="~assets/NDP/quotation-marks.png" alt class="quotation-marks" />
-              <h1 data-aos="fade-up" data-aos-duration="1200">Service&Support</h1>
-            </div>
-            <div class="row">
-              <div class="col-4" data-aos="fade-up" data-aos-duration="1200">
-                <div class="service-support__card service-support__card--content">
-                  <div class="flex items-center">
-                    <img src="~assets/NDP/Servive&Support-2.PNG" alt class="icon" />
-                    <p class="title">Content Review</p>
-                  </div>
-                  <p
-                    class="content"
-                  >Identify illegal content in application information, including pornography,violence, terrorism, politically sensitive etc, and effectively defend against content risks.</p>
+      <section class="service-support section" id="Service">
+        <div class="containerXL">
+          <!-- <img src="~assets/NDP/Servive&Support-bg.png" alt /> -->
+          <div class="relative">
+            <img src="~assets/NDP/quotation-marks.png" alt class="quotation-marks" />
+            <h1 data-aos="fade-up" data-aos-duration="1200">Service&Support</h1>
+          </div>
+          <div class="row relative" data-aos="fade-up" data-aos-duration="1200">
+            <img
+              src="~assets/NDP/bg1.png"
+              class="absolute"
+              style="width: 400px; top: -65px; left: -42px;"
+            />
+            <img
+              src="~assets/NDP/bg2.png"
+              class="absolute"
+              style="right: 20px;top: -118px; width: 400px;"
+            />
+            <div class="col-4">
+              <div class="service-support__card service-support__card--content">
+                <div class="flex items-center">
+                  <img src="~assets/NDP/Servive&Support-2.PNG" alt class="icon" />
+                  <p class="title">Content Review</p>
                 </div>
-              </div>
-
-              <div class="col-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
-                <div class="service-support__card service-support__card--app">
-                  <div class="flex items-center">
-                    <img src="~assets/NDP/Servive&Support-3.PNG" alt class="icon" />
-                    <p class="title">App Signing</p>
-                  </div>
-                  <p
-                    class="content"
-                  >Identify illegal content in application information, including pornography,violence, terrorism, politically sensitive etc, and effectively defend against content risks.</p>
-                </div>
-              </div>
-
-              <div class="col-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
-                <div class="service-support__card service-support__card--sdk">
-                  <div class="flex items-center">
-                    <img src="~assets/NDP/Servive&Support-4.PNG" class="icon" alt />
-                    <p class="title">SDK API Documentation</p>
-                  </div>
-                  <p
-                    class="content"
-                  >Identify illegal content in application information, including pornography,violence, terrorism, politically sensitive etc, and effectively defend against content risks.</p>
-                </div>
+                <p
+                  class="content"
+                >Identify illegal content in application information, including pornography,violence, terrorism, politically sensitive etc, and effectively defend against content risks.</p>
               </div>
             </div>
-            <div class="row">
-              <div class="note" data-aos="fade-up" data-aos-duration="1200">
-                <p>In order for the application to quickly access the terminal , we provide detailed SDK Apl documents to facilitate developers to easily connect to the terminal system ; in order to ensure the legality and security of the application , we provide application content detection and application signature to ensure Apps can be distributed normally in various countries around the world.</p>
+
+            <div class="col-4">
+              <div class="service-support__card service-support__card--app">
+                <div class="flex items-center">
+                  <img src="~assets/NDP/Servive&Support-3.PNG" alt class="icon" />
+                  <p class="title">App Signing</p>
+                </div>
+                <p
+                  class="content"
+                >Identify illegal content in application information, including pornography,violence, terrorism, politically sensitive etc, and effectively defend against content risks.</p>
               </div>
+            </div>
+
+            <div class="col-4">
+              <div class="service-support__card service-support__card--sdk">
+                <div class="flex items-center">
+                  <img src="~assets/NDP/Servive&Support-4.PNG" class="icon" alt />
+                  <p class="title">SDK API Documentation</p>
+                </div>
+                <p
+                  class="content"
+                >Identify illegal content in application information, including pornography,violence, terrorism, politically sensitive etc, and effectively defend against content risks.</p>
+              </div>
+            </div>
+          </div>
+          <div class="row relative">
+            <div class="note">
+              <img
+                src="~assets/NDP/bg3.png"
+                class="absolute"
+                style="right: 60px; top: -50px; z-index: -1; width: 200px;"
+              />
+              <p>In order for the application to quickly access the terminal , we provide detailed SDK Apl documents to facilitate developers to easily connect to the terminal system ; in order to ensure the legality and security of the application , we provide application content detection and application signature to ensure Apps can be distributed normally in various countries around the world.</p>
             </div>
           </div>
         </div>
@@ -194,7 +216,25 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      tabStyle: {},
+    };
+  },
+  mounted() {
+    this.$store.commit("SET_MENU", false);
+    window.addEventListener("scroll", () => {
+      if (scrollY > 800) {
+        this.$set(this.tabStyle, "boxShadow", "0 2px 5px rgb(0 0 0 / 5%)");
+        // this.tabStyle.boxShadow = "0 2px 5px rgb(0 0 0 / 5%)";
+      } else {
+        this.tabStyle = {};
+      }
+    });
+  },
+  methods: {},
+};
 </script>
 
 <style lang="scss" scoped>
@@ -204,35 +244,60 @@ $red: #d9534f;
 $yellow: #e5a54b;
 $green: #4bbf73;
 $blue: #3d80e7;
+$gray: #f9fafe;
 $textColor: #333333;
+$arrowHeight: 2px;
 
 .developer {
   .developer-main {
     margin-top: 90px;
+    background-color: $gray;
   }
   .developer-header {
     padding: 100px 0;
     color: white;
-    @include mixin.background-cover;
-    min-height: 800px;
-    background-image: url("assets/NDP/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 500px;
+    background-image: url("assets/NDP/background-mobile.png");
+    margin-bottom: 80px;
+
+    @screen lg {
+      background-image: url("assets/NDP/background.png");
+      background-position: center;
+      margin-bottom: 0;
+      min-height: 800px;
+    }
     .developer-intro {
       line-height: 2;
       margin-bottom: 60px;
     }
     .price-button {
       background-color: #5cb478;
-      padding: 15px 33px;
+      padding: 15px;
       border-radius: 6px;
       color: #ffffff;
+      @screen sm {
+        padding: 15px 33px;
+      }
+    }
+    &__title-wrapper {
+      padding: 50px 15px;
+      @screen 2xl {
+        padding: 100px 15px;
+      }
+    }
+    @screen 2xl {
+      min-height: 1100px;
     }
   }
   .developer-tabs {
-    /* position: sticky;
-    top: 90px; */
-    z-index: 1;
-    background-color: #ffffff;
+    position: sticky;
+    top: 90px;
+    z-index: 2;
+    background-color: $gray;
     padding: 40px 0px;
+
     @apply hidden md:block;
 
     ul {
@@ -258,6 +323,7 @@ $textColor: #333333;
     }
   }
   .app-store {
+    background: #f9fafe;
     &__title {
       margin-bottom: 30px;
     }
@@ -268,16 +334,29 @@ $textColor: #333333;
   }
 
   .operation-process {
+    background: #ffffff;
+    position: relative;
+    .dashed-border {
+      position: absolute;
+      width: 105%;
+      border: 1px dashed $blue;
+      bottom: -30px;
+      height: 200px;
+      border-radius: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
     &__title {
       margin-bottom: 50px;
     }
 
     .process-card {
-      width: calc(20% - 20px);
+      width: calc(20% - 16px);
       border-style: solid;
       margin: 0 8px;
       &__header {
         text-align: center;
+        font-size: 18px;
         padding: 10px 0;
         color: #ffffff;
         border-top-left-radius: 12px;
@@ -291,34 +370,33 @@ $textColor: #333333;
         border-bottom-left-radius: 12px;
         border-bottom-right-radius: 12px;
         padding: 20px;
-        font-size: 14px;
+        font-size: 16px;
         text-align: center;
         .info {
           /* margin-bottom: 70px; */
         }
         .arrow-container {
           position: absolute;
-          width: 80px;
+          width: 130px;
           height: 60px;
-          bottom: 95px;
-          right: -45px;
+          bottom: 40px;
+          right: -75px;
           z-index: 2;
           .arrow {
             position: absolute;
             top: 25px;
             width: 90%;
-            height: 10px;
+            height: $arrowHeight;
             background-color: $blue;
-            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-            animation: arrow 700ms linear infinite;
+            /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); */
           }
 
           .arrow::after,
           .arrow::before {
             content: "";
             position: absolute;
-            width: 60%;
-            height: 10px;
+            width: 31%;
+            height: $arrowHeight;
             right: -8px;
             background-color: $blue;
           }
@@ -330,7 +408,7 @@ $textColor: #333333;
 
           .arrow::before {
             top: 12px;
-            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); */
             transform: rotate(-45deg);
           }
         }
@@ -395,6 +473,7 @@ $textColor: #333333;
     }
   }
   .service-support {
+    background: #ffffff;
     h1 {
       z-index: 1;
       position: relative;
@@ -457,5 +536,9 @@ $textColor: #333333;
       }
     }
   }
+}
+
+.clearfix::after {
+  @include mixin.clearfix;
 }
 </style>

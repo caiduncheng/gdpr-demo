@@ -8,12 +8,13 @@
     ]"
       :style="scrollNavBarStyle"
     >
+      <!-- 手机端菜单 -->
       <div class="mobile-menu" :class="{ show: active }">
         <div class="content">
           <div class="row">
             <div class="col-12 text-center">
               <NuxtLink :to="{ name: 'lang', params: { lang: $store.state.locale } }">
-                <img src="~assets/logo.png" alt="toms logo" />
+                <img :src="logo" alt="toms logo" />
               </NuxtLink>
             </div>
             <div class="col-10 offset-1 col-nav">
@@ -35,6 +36,15 @@
                       params: { lang: $store.state.locale },
                     }"
                     >FlyKey</NuxtLink>
+                  </li>
+                  <li class="menu-item">
+                    <NuxtLink
+                      :to="{
+                        name: 'lang-developer',
+                        params: { lang: $store.state.locale },
+                      }"
+                      exact
+                    >{{ $t("common.developer") }}</NuxtLink>
                   </li>
                   <li class="menu-item">
                     <NuxtLink
@@ -93,11 +103,12 @@
           </div>
         </div>
       </div>
+      <!--  -->
       <div class="header-wrapper">
         <div class="header-inner">
           <div class="col-lg-2 col-12 text-center lg:text-left">
             <NuxtLink :to="{ name: 'lang', params: { lang: $store.state.locale } }">
-              <img src="~assets/logo.png" alt="toms logo" />
+              <img :src="logo" alt="toms logo" />
             </NuxtLink>
             <div class="menu-toggle" :class="{ active }" @click="toggleMenu">
               <div class="top"></div>
@@ -249,6 +260,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    logo: {
+      type: String,
+      default: require("../assets/logo.png"),
+    },
+    hasShadow: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
@@ -266,14 +285,15 @@ export default {
       return lang === "en-US" ? "English" : "中文";
     },
     scrollNavBarStyle() {
+      const style = {};
       if (this.alwaysShow || this.show) {
-        return {
-          visibility: "visible",
-          transform: "translateY(0px)",
-        };
-      } else {
-        return {};
+        style["visibility"] = "visible";
+        style["transform"] = "translateY(0px)";
+        if (this.hasShadow) {
+          style.boxShadow = "0 2px 5px rgb(0 0 0 / 5%)";
+        }
       }
+      return style;
     },
     location() {
       let location = "";
@@ -372,11 +392,10 @@ export default {
   &.fixed-header {
     position: fixed;
     background: #ffffff;
-    box-shadow: 0 2px 5px rgb(0 0 0 / 5%);
     visibility: hidden;
     transform: translateY(-100px);
     transition: transform 0.5s linear;
-
+    /* box-shadow: 0 2px 5px rgb(0 0 0 / 5%); */
     .menu-toggle {
       & > .mid,
       & > .top,
@@ -422,6 +441,10 @@ export default {
 
     .link-menu {
       top: 80px;
+      /* right: 20px;
+      &::before {
+        right: 40px;
+      } */
     }
   }
 
@@ -598,7 +621,7 @@ export default {
   padding: 0 16px;
   width: 100%;
   height: auto;
-  /* max-width: 1200px; */
+  max-width: 1200px;
   margin: 0 auto;
 }
 
