@@ -620,4 +620,5 @@ module.exports = {
     ZMB: "Zambia",
     ZWE: "Zimbabwe",
   },
+  developer: {},
 };

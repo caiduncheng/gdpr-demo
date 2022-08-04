@@ -1,6 +1,6 @@
 <template>
   <div class="developer">
-    <NavBar fixed alwaysShow :hasShadow="false" :logo="require('../../assets/NDP/ndp-logo.png')" />
+    <NavBar fixed alwaysShow :hasShadow="false" />
     <div class="developer-main">
       <div class="developer-header">
         <div class="container">
@@ -10,7 +10,7 @@
               <p
                 class="developer-intro"
               >TOMS App Store empowers developers to distribute their applications, allowing applications to be quickly distributed to millions of POS terminals around the world.</p>
-              <button class="price-button">
+              <button class="price-button" @click="() => signUpDialogVisible = true">
                 <div class="flex items-center">
                   <div class="text-left mr-3">
                     <p>The promotion period is</p>
@@ -38,11 +38,11 @@
           </ul>
         </div>
       </div>
-      <div class="overflow-hidden">
+      <div class="overflow-hidden text-center md:text-left">
         <section class="app-store section" id="AppStore">
           <div class="containerXL">
             <div class="row items-center">
-              <div class="col-lg-5" data-aos="fade-right-new" data-aos-duration="1200">
+              <div class="col-lg-5 mb-8 md:mb-0" data-aos="fade-right-new" data-aos-duration="1200">
                 <h1 class="app-store__title">App Store</h1>
                 <p
                   class="app-store__intro"
@@ -55,17 +55,12 @@
           </div>
         </section>
       </div>
-      <section
-        class="operation-process section"
-        id="Operation"
-        data-aos="fade-up"
-        data-aos-duration="1200"
-      >
+      <section class="operation-process section" id="Operation">
         <div class="containerXL relative">
           <div class="dashed-border"></div>
           <h1 class="text-center operation-process__title">Operation Process</h1>
-          <div class="row" data-aos="fade-up" data-aos-duration="1200">
-            <div class="process-card process-card--red">
+          <div class="row flex-col md:flex-row items-center">
+            <div class="process-card process-card--red" data-aos="fade-up" data-aos-duration="1200">
               <div class="process-card__header">Register & Login</div>
               <div class="process-card__body">
                 <p class="info">Register and login to the developer platform</p>
@@ -81,10 +76,19 @@
               </div>
             </div>
 
-            <div class="process-card process-card--yellow">
+            <div class="arrow-container--vertical">
+              <div class="arrow"></div>
+            </div>
+
+            <div
+              class="process-card process-card--yellow"
+              data-aos="fade-up"
+              data-aos-duration="1200"
+              data-aos-delay="100"
+            >
               <div class="process-card__header">Get Development Device</div>
               <div class="process-card__body">
-                <p class="info">Register and login to the developer platform</p>
+                <p class="info">Apply for a development deviceand debug the application</p>
 
                 <div class="process-card__icon">
                   <div class="circle">
@@ -97,10 +101,23 @@
               </div>
             </div>
 
-            <div class="process-card process-card--green">
-              <div class="process-card__header">Register & Login</div>
+            <div class="arrow-container--vertical">
+              <div class="arrow"></div>
+            </div>
+
+            <div
+              class="process-card process-card--green"
+              data-aos="fade-up"
+              data-aos-duration="1200"
+              data-aos-delay="200"
+            >
+              <div class="process-card__header">Application Upload</div>
               <div class="process-card__body">
-                <p class="info">Register and login to the developer platform</p>
+                <p class="info">
+                  Upload the APK file
+                  and fill in the application
+                  information
+                </p>
 
                 <div class="process-card__icon">
                   <div class="circle">
@@ -113,10 +130,23 @@
               </div>
             </div>
 
-            <div class="process-card process-card--yellow">
-              <div class="process-card__header">Application Upload</div>
+            <div class="arrow-container--vertical">
+              <div class="arrow"></div>
+            </div>
+
+            <div
+              class="process-card process-card--yellow"
+              data-aos="fade-up"
+              data-aos-duration="1200"
+              data-aos-delay="300"
+            >
+              <div class="process-card__header">Application Audit</div>
               <div class="process-card__body">
-                <p class="info">Register and login to the developer platform</p>
+                <p class="info">
+                  Submit the application
+                  information and wait for
+                  the administrator to audit it
+                </p>
 
                 <div class="process-card__icon">
                   <div class="circle">
@@ -129,10 +159,23 @@
               </div>
             </div>
 
-            <div class="process-card process-card--green">
-              <div class="process-card__header">Application Audit</div>
+            <div class="arrow-container--vertical">
+              <div class="arrow"></div>
+            </div>
+
+            <div
+              class="process-card process-card--green"
+              data-aos="fade-up"
+              data-aos-duration="1200"
+              data-aos-delay="400"
+            >
+              <div class="process-card__header">Release</div>
               <div class="process-card__body">
-                <p class="info">Register and login to the developer platform</p>
+                <p class="info">
+                  Administrator audit,
+                  testers test and sign
+                  the APK
+                </p>
 
                 <div class="process-card__icon">
                   <div class="circle">
@@ -149,23 +192,33 @@
           <!-- <img src="~assets/NDP/Servive&Support-bg.png" alt /> -->
           <div class="relative">
             <img src="~assets/NDP/quotation-marks.png" alt class="quotation-marks" />
-            <h1 data-aos="fade-up" data-aos-duration="1200">Service&Support</h1>
+            <h1
+              data-aos="fade-up"
+              data-aos-duration="1200"
+              data-aos-anchor=".service-support__card"
+              class="text-center md:text-left"
+            >Service&nbsp;&&nbsp;Support</h1>
           </div>
-          <div class="row relative" data-aos="fade-up" data-aos-duration="1200">
+          <div class="row relative">
             <img
               src="~assets/NDP/bg1.png"
-              class="absolute"
+              class="absolute hidden md:block"
               style="width: 400px; top: -65px; left: -42px;"
             />
             <img
               src="~assets/NDP/bg2.png"
-              class="absolute"
+              class="absolute hidden md:block"
               style="right: 20px;top: -118px; width: 400px;"
             />
-            <div class="col-4">
+            <div
+              class="col-md-4 col-12"
+              data-aos="fade-up"
+              data-aos-duration="1200"
+              data-aos-delay="300"
+            >
               <div class="service-support__card service-support__card--content">
                 <div class="flex items-center">
-                  <img src="~assets/NDP/Servive&Support-2.PNG" alt class="icon" />
+                  <img src="~assets/NDP/Servive&Support-2.PNG" alt class="icon ff" />
                   <p class="title">Content Review</p>
                 </div>
                 <p
@@ -174,7 +227,12 @@
               </div>
             </div>
 
-            <div class="col-4">
+            <div
+              class="col-md-4 col-12"
+              data-aos="fade-up"
+              data-aos-duration="1200"
+              data-aos-delay="300"
+            >
               <div class="service-support__card service-support__card--app">
                 <div class="flex items-center">
                   <img src="~assets/NDP/Servive&Support-3.PNG" alt class="icon" />
@@ -182,11 +240,16 @@
                 </div>
                 <p
                   class="content"
-                >Identify illegal content in application information, including pornography,violence, terrorism, politically sensitive etc, and effectively defend against content risks.</p>
+                >The TOMS App Store will add a signature to the uploaded application , and the terminal can only install it after passing the signature verification.</p>
               </div>
             </div>
 
-            <div class="col-4">
+            <div
+              class="col-md-4 col-12"
+              data-aos="fade-up"
+              data-aos-duration="1200"
+              data-aos-delay="300"
+            >
               <div class="service-support__card service-support__card--sdk">
                 <div class="flex items-center">
                   <img src="~assets/NDP/Servive&Support-4.PNG" class="icon" alt />
@@ -194,23 +257,24 @@
                 </div>
                 <p
                   class="content"
-                >Identify illegal content in application information, including pornography,violence, terrorism, politically sensitive etc, and effectively defend against content risks.</p>
+                >Detailed terminal interface documentation facilitates developers to access terminal specific hardware functions.</p>
               </div>
             </div>
           </div>
           <div class="row relative">
+            <img
+              src="~assets/NDP/bg3.png"
+              class="absolute hidden md:block"
+              style="right: 60px; top: -50px;width: 200px;"
+            />
             <div class="note">
-              <img
-                src="~assets/NDP/bg3.png"
-                class="absolute"
-                style="right: 60px; top: -50px; z-index: -1; width: 200px;"
-              />
-              <p>In order for the application to quickly access the terminal , we provide detailed SDK Apl documents to facilitate developers to easily connect to the terminal system ; in order to ensure the legality and security of the application , we provide application content detection and application signature to ensure Apps can be distributed normally in various countries around the world.</p>
+              <p>In order for the application to quickly access the terminal , we provide detailed SDK API documents to facilitate developers to easily connect to the terminal system ; in order to ensure the legality and security of the application , we provide application content detection and application signature to ensure Apps can be distributed normally in various countries around the world.</p>
             </div>
           </div>
         </div>
       </section>
     </div>
+    <LazySignupDialog :visible.sync="signUpDialogVisible" :title="$t('login.sign_up')" />
     <Footer />
   </div>
 </template>
@@ -220,6 +284,7 @@ export default {
   data() {
     return {
       tabStyle: {},
+      signUpDialogVisible: false,
     };
   },
   mounted() {
@@ -250,11 +315,14 @@ $arrowHeight: 2px;
 
 .developer {
   .developer-main {
-    margin-top: 90px;
+    margin-top: 70px;
     background-color: $gray;
+    @screen md {
+      margin-top: 90px;
+    }
   }
   .developer-header {
-    padding: 100px 0;
+    padding: 50px 0;
     color: white;
     background-size: cover;
     background-repeat: no-repeat;
@@ -267,6 +335,7 @@ $arrowHeight: 2px;
       background-position: center;
       margin-bottom: 0;
       min-height: 800px;
+      padding: 100px 0;
     }
     .developer-intro {
       line-height: 2;
@@ -277,6 +346,7 @@ $arrowHeight: 2px;
       padding: 15px;
       border-radius: 6px;
       color: #ffffff;
+      display: inline-block;
       @screen sm {
         padding: 15px 33px;
       }
@@ -317,13 +387,22 @@ $arrowHeight: 2px;
     }
   }
   .section {
-    padding: 80px;
     h1 {
-      font-size: 45px;
+      font-size: 35px;
+      @screen md {
+        font-size: 45px;
+      }
+    }
+    @screen md {
+      padding: 80px;
     }
   }
   .app-store {
     background: #f9fafe;
+    padding: 20px 15px;
+    @screen md {
+      padding: 0;
+    }
     &__title {
       margin-bottom: 30px;
     }
@@ -345,15 +424,66 @@ $arrowHeight: 2px;
       border-radius: 12px;
       left: 50%;
       transform: translateX(-50%);
+      display: none;
+      @screen md {
+        display: block;
+      }
     }
     &__title {
       margin-bottom: 50px;
     }
 
+    .arrow-container--vertical {
+      display: block;
+      @screen md {
+        display: none;
+      }
+      .arrow {
+        width: 2px;
+        height: 60px;
+        position: relative;
+        /* height: $arrowHeight; */
+        background-color: $blue;
+      }
+      .arrow::after,
+      .arrow::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 36px;
+        background-color: $blue;
+        top: 32px;
+      }
+
+      .arrow::after {
+        transform: rotate(-45deg);
+        right: 12px;
+      }
+
+      .arrow::before {
+        transform: rotate(45deg);
+        right: -12px;
+      }
+    }
+
     .process-card {
-      width: calc(20% - 16px);
+      width: 60%;
+      max-width: 260px;
       border-style: solid;
-      margin: 0 8px;
+      margin: 10px 0;
+      &.aos-animate {
+        @screen md-max {
+          transition-delay: 0ms;
+        }
+      }
+      @screen sm {
+        width: 40%;
+      }
+      @screen md {
+        width: calc(20% - 16px);
+        margin: 0 8px;
+        margin-bottom: 20px;
+      }
       &__header {
         text-align: center;
         font-size: 18px;
@@ -366,26 +496,34 @@ $arrowHeight: 2px;
         position: relative;
         border-width: 2px;
         border-style: solid;
-        height: 280px;
+        height: 250px;
         border-bottom-left-radius: 12px;
         border-bottom-right-radius: 12px;
         padding: 20px;
         font-size: 16px;
         text-align: center;
+        @screen md {
+          height: 280px;
+        }
         .info {
           /* margin-bottom: 70px; */
         }
         .arrow-container {
           position: absolute;
+          z-index: 2;
           width: 130px;
           height: 60px;
           bottom: 40px;
           right: -75px;
-          z-index: 2;
+          display: none;
+          @screen md {
+            display: block;
+          }
           .arrow {
             position: absolute;
             top: 25px;
             width: 90%;
+            height: 2px;
             height: $arrowHeight;
             background-color: $blue;
             /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); */
@@ -395,6 +533,7 @@ $arrowHeight: 2px;
           .arrow::before {
             content: "";
             position: absolute;
+            /* width: 44%; */
             width: 31%;
             height: $arrowHeight;
             right: -8px;
@@ -480,17 +619,26 @@ $arrowHeight: 2px;
       margin-bottom: 60px;
     }
     .row {
-      margin-bottom: 150px;
+      margin-bottom: 80px;
+      @screen md {
+        margin-bottom: 150px;
+      }
     }
     .content {
       padding: 20px 0;
       line-height: 1.8;
       color: #333333;
+      padding-left: 8px;
     }
     .quotation-marks {
       position: absolute;
-      top: -40px;
-      left: -57px;
+      top: -13px;
+      left: -12px;
+      width: 60px;
+      @screen md {
+        top: -3px;
+        left: -36px;
+      }
     }
     .background {
       background-image: url("~assets/NDP/Servive&Support-bg.png");
@@ -502,15 +650,23 @@ $arrowHeight: 2px;
       margin: 0 auto;
       background-color: #293042;
       border-radius: 10px;
-      padding: 40px 100px;
+      padding: 20px;
       color: #ffffff;
       line-height: 1.8;
+      position: relative;
+      text-align: center;
+      @screen md {
+        text-align: left;
+        padding: 40px 100px;
+      }
     }
     &__card {
+      height: 250px;
       box-shadow: 0 2px 5px 0 rgb(0 0 0 / 10%);
       border-radius: 10px;
       padding: 20px;
       background-color: #ffffff;
+      margin-bottom: 20px;
       .icon {
         width: 50px;
       }

@@ -14,7 +14,7 @@
           <div class="row">
             <div class="col-12 text-center">
               <NuxtLink :to="{ name: 'lang', params: { lang: $store.state.locale } }">
-                <img :src="logo" alt="toms logo" />
+                <img :src="logo" alt="toms logo" :style="logoStyle" />
               </NuxtLink>
             </div>
             <div class="col-10 offset-1 col-nav">
@@ -107,8 +107,8 @@
       <div class="header-wrapper">
         <div class="header-inner">
           <div class="col-lg-2 col-12 text-center lg:text-left">
-            <NuxtLink :to="{ name: 'lang', params: { lang: $store.state.locale } }">
-              <img :src="logo" alt="toms logo" />
+            <NuxtLink :to="{ name:'lang', params: { lang: $store.state.locale } }">
+              <img :src="logo" alt="toms logo" :style="logoStyle" />
             </NuxtLink>
             <div class="menu-toggle" :class="{ active }" @click="toggleMenu">
               <div class="top"></div>
@@ -263,6 +263,10 @@ export default {
     logo: {
       type: String,
       default: require("../assets/logo.png"),
+    },
+    logoStyle: {
+      type: Object,
+      default: null,
     },
     hasShadow: {
       type: Boolean,
