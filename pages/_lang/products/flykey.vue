@@ -209,7 +209,7 @@
       <section class="section section-5" id="Service">
         <div class="row no-gutters">
           <div class="container">
-            <div class="row">
+            <div class="row items-center">
               <div class="col-md-5 mb-5 md:mb-0" data-aos="fade-right-new" data-aos-duration="1800">
                 <h3 class="mb-5">{{ $t('flykey.services_title') }}</h3>
                 <p>{{ $t('flykey.services_content') }}</p>
@@ -478,9 +478,7 @@ $bgBlue: rgb(0, 108, 252);
       width: 450px;
       max-width: 100%;
       border-radius: 5px;
-      &:not(:last-child) {
-        margin-bottom: 15px;
-      }
+      margin-bottom: 15px;
       span {
         display: inline-block;
         margin-left: 10px;
