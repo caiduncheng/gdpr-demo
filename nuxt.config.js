@@ -9,7 +9,6 @@ let adminAddress = "";
 let domain = "";
 let mail = "";
 let captcha = "";
-let privacy = "";
 let newlandInfo = "";
 let pubKey = "";
 
@@ -25,7 +24,6 @@ switch (process.env.BASE) {
     domain = process.env.DEV_APP_DOMAIN;
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
-    privacy = process.env.PRIVACY;
     newlandInfo = process.env.NEWLAND_INFO;
     pubKey = process.env.PUBKEY;
     break;
@@ -38,7 +36,6 @@ switch (process.env.BASE) {
     domain = process.env.TEST_APP_DOMAIN;
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
-    privacy = process.env.PRIVACY;
     pubKey = process.env.PUBKEY;
     newlandInfo = process.env.NEWLAND_INFO;
     break;
@@ -51,7 +48,6 @@ switch (process.env.BASE) {
     domain = process.env.INTE_APP_DOMAIN;
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
-    privacy = process.env.PRIVACY;
     newlandInfo = process.env.NEWLAND_INFO;
     pubKey = process.env.PUBKEY;
     break;
@@ -64,7 +60,6 @@ switch (process.env.BASE) {
     domain = process.env.PROD_APP_DOMAIN;
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
-    privacy = process.env.PRIVACY;
     newlandInfo = process.env.NEWLAND_INFO;
     pubKey = process.env.PUBKEY;
     break;
@@ -77,7 +72,6 @@ switch (process.env.BASE) {
     domain = process.env.LD_APP_DOMAIN;
     mail = process.env.LD_EMAIL;
     captcha = process.env.LD_CAPTCHA;
-    privacy = process.env.LD_PRIVACY;
     newlandInfo = process.env.LD_NEWLAND_INFO;
     pubKey = process.env.LD_PUBKEY;
     break;
@@ -90,7 +84,6 @@ switch (process.env.BASE) {
     domain = process.env.PENETRATION_APP_DOMAIN;
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
-    privacy = process.env.PRIVACY;
     newlandInfo = process.env.NEWLAND_INFO;
     pubKey = process.env.PUBKEY;
     break;
@@ -103,7 +96,6 @@ switch (process.env.BASE) {
     domain = process.env.APP_DOMAIN;
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
-    privacy = process.env.PRIVACY;
     newlandInfo = process.env.NEWLAND_INFO;
     pubKey = process.env.PUBKEY;
     break;
@@ -206,7 +198,6 @@ export default {
     VUE_APP_DOMAIN: domain,
     VUE_APP_EMAIL: mail,
     VUE_APP_CAPTCHA: captcha,
-    VUE_APP_PRIVACY: privacy,
     VUE_APP_NEWLAND_INFO: newlandInfo,
     VUE_APP_PUBKEY: pubKey,
   },

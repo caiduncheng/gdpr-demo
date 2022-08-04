@@ -167,6 +167,11 @@
                           <el-input v-model="operatorForm.confirmPassword" type="password"></el-input>
                         </el-form-item>
                         <hr class="my-6" />
+                        <el-form-item required prop="checked">
+                      <el-checkbox v-model="form.checked">
+                        <span class="text-xs" v-html="$t('login.agree_terms_conditions')"></span>
+                      </el-checkbox>
+                    </el-form-item>
                       </div>
                     </div>
                     <el-form-item class="text-center">
@@ -498,6 +503,8 @@ export default {
         confirmPassword: "",
         registerToken,
         email,
+        checked: false,
+
       },
       developerForm: {
         // 开发者类型，1-个人；2-公司

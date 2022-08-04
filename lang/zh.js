@@ -261,7 +261,7 @@ module.exports = {
     contact_you_in_some_days: "我们将在1-2个工作日内与您联系",
     illegal_mobile: "电话号码格式有误",
     agree_terms_conditions:
-      '我同意 <a class="link" href="/zh-CN/privacy/privacy-policy"> Privacy Policy </a> 与 <a class="link" href="/zh-CN/privacy/terms"> Terms & Conditions</a>',
+      '我同意 <a class="link" target="_blank" href="/zh-CN/privacy/privacy-policy"> Privacy Policy </a> 与 <a class="link" target="_blank" href="/zh-CN/privacy/terms"> Terms & Conditions</a>',
     agree_terms_conditions1:
       ' <a class="link" href="/zh-CN/privacy/privacy-policy"> Privacy Policy </a> 与 <a class="link" href="/zh-CN/privacy/terms"> Terms & Conditions</a>',
     agree_terms_and_conditions_tip: "你需要接受条款与细则",

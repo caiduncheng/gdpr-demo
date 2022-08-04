@@ -234,7 +234,7 @@ module.exports = {
     forgot_password: "Forgot password?",
     captcha: "Captcha",
     agree_terms_conditions:
-      'I agree to <a class="link" href="/privacy/privacy-policy"> Privacy Policy </a> and <a class="link" href="/privacy/terms"> Terms & Conditions</a>',
+      'I agree to <a class="link" target="_blank" href="/privacy/privacy-policy"> Privacy Policy </a> and <a class="link" target="_blank" href="/privacy/terms"> Terms & Conditions</a>',
     agree_terms_conditions1:
       '<a class="link" href="/privacy/privacy-policy"> Privacy Policy </a> and <a class="link" href="/privacy/terms"> Terms & Conditions</a>',
     i_accept: "I accept",
