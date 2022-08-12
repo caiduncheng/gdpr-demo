@@ -50,7 +50,6 @@
                 </el-form-item>
 
               </el-form>
-              <hr v-if="VUE_APP_EMAIL == '1'||VUE_APP_NEWLAND_INFO == '1'" class="my-5" />
 
               <div v-if="VUE_APP_EMAIL == '1'" class="text-center">
                 <p class="text-gray text-xs text-center mb-3">
@@ -67,6 +66,7 @@
                   </a>
                 </div>
               </div>
+              <hr v-if="VUE_APP_EMAIL == '1'|| VUE_APP_NEWLAND_INFO == '1'" class="my-5" />
 
                     <div class="text-center mt-4 " v-if="VUE_APP_NEWLAND_INFO == '1'">
                       <el-tooltip effect="dark" content="FlyKey" placement="bottom">
