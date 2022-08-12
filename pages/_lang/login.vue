@@ -17,7 +17,7 @@
                   <el-popover trigger="manual" v-model="usernamePopover" placement="top">
                     <i class="el-icon-warning text-yellow-500"></i>
                     {{ invalidMessage }}
-                    <el-input @focus="hidePopovers" @blur="handleBlur" slot="reference" ref="username" v-model.trim="loginForm.username" :placeholder="$t('login.account_email_placeholder')" tabindex="1" auto-complete="on" prefix-icon="el-icon-message"></el-input>
+                    <el-input @focus="hidePopovers" @change="handleBlur" slot="reference" ref="username" v-model.trim="loginForm.username" :placeholder="$t('login.account_email_placeholder')" tabindex="1" auto-complete="on" prefix-icon="el-icon-message"></el-input>
                   </el-popover>
                 </el-form-item>
                 <el-form-item prop="password">
@@ -224,7 +224,7 @@ export default {
       this.resetPasswordDialogVisible = true;
     },
     handleBlur() {
-      if (this.loginForm.username && !this.showCaptcha) {
+      if (this.loginForm.username) {
         this.getCaptcha();
       } else if (!this.loginForm.username) {
         this.showCaptcha = false;
