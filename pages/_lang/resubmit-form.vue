@@ -310,7 +310,10 @@ export default {
 
           formData.append("registerToken", this.form.registerToken);
           this.$store
-            .dispatch("reRegister", formData)
+            .dispatch("reRegister", {
+              ...formData,
+              token: this.$store.getters.token,
+            })
             .then(() => {
               this.success = true;
               window.scrollTo(0, 0);

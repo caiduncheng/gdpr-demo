@@ -379,6 +379,7 @@ export default {
           this.$store
             .dispatch("editDeveloperInfo", {
               ...formData,
+              token: this.$store.getters.token
             })
             .then(() => {
               this.success = true;

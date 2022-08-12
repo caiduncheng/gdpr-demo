@@ -92,7 +92,7 @@ export const api = {
   async editDeveloperInfo(store, data) {
     return await this.$axios({
       headers: {
-        "WEB-TOKEN": data.registerToken,
+        "WEB-TOKEN": data.token,
       },
       url: "/online/authorization/developer/self/edit ",
       method: "POST",
@@ -102,6 +102,9 @@ export const api = {
 
   async reRegister(store, data) {
     return await this.$axios({
+      headers: {
+        "WEB-TOKEN": data.token,
+      },
       url: `/online/management/operator/re-register`,
       method: "POST",
       data,
