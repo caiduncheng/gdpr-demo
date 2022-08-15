@@ -15,6 +15,7 @@ module.exports = {
         md: "768px",
         lg: "992px",
         xl: "1200px",
+        "2xl": "1920px",
         "md-max": { max: "991px" },
         "sm-max": { max: "767px" },
       },
@@ -34,7 +35,7 @@ module.exports = {
         "application-yellow": "rgb(245,195,68)",
       },
       textColor: {
-        'header-blue': '#2B7BE5',
+        "header-blue": "#2B7BE5",
         primary: "#2C7BE5",
         secondary: "#6E84A3",
         gray: "#6485AD",
