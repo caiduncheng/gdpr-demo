@@ -102,9 +102,12 @@ export const api = {
 
   async reRegister(store, data) {
     return await this.$axios({
+      headers: {
+        "WEB-TOKEN": data.token,
+      },
       url: `/online/management/operator/re-register`,
       method: "POST",
-      data,
+      data: data.formData,
     });
   },
 

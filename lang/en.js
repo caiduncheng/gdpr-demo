@@ -130,7 +130,7 @@ module.exports = {
       flykey: {
         title: "FlyKey",
         detail:
-          "Integrate FlyKey management portal onto TOMS. FlyKey is a remote key injection tool. With key injection systems fully compliant with the latest PCI PIN 3.1 and P2PE, FlyKey provides solutions for Remote Key lnjection(RKI) as well as Direct Key Injection (DK), which is flexible and fast and reduces labor cost",
+          "Integrate FlyKey management portal onto TOMS. FlyKey is a remote key injection tool. With key injection systems fully compliant with the latest PCI PIN 3.1 and P2PE, FlyKey provides solutions for Remote Key lnjection(RKI) as well as Direct Key Injection (DKI), which is flexible and fast and reduces labor cost",
         f1: "Safe & Reliable",
         f2: "Flexible & Fast",
         f3: "Reduce Manpower",
@@ -234,7 +234,7 @@ module.exports = {
     forgot_password: "Forgot password?",
     captcha: "Captcha",
     agree_terms_conditions:
-      'I agree to <a class="link" href="/privacy/privacy-policy"> Privacy Policy </a> and <a class="link" href="/privacy/terms"> Terms & Conditions</a>',
+      'I agree to <a class="link" target="_blank" href="/privacy/privacy-policy"> Privacy Policy </a> and <a class="link" target="_blank" href="/privacy/terms"> Terms & Conditions</a>',
     agree_terms_conditions1:
       '<a class="link" href="/privacy/privacy-policy"> Privacy Policy </a> and <a class="link" href="/privacy/terms"> Terms & Conditions</a>',
     i_accept: "I accept",

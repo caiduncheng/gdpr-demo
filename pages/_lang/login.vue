@@ -17,7 +17,7 @@
                   <el-popover trigger="manual" v-model="usernamePopover" placement="top">
                     <i class="el-icon-warning text-yellow-500"></i>
                     {{ invalidMessage }}
-                    <el-input @focus="hidePopovers" @blur="handleBlur" slot="reference" ref="username" v-model.trim="loginForm.username" :placeholder="$t('login.account_email_placeholder')" tabindex="1" auto-complete="on" prefix-icon="el-icon-message"></el-input>
+                    <el-input @focus="hidePopovers" @change="handleBlur" slot="reference" ref="username" v-model.trim="loginForm.username" :placeholder="$t('login.account_email_placeholder')" tabindex="1" auto-complete="on" prefix-icon="el-icon-message"></el-input>
                   </el-popover>
                 </el-form-item>
                 <el-form-item prop="password">
@@ -48,64 +48,9 @@
                   <el-button class="w-full" :loading="loading" type="primary" @click="handleLogin">{{ $t("common.sign_in") }}</el-button>
                   <div class="el-form-item__error text-center">{{ errorMsg }}</div>
                 </el-form-item>
-                <el-form-item prop="checked" v-if="VUE_APP_PRIVACY == '1'">
-                  <div class="text-center">
-                    <el-popover trigger="manual" v-model="checkedPopover" placement="bottom">
-                      <i class="el-icon-warning text-yellow-500"></i>
-                      {{ invalidMessage }}
-                      <el-checkbox slot="reference" v-model="loginForm.checked">
-                        <span class="text-xs" v-html="$t('login.agree_terms_conditions')"></span>
-                        <!-- <NuxtLink to="/privacy/terms" class="link">{{
-                          $t("login.terms_and_conditions")
-                        }}</NuxtLink>-->
-                      </el-checkbox>
-                    </el-popover>
-                    <div class="text-center">
-                      <el-tooltip effect="dark" content="FlyKey" placement="bottom">
-                        <div class="website-icon mr-10">
-                          <a href="https://flykey.newlandpayment.com">
-                            <img src="~/assets/sign-in/flykey.png" alt />
-                          </a>
-                        </div>
-                      </el-tooltip>
-                      <el-tooltip effect="dark" content="NPSC" placement="bottom">
-                        <div class="website-icon">
-                          <a href="https://npsc.newlandpayment.com/npsc">
-                            <img src="~assets/sign-in/npsc.png" alt />
-                          </a>
-                        </div>
-                      </el-tooltip>
-                    </div>
-                  </div>
-                </el-form-item>
-                <el-form-item v-if="VUE_APP_PRIVACY == '0'">
-                  <div class="text-center">
 
-                    <span class="text-xs" v-html="$t('login.agree_terms_conditions1')"></span>
-                    <!-- <NuxtLink to="/privacy/terms" class="link">{{
-                          $t("login.terms_and_conditions")
-                        }}</NuxtLink>-->
-
-                    <div class="text-center">
-                      <el-tooltip effect="dark" content="FlyKey" placement="bottom">
-                        <div class="website-icon mr-10">
-                          <a href="https://flykey.newlandpayment.com">
-                            <img src="~/assets/sign-in/flykey.png" alt />
-                          </a>
-                        </div>
-                      </el-tooltip>
-                      <el-tooltip effect="dark" content="NPSC" placement="bottom">
-                        <div class="website-icon">
-                          <a href="https://npsc.newlandpayment.com/npsc">
-                            <img src="~assets/sign-in/npsc.png" alt />
-                          </a>
-                        </div>
-                      </el-tooltip>
-                    </div>
-                  </div>
-                </el-form-item>
               </el-form>
-              <hr v-if="VUE_APP_EMAIL == '1'" class="my-5" />
+
               <div v-if="VUE_APP_EMAIL == '1'" class="text-center">
                 <p class="text-gray text-xs text-center mb-3">
                   {{ $t("login.donnot_have_account") }}
@@ -121,6 +66,25 @@
                   </a>
                 </div>
               </div>
+              <hr v-if="VUE_APP_EMAIL == '1'&& VUE_APP_NEWLAND_INFO == '1'" class="my-5" />
+
+                    <div class="text-center mt-4 " v-if="VUE_APP_NEWLAND_INFO == '1'">
+                      <el-tooltip effect="dark" content="FlyKey" placement="bottom">
+                        <div class="website-icon mr-10 h-10">
+                          <a href="https://flykey.newlandpayment.com">
+                            <img src="~/assets/sign-in/flykey.png" alt />
+                          </a>
+                        </div>
+                      </el-tooltip>
+                      <el-tooltip effect="dark" content="NPSC" placement="bottom">
+                        <div class="website-icon h-10">
+                          <a href="https://npsc.newlandpayment.com/npsc">
+                            <img src="~assets/sign-in/npsc.png" alt />
+                          </a>
+                        </div>
+                      </el-tooltip>
+                    </div>
+
             </div>
           </div>
         </div>
@@ -194,19 +158,11 @@ export default {
       }
     };
 
-    const isChecked = (rule, value, callback) => {
-      if (!value) {
-        callback(new Error(this.$t("login.agree_terms_and_conditions_tip")));
-      } else {
-        callback();
-      }
-    };
     return {
       VUE_APP_PUBKEY: process.env.VUE_APP_PUBKEY,
       VUE_APP_EMAIL: process.env.VUE_APP_EMAIL,
       VUE_APP_NEWLAND_INFO: process.env.VUE_APP_NEWLAND_INFO,
       VUE_APP_CAPTCHA: process.env.VUE_APP_CAPTCHA,
-      VUE_APP_PRIVACY: process.env.VUE_APP_PRIVACY,
       signUpDialogVisible: false,
       resetPasswordDialogVisible: false,
       loginForm: {
@@ -225,7 +181,6 @@ export default {
         code: [
           { required: true, trigger: "manual", validator: validateVerifyCode },
         ],
-        checked: [{ validator: isChecked, trigger: "manual" }],
       },
       loading: false,
       passwordType: "password",
@@ -269,7 +224,7 @@ export default {
       this.resetPasswordDialogVisible = true;
     },
     handleBlur() {
-      if (this.loginForm.username && !this.showCaptcha) {
+      if (this.loginForm.username) {
         this.getCaptcha();
       } else if (!this.loginForm.username) {
         this.showCaptcha = false;
@@ -302,9 +257,7 @@ export default {
           let characterCode, characterStatus, token, needPasswdChange;
 
           try {
-            if (this.VUE_APP_PRIVACY == '0') {
-              this.loginForm.checked = true;
-            }
+
             let random = 0
             for(var i=0; i<6; i++) {
               random = random*10 + Math.floor(Math.random()*10);
@@ -446,6 +399,7 @@ export default {
     padding: 0 10px;
     border-radius: 50%;
     display: inline-block;
+    line-height: 40px;
     transition: background-color 0.3s;
     cursor: pointer;
 

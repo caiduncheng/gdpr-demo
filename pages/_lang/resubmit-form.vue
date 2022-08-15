@@ -307,10 +307,13 @@ export default {
           formData.append("address", this.form.address);
           formData.append("email", this.form.email);
           formData.append("mobile", this.form.mobile);
-
           formData.append("registerToken", this.form.registerToken);
+          let token = this.form.registerToken;
+          let data = { token, formData};
           this.$store
-            .dispatch("reRegister", formData)
+            .dispatch("reRegister", 
+            data
+            )
             .then(() => {
               this.success = true;
               window.scrollTo(0, 0);

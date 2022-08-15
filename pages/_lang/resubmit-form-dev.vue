@@ -375,11 +375,9 @@ export default {
           formData.pidNo = this.form.pidNo;
 
           formData.registerToken = registerToken;
-
           this.$store
-            .dispatch("editDeveloperInfo", {
-              ...formData,
-            })
+            .dispatch("editDeveloperInfo", 
+              formData)
             .then(() => {
               this.success = true;
               this.step = 3;
