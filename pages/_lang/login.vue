@@ -305,8 +305,13 @@ export default {
             if (this.VUE_APP_PRIVACY == '0') {
               this.loginForm.checked = true;
             }
+            let random = 0
+            for(var i=0; i<6; i++) {
+              random = random*10 + Math.floor(Math.random()*10);
+            }
             const { timestamp } = await this.$store.dispatch("getTimeStamp");
             const json = JSON.stringify({
+              random,
               timestamp,
               password: this.loginForm.password,
             });
