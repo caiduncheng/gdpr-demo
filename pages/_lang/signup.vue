@@ -168,7 +168,7 @@
                         </el-form-item>
                         <hr class="my-6" />
                         <el-form-item required prop="checked">
-                      <el-checkbox v-model="form.checked">
+                      <el-checkbox v-model="operatorForm.checked">
                         <span class="text-xs" v-html="$t('login.agree_terms_conditions')"></span>
                       </el-checkbox>
                     </el-form-item>
