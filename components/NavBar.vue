@@ -305,7 +305,7 @@ export default {
         case "OPERATOR":
           location = process.env.VUE_APP_OPERATOR_ADDRESS;
           break;
-        case "DEVELOPER":
+        case "DEV":
           location = process.env.VUE_APP_DEVELOPER_ADDRESS;
           break;
         case "MANUFACTURER":
