@@ -6,34 +6,38 @@
         <div class="container">
           <div class="row">
             <div class="col-12 col-lg-6 developer-header__title-wrapper text-center lg:text-left">
-              <h1 class="mb-5">App Release</h1>
-              <p
-                class="developer-intro"
-              >TOMS App Store empowers developers to distribute their applications, allowing applications to be quickly distributed to millions of POS terminals around the world.</p>
+              <h1 class="mb-5">{{$t('developer.app_release')}}</h1>
+              <p class="developer-intro">{{$t('developer.header_desc')}}</p>
               <button class="price-button" @click="() => signUpDialogVisible = true">
                 <div class="flex items-center">
                   <div class="text-left mr-3">
-                    <p>The promotion period is</p>
-                    <p style="text-decoration: line-through">The registration fee is 25$</p>
+                    <p>{{$t('developer.header_button.p1')}}</p>
+                    <p style="text-decoration: line-through">{{$t('developer.header_button.p2')}}</p>
                   </div>
-                  <span class="text-5xl">Free</span>
+                  <span class="text-5xl">{{$t('developer.header_button.span')}}</span>
                 </div>
               </button>
             </div>
           </div>
         </div>
       </div>
-      <div class="developer-tabs" :style="tabStyle">
+      <div class="developer-tabs" :style="tabStyle" ref="developerTabs">
         <div class="container">
           <ul>
             <li>
-              <a v-scroll-to="{element: '#AppStore', offset: -200}">App Store</a>
+              <a
+                v-scroll-to="{element: '#AppStore', offset: -200}"
+              >{{$t('developer.tab.app_store')}}</a>
             </li>
             <li>
-              <a v-scroll-to="{element: '#Operation', offset: -200}">Operation Process</a>
+              <a
+                v-scroll-to="{element: '#Operation', offset: -200}"
+              >{{$t('developer.tab.operation_process')}}</a>
             </li>
             <li>
-              <a v-scroll-to="{element: '#Service', offset: -200}">Service & Support</a>
+              <a
+                v-scroll-to="{element: '#Service', offset: -200}"
+              >{{$t('developer.tab.service_and_support')}}</a>
             </li>
           </ul>
         </div>
@@ -43,10 +47,8 @@
           <div class="containerXL">
             <div class="row items-center">
               <div class="col-lg-5 mb-8 md:mb-0" data-aos="fade-right-new" data-aos-duration="1200">
-                <h1 class="app-store__title">App Store</h1>
-                <p
-                  class="app-store__intro"
-                >TOMS Appstore is aimed at Newland devices distributed in various countries around the world . Device users around the world can use TOMS App Store to download various applications to meet their daily business needs.</p>
+                <h1 class="app-store__title">{{$t('developer.sections.app_store.title')}}</h1>
+                <p class="app-store__intro">{{$t('developer.sections.app_store.desc')}}</p>
               </div>
               <div class="offset-lg-1 col-lg-6" data-aos="fade-left-new" data-aos-duration="1200">
                 <img class="w-full" src="~assets/NDP/app-store.png" alt="app-store" />
@@ -58,12 +60,16 @@
       <section class="operation-process section" id="Operation">
         <div class="containerXL relative">
           <div class="dashed-border"></div>
-          <h1 class="text-center operation-process__title">Operation Process</h1>
+          <h1
+            class="text-center operation-process__title"
+          >{{$t('developer.sections.operation_process.header')}}</h1>
           <div class="row flex-col md:flex-row items-center">
             <div class="process-card process-card--red" data-aos="fade-up" data-aos-duration="1200">
-              <div class="process-card__header">Register & Login</div>
+              <div
+                class="process-card__header"
+              >{{$t('developer.sections.operation_process.title1')}}</div>
               <div class="process-card__body">
-                <p class="info">Register and login to the developer platform</p>
+                <p class="info">{{$t('developer.sections.operation_process.desc1')}}</p>
 
                 <div class="process-card__icon">
                   <div class="circle">
@@ -86,9 +92,11 @@
               data-aos-duration="1200"
               data-aos-delay="100"
             >
-              <div class="process-card__header">Get Development Device</div>
+              <div
+                class="process-card__header"
+              >{{$t('developer.sections.operation_process.title2')}}</div>
               <div class="process-card__body">
-                <p class="info">Apply for a development deviceand debug the application</p>
+                <p class="info">{{$t('developer.sections.operation_process.desc2')}}</p>
 
                 <div class="process-card__icon">
                   <div class="circle">
@@ -111,13 +119,11 @@
               data-aos-duration="1200"
               data-aos-delay="200"
             >
-              <div class="process-card__header">Application Upload</div>
+              <div
+                class="process-card__header"
+              >{{$t('developer.sections.operation_process.title3')}}</div>
               <div class="process-card__body">
-                <p class="info">
-                  Upload the APK file
-                  and fill in the application
-                  information
-                </p>
+                <p class="info">{{$t('developer.sections.operation_process.desc3')}}</p>
 
                 <div class="process-card__icon">
                   <div class="circle">
@@ -140,13 +146,11 @@
               data-aos-duration="1200"
               data-aos-delay="300"
             >
-              <div class="process-card__header">Application Audit</div>
+              <div
+                class="process-card__header"
+              >{{$t('developer.sections.operation_process.title4')}}</div>
               <div class="process-card__body">
-                <p class="info">
-                  Submit the application
-                  information and wait for
-                  the administrator to audit it
-                </p>
+                <p class="info">{{$t('developer.sections.operation_process.desc4')}}</p>
 
                 <div class="process-card__icon">
                   <div class="circle">
@@ -169,13 +173,11 @@
               data-aos-duration="1200"
               data-aos-delay="400"
             >
-              <div class="process-card__header">Release</div>
+              <div
+                class="process-card__header"
+              >{{$t('developer.sections.operation_process.title5')}}</div>
               <div class="process-card__body">
-                <p class="info">
-                  Administrator audit,
-                  testers test and sign
-                  the APK
-                </p>
+                <p class="info">{{$t('developer.sections.operation_process.desc5')}}</p>
 
                 <div class="process-card__icon">
                   <div class="circle">
@@ -197,7 +199,7 @@
               data-aos-duration="1200"
               data-aos-anchor=".service-support__card"
               class="text-center md:text-left"
-            >Service&nbsp;&&nbsp;Support</h1>
+            >{{$t('developer.sections.service_and_support.header')}}</h1>
           </div>
           <div class="row relative">
             <img
@@ -219,11 +221,9 @@
               <div class="service-support__card service-support__card--content">
                 <div class="flex items-center">
                   <img src="~assets/NDP/Servive&Support-2.PNG" alt class="icon ff" />
-                  <p class="title">Content Review</p>
+                  <p class="title">{{$t('developer.sections.service_and_support.title1')}}</p>
                 </div>
-                <p
-                  class="content"
-                >Identify illegal content in application information, including pornography,violence, terrorism, politically sensitive etc, and effectively defend against content risks.</p>
+                <p class="content">{{$t('developer.sections.service_and_support.desc1')}}</p>
               </div>
             </div>
 
@@ -236,11 +236,9 @@
               <div class="service-support__card service-support__card--app">
                 <div class="flex items-center">
                   <img src="~assets/NDP/Servive&Support-3.PNG" alt class="icon" />
-                  <p class="title">App Signing</p>
+                  <p class="title">{{$t('developer.sections.service_and_support.title2')}}</p>
                 </div>
-                <p
-                  class="content"
-                >The TOMS App Store will add a signature to the uploaded application , and the terminal can only install it after passing the signature verification.</p>
+                <p class="content">{{$t('developer.sections.service_and_support.desc2')}}</p>
               </div>
             </div>
 
@@ -253,11 +251,9 @@
               <div class="service-support__card service-support__card--sdk">
                 <div class="flex items-center">
                   <img src="~assets/NDP/Servive&Support-4.PNG" class="icon" alt />
-                  <p class="title">SDK API Documentation</p>
+                  <p class="title">{{$t('developer.sections.service_and_support.title3')}}</p>
                 </div>
-                <p
-                  class="content"
-                >Detailed terminal interface documentation facilitates developers to access terminal specific hardware functions.</p>
+                <p class="content">{{$t('developer.sections.service_and_support.desc3')}}</p>
               </div>
             </div>
           </div>
@@ -268,7 +264,7 @@
               style="right: 60px; top: -50px;width: 200px;"
             />
             <div class="note">
-              <p>In order for the application to quickly access the terminal , we provide detailed SDK API documents to facilitate developers to easily connect to the terminal system ; in order to ensure the legality and security of the application , we provide application content detection and application signature to ensure Apps can be distributed normally in various countries around the world.</p>
+              <p>{{$t('developer.footer')}}</p>
             </div>
           </div>
         </div>
@@ -289,8 +285,10 @@ export default {
   },
   mounted() {
     this.$store.commit("SET_MENU", false);
+
     window.addEventListener("scroll", () => {
-      if (scrollY > 800) {
+      const top = this.$refs.developerTabs.getBoundingClientRect().top;
+      if (top >= 90 && top < 91) {
         this.$set(this.tabStyle, "boxShadow", "0 2px 5px rgb(0 0 0 / 5%)");
         // this.tabStyle.boxShadow = "0 2px 5px rgb(0 0 0 / 5%)";
       } else {
@@ -334,7 +332,7 @@ $arrowHeight: 2px;
       background-image: url("assets/NDP/background.png");
       background-position: center;
       margin-bottom: 0;
-      min-height: 800px;
+      min-height: 830px;
       padding: 100px 0;
     }
     .developer-intro {

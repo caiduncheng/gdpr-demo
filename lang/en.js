@@ -279,7 +279,8 @@ module.exports = {
     country_region: "Country / Region",
     csr: "CSR",
     upload: "Upload",
-    upload_tip1: "Please upload your certificate signing request file(xxx.csr).",
+    upload_tip1:
+      "Please upload your certificate signing request file(xxx.csr).",
     upload_tip2:
       "We will use it to create your certificate(Payment.crt) which is used for signature verification. You can generate the CSR file by NPT Signer Master POS terminal or by FlySigner (NPT online signing system).",
     upload_tip3:
@@ -622,5 +623,53 @@ module.exports = {
     ZMB: "Zambia",
     ZWE: "Zimbabwe",
   },
-  developer: {},
+  developer: {
+    app_release: "App Release",
+    header_desc:
+      "TOMS App Store empowers developers to distribute their applications, allowing applications to be quickly distributed to millions of POS terminals around the world.",
+    header_button: {
+      p1: "The promotion period is",
+      p2: "The registration fee is 25$",
+      span: "Free",
+    },
+    tab: {
+      app_store: "App Store",
+      operation_process: "Operation Process",
+      service_and_support: "Service & Support",
+    },
+    sections: {
+      app_store: {
+        title: "App Store",
+        desc: "TOMS Appstore is aimed at Newland devices distributed in various countries around the world . Device users around the world can use TOMS App Store to download various applications to meet their daily business needs.",
+      },
+      operation_process: {
+        header: "Operation Process",
+        title1: "Register & Login",
+        desc1: "Register and login to the developer platform",
+        title2: "Get Development Device",
+        desc2: "Apply for a development device and debug the application",
+        title3: "Application Upload",
+        desc3: "Upload the APK file and fill in the application information",
+        title4: "Application Audit",
+        desc4:
+          "Submit the application information and wait for the administrator to audit it",
+        title5: "Release",
+        desc5: "Administrator audit, testers test and sign the APK",
+      },
+      service_and_support: {
+        header: "Service & Support",
+        title1: "Content Review",
+        desc1:
+          "Identify illegal content in application information, including pornography,violence, terrorism, politically sensitive etc, and effectively defend against content risks.",
+        title2: "App Signing",
+        desc2:
+          "The TOMS App Store will add a signature to the uploaded application , and the terminal can only install it after passing the signature verification.",
+        title3: "SDK API Documentation",
+        desc3:
+          "Detailed terminal interface documentation facilitates developers to access terminal specific hardware functions.",
+      },
+    },
+    footer:
+      "In order for the application to quickly access the terminal , we provide detailed SDK API documents to facilitate developers to easily connect to the terminal system ; in order to ensure the legality and security of the application , we provide application content detection and application signature to ensure Apps can be distributed normally in various countries around the world.",
+  },
 };

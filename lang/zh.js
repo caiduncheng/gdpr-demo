@@ -256,8 +256,7 @@ module.exports = {
     upload_tip1: "请上传您的 CSR 文件（xxx.csr）",
     upload_tip2:
       "我们将使用它创建你的证书（Payment.crt）用于签名验证。您可以通过 新大陆母POS终端 或者 FlySigner（新大陆在线签名系统）生成 CSR 文件",
-    upload_tip3:
-      "如有任何问题，请随时联系NPT团队。",
+    upload_tip3: "如有任何问题，请随时联系NPT团队。",
     confirm_password_tip: "请确认密码",
     contact_you_in_some_days: "我们将在1-2个工作日内与您联系",
     illegal_mobile: "电话号码格式有误",
@@ -597,5 +596,52 @@ module.exports = {
     ZAF: "南非",
     ZMB: "赞比亚",
     ZWE: "津巴布韦",
+  },
+  developer: {
+    app_release: "应用分发",
+    header_desc:
+      "TOMS应用商店为开发者应用分发赋能，使应用可以快速分发至全球上百万台POS终端",
+    header_button: {
+      p1: "推广期",
+      p2: "注册费用为25$",
+      span: "免费注册",
+    },
+    tab: {
+      app_store: "应用商店",
+      operation_process: "运作流程",
+      service_and_support: "服务与支持",
+    },
+    sections: {
+      app_store: {
+        title: "应用商店",
+        desc: "TOMS AppStore面向分布于全球各个国家的新大陆设备，全球的设备用户都可以使用TOMS AppStore下载各类应用以满足日常业务需求",
+      },
+      operation_process: {
+        header: "运作流程",
+        title1: "注册登录",
+        desc1: "注册登录开发者平台",
+        title2: "申请开发机",
+        desc2: "申请开发机，调试应用",
+        title3: "应用上传",
+        desc3: "上传APK文件并填写应用信息",
+        title4: "应用审核",
+        desc4: "提交应用信息，等待管理员审核",
+        title5: "发布",
+        desc5: "管理员审核，测试人员测试并对APK进行签名",
+      },
+      service_and_support: {
+        header: "服务与支持",
+        title1: "内容检测",
+        desc1:
+          "识别应用信息中存在的违法违规内容，包括：涉黄、涉暴、涉恐、政治敏感等，有效防御内容风险。",
+        title2: "应用签名",
+        desc2:
+          "TOMS应用商店会对上传的应用进行加签，终端只有验签通过后才能安装。",
+        title3: "SDK API 文档",
+        desc3: "详尽的终端接口文档，方便开发者接入终端特有的硬件功能。",
+      },
+    },
+    footer:
+      "为应用能够快速接入终端，我们提供了详尽的SDK API文档，方便开发者能够很轻松的对接终端系统;为保证应用的合法性和和安全性，我们提供应用内容检测和应用加签，保证应用可以在全球各个国家正常分发。",
   },
 };
