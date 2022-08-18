@@ -51,7 +51,7 @@
 
               </el-form>
 
-              <div v-if="VUE_APP_EMAIL == '1'" class="text-center">
+              <div v-if="VUE_APP_EMAIL == '1'" class="text-center mt-6">
                 <p class="text-gray text-xs text-center mb-3">
                   {{ $t("login.donnot_have_account") }}
                   <a @click.prevent="startSignUp" class="link">
@@ -66,9 +66,9 @@
                   </a>
                 </div>
               </div>
-              <hr v-if="VUE_APP_EMAIL == '1'&& VUE_APP_NEWLAND_INFO == '1'" class="my-5" />
+              <hr v-if="VUE_APP_EMAIL == '1'&& VUE_APP_NEWLAND_INFO == '1'" class="my-3" />
 
-                    <div class="text-center mt-4 " v-if="VUE_APP_NEWLAND_INFO == '1'">
+                    <div class="text-center mt-6 " v-if="VUE_APP_NEWLAND_INFO == '1'">
                       <el-tooltip effect="dark" content="FlyKey" placement="bottom">
                         <div class="website-icon mr-10 h-10">
                           <a href="https://flykey.newlandpayment.com">
@@ -258,16 +258,18 @@ export default {
 
           try {
 
-            let random = 0
+            let random = ""
             for(var i=0; i<6; i++) {
-              random = random*10 + Math.floor(Math.random()*10);
+              random += Math.floor(Math.random()*10);
             }
+
             const { timestamp } = await this.$store.dispatch("getTimeStamp");
             const json = JSON.stringify({
               random,
               timestamp,
               password: this.loginForm.password,
             });
+
             const encryptedPassword = this.encryptPassword(json);
             const res = await this.$store.dispatch("login", {
               ...this.loginForm,

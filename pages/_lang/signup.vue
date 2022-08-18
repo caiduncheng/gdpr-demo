@@ -8,8 +8,8 @@
             <div class="col-md-6">
               <!-- 选择角色标题 -->
               <div class="text-white mb-8 signup-title" v-if="step === 1">
-                <h3 class="mb-2">{{ $t('login.role')}}</h3>
-                <p class="text-ms">{{ $t('login.select_role')}}</p>
+                <h3 class="mb-2">{{ $t('login.role') }}</h3>
+                <p class="text-ms">{{ $t('login.select_role') }}</p>
               </div>
               <!-- 填写表单标题  -->
               <div class="text-white mb-8 signup-title" v-else-if="step === 2">
@@ -17,43 +17,41 @@
                 <p class="text-ms">{{ $t('login.sign_up_tip') }}</p>
               </div>
 
-              <el-card :class="{ 'card-success': success }" class="card--sign-up">
-                <!-- 第一步：选择角色 -->
-                <div class="col-12" v-if="step === 1">
-                  <div>
-                    <!-- <div class="text-center text-xl mb-14">
+
+              <!-- 第一步：选择角色 -->
+              <div v-if="step === 1">
+                <div class=" w-12/12 flex" style="min-width:600px">
+                  <!-- <div class="text-center text-xl mb-14">
                       <h2>PLEASE SELECT A CHARACTER</h2>
                     </div>-->
-                    <div class="text-center p-5">
-                      <div
-                        class="inline-block text-center mr-24"
-                        role="button"
-                        @click="() => handleRoleClick(ROLE_DEVELOPER)"
-                      >
-                        <img src="~assets/sign-up/developer.png" class="mb-5" />
-                        <h2 class="text-xl">{{ $t('login.developer') }}</h2>
-                      </div>
-                      <div
-                        class="inline-block mb-6"
-                        role="button"
-                        @click="() => handleRoleClick(ROLE_OPERATOR)"
-                      >
-                        <img src="~assets/sign-up/operator.png" class="mb-6" style="color: #b1c2d9" />
-                        <h2 class="text-xl">{{ $t('login.operator') }}</h2>
-                      </div>
+                  <div class=" w-6/12 p-4">
+                    <div class="role-card" role="button" @click="() => handleRoleClick(ROLE_OPERATOR)">
+                      <img src="~assets/sign-up/operator.png" width="100px" class="mt-10 mb-9" />
+                      <h4 class="role-label">{{ $t('login.operator') }}</h4>
+                      <p class="role-info text-secondary">
+                        {{ $t('login.operator_info') }}
+</p>
+                      <i class="el-icon-right role-arrow"></i>
+                    </div>
+                  </div>
+                  <div class=" w-6/12 p-4">
+                    <div class="role-card" role="button" @click="() => handleRoleClick(ROLE_DEVELOPER)">
+                      <img src="~assets/sign-up/developer.png" width="80px" class="mt-8 mb-7" />
+                      <h4 class="role-label">{{ $t('login.developer') }}</h4>
+                      <p class="role-info text-secondary">
+                        {{ $t('login.developer_info') }}
+                      </p>
+                      <i class="el-icon-right role-arrow"></i>
                     </div>
                   </div>
                 </div>
-                <!-- 第二步：填写表单 -->
-                <div class="flex" v-else-if="step === 2">
+              </div>
+              <!-- 第二步：填写表单 -->
+              <el-card :class="{ 'card-success': success }" class="card--sign-up" v-if="step !== 1">
+                <div class="flex" v-if="step === 2">
                   <!-- 运营商表单 -->
-                  <el-form
-                    v-if="selectedRole === ROLE_OPERATOR"
-                    class="signup-form"
-                    ref="operatorForm"
-                    :rules="operatorRules"
-                    :model="operatorForm"
-                  >
+                  <el-form v-if="selectedRole === ROLE_OPERATOR" class="signup-form" ref="operatorForm"
+                    :rules="operatorRules" :model="operatorForm">
                     <div class="flex">
                       <div class="vertical-line-container hidden md:block">
                         <div class="vertical-line-icon">
@@ -76,17 +74,10 @@
                         </el-form-item>
                         <el-form-item required prop="countryCode" class="country-code">
                           <div slot="label" class="inline-block">{{ $t('login.country_region') }}</div>
-                          <el-select
-                            v-model="operatorForm.countryCode"
-                            :no-match-text="$t('common.no_data')"
-                            filterable
-                          >
-                            <el-option
-                              v-for="item in countries"
-                              :key="item.countryCode3"
-                              :label="item.countryNameEn"
-                              :value="item.countryCode3"
-                            ></el-option>
+                          <el-select v-model="operatorForm.countryCode" :no-match-text="$t('common.no_data')"
+                            filterable>
+                            <el-option v-for="item in countries" :key="item.countryCode3" :label="item.countryNameEn"
+                              :value="item.countryCode3"></el-option>
                           </el-select>
                         </el-form-item>
                         <el-form-item :label="$t('login.address')">
@@ -105,17 +96,9 @@
                       <div class="flex-1">
                         <el-form-item :label="$t('login.csr')" required prop="file" class="csr">
                           <div style="display: flex; align-items: flex-start" class="mb-10">
-                            <el-upload
-                              style="float: left; margin-right: 30px"
-                              action="#"
-                              :file-list="fileList"
-                              :auto-upload="false"
-                              :limit="1"
-                              :on-change="handleChange"
-                              :on-remove="handleRemove"
-                              :class="{ hide: uploadDisabled }"
-                              class="upload"
-                            >
+                            <el-upload style="float: left; margin-right: 30px" action="#" :file-list="fileList"
+                              :auto-upload="false" :limit="1" :on-change="handleChange" :on-remove="handleRemove"
+                              :class="{ hide: uploadDisabled }" class="upload">
                               <el-button type="primary">{{ $t('login.upload') }}</el-button>
                             </el-upload>
                           </div>
@@ -139,12 +122,7 @@
                         <div class="vertical-line" style="height: 70%"></div>
                       </div>
                       <div class="flex-1">
-                        <el-form-item
-                          :label="$t('login.password')"
-                          required
-                          prop="password"
-                          type="password"
-                        >
+                        <el-form-item :label="$t('login.password')" required prop="password" type="password">
                           <el-input v-model="operatorForm.password" type="password"></el-input>
                           <div class="password-strength" v-show="showPasswordStrength">
                             <div class="text">
@@ -158,95 +136,55 @@
                             </div>
                           </div>
                         </el-form-item>
-                        <el-form-item
-                          :label="$t('login.confirm_password')"
-                          required
-                          prop="confirmPassword"
-                          type="password"
-                        >
+                        <el-form-item :label="$t('login.confirm_password')" required prop="confirmPassword"
+                          type="password">
                           <el-input v-model="operatorForm.confirmPassword" type="password"></el-input>
                         </el-form-item>
                         <hr class="my-6" />
                         <el-form-item required prop="checked">
-                      <el-checkbox v-model="operatorForm.checked">
-                        <span class="text-xs" v-html="$t('login.agree_terms_conditions')"></span>
-                      </el-checkbox>
-                    </el-form-item>
+                          <el-checkbox v-model="operatorForm.checked">
+                            <span class="text-xs" v-html="$t('login.agree_terms_conditions')"></span>
+                          </el-checkbox>
+                        </el-form-item>
                       </div>
                     </div>
                     <el-form-item class="text-center">
-                      <el-button
-                        type="primary"
-                        style="width: 200px"
-                        @click="submit"
-                        :loading="buttonLoading"
-                      >
+                      <el-button type="primary" style="width: 200px" @click="submit" :loading="buttonLoading">
                         {{
-                        $t('common.submit')
+                            $t('common.submit')
                         }}
                       </el-button>
                       <div class="text-center error-message" v-if="errorMessage">{{ errorMessage }}</div>
                     </el-form-item>
                   </el-form>
                   <!-- 开发者表单 -->
-                  <el-form
-                    v-else-if="selectedRole === ROLE_DEVELOPER"
-                    class="signup-form flex-1"
-                    ref="developerForm"
-                    :rules="operatorRules"
-                    :model="developerForm"
-                  >
+                  <el-form v-else-if="selectedRole === ROLE_DEVELOPER" class="signup-form flex-1" ref="developerForm"
+                    :rules="operatorRules" :model="developerForm">
                     <el-form-item :label="$t('login.email')">
                       <el-input disabled v-model="developerForm.email"></el-input>
                     </el-form-item>
-                    <el-form-item
-                      :label="$t('login.developer_type')"
-                      required
-                      prop="developerType"
-                      key="developerType"
-                    >
-                      <el-select
-                        v-model="developerForm.developerType"
-                        @change="clearDeveloperValidate"
-                      >
+                    <el-form-item :label="$t('login.developer_type')" required prop="developerType" key="developerType">
+                      <el-select v-model="developerForm.developerType" @change="clearDeveloperValidate">
                         <el-option :key="1" :value="1" :label="$t('login.personal')"></el-option>
                         <el-option :key="2" :value="2" :label="$t('login.company')"></el-option>
                       </el-select>
                     </el-form-item>
 
-                    <el-form-item
-                      v-if="developerForm.developerType == 1"
-                      required
-                      :label="$t('login.first_name')"
-                      prop="firstName"
-                      key="firstName"
-                    >
+                    <el-form-item v-if="developerForm.developerType == 1" required :label="$t('login.first_name')"
+                      prop="firstName" key="firstName">
                       <el-input :maxlength="128" v-model.trim="developerForm.firstName"></el-input>
                     </el-form-item>
-                    <el-form-item
-                      v-if="developerForm.developerType == 1"
-                      required
-                      :label="$t('login.last_name')"
-                      prop="lastName"
-                      key="lastName"
-                    >
+                    <el-form-item v-if="developerForm.developerType == 1" required :label="$t('login.last_name')"
+                      prop="lastName" key="lastName">
                       <el-input :maxlength="128" v-model.trim="developerForm.lastName"></el-input>
                     </el-form-item>
 
-                    <el-form-item
-                      v-if="developerForm.developerType == 2"
-                      required
-                      :label="$t('login.company_name1')"
-                      prop="firstName"
-                      key="firstName"
-                    >
+                    <el-form-item v-if="developerForm.developerType == 2" required :label="$t('login.company_name1')"
+                      prop="firstName" key="firstName">
                       <el-input :maxlength="128" v-model.trim="developerForm.firstName"></el-input>
                     </el-form-item>
 
-                    <el-form-item
-                      v-if="developerForm.developerType == 1"
-                      :label="$t('login.certificate_type')"
-                    >
+                    <el-form-item v-if="developerForm.developerType == 1" :label="$t('login.certificate_type')">
                       <el-select v-model="developerForm.pidType">
                         <el-option :key="1" :value="1" :label="$t('login.id_card')"></el-option>
                         <el-option :key="2" :value="2" :label="$t('login.passport')"></el-option>
@@ -255,36 +193,18 @@
                     <el-form-item :label="$t('login.certificate_num')">
                       <el-input v-model="developerForm.pid"></el-input>
                     </el-form-item>
-                    <el-form-item
-                      v-if="developerForm.developerType == 2"
-                      required
-                      :label="$t('login.contacts')"
-                      prop="contactName"
-                      key="contactName"
-                    >
+                    <el-form-item v-if="developerForm.developerType == 2" required :label="$t('login.contacts')"
+                      prop="contactName" key="contactName">
                       <el-input :maxlength="32" v-model.trim="developerForm.contactName"></el-input>
                     </el-form-item>
                     <el-form-item :label="$t('login.phone_number')" prop="mobile" key="mobile">
                       <el-input v-model.trim="developerForm.mobile" :maxlength="16"></el-input>
                     </el-form-item>
-                    <el-form-item
-                      required
-                      prop="countryCode"
-                      class="country-code"
-                      key="countryCode"
-                    >
+                    <el-form-item required prop="countryCode" class="country-code" key="countryCode">
                       <div slot="label" class="inline-block">{{ $t('login.country_region') }}</div>
-                      <el-select
-                        v-model="developerForm.countryCode"
-                        :no-match-text="$t('common.no_data')"
-                        filterable
-                      >
-                        <el-option
-                          v-for="item in countries"
-                          :key="item.countryCode3"
-                          :label="item.countryNameEn"
-                          :value="item.countryCode3"
-                        ></el-option>
+                      <el-select v-model="developerForm.countryCode" :no-match-text="$t('common.no_data')" filterable>
+                        <el-option v-for="item in countries" :key="item.countryCode3" :label="item.countryNameEn"
+                          :value="item.countryCode3"></el-option>
                       </el-select>
                     </el-form-item>
                     <el-form-item :label="$t('login.address1')">
@@ -293,12 +213,7 @@
                     <div class="flex-1">
                       <hr class="my-6" />
 
-                      <el-form-item
-                        :label="$t('login.password')"
-                        required
-                        prop="password"
-                        type="password"
-                      >
+                      <el-form-item :label="$t('login.password')" required prop="password" type="password">
                         <el-input v-model="developerForm.password" type="password"></el-input>
                         <div class="password-strength" v-show="showPasswordStrength">
                           <div class="text">
@@ -312,12 +227,8 @@
                           </div>
                         </div>
                       </el-form-item>
-                      <el-form-item
-                        :label="$t('login.confirm_password')"
-                        required
-                        prop="confirmPassword1"
-                        type="password"
-                      >
+                      <el-form-item :label="$t('login.confirm_password')" required prop="confirmPassword1"
+                        type="password">
                         <el-input v-model="developerForm.confirmPassword1" type="password"></el-input>
                       </el-form-item>
                       <hr class="my-6" />
@@ -328,14 +239,9 @@
                       </el-checkbox>
                     </el-form-item>
                     <el-form-item class="text-center">
-                      <el-button
-                        type="primary"
-                        style="width: 200px"
-                        @click="submit1"
-                        :loading="buttonLoading"
-                      >
+                      <el-button type="primary" style="width: 200px" @click="submit1" :loading="buttonLoading">
                         {{
-                        $t('common.submit')
+                            $t('common.submit')
                         }}
                       </el-button>
                       <div class="text-center error-message" v-if="errorMessage">{{ errorMessage }}</div>
@@ -343,10 +249,7 @@
                   </el-form>
                 </div>
                 <!-- 第三步 注册成功提示 -->
-                <div
-                  class="flex flex-col items-center justify-center h-full"
-                  v-else-if="step === 3"
-                >
+                <div class="flex flex-col items-center justify-center h-full" v-else-if="step === 3">
                   <img src="~assets/sign-up/sign-up-success.png" alt width="250" />
                   <p>{{ $t('login.contact_you_in_some_days') }}</p>
                 </div>
@@ -852,7 +755,7 @@ export default {
   }
 }
 
-.upload-hint > p {
+.upload-hint>p {
   margin: 0;
   display: inline-block;
 }
@@ -893,7 +796,7 @@ export default {
     align-items: center;
     justify-content: center;
 
-    & > img {
+    &>img {
       width: 20px;
       height: 20px;
     }
@@ -907,6 +810,50 @@ export default {
     transform: translateX(-50%);
     background: rgb(62, 127, 232);
     padding: 5px 0;
+  }
+}
+
+.role-card {
+  text-align: center;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 5px 10px 0 rgb(0 0 0 / 10%);
+  background-color: #ffffff;
+  border-radius: 20px;
+  color: #17161A;
+  font-family: sans-serif;
+  transform: translateY(0px);
+  transition-duration: 500ms;
+  padding: 30px;
+
+  .role-label {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 16px;
+  }
+
+  .role-info {
+    height: 96px;
+    margin-bottom: 6px;
+  }
+
+  .role-arrow {
+    font-size: x-large;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 30px;
+    transform: translateX(0px);
+    transition-duration: 500ms;
+  }
+}
+
+.role-card:hover {
+  transform: translateY(-20px);
+  box-shadow: 0 20px 40px 0 rgb(0 0 0 / 10%);
+
+  .role-arrow {
+    color: #2C7BE5;
+    transform: translateX(8px);
+
   }
 }
 </style>
