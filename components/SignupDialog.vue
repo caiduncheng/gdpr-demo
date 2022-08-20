@@ -30,7 +30,6 @@
               type="primary"
               class="w-full"
               :loading="loading"
-              @click="submit"
             >{{ $t('common.confirm') }}</el-button>
             <div class="text-center error-message" v-if="errorMessage">{{errorMessage}}</div>
           </el-form-item>
