@@ -5,7 +5,7 @@
         <NavBar />
         <div class="containerXL container-fluid">
           <div class="row py-14 justify-center">
-            <div class="col-md-6">
+            <div class="col-xl-6 col-lg-8 col-md-10">
               <!-- 选择角色标题 -->
               <div class="text-white mb-8 signup-title" v-if="step === 1">
                 <h3 class="mb-2">{{ $t('login.role') }}</h3>
@@ -20,11 +20,11 @@
 
               <!-- 第一步：选择角色 -->
               <div v-if="step === 1">
-                <div class=" w-12/12 flex" style="min-width:600px">
+                <div class="flex role-choose">
                   <!-- <div class="text-center text-xl mb-14">
                       <h2>PLEASE SELECT A CHARACTER</h2>
                     </div>-->
-                  <div class=" w-6/12 p-4">
+                  <div class=" col-md-6 col-sm-8 p-4">
                     <div class="role-card" role="button" @click="() => handleRoleClick(ROLE_OPERATOR)">
                       <img src="~assets/sign-up/operator.png" width="100px" class="mt-10 mb-9" />
                       <h4 class="role-label">{{ $t('login.operator') }}</h4>
@@ -34,7 +34,7 @@
                       <i class="el-icon-right role-arrow"></i>
                     </div>
                   </div>
-                  <div class=" w-6/12 p-4">
+                  <div class=" col-md-6 col-sm-8 p-4">
                     <div class="role-card" role="button" @click="() => handleRoleClick(ROLE_DEVELOPER)">
                       <img src="~assets/sign-up/developer.png" width="80px" class="mt-8 mb-7" />
                       <h4 class="role-label">{{ $t('login.developer') }}</h4>
@@ -832,7 +832,7 @@ export default {
   }
 
   .role-info {
-    height: 96px;
+    min-height: 96px;
     margin-bottom: 6px;
   }
 
@@ -856,4 +856,12 @@ export default {
 
   }
 }
+
+@media screen and (max-width: 768px){
+  .role-choose{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 </style>
