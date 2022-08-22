@@ -41,6 +41,7 @@
 </template>
 
 <script>
+let JSEncrypt = null;
 import { getQueryParam } from "@/utils";
 const MAP_PASSWORD_STRENGTH = {
   1: "Weak",
@@ -115,6 +116,7 @@ export default {
       }
     };
     return {
+      VUE_APP_PUBKEY: process.env.VUE_APP_PUBKEY,
       verified: false,
       loaded: false,
       success: false,
@@ -143,12 +145,32 @@ export default {
     };
   },
   methods: {
-    confirm() {
-      this.$refs.form.validate(valid => {
+    encryptPassword(json) {
+      var encryptor = new JSEncrypt();
+      var publicKey = this.VUE_APP_PUBKEY;
+      encryptor.setPublicKey(publicKey);
+      var rsaPassWord = encryptor.encrypt(json);
+      return rsaPassWord;
+    },
+    async confirm() {
+      this.$refs.form.validate(async valid => {
         if (valid) {
+          const { timestamp } = await this.$store.dispatch("getTimeStamp");
+          let random = ""
+          for (var i = 0; i < 6; i++) {
+            random += Math.floor(Math.random() * 10);
+          }
+
+          let json = JSON.stringify({
+            random,
+            timestamp,
+            password: this.form.password,
+          });
+          const encryptedNewPassword = this.encryptPassword(json);
+
           this.$store
             .dispatch("resetPassword", {
-              newPassword: this.form.password,
+              newPassword: encryptedNewPassword,
               username,
               email,
               token,
@@ -160,9 +182,14 @@ export default {
       })
     },
   },
-  mounted() {
+
+  async mounted() {
+    const { default: _JSEncrypt } = await import("jsencrypt");
+    JSEncrypt = _JSEncrypt;
     this.$store.commit("SET_MENU", false);
+
   },
+
 };
 </script>
 

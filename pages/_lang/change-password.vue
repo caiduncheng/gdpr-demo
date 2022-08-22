@@ -186,14 +186,26 @@ export default {
         if (valid) {
           this.loading = true;
           const { timestamp } = await this.$store.dispatch("getTimeStamp");
+          let random = ""
+            for(var i=0; i<6; i++) {
+              random += Math.floor(Math.random()*10);
+            }
+
           let json = JSON.stringify({
+            random,
             timestamp,
             password: this.form.password,
           });
 
           const encryptedNewPassword = this.encryptPassword(json);
 
+            random = ""
+            for(var i=0; i<6; i++) {
+              random += Math.floor(Math.random()*10);
+            }
+
           json = JSON.stringify({
+            random,
             timestamp,
             password: this.form.oldPassword,
           });

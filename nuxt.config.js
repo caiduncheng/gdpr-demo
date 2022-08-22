@@ -104,9 +104,9 @@ switch (process.env.BASE) {
 console.log(baseUrl);
 
 export default {
-  server: {
-    host: "0.0.0.0", // default: localhost
-  },
+  // server: {
+  //   host: "0.0.0.0", // default: localhost
+  // },
   mode: "universal",
   target: "static",
   build: {
