@@ -21,7 +21,7 @@
                 <el-input v-model="form.confirmPassword" type="password"></el-input>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" class="w-full" @click="confirm">{{ $t('common.confirm') }}</el-button>
+                <el-button type="primary" :loading="loading" class="w-full" @click="confirm">{{ $t('common.confirm') }}</el-button>
               </el-form-item>
             </el-form>
           </div>
@@ -118,6 +118,7 @@ export default {
     return {
       VUE_APP_PUBKEY: process.env.VUE_APP_PUBKEY,
       verified: false,
+      loading: false,
       loaded: false,
       success: false,
       mapPasswordStrength: MAP_PASSWORD_STRENGTH,
@@ -155,6 +156,7 @@ export default {
     async confirm() {
       this.$refs.form.validate(async valid => {
         if (valid) {
+          this.loading = true
           const { timestamp } = await this.$store.dispatch("getTimeStamp");
           let random = ""
           for (var i = 0; i < 6; i++) {
@@ -177,6 +179,16 @@ export default {
             })
             .then(() => {
               this.success = true;
+              this.loading = false
+            }).catch((err) => {
+              console.log(err);
+              this.$message({
+                type: "error",
+                message: err,
+              });
+            })
+            .finally(() => {
+              this.loading = false;
             });
         }
       })
