@@ -40,7 +40,7 @@
                   <li class="menu-item">
                     <NuxtLink
                       :to="{
-                        name: 'lang-developer',
+                        name: 'lang-ndp',
                         params: { lang: $store.state.locale },
                       }"
                       exact
@@ -157,7 +157,7 @@
                     <li>
                       <NuxtLink
                         :to="{
-                        name: 'lang-developer',
+                        name: 'lang-ndp',
                         params: { lang: $store.state.locale },
                       }"
                         exact

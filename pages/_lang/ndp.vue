@@ -332,8 +332,11 @@ $arrowHeight: 2px;
       background-image: url("assets/NDP/background.png");
       background-position: center;
       margin-bottom: 0;
-      min-height: 830px;
+      height: auto;
+      min-height: 100vh;
       padding: 100px 0;
+    }
+    @screen 2xl {
     }
     .developer-intro {
       line-height: 2;
@@ -354,9 +357,6 @@ $arrowHeight: 2px;
       @screen 2xl {
         padding: 100px 15px;
       }
-    }
-    @screen 2xl {
-      min-height: 1100px;
     }
   }
   .developer-tabs {
