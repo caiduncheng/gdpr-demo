@@ -258,7 +258,7 @@ module.exports = {
       "我们将使用它创建你的证书（Payment.crt）用于签名验证。您可以通过 新大陆母POS终端 或者 FlySigner（新大陆在线签名系统）生成 CSR 文件",
     upload_tip3: "如有任何问题，请随时联系NPT团队。",
     confirm_password_tip: "请确认密码",
-    contact_you_in_some_days: "我们将在1-2个工作日内与您联系",
+    contact_you_in_some_days: "我们将在5-7个工作日内与您联系",
     illegal_mobile: "电话号码格式有误",
     agree_terms_conditions:
       '我同意 <a class="link" target="_blank" href="/zh-CN/privacy/privacy-policy"> Privacy Policy </a> 与 <a class="link" target="_blank" href="/zh-CN/privacy/terms"> Terms & Conditions</a>',

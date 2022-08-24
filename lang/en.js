@@ -286,7 +286,7 @@ module.exports = {
     upload_tip3:
       "Please feel free to contact NPT team if you have any questions.",
     confirm_password_tip: "Please confirm password",
-    contact_you_in_some_days: "We will contact you in 1-2 working days",
+    contact_you_in_some_days: "We will contact you in 5-7 working days",
     illegal_mobile: "Illegal mobile phone number",
     agree_terms_and_conditions_tip: "You need to accept the Terms & conditions",
     file_required: "CSR file is required.",
