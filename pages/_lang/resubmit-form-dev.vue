@@ -404,7 +404,7 @@ export default {
     // // populate the form
     Object.assign(this.form, {
       ...operInfo,
-      contactName: operInfo.linkman,
+      contactName: operInfo.contactName,
     });
   },
 };
