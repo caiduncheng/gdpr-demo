@@ -68,8 +68,8 @@ export default {
   data() {
     const validOldPassword = function (rule, password, cb) {
       if (password) {
-        if (password.length < 8 || password.length > 18) {
-          cb(new Error(this.$t("login.validate_password_tip")));
+        if (password.length < 6 || password.length > 18) {
+          cb(new Error(this.$t("login.validate_password6_tip")));
         }
       } else {
         cb(new Error(this.$t("login.validate_password_required")));
