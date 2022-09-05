@@ -72,7 +72,7 @@
                       </el-select>
                     </el-form-item>
                     <el-form-item :label="$t('login.certificate_num')">
-                      <el-input v-model="form.pidNo"></el-input>
+                      <el-input v-model="form.pid"></el-input>
                     </el-form-item>
                     <el-form-item
                       v-if="form.developerType == 2"
@@ -260,7 +260,7 @@ export default {
         confirmPassword: "",
         // 证件类型 Integer
         pidType: "",
-        pidNo: "",
+        pid: "",
         countryCode: "",
         address: "",
         checked: false,
@@ -369,10 +369,11 @@ export default {
           formData.countryCode = this.form.countryCode;
           formData.address = this.form.address;
           if (this.form.developerType == 2) {
+            formData.pidType = 3
           } else {
             formData.pidType = this.form.pidType;
           }
-          formData.pidNo = this.form.pidNo;
+          formData.pid = this.form.pid;
 
           formData.registerToken = registerToken;
           this.$store
@@ -405,6 +406,7 @@ export default {
     Object.assign(this.form, {
       ...operInfo,
       contactName: operInfo.contactName,
+      pid: operInfo.pidNo
     });
   },
 };
