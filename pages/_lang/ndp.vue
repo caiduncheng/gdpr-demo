@@ -4,6 +4,7 @@
     <div class="developer-main">
       <div class="developer-header">
         <div class="container">
+          <img src="~assets/NDP/macbook.png" class="macbook" />
           <div class="row">
             <div class="col-12 col-lg-6 developer-header__title-wrapper text-center lg:text-left">
               <h1 class="mb-5">{{$t('developer.app_release')}}</h1>
@@ -327,13 +328,30 @@ $arrowHeight: 2px;
     min-height: 500px;
     background-image: url("assets/NDP/background-mobile.png");
     margin-bottom: 80px;
+    overflow: hidden;
+    position: relative;
+
+    .macbook {
+      display: none;
+      position: absolute;
+      top: 100px;
+      right: -15%;
+      @screen md {
+        width: 50%;
+      }
+      @screen lg {
+        width: 65%;
+        display: inline-block;
+      }
+    }
 
     @screen lg {
-      background-image: url("assets/NDP/background.png");
+      background-image: url("assets/NDP/bg.png");
       background-position: center;
       margin-bottom: 0;
       height: auto;
-      min-height: 100vh;
+      height: 100vh;
+      min-height: 750px;
       padding: 100px 0;
     }
     @screen 2xl {
