@@ -262,6 +262,7 @@ module.exports = {
     validate_password_required: "Password is required",
     validate_code_required: "Code is required",
     validate_password_tip: "Password must be between 8 and 18 characters",
+    validate_password6_tip: "Password must be between 6 and 18 characters",
     validate_password_strength:
       "Password must be a combination of letters, numbers and symbols",
     validate_confirm_password_required: "Confirm password is required",

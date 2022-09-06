@@ -582,6 +582,7 @@ export default {
           formData.countryCode = this.developerForm.countryCode;
           formData.address = this.developerForm.address;
           if (this.developerForm.developerType == 2) {
+            formData.pidType = 3;
           } else {
             formData.pidType = this.developerForm.pidType;
           }
