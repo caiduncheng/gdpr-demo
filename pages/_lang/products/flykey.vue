@@ -50,6 +50,7 @@
           </ul>
         </div>
       </div>
+      <div class="pci-banner"></div>
       <section class="section-1 section" id="Flykey">
         <div class="container">
           <div class="row items-center">
@@ -392,6 +393,20 @@ $bgBlue: rgb(0, 108, 252);
       }
     }
   }
+
+  .pci-banner {
+    background-image: url(~assets/FLYKEY/PCI.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 120px;
+    @screen md {
+    height: 200px;
+    }
+    @screen lg {
+      height: 300px;
+    }
+  }
+
   .flykey-tabs {
     position: sticky;
     top: 90px;
