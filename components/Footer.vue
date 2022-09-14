@@ -18,10 +18,10 @@
               </a>
 
               <a
-                href="https://www.alibaba.com/trade/search?fsb=y&IndexArea=product_en&CatId=&SearchText=newlandnpt"
+                href="https://www.youtube.com/channel/UCrvhI9uCspr2H1otSvNpxvg"
                 target="_blank"
               >
-                <img src="~assets/footer/alibaba.png" alt />
+                <img src="~assets/footer/youtube.png" alt />
               </a>
             </div>
           </div>
