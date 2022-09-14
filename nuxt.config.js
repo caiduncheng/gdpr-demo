@@ -11,6 +11,7 @@ let mail = "";
 let captcha = "";
 let newlandInfo = "";
 let pubKey = "";
+let signUp = ""
 
 console.log(process.env.BASE);
 
@@ -26,6 +27,7 @@ switch (process.env.BASE) {
     captcha = process.env.CAPTCHA;
     newlandInfo = process.env.NEWLAND_INFO;
     pubKey = process.env.PUBKEY;
+    signUp = process.env.SIGN_UP;
     break;
   case "test":
     baseUrl = process.env.TEST_BASE_URL;
@@ -37,6 +39,7 @@ switch (process.env.BASE) {
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
     pubKey = process.env.PUBKEY;
+    signUp = process.env.SIGN_UP;
     newlandInfo = process.env.NEWLAND_INFO;
     break;
   case "inte":
@@ -49,6 +52,7 @@ switch (process.env.BASE) {
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
     newlandInfo = process.env.NEWLAND_INFO;
+    signUp = process.env.SIGN_UP;
     pubKey = process.env.PUBKEY;
     break;
   case "production":
@@ -61,6 +65,7 @@ switch (process.env.BASE) {
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
     newlandInfo = process.env.NEWLAND_INFO;
+    signUp = process.env.SIGN_UP;
     pubKey = process.env.PUBKEY;
     break;
   case "ld":
@@ -73,6 +78,7 @@ switch (process.env.BASE) {
     mail = process.env.LD_EMAIL;
     captcha = process.env.LD_CAPTCHA;
     newlandInfo = process.env.LD_NEWLAND_INFO;
+    signUp = process.env.LD_SIGN_UP;
     pubKey = process.env.LD_PUBKEY;
     break;
   case "penetration":
@@ -85,6 +91,7 @@ switch (process.env.BASE) {
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
     newlandInfo = process.env.NEWLAND_INFO;
+    signUp = process.env.SIGN_UP;
     pubKey = process.env.PUBKEY;
     break;
   default:
@@ -97,6 +104,7 @@ switch (process.env.BASE) {
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
     newlandInfo = process.env.NEWLAND_INFO;
+    signUp = process.env.SIGN_UP;
     pubKey = process.env.PUBKEY;
     break;
 }
@@ -203,5 +211,6 @@ export default {
     VUE_APP_CAPTCHA: captcha,
     VUE_APP_NEWLAND_INFO: newlandInfo,
     VUE_APP_PUBKEY: pubKey,
+    VUE_APP_SIGN_UP: signUp
   },
 };
