@@ -2,7 +2,7 @@
   <div class="background">
     <NavBar />
     <Nuxt />
-    <div class="login-footer">
+    <div class="login-footer" v-if="VUE_APP_NEWLAND_INFO == '1'">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
@@ -34,7 +34,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      VUE_APP_NEWLAND_INFO: process.env.VUE_APP_NEWLAND_INFO,
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

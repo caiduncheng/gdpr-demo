@@ -52,7 +52,7 @@
               </el-form>
 
               <div v-if="VUE_APP_EMAIL == '1'" class="text-center mt-6">
-                <p class="text-gray text-xs text-center mb-3">
+                <p v-if="VUE_APP_SIGN_UP == '1'" class="text-gray text-xs text-center mb-3">
                   {{ $t("login.donnot_have_account") }}
                   <a @click.prevent="startSignUp" class="link">
                     <span>{{ $t("login.sign_up") }}</span>
@@ -163,6 +163,7 @@ export default {
       VUE_APP_EMAIL: process.env.VUE_APP_EMAIL,
       VUE_APP_NEWLAND_INFO: process.env.VUE_APP_NEWLAND_INFO,
       VUE_APP_CAPTCHA: process.env.VUE_APP_CAPTCHA,
+      VUE_APP_SIGN_UP: process.env.VUE_APP_SIGN_UP,
       signUpDialogVisible: false,
       resetPasswordDialogVisible: false,
       loginForm: {
