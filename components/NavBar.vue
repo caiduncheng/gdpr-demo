@@ -154,7 +154,7 @@
                         </li>
                       </ul>
                     </li>
-                    <li>
+                    <li v-if="VUE_APP_NEWLAND_INFO == '1'">
                       <NuxtLink
                         :to="{
                         name: 'lang-ndp',
