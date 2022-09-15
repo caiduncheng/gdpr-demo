@@ -235,7 +235,7 @@
                     </div>
                     <el-form-item required prop="checked" key="checked">
                       <el-checkbox v-model="developerForm.checked">
-                        <span class="text-xs" v-html="$t('login.agree_terms_conditions')"></span>
+                        <span class="text-xs" v-html="$t('login.agree_terms_conditions_ndp')"></span>
                       </el-checkbox>
                     </el-form-item>
                     <el-form-item class="text-center">

@@ -269,9 +269,6 @@ export default {
     width: 100%;
     display: inline-block;
     font-size: 36px;
-    @screen md {
-      font-size: 48px;
-    }
   }
   .privacy-contents {
     display: block;
