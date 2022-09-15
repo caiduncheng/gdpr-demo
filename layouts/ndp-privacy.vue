@@ -13,46 +13,34 @@
               <ul class="tabs__links">
                 <li class="tabs__links-item">
                   <NuxtLink
-                    to="/privacy/privacy-policy"
-                    :class="{active: $route.path.includes('/privacy/privacy-policy')}"
-                  >Privacy Policy</NuxtLink>
+                    to="/privacy/distribution"
+                    :class="{active: $route.path.includes('/privacy/distribution')}"
+                  >Distribution Policy</NuxtLink>
                 </li>
                 <li class="tabs__links-item">
                   <NuxtLink
-                    to="/privacy/terms"
-                    :class="{active: $route.path.includes('/privacy/terms')}"
-                  >Terms & Conditions</NuxtLink>
-                </li>
-                <li class="tabs__links-item">
-                  <NuxtLink
-                    :to="{name: 'lang-privacy-cookies', params: { lang: $store.state.locale} }"
-                    :class="{active: $route.path.includes('/privacy/cookies')}"
-                  >Cookies Policy</NuxtLink>
+                    to="/privacy/services"
+                    :class="{active: $route.path.includes('/privacy/services')}"
+                  >Services</NuxtLink>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-      <ul class="tabs__links--mobile">
+      <ul class="tabs__links--mobile">S
         <li class="tabs__links-item">
-          <NuxtLink
-            to="/privacy/privacy-policy"
-            :class="{active: $route.path.includes('/privacy/privacy-policy')}"
-          >Privacy Policy</NuxtLink>
-        </li>
+                  <NuxtLink
+                    to="/privacy/distribution"
+                    :class="{active: $route.path.includes('/privacy/distribution')}"
+                  >Distribution Policy</NuxtLink>
+                </li>
         <li class="tabs__links-item">
-          <NuxtLink
-            to="/privacy/terms"
-            :class="{active: $route.path.includes('/privacy/terms')}"
-          >Terms & Conditions</NuxtLink>
-        </li>
-        <li class="tabs__links-item">
-          <NuxtLink
-            :to="{name: 'lang-privacy-cookies', params: { lang: $store.state.locale} }"
-            :class="{active: $route.path.includes('/privacy/cookies')}"
-          >Cookies Policy</NuxtLink>
-        </li>
+                  <NuxtLink
+                    to="/privacy/services"
+                    :class="{active: $route.path.includes('/privacy/services')}"
+                  >Services</NuxtLink>
+                </li>
       </ul>
       <div class="page-title">
         <div class="container">
@@ -68,16 +56,16 @@
               <div class="contents__col-inner">
                 <div class="contents__col-item">
                   <div class="contents-wrap" ref="list">
-                    <ol class="privacy-contents">
+                    <ul class="privacy-contents">
                       <li v-for="(i, index) in titles" :key="index" class="content-item">
                         <button
                           type="button"
                           class="contents-button"
                           :data-index="index"
-                          @click="() => onClick(index)"
+                          @click="() => onClick(i.id)"
                         >{{i.title}}</button>
                       </li>
-                    </ol>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -106,19 +94,16 @@ export default {
       return this.$store.state.privacyCatalogs;
     },
     header() {
-      if (this.$route.path.includes("/privacy/privacy-policy")) {
-        return "Privacy Policy";
-      } else if (this.$route.path.includes("/privacy/terms")) {
-        return "Terms & Conditions";
-      } else {
-        return "Cookies Policy";
+      if (this.$route.path.includes("/privacy/distribution")) {
+        return "Newland Developer Platform Distribution Agreement";
+      } else if (this.$route.path.includes("/privacy/services")) {
+        return "Newland Developer Platform Terms of Service";
       }
     },
   },
   methods: {
-    onClick(index) {
-      const $itemList = $('.section-container[data-index="' + index + '"]');
-
+    onClick(id) {
+      const $itemList = $(`#${id}`);
       const $itemOffset = $itemList.offset().top;
       console.log($itemOffset);
       $("html, body")
@@ -284,9 +269,6 @@ export default {
     width: 100%;
     display: inline-block;
     font-size: 36px;
-    @screen md {
-      font-size: 48px;
-    }
   }
   .privacy-contents {
     display: block;
@@ -333,13 +315,7 @@ export default {
     font-weight: 400;
     display: flex;
     text-align: left;
-    &::before {
-      counter-increment: section;
-      content: counters(section, ".") ".";
-      font-size: 16px;
-      line-height: 24px;
-      display: inline-block;
-    }
+    
     &:hover {
       padding-left: 5px;
     }
@@ -392,6 +368,11 @@ export default {
 .privacy .content {
   counter-reset: number;
 }
+
+.privacy .content a {
+  color: #2C7BE5;
+  text-decoration: underline;
+}
 .privacy .content p {
   margin-bottom: 20px;
   line-height: 1.35;
@@ -402,19 +383,6 @@ export default {
   margin-bottom: 40px;
   @screen md {
     font-size: 32px;
-  }
-  &:before {
-    counter-increment: number;
-    content: counter(number) ".";
-    position: absolute;
-    top: 0;
-    left: 0;
-    @screen sm-max {
-      position: relative;
-      display: inline-block;
-      top: auto;
-      left: auto;
-    }
   }
 }
 /* 已被访问的链接 */
