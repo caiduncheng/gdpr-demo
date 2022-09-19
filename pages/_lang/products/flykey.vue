@@ -51,6 +51,7 @@
         </div>
       </div>
       <div class="pci-banner"></div>
+      <!-- <img src="~assets/flykey/PCI.jpg" /> -->
       <section class="section-1 section" id="Flykey">
         <div class="container">
           <div class="row items-center">
@@ -407,6 +408,9 @@ $bgBlue: rgb(0, 108, 252);
     }
     @screen lg {
       height: 230px;
+    }
+    @screen 2xl {
+      height: 400px;
     }
   }
 
