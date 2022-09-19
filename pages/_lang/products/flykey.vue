@@ -398,12 +398,15 @@ $bgBlue: rgb(0, 108, 252);
     background-image: url(~assets/FLYKEY/PCI.jpg);
     background-size: cover;
     background-position: center;
-    height: 120px;
+    height: 73px;
+    @screen sm {
+      height: 130px;
+    }
     @screen md {
     height: 200px;
     }
     @screen lg {
-      height: 300px;
+      height: 230px;
     }
   }
 
