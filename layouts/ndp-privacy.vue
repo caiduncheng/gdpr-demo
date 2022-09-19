@@ -307,6 +307,7 @@ export default {
     /* padding-right: 40px; */
     width: 100%;
     box-sizing: content-box;
+    height: calc(100vh - 210px);
   }
   .contents-button {
     transition: 0.3s ease-out;
