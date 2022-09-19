@@ -354,6 +354,7 @@ $bgGray: rgb(238, 236, 244);
 $bgBlue: rgb(0, 108, 252);
 
 .flykey {
+  overflow: hidden;
   .flykey-background {
     @include mixin.background-cover;
   }
@@ -404,13 +405,16 @@ $bgBlue: rgb(0, 108, 252);
       height: 130px;
     }
     @screen md {
-    height: 200px;
+    height: 160px;
     }
     @screen lg {
       height: 230px;
     }
     @screen 2xl {
       height: 400px;
+    }
+    @media screen and (min-width: 3840px){
+      height: 500px;
     }
   }
 
