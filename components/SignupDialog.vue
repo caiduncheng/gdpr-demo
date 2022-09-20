@@ -31,7 +31,15 @@
               class="w-full"
               :loading="loading"
             >{{ $t('common.confirm') }}</el-button>
-            <div class="text-center error-message" v-if="errorMessage">{{errorMessage}}</div>
+            <div class="text-center error-message break-normal" v-if="errorMessage">
+              <div v-if="errorMessage.code == '1301'">
+                {{errorMessage.message}}
+                <el-button type="text" @click="handleSign">{{$t('login.click_here_signin')}}</el-button>
+              </div>
+              <div v-else>
+                {{errorMessage.message}}
+              </div>
+            </div>
           </el-form-item>
         </el-form>
       </div>
@@ -81,6 +89,10 @@ export default {
     };
   },
   methods: {
+    handleSign() {
+      this.$emit('login',this.formData.email)
+      this.handleClose()
+    },
     handleClose() {
       this.success = false;
       this.errorMessage = "";

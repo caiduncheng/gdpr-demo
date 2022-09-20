@@ -184,7 +184,7 @@ export default {
               console.log(err);
               this.$message({
                 type: "error",
-                message: err,
+                message: err.message,
               });
             })
             .finally(() => {

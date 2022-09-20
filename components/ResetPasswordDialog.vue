@@ -80,7 +80,7 @@ export default {
               this.success = true;
             })
             .catch((error) => {
-              this.errorMessage = error;
+              this.errorMessage = error.message;
             })
             .finally(() => {
               this.loading = false;

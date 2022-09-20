@@ -385,7 +385,7 @@ export default {
               window.scrollTo(0, 0);
             })
             .catch((err) => {
-              this.errorMessage = err;
+              this.errorMessage = err.message;
             })
             .finally(() => {
               this.buttonLoading = false;

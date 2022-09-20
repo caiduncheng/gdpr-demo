@@ -115,7 +115,7 @@
         </div>
       </div>
     </div>
-    <LazySignupDialog :visible.sync="signUpDialogVisible" :title="$t('login.sign_up')" />
+    <LazySignupDialog :visible.sync="signUpDialogVisible" :title="$t('login.sign_up')" @login="fillEmail" />
     <LazyResetPasswordDialog :visible.sync="resetPasswordDialogVisible" :title="$t('login.title_reset_password')" />
   </div>
 </template>
@@ -199,6 +199,9 @@ export default {
     };
   },
   methods: {
+    fillEmail(email) {
+      this.loginForm.username = email
+    },
     getCaptcha() {
       if (this.VUE_APP_CAPTCHA == "1") {
         this.showCaptcha = true;
@@ -282,7 +285,7 @@ export default {
             needPasswdChange = res.needPasswdChange;
           } catch (err) {
             this.getCaptcha();
-            this.errorMsg = err;
+            this.errorMsg = err.message;
             return;
           } finally {
             this.loading = false;

@@ -279,7 +279,7 @@ export default {
             })
             .catch((e) => {
               this.loading = false;
-              this.errorMsg = e;
+              this.errorMsg = e.message;
             });
         } else {
           console.log("error submit!!");

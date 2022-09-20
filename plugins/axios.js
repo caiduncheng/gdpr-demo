@@ -23,17 +23,21 @@ export default function ({ $axios, store }) {
         return Promise.reject('Connection timeout')
       }
       if (error.response) {
-      const status = error.response.status;
-      if (status === 401) {
-        removeToken();
-        return Promise.reject(error);
-      }
-      let errorMessage;
-      if (error.response.data.message) {
-        errorMessage = error.response.data.message;
-      } else {
-        errorMessage = error.message;
-      }
+        const status = error.response.status;
+        if (status === 401) {
+          removeToken();
+          return Promise.reject(error);
+        }
+        let errorMessage;
+        if (error.response.data.message) {
+          let message = error.response.data.message
+          let code = error.response.data.code
+          errorMessage = { message, code };
+        } else {
+          let message = error.message
+          let code = error.code
+          errorMessage = { message, code };
+        }
         return Promise.reject(errorMessage);
       }
       return Promise.reject('Network Error')
