@@ -27,6 +27,14 @@
               <el-form-item :label="$t('login.confirm_password')" prop="confirmPassword">
                 <el-input v-model="form.confirmPassword" type="password"></el-input>
               </el-form-item>
+              <div v-if="VUE_APP_CAPTCHA ==='1'" class=" flex">
+              <el-form-item :label="$t('login.captcha')" prop="code" class=" flex-auto" >
+                    <el-input v-model.trim="form.code" :placeholder="$t('login.captcha')" maxlength="5" ></el-input>
+                </el-form-item>
+                <button class=" ml-4" @click.prevent="getCaptcha">
+                  <img :src="captchaImgSrc" alt  style="height: 40px; width: 120px;" />
+                </button>
+              </div>
               <el-form-item>
                 <el-button
                   type="primary"
@@ -126,7 +134,20 @@ export default {
         cb();
       }
     };
+
+    const validateVerifyCode = (rule, value, callback) => {
+      if (!value) {
+        callback(new Error(this.$t("login.validate_code_required")));
+      } else if (value.length < 5) {
+        callback(new Error(this.$t("login.validate_code_less5_tip")));
+      } else {
+        callback();
+      }
+    };
+
     return {
+      captchaImgSrc: "",
+      VUE_APP_CAPTCHA: process.env.VUE_APP_CAPTCHA,
       VUE_APP_PUBKEY: process.env.VUE_APP_PUBKEY,
       verified: false,
       loading: false,
@@ -142,6 +163,7 @@ export default {
         oldPassword: "",
         password: "",
         confirmPassword: "",
+        code:""
       },
       loginRules: {
         oldPassword: [
@@ -159,10 +181,23 @@ export default {
             validator: validConfirmPassword.bind(this),
           },
         ],
+        code: [
+          { required: true, trigger: "manual", validator: validateVerifyCode },
+        ],
       },
     };
   },
   methods: {
+    getCaptcha() {
+      if (this.VUE_APP_CAPTCHA == "1") {
+        const prefix = process.env.VUE_APP_BASE_API;
+        this.captchaImgSrc =
+          prefix +
+          "/online/authorization/auth/verify/code/password/change?time=" +
+          new Date().getTime() +
+          "&WEB-TOKEN=" + this.$store.getters.token;
+      }
+    },
     encryptPassword(json) {
       var encryptor = new JSEncrypt();
       var publicKey = this.VUE_APP_PUBKEY;
@@ -216,6 +251,7 @@ export default {
             .dispatch("changePassword", {
               oldPassword: encryptedOldPassword,
               newPassword: encryptedNewPassword,
+              code: this.form.code
             })
             .then((res) => {
               this.success = true;
@@ -227,6 +263,7 @@ export default {
                 type: "error",
                 message: err.message,
               });
+              this.getCaptcha()
             })
             .finally(() => {
               this.loading = false;
@@ -238,6 +275,7 @@ export default {
   async mounted() {
     const { default: _JSEncrypt } = await import("jsencrypt");
     JSEncrypt = _JSEncrypt;
+    this.getCaptcha()
   },
 };
 </script>

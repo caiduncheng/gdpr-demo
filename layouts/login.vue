@@ -1,7 +1,7 @@
 <template>
   <div class="background">
     <NavBar />
-    <Nuxt />
+    <Nuxt class="nuxt-container"/>
     <div class="login-footer" v-if="VUE_APP_NEWLAND_INFO == '1'">
       <div class="container">
         <div class="row">
@@ -53,14 +53,18 @@ export default {
   position: relative;
 }
 
+.nuxt-container {
+  min-height: calc(100vh - 252px);
+
+}
+
 .login-footer {
   background: #f8f9fb;
   padding: 20px 0;
-  /* position: absolute; */
-  position: fixed;
   bottom: 0;
   width: 100%;
   z-index: 2;
+  margin-top: 48px;
 }
 </style>
 
