@@ -16,11 +16,16 @@
     >
       <img src="~assets/sign-in/clock-filling.png" width="128" class="mb-5" />
       <p class="text-2xl">{{ $t("login.under_verification") }}</p>
+      <div class="mt-8">
+        <el-button type="primary" @click="handleEdit"> {{$t('login.edit_info')}}</el-button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { getQueryParam } from "@/utils";
+
 export default {
   async validate({ params, query, store, $axios }) {
     try {
@@ -35,6 +40,17 @@ export default {
     }    
     return true;
   },
+  methods:{
+    handleEdit() {
+      let characterCode = getQueryParam('characterCode')
+      let token = getQueryParam('token')
+      if (characterCode === 'DEV') {
+        this.$router.push(`/resubmit-form-dev?token=${token}`);
+      } else {
+        this.$router.push(`/resubmit-form?token=${token}`);
+      }
+    }
+  }
 };
 </script>
 

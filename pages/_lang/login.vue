@@ -300,14 +300,12 @@ export default {
           //  characterStatus 1:ok 2:待审核 3:审核失败
           if (characterStatus && characterStatus !== 1) {
             if (characterStatus === 2) {
-              this.$router.push(`/account-status?token=${token}`);
+              this.$router.push(`/account-status?token=${token}&characterCode=${characterCode}`);
             } else if (characterStatus === 3) {
               if ("DEV" === characterCode) {
                 this.$router.push(`/resubmit-form-dev?token=${token}`);
-                
               } else {
                 this.$router.push(`/resubmit-form?token=${token}`);
-                
               }
             }
           } else {

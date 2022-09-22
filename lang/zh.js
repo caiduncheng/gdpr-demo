@@ -298,6 +298,7 @@ module.exports = {
     passport: "护照",
     certificate_num: "证件号",
     address1: "地址",
+    edit_info: "更改信息"
   },
   logout: {
     logout_tip: "您确定要退出登录吗？",

@@ -322,6 +322,7 @@ module.exports = {
     passport: "Passport",
     certificate_num: "Certificate Number",
     address1: "Address",
+    edit_info: "Change Info"
   },
   logout: {
     logout_tip: "Do you want to log out?",
