@@ -5,7 +5,7 @@
       <div class="badge">FlyKey passed PCI PIN</div>
     </h2>
     <div class="chapter">
-      <h3>1.Introduction of PCI</h3>
+      <h3>1.Introduction of PCI PIN</h3>
       <p
         class="mb-8"
       >PCI PIN standard contains a complete set of requirements for the secure management, processing, and transmission of personal identification number (PIN) data during online and offline payment card transaction processing at ATMs and point-of-sale (POS) terminals.</p>

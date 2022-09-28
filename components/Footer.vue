@@ -50,14 +50,14 @@
               <div class="divider"></div>
               <h4>TOMS IS NOW PCI DSS CERTIFIED</h4>
             </div>
-            <nuxt-link to="/pci">
+            <nuxt-link to="/pci/pci">
               <img src="~assets/PCI/4.png" alt class="mb-2 mr-10" />
               
             </nuxt-link>
-            <nuxt-link to="/pci-dss">
+            <nuxt-link to="/pci/pci-dss">
               <img src="~assets/PCI/10.png" alt class="mb-2" />
             </nuxt-link>
-            <p>TOMS passed the relevant certification of PCI-DSS.</p>
+            <p>TOMS passed the relevant certification of PCI DSS.</p>
           </div>
         </div>  
       </div>
@@ -111,7 +111,7 @@
             </li>
           </ul>
           <span class="links">
-            Copyright © 2021 Newland Payment Technology(newlandnpt.com). All
+            Copyright © 2021-2022 Newland Payment Technology(newlandnpt.com). All
             rights reserved.
           </span>
         </div>
@@ -139,7 +139,7 @@ export default {
   background: #201f1d;
   padding: 80px 0 30px;
   p {
-    line-height: 2;
+    line-height: 1.5;
   }
   hr {
     border-top: 1px solid #5a5959;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar fixed alwaysShow />
+    <NavBar fixed alwaysShow />    
     <div class="container pci-main containerXL">
       <el-row>
         <el-col :span="4" class="hidden lg:block">
@@ -33,7 +33,7 @@
             <h3>Related Articles</h3>
             <div class="flex flex-col lg:flex-row">
               <div class="flex-1 flex flex-col">
-                <nuxt-link to="/pci">
+                <nuxt-link to="/pci/pci">
                   <img src="~assets/PCI/1.png" class="mr-3 mb-3" />
                 </nuxt-link>
                 <div class="px-2">
@@ -43,21 +43,21 @@
               </div>
 
               <div class="flex-1">
-                <nuxt-link to="/pci-dss">
+                <nuxt-link to="/pci/pci-dss">
                   <img src="~assets/PCI/2.png" class="mr-3 mb-3" />
                 </nuxt-link>
                 <div class="px-2">
-                  <h4 class="mb-2">PCI-DSS</h4>
+                  <h4 class="mb-2">PCI DSS</h4>
                   <p>PCI DSS contains 12 requirements, which are divided into 6 categories...</p>
                 </div>
               </div>
 
               <div class="flex-1">
-                <nuxt-link to="/pci-p2pe">
+                <nuxt-link to="/pci/pci-p2pe">
                   <img src="~assets/PCI/3.png" class="mb-3" />
                 </nuxt-link>
                 <div class="px-2">
-                  <h4 class="mb-2">P2PE</h4>
+                  <h4 class="mb-2">PCI P2PE</h4>
                   <p>PCI P2PE standard is to facilitate the development...</p>
                 </div>
               </div>
@@ -78,22 +78,22 @@ export default {
         {
           id: 0,
           title: "PCI",
-          path: "/pci",
+          path: "/pci/pci",
         },
         {
           id: 1,
           title: "PCI DSS",
-          path: "/pci-dss",
+          path: "/pci/pci-dss",
         },
         {
           id: 2,
           title: "PCI PIN",
-          path: "/pci-pin",
+          path: "/pci/pci-pin",
         },
         {
           id: 3,
           title: "PCI P2PE",
-          path: "/pci-p2pe",
+          path: "/pci/pci-p2pe",
         },
       ],
     };
@@ -101,19 +101,19 @@ export default {
   computed: {
     activeIndex() {
       const paths = {
-        "/pci": 0,
-        "/pci-dss": 1,
-        "/pci-pin": 2,
-        "/pci-p2pe": 3,
+        "/pci/pci": 0,
+        "/pci/pci-dss": 1,
+        "/pci/pci-pin": 2,
+        "/pci/pci-p2pe": 3,
       };
       return paths[this.$route.path];
     },
     topPosition() {
       const positions = {
-        "/pci": 0,
-        "/pci-dss": 45,
-        "/pci-pin": 95,
-        "/pci-p2pe": 144,
+        "/pci/pci": 0,
+        "/pci/pci-dss": 45,
+        "/pci/pci-pin": 95,
+        "/pci/pci-p2pe": 144,
       };
       return positions[this.$route.path] + "px";
     },

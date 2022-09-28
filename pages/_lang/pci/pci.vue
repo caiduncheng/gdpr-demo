@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div>    
     <section>
-      <h2 class="title">PCI <div class="badge">FlyKey passed PCI</div></h2>
+      <h2 class="title">PCI</h2>
       <div class="chapter">
         <h3>1.Introduction of PCI</h3>
         <p>The PCI Security Standards Council (PCI SSC) is a global forum that brings together payments industry stakeholders to develop and drive adoption of data security standards and resources for safe payments worldwide.</p>
