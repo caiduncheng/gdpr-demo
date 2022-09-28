@@ -51,11 +51,15 @@
               <h4>TOMS IS NOW PCI DSS CERTIFIED</h4>
             </div>
             <nuxt-link to="/pci">
-              <img src="~assets/PCI/4.png" alt class="mb-2" />
+              <img src="~assets/PCI/4.png" alt class="mb-2 mr-10" />
+              
             </nuxt-link>
-            <p>TOMS and the associated Value Added Services(VAS) passed the relevant certification of PCI, including PCI-DSS, PCI-PIN and P2PE.</p>
+            <nuxt-link to="/pci-dss">
+              <img src="~assets/PCI/10.png" alt class="mb-2" />
+            </nuxt-link>
+            <p>TOMS passed the relevant certification of PCI-DSS.</p>
           </div>
-        </div>
+        </div>  
       </div>
     </div>
     <div class="w-full">

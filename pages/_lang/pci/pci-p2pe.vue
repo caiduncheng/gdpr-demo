@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2 class="title">PCI-P2PE</h2>
+    <h2 class="title">PCI-P2PE<div class="badge">FlyKey passed P2PE</div></h2>
     <div class="chapter">
       <h3>Introduction of PC-P2PE</h3>
       <p>PCI P2PE standard is to facilitate the development, approval, and deployment of PCI-approved P2PE solutions that will increase the protection of account data by encrypting that data from the point of interaction (POI) within the encryption environment where account data is captured through to the point of decrypting that data inside a decryption environment, effectively removing clear-text account data between these two points.</p>
@@ -86,7 +86,7 @@
             <td>The secure management of the environment that receives encrypted account data and decrypts it</td>
             <td>
               <ul class="list">
-                <li>4A Use approved decryption devices.</li>
+                <li><strong>4A</strong>  Use approved decryption devices.</li>
                 <li>
                   <strong>4B</strong> Secure the decryption environment.
                 </li>

@@ -29,31 +29,37 @@
         </el-col>
         <el-col :md="24" :lg="20">
           <Nuxt />
-          <div class="py-5 text-center lg:text-left">
+          <div class="py-5 text-center lg:text-left lg:w-4/5">
             <h3>Related Articles</h3>
             <div class="flex flex-col lg:flex-row">
-              <div>
+              <div class="flex-1 flex flex-col">
                 <nuxt-link to="/pci">
                   <img src="~assets/PCI/1.png" class="mr-3 mb-3" />
                 </nuxt-link>
-                <h4 class="mb-2">Complete Guide to PCI</h4>
-                <p>The PCI Security Standards Council (PCI SSC) is a global forum that...</p>
+                <div class="px-2">
+                  <h4 class="mb-2">Complete Guide to PCI</h4>
+                  <p>The PCI Security Standards Council (PCI SSC) is a global forum that...</p>
+                </div>
               </div>
 
-              <div>
+              <div class="flex-1">
                 <nuxt-link to="/pci-dss">
                   <img src="~assets/PCI/2.png" class="mr-3 mb-3" />
                 </nuxt-link>
-                <h4 class="mb-2">PCI-DSS</h4>
-                <p>PCI DSS contains 12 requirements, which are divided into 6 categories...</p>
+                <div class="px-2">
+                  <h4 class="mb-2">PCI-DSS</h4>
+                  <p>PCI DSS contains 12 requirements, which are divided into 6 categories...</p>
+                </div>
               </div>
 
-              <div>
+              <div class="flex-1">
                 <nuxt-link to="/pci-p2pe">
                   <img src="~assets/PCI/3.png" class="mb-3" />
                 </nuxt-link>
-                <h4 class="mb-2">P2PE</h4>
-                <p>PCI P2PE standard is to facilitate the development...</p>
+                <div class="px-2">
+                  <h4 class="mb-2">P2PE</h4>
+                  <p>PCI P2PE standard is to facilitate the development...</p>
+                </div>
               </div>
             </div>
           </div>
@@ -76,17 +82,17 @@ export default {
         },
         {
           id: 1,
-          title: "PCI-DSS",
+          title: "PCI DSS",
           path: "/pci-dss",
         },
         {
           id: 2,
-          title: "PCI-PIN",
+          title: "PCI PIN",
           path: "/pci-pin",
         },
         {
           id: 3,
-          title: "PCI-P2PE",
+          title: "PCI P2PE",
           path: "/pci-p2pe",
         },
       ],
@@ -126,12 +132,27 @@ export default {
   font-family: museo-sans, Arial, sans-serif;
   padding: 50px 0;
   margin-top: 90px;
+  .badge {
+    background-color: #f1f3f5;
+    border-radius: 20px;
+    padding: 10px 25px;
+    font-size: 14px;
+    color: #1d2b36;
+    display: inline-block;
+    margin-left: 20px;
+  }
   .chapter {
     margin-bottom: 40px;
   }
   .title {
+    display: flex;
+    align-items: center;
     margin-bottom: 40px;
     font-size: 45px;
+    @screen lg {
+      text-align: left;
+    }
+    text-align: center;
   }
   p {
     font-size: 1rem;
