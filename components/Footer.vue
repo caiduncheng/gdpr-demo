@@ -50,12 +50,18 @@
               <div class="divider"></div>
               <h4>TOMS IS NOW PCI DSS CERTIFIED</h4>
             </div>
-            <nuxt-link to="/pci/pci" class="">
+            <nuxt-link  :to="{
+                  name: 'lang-pci-pci',
+                  params: { lang: $store.state.locale },
+                }" >
               <img src="~assets/PCI/4.png" alt class="mb-2 mr-10" />
             </nuxt-link>
             <div class="divider-pci">
             </div>
-            <nuxt-link to="/pci/pci-dss">
+            <nuxt-link :to="{
+                  name: 'lang-pci-pci-dss',
+                  params: { lang: $store.state.locale },
+                }">
               <img src="~assets/PCI/10.png" alt class="mb-2" />
             </nuxt-link>
             <p>TOMS passed the relevant certification of PCI DSS.</p>
