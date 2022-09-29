@@ -33,8 +33,8 @@
             <h3>Related Articles</h3>
 
             <div class="flex flex-col lg:flex-row">
-              <div class="flex-1 flex flex-col" v-show="$route.path !== '/pci/pci'">
-                <nuxt-link to="/pci/pci">
+              <div class="flex-1 flex flex-col" v-show="$route.name !== 'pci-pci'">
+                <nuxt-link :to="{name: 'lang-pci-pci', params: { lang: $store.state.locale }}">
                   <img src="~assets/PCI/1.png" class="mr-3 mb-3" />
                 </nuxt-link>
                 <div class="px-2">
@@ -43,8 +43,8 @@
                 </div>
               </div>
 
-              <div class="flex-1" v-show="$route.path !== '/pci/pci-dss'">
-                <nuxt-link to="/pci/pci-dss">
+              <div class="flex-1" v-show="!$route.path.includes('/pci/pci-dss')">
+                <nuxt-link :to="{name: 'lang-pci-pci-dss', params: { lang: $store.state.locale }}">
                   <img src="~assets/PCI/2.png" class="mr-3 mb-3" />
                 </nuxt-link>
                 <div class="px-2">
@@ -53,8 +53,8 @@
                 </div>
               </div>
 
-              <div class="flex-1" v-show="$route.path !== '/pci/pci-p2pe'">
-                <nuxt-link to="/pci/pci-p2pe">
+              <div class="flex-1" v-show="!$route.path.includes('/pci/pci-p2pe')">
+                <nuxt-link :to="{name: 'lang-pci-pci-p2pe', params: { lang: $store.state.locale }}">
                   <img src="~assets/PCI/3.png" class="mr-3 mb-3" />
                 </nuxt-link>
                 <div class="px-2">
@@ -63,8 +63,8 @@
                 </div>
               </div>
 
-              <div class="flex-1" v-show="$route.path !== '/pci/pci-pin'">
-                <nuxt-link to="/pci/pci-pin">
+              <div class="flex-1" v-show="!$route.path.includes('/pci/pci-pin')">
+                <nuxt-link :to="{name: 'lang-pci-pci-pin', params: { lang: $store.state.locale }}">
                   <img src="~assets/PCI/11.png" class="mr-3 mb-3" />
                 </nuxt-link>
                 <div class="px-2">
@@ -116,6 +116,10 @@ export default {
         "/pci/pci-dss": 1,
         "/pci/pci-pin": 2,
         "/pci/pci-p2pe": 3,
+        "/zh-CN/pci/pci": 0,
+        "/zh-CN/pci/pci-dss": 1,
+        "/zh-CN/pci/pci-pin": 2,
+        "/zh-CN/pci/pci-p2pe": 3,
       };
       return paths[this.$route.path];
     },
@@ -125,13 +129,17 @@ export default {
         "/pci/pci-dss": 45,
         "/pci/pci-pin": 95,
         "/pci/pci-p2pe": 144,
+        "/zh-CN/pci/pci": 0,
+        "/zh-CN/pci/pci-dss": 45,
+        "/zh-CN/pci/pci-pin": 95,
+        "/zh-CN/pci/pci-p2pe": 144,
       };
       return positions[this.$route.path] + "px";
     },
   },
   methods: {
     onClick(item) {
-      this.$router.push(item.path);
+      this.$router.push("/" + this.$i18n.locale + item.path);
     },
   },
 };
@@ -158,7 +166,7 @@ export default {
     display: inline-block;
     margin-left: 0;
     @screen lg {
-    margin-left: 20px;
+      margin-left: 20px;
     }
   }
   .chapter {
