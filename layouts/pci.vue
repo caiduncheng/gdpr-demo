@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar fixed alwaysShow />    
+    <NavBar fixed alwaysShow />
     <div class="container pci-main containerXL">
       <el-row>
         <el-col :span="4" class="hidden lg:block">
@@ -18,7 +18,7 @@
                       type="button"
                       :class="['contents-button', {active: activeIndex === index}]"
                       :data-index="index"
-                      @click="(e) => onClick(i)"
+                      @click="() => onClick(i)"
                     >{{i.title}}</button>
                   </li>
                   <span class="contents__line" :style="{top: topPosition}"></span>
@@ -31,18 +31,19 @@
           <Nuxt />
           <div class="py-5 text-center lg:text-left lg:w-4/5">
             <h3>Related Articles</h3>
+
             <div class="flex flex-col lg:flex-row">
-              <div class="flex-1 flex flex-col">
+              <div class="flex-1 flex flex-col" v-show="$route.path !== '/pci/pci'">
                 <nuxt-link to="/pci/pci">
                   <img src="~assets/PCI/1.png" class="mr-3 mb-3" />
                 </nuxt-link>
                 <div class="px-2">
-                  <h4 class="mb-2">Complete Guide to PCI</h4>
+                  <h4 class="mb-2">PCI</h4>
                   <p>The PCI Security Standards Council (PCI SSC) is a global forum that...</p>
                 </div>
               </div>
 
-              <div class="flex-1">
+              <div class="flex-1" v-show="$route.path !== '/pci/pci-dss'">
                 <nuxt-link to="/pci/pci-dss">
                   <img src="~assets/PCI/2.png" class="mr-3 mb-3" />
                 </nuxt-link>
@@ -52,13 +53,23 @@
                 </div>
               </div>
 
-              <div class="flex-1">
+              <div class="flex-1" v-show="$route.path !== '/pci/pci-p2pe'">
                 <nuxt-link to="/pci/pci-p2pe">
-                  <img src="~assets/PCI/3.png" class="mb-3" />
+                  <img src="~assets/PCI/3.png" class="mr-3 mb-3" />
                 </nuxt-link>
                 <div class="px-2">
                   <h4 class="mb-2">PCI P2PE</h4>
                   <p>PCI P2PE standard is to facilitate the development...</p>
+                </div>
+              </div>
+
+              <div class="flex-1" v-show="$route.path !== '/pci/pci-pin'">
+                <nuxt-link to="/pci/pci-pin">
+                  <img src="~assets/PCI/11.png" class="mr-3 mb-3" />
+                </nuxt-link>
+                <div class="px-2">
+                  <h4 class="mb-2">PCI PIN</h4>
+                  <p>PCI PIN standard contains a complete set of requirement for the secure...</p>
                 </div>
               </div>
             </div>
@@ -120,7 +131,6 @@ export default {
   },
   methods: {
     onClick(item) {
-      // console.log(item);
       this.$router.push(item.path);
     },
   },
@@ -130,7 +140,14 @@ export default {
 <style lang="scss">
 .pci-main {
   font-family: museo-sans, Arial, sans-serif;
-  padding: 50px 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  @screen sm {
+    padding-left: 0;
+    padding-right: 0;
+  }
   margin-top: 90px;
   .badge {
     background-color: #f1f3f5;
@@ -139,7 +156,10 @@ export default {
     font-size: 14px;
     color: #1d2b36;
     display: inline-block;
+    margin-left: 0;
+    @screen lg {
     margin-left: 20px;
+    }
   }
   .chapter {
     margin-bottom: 40px;
@@ -151,7 +171,9 @@ export default {
     font-size: 45px;
     @screen lg {
       text-align: left;
+      flex-direction: row;
     }
+    flex-direction: column;
     text-align: center;
   }
   p {
@@ -228,6 +250,8 @@ export default {
     box-sizing: content-box;
   }
   .contents-button {
+    border: none;
+    outline: none;
     transition: 0.3s ease-out;
     line-height: 24px;
     color: #000000;

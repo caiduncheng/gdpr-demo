@@ -50,10 +50,11 @@
               <div class="divider"></div>
               <h4>TOMS IS NOW PCI DSS CERTIFIED</h4>
             </div>
-            <nuxt-link to="/pci/pci">
+            <nuxt-link to="/pci/pci" class="">
               <img src="~assets/PCI/4.png" alt class="mb-2 mr-10" />
-              
             </nuxt-link>
+            <div class="divider-pci">
+            </div>
             <nuxt-link to="/pci/pci-dss">
               <img src="~assets/PCI/10.png" alt class="mb-2" />
             </nuxt-link>
@@ -179,6 +180,20 @@ export default {
     margin-right: 14px;
   }
   &.pci {
+    .divider-pci {         
+      position: absolute;
+      width: 1px;
+      height: 36px;
+      /* right: -20px; */
+      top: 50%;
+      transform: translateY(-13px);
+      background-color: #556685;
+      left: 270px;
+      display: none;
+      @screen xl {
+        display: block;
+      }
+    }
     h4 {
       color: #ff7e00;
     }
