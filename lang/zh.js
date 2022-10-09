@@ -645,4 +645,179 @@ module.exports = {
     footer:
       "为应用能够快速接入终端，我们提供了详尽的SDK API文档，方便开发者能够很轻松的对接终端系统;为保证应用的合法性和和安全性，我们提供应用内容检测和应用加签，保证应用可以在全球各个国家正常分发。",
   },
+  pci: {
+    pci: {
+      title: "PCI",
+      head1: "1.PCI简介",
+      p1: "PCI安全标准委员会(PCI SSC)是一个全球论坛，聚集了支付行业的利益相关者，为制定和推动在国际安全支付中采用数据安全标准和资源。",
+      head2: "2. PCI使命",
+      p2: "PCI SSC 的使命是通过制定标准和支持服务来推动利益相关者的教育、意识和有效实施，从而增强全球支付账户数据的安全性。 他们通过战略框架来指导他们的决策过程并确保每项举措都符合他们的使命并支持全球支付行业的需求，从而实现了这一目标。 其战略框架的四大支柱包括：",
+      list: `
+      <li><i class="font-bold">增加行业对 PCI 标准制定过程的参与度和知识，</i> 以及利益相关者对标准实施的支持。 这可确保标准和资源反映并解决行业需求和挑战。</li>  
+      <li><i class="font-bold">发展安全标准和验证程序，</i>  以支持实现安全的一系列环境、技术和方法。 这确保了支持和实现安全贸易的标准和资源，以及使用不同方法来满足这些标准的灵活性。</li>  
+      <li><i class="font-bold">通过制定 PCI 标准和资源来保护新兴支付渠道，</i> 以支持更广泛的支付活动。 这使得新兴卡和基于卡的支付渠道（如移动和物联网）中的安全商务成为可能。</li>  
+      <li><i class="font-bold">提高 PCI 标准的标准的一致性，</i>以最大限度地减少冗余并支持有效实施。</li> `,
+    },
+    pcidss: {
+      title: "PCI DSS",
+      badge: "TOMS已通过 PCI DSS认证",
+      header1: "1.	PCI DSS简介",
+      p1: "PCI DSS(PCI数据安全标准)为存储、处理或传输支付卡信息的实体定义了操作和技术要求，包括商户、处理器、收购方、发行方和服务提供商。",
+      header2: "2.	TOMS 符合 PCI DSS",
+      p2: "PCI DSS 包含 12 项要求，涵盖 6 个类别，包括构建和维护安全的网络和系统、保护持卡人数据、维护漏洞管理计划、实施强大的访问控制措施、定期监控和测试网络以及维护信息安全策略。 适用实体评估他们是否维护了一个安全的环境来保护他们的支付卡账户数据。",
+      p3: "TOMS 与 PCI SSC 批准的合格安全评估员 (QSA) 合作进行年度现场评估，即通过 PCI DSS v3.2.1 认证。 PCI DSS 评估的范围是 TOMS（终端运营管理系统）。",
+    },
+    pcipin: {
+      title: "PCI PIN",
+      badge: "FlyKey passed PCI PIN",
+      header1: "1.Introduction of PCI PIN",
+      p1: "PCI PIN standard contains a complete set of requirements for the secure management, processing, and transmission of personal identification number (PIN) data during online and offline payment card transaction processing at ATMs and point-of-sale (POS) terminals.",
+      p2: "PCI PIN requirements are intended for use by all acquiring institutions and agents (e.g., key-injection facilities and certificate processors) responsible for PIN transaction processing on the payment card industry participants’ denominated accounts and should be used in conjunction with other applicable industry standards.The individual payment brands are responsible for defining and managing compliance programs associated with these requirements as below.",
+      header2: "2.Transaction Processing Operations",
+      list: ` <p class="mb-5" id="control-1">
+      <i class="font-bold">Control Objective 1:</i> PINs used in transactions governed by these requirements are processed using equipment and methodologies that ensure they are kept secure.
+    </p>
+    <p class="mb-5">
+      <i class="font-bold">Control Objective 2:</i>Cryptographic keys used for PIN encryption/decryption and related key management are created using processes that ensure that it is not possible to predict any key or determine that certain keys are more probable than other keys.
+    </p>
+    <p class="mb-5" id="control-3">
+      <i class="font-bold">Control Objective 3:</i>Keys are conveyed or transmitted in a secure manner.
+    </p>
+    <p class="mb-5">
+      <i class="font-bold">Control Objective 4:</i>Key-loading to HSMs and POI PIN-acceptance devices is handled in a secure manner.
+    </p>
+    <p class="mb-5">
+      <i class="font-bold">Control Objective 5:</i>Keys are used in a manner that prevents or detects their unauthorized usage.
+    </p>
+    <p class="mb-5">
+      <i class="font-bold">Control Objective 6:</i>Keys are administered in a secure manner.
+    </p>
+    <p class="mb-5">
+      <i class="font-bold">Control Objective 7:</i>Equipment used to process PINs and keys is managed in a secure manner.
+    </p>`,
+      header3: "3.Symmetric Key Distribution using Asymmetric Techniques",
+      p3: "A1 – Remote Key Distribution Using Asymmetric Techniques Operations",
+      link1: "(Control Objective 1/2/3/4/5/6)",
+      p4: "A2 – Certification and Registration Authority Operations",
+      link2: "(Control Objective 3/4/5/6/7)",
+      header4: "4.Key-Injection Facilities Security Requirements Technical",
+      link3: "(Control Objective 1/2/3/4/5/6/7)",
+    },
+    p2pe: {
+      title: "PCI P2PE",
+      badge: "FlyKey passed PCI P2PE",
+      header1: "Introduction of PCI P2PE",
+      p1: "PCI P2PE standard is to facilitate the development, approval, and deployment of PCI-approved P2PE solutions that will increase the protection of account data by encrypting that data from the point of interaction (POI) within the encryption environment where account data is captured through to the point of decrypting that data inside a decryption environment, effectively removing clear-text account data between these two points.",
+
+      table: {
+        head1: "Domain",
+        head2: "Overview",
+        head3: "P2PE Validation Requirements",
+        r1c1: "Domain 1: Encryption Device and Application Management",
+        r1c2: "The secure management of the PCI- approved POI devices and the resident software.",
+        r1c3: `
+            <li>
+              <strong>1A</strong> Account data must be encrypted in equipment that is resistant to physical and logical compromise.
+            </li>
+            <li>
+              <strong>1B</strong> Logically secure POI devices.
+            </li>
+            <li>
+              <strong>1C</strong> Use P2PE applications that protect PAN and SAD.
+            </li>
+            <li>
+              <strong>1D</strong> Implement secure application-management processes.
+            </li>
+            <li>
+              <strong>1E</strong> Component providers ONLY: report status to solution providers.
+            </li>
+          `,
+        r2c1: "Domain 2: Application Security",
+        r2c2: "The secure development of payment applications designed to have access to clear-text account data intended solely for installation on PCI- approved POI devices.",
+        r2c3: ` 
+        <li>
+          <strong>1A</strong> Protect PAN and SAD.
+        </li>
+        <li>
+          <strong>2B</strong> Develop and maintain secure applications.
+        </li>
+        <li>
+          <strong>2C</strong> Implement secure application-management processes.
+        </li>
+      `,
+        r3c1: "Domain 3: P2PE Solution Management",
+        r3c2: "Overall management of the P2PE solution by the solution provider, including third-party relationships, incident response, and the P2PE Instruction Manual (PIM)",
+        r3c3: `
+      <li>
+        <strong>3A</strong> P2PE solution management.
+      </li>
+      <li>
+        <strong>3B</strong> Third-party management.
+      </li>
+      <li>
+        <strong>3C</strong> reation and maintenance of P2PE Instruction Manual for merchants.
+      </li>
+    `,
+        r4c1: "Domain 4: Decryption Environment",
+        r4c2: "The secure management of the environment that receives encrypted account data and decrypts it",
+        r4c3: ` <li><strong>4A</strong>  Use approved decryption devices.</li>
+    <li>
+      <strong>4B</strong> Secure the decryption environment.
+    </li>
+    <li>
+      <strong>4C</strong> Monitor the decryption environment and respond to incidents
+    </li>
+    <li>
+      <strong>4D</strong> Implement secure, hybrid decryption processes.
+    </li>
+    <li>
+      <strong>4E</strong> Component providers ONLY: report status to solution providers.
+    </li>`,
+        r5c1: "Domain 5: P2PE Cryptographic Key Operations and Device Management",
+        r5c2: "Establish and administer key- management operations for account- data encryption POI devices and decryption HSMs.",
+        r5c3: `<li>
+    <strong>Control Objective 1</strong> Account data is processed using equipment and Account data is processed using equipment and methodologies that ensure they are kept secure.
+  </li>
+  <li>
+    <strong>Control Objective 2</strong> Account data keys and key-management
+    methodologies are created using processes that ensure it is not possible to predict any key or determine that certain keys are more probable than other keys.
+  </li>
+  <li>
+    <strong>Control Objective 3</strong>
+    Keys are conveyed or transmitted in a secure
+    manner.
+  </li>
+  <li>
+    <strong>Control Objective 4</strong>
+    Key loading is handled in a secure manner.
+  </li>
+  <li>
+    <strong>Control Objective 5</strong>
+    Keys are used in a manner that prevents or
+    detects their unauthorized usage.
+  </li>
+  <li>
+    <strong>Control Objective 6</strong>
+    Keys are administered in a secure manner.
+  </li>
+  <li>
+    <strong>Control Objective 7</strong>
+    Equipment used to process account data and keys
+    is managed in a secure manner
+  </li>
+  <li>
+    <strong>5A</strong>
+    Account data is processed using algorithms and methodologies that ensure they are kept secure.
+  </li>
+  <li>
+    <strong>5H</strong>
+    For hybrid decryption solutions: Implement secure hybrid-key management.
+  </li>
+  <li>
+    <strong>5I</strong>
+    Component providers ONLY: report status to solution providers.
+  </li>`,
+      },
+    },
+  },
 };

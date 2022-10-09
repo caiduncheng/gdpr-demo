@@ -277,6 +277,8 @@
 </template>
 
 <script>
+let listener;
+let cb;
 export default {
   data() {
     return {
@@ -287,7 +289,7 @@ export default {
   mounted() {
     this.$store.commit("SET_MENU", false);
 
-    window.addEventListener("scroll", () => {
+    cb = () => {
       const top = this.$refs.developerTabs.getBoundingClientRect().top;
       if (top >= 90 && top < 91) {
         this.$set(this.tabStyle, "boxShadow", "0 2px 5px rgb(0 0 0 / 5%)");
@@ -295,7 +297,12 @@ export default {
       } else {
         this.tabStyle = {};
       }
-    });
+    };
+
+    window.addEventListener("scroll", cb);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", cb);
   },
   methods: {},
 };

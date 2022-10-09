@@ -51,6 +51,7 @@
         </div>
       </div>
       <div class="pci-banner"></div>
+      <!-- <img src="~assets/flykey/PCI.jpg" /> -->
       <section class="section-1 section" id="Flykey">
         <div class="container">
           <div class="row items-center">
@@ -352,7 +353,7 @@ export default {
 $bgGray: rgb(238, 236, 244);
 $bgBlue: rgb(0, 108, 252);
 
-.flykey {
+.flykey {  
   .flykey-background {
     @include mixin.background-cover;
   }
@@ -398,12 +399,21 @@ $bgBlue: rgb(0, 108, 252);
     background-image: url(~assets/FLYKEY/PCI.jpg);
     background-size: cover;
     background-position: center;
-    height: 120px;
+    height: 73px;
+    @screen sm {
+      height: 130px;
+    }
     @screen md {
-    height: 200px;
+    height: 160px;
     }
     @screen lg {
-      height: 300px;
+      height: 230px;
+    }
+    @screen 2xl {
+      height: 400px;
+    }
+    @media screen and (min-width: 3840px){
+      height: 500px;
     }
   }
 
