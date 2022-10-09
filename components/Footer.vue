@@ -2,31 +2,7 @@
   <footer v-if="VUE_APP_NEWLAND_INFO == '1'" class="footer">
     <div class="container">
       <div class="row">
-        <div class="col-lg-3 offset-lg-3 mb-5 lg:mb-0">
-          <div class="footer-info">
-            <div class="flex items-center mb-5 justify-center lg:justify-start">
-              <div class="divider"></div>
-              <h4>{{ $t("common.social") }}</h4>
-            </div>
-            <div class="pl-3">
-              <a href="https://www.newlandnpt.com/" target="_blank">
-                <img class="mr-2" src="~assets/footer/newland.png" alt />
-              </a>
-
-              <a href="https://www.linkedin.cn/injobs" target="_blank">
-                <img class="mr-2" src="~assets/footer/linkedin.png" alt />
-              </a>
-
-              <a
-                href="https://www.alibaba.com/trade/search?fsb=y&IndexArea=product_en&CatId=&SearchText=newlandnpt"
-                target="_blank"
-              >
-                <img src="~assets/footer/alibaba.png" alt />
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 mb-10 lg:mb-0">
           <div class="footer-info">
             <div class="flex items-center mb-5 justify-center lg:justify-start">
               <div class="divider"></div>
@@ -44,15 +20,15 @@
                   <span>{{ $t("common.address2") }}</span>
                 </p>
               </address>
-              <div>
+              <p>
                 <span class="label fix-width">{{ $t("common.phone") }}</span>
                 <span>
                   {{
                   $t("common.phone1")
                   }}
                 </span>
-              </div>
-              <div>
+              </p>
+              <p>
                 <address>
                   <span class="label fix-width">{{ $t("common.email") }}</span>
                   <a href="javacsript:;" class="mail-link">
@@ -63,10 +39,34 @@
                     </span>
                   </a>
                 </address>
-              </div>
+              </p>
             </div>
           </div>
         </div>
+
+        <div class="col-lg-6">
+          <div class="footer-info pci">
+            <div class="flex items-center mb-5 justify-center lg:justify-start">
+              <div class="divider"></div>
+              <h4>TOMS IS NOW PCI DSS CERTIFIED</h4>
+            </div>
+            <nuxt-link  :to="{
+                  name: 'lang-pci-pci',
+                  params: { lang: $store.state.locale },
+                }" >
+              <img src="~assets/PCI/4.png" alt class="mb-2 mr-10" />
+            </nuxt-link>
+            <div class="divider-pci">
+            </div>
+            <nuxt-link :to="{
+                  name: 'lang-pci-pci-dss',
+                  params: { lang: $store.state.locale },
+                }">
+              <img src="~assets/PCI/10.png" alt class="mb-2" />
+            </nuxt-link>
+            <p>TOMS passed the relevant certification of PCI DSS.</p>
+          </div>
+        </div>  
       </div>
     </div>
     <div class="w-full">
@@ -74,7 +74,23 @@
     </div>
     <div class="containerXL container-fluid">
       <div class="row">
-        <div class="col-lg-4 offset-lg-2">
+        <div class="col-12 offset-lg-1 col-lg-5 pl-3">
+          <a href="https://www.newlandnpt.com/" target="_blank">
+            <img class="mr-2" src="~assets/footer/newland.png" alt />
+          </a>
+
+          <a href="https://www.linkedin.cn/injobs" target="_blank">
+            <img class="mr-2" src="~assets/footer/linkedin.png" alt />
+          </a>
+
+          <a
+            href="https://www.alibaba.com/trade/search?fsb=y&IndexArea=product_en&CatId=&SearchText=newlandnpt"
+            target="_blank"
+          >
+            <img src="~assets/footer/alibaba.png" alt />
+          </a>
+        </div>
+        <div class="col-12 col-lg-6 lg:text-right text-center">
           <ul class="links">
             <li>
               <NuxtLink
@@ -101,15 +117,13 @@
               >Cookies Policy</NuxtLink>
             </li>
           </ul>
-        </div>
-        <div class="col-md-6">
           <span class="links">
-            Copyright © 2021 Newland Payment Technology(newlandnpt.com). All
+            Copyright © 2021-2022 Newland Payment Technology(newlandnpt.com). All
             rights reserved.
           </span>
         </div>
       </div>
-    </div>
+    </div>    
   </footer>
 </template>
 
@@ -117,9 +131,9 @@
 export default {
   data() {
     return {
-      VUE_APP_NEWLAND_INFO : process.env.VUE_APP_NEWLAND_INFO,
-    }
-  }
+      VUE_APP_NEWLAND_INFO: process.env.VUE_APP_NEWLAND_INFO,
+    };
+  },
 };
 </script>
 
@@ -131,6 +145,9 @@ export default {
   /* background: #283041; */
   background: #201f1d;
   padding: 80px 0 30px;
+  p {
+    line-height: 1.5;
+  }
   hr {
     border-top: 1px solid #5a5959;
     margin: 40px 0;
@@ -167,6 +184,28 @@ export default {
     color: #7b7b7b;
     text-transform: uppercase;
     margin-right: 14px;
+  }
+  &.pci {
+    .divider-pci {         
+      position: absolute;
+      width: 1px;
+      height: 36px;
+      /* right: -20px; */
+      top: 50%;
+      transform: translateY(-13px);
+      background-color: #556685;
+      left: 270px;
+      display: none;
+      @screen xl {
+        display: block;
+      }
+    }
+    h4 {
+      color: #ff7e00;
+    }
+    .divider {
+      border-color: #ff7e00;
+    }
   }
   .fix-width {
     display: none;

@@ -353,8 +353,7 @@ export default {
 $bgGray: rgb(238, 236, 244);
 $bgBlue: rgb(0, 108, 252);
 
-.flykey {
-  overflow: hidden;
+.flykey {  
   .flykey-background {
     @include mixin.background-cover;
   }
