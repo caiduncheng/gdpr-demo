@@ -16,9 +16,9 @@
     >
       <img src="~assets/sign-in/clock-filling.png" width="128" class="mb-5" />
       <p class="text-2xl">{{ $t("login.under_verification") }}</p>
-      <div class="mt-8">
+      <!-- <div class="mt-8">
         <el-button type="primary" @click="handleEdit"> {{$t('login.edit_info')}}</el-button>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
