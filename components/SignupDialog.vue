@@ -34,7 +34,7 @@
             <div class="text-center error-message break-normal" v-if="errorMessage">
               <div v-if="errorMessage.code == '1301'">
                 {{errorMessage.message}}
-                <el-button type="text" @click="handleSign">{{$t('login.click_here_signin')}}</el-button>
+                <el-button v-if="$route.path.includes('/login')" type="text" @click="handleSign">{{$t('login.click_here_signin')}}</el-button>
               </div>
               <div v-else>
                 {{errorMessage.message}}
@@ -96,6 +96,7 @@ export default {
     handleClose() {
       this.success = false;
       this.errorMessage = "";
+
       this.$refs.form.resetFields();
       this.$emit("update:visible", false);
     },
