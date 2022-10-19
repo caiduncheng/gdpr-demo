@@ -127,7 +127,7 @@ module.exports = {
       },
     },
     vas: {
-      title: "Value-Added Services",
+      title: "Adavance Services",
       flykey: {
         title: "FlyKey",
         detail:
