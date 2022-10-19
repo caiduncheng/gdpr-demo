@@ -30,16 +30,16 @@
         <el-col :md="24" :lg="20">
           <Nuxt />
           <div class="py-5 text-center lg:text-left lg:w-4/5">
-            <h3>Related Articles</h3>
+            <h3>{{$t('pci.layout.related_articles')}}</h3>
 
             <div class="flex flex-col lg:flex-row">
-              <div class="flex-1 flex flex-col" v-show="$route.name !== 'pci-pci'">
+              <div class="flex-1 flex flex-col" v-show="!/^(lang-)?pci-pci$/.test($route.name)">
                 <nuxt-link :to="{name: 'lang-pci-pci', params: { lang: $store.state.locale }}">
                   <img src="~assets/PCI/1.png" class="mr-3 mb-3" />
                 </nuxt-link>
                 <div class="px-2">
                   <h4 class="mb-2">PCI</h4>
-                  <p>The PCI Security Standards Council (PCI SSC) is a global forum that...</p>
+                  <p>{{$t('pci.layout.pci')}}</p>
                 </div>
               </div>
 
@@ -49,7 +49,7 @@
                 </nuxt-link>
                 <div class="px-2">
                   <h4 class="mb-2">PCI DSS</h4>
-                  <p>PCI DSS contains 12 requirements, which are divided into 6 categories...</p>
+                  <p>{{$t('pci.layout.pci_dss')}}</p>
                 </div>
               </div>
 
@@ -59,7 +59,7 @@
                 </nuxt-link>
                 <div class="px-2">
                   <h4 class="mb-2">PCI P2PE</h4>
-                  <p>PCI P2PE standard is to facilitate the development...</p>
+                  <p>{{$t('pci.layout.pci_p2pe')}}</p>
                 </div>
               </div>
 
@@ -69,7 +69,7 @@
                 </nuxt-link>
                 <div class="px-2">
                   <h4 class="mb-2">PCI PIN</h4>
-                  <p>PCI PIN standard contains a complete set of requirement for the secure...</p>
+                  <p>{{$t('pci.layout.pci_pin')}}</p>
                 </div>
               </div>
             </div>

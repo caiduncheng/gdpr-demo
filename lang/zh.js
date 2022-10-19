@@ -650,6 +650,13 @@ module.exports = {
       "为应用能够快速接入终端，我们提供了详尽的SDK API文档，方便开发者能够很轻松的对接终端系统;为保证应用的合法性和和安全性，我们提供应用内容检测和应用加签，保证应用可以在全球各个国家正常分发。",
   },
   pci: {
+    layout: {
+      related_articles: "相关文章",
+      pci: "PCI安全标准委员会(PCI SSC)是一个全球论坛...",
+      pci_dss: "PCI DSS 包含 12 项要求，涵盖 6 个类别...",
+      pci_p2pe: "PCI P2PE 标准旨在促进 PCI 批准的 P2PE 解决方案的开发、批准和部署...",
+      pci_pin: 'PCI PIN标准包含一套完整的要求...'
+    },
     pci: {
       title: "PCI",
       head1: "1.PCI简介",
@@ -664,7 +671,7 @@ module.exports = {
     },
     pcidss: {
       title: "PCI DSS",
-      badge: "TOMS已通过 PCI DSS认证",
+      badge: "TOMS 已通过 PCI DSS认证",
       header1: "1.	PCI DSS简介",
       p1: "PCI DSS(PCI数据安全标准)为存储、处理或传输支付卡信息的实体定义了操作和技术要求，包括商户、处理器、收购方、发行方和服务提供商。",
       header2: "2.	TOMS 符合 PCI DSS",
@@ -673,155 +680,155 @@ module.exports = {
     },
     pcipin: {
       title: "PCI PIN",
-      badge: "FlyKey passed PCI PIN",
-      header1: "1.Introduction of PCI PIN",
-      p1: "PCI PIN standard contains a complete set of requirements for the secure management, processing, and transmission of personal identification number (PIN) data during online and offline payment card transaction processing at ATMs and point-of-sale (POS) terminals.",
-      p2: "PCI PIN requirements are intended for use by all acquiring institutions and agents (e.g., key-injection facilities and certificate processors) responsible for PIN transaction processing on the payment card industry participants’ denominated accounts and should be used in conjunction with other applicable industry standards.The individual payment brands are responsible for defining and managing compliance programs associated with these requirements as below.",
-      header2: "2.Transaction Processing Operations",
+      badge: "FlyKey 已通过PCI PIN认证",
+      header1: "1.PCI PIN简介",
+      p1: "PCI PIN标准包含一套完整的要求，用于在ATM和销售点（POS）终端的在线和离线支付卡交易处理期间安全管理、处理和传输个人识别码（PIN）数据。",
+      p2: "PCI PIN要求旨在供所有负责支付卡行业参与者计价账户的PIN交易处理的收单机构和代理商（例如，密钥灌装设施和证书处理商）使用，并应与其他适用的行业标准结合使用。各个支付品牌负责定义和管理与以下要求相关的合规计划：",
+      header2: "2.事务处理操作",
       list: ` <p class="mb-5" id="control-1">
-      <i class="font-bold">Control Objective 1:</i> PINs used in transactions governed by these requirements are processed using equipment and methodologies that ensure they are kept secure.
+      <i class="font-bold">管控目标 1:</i> 受这些要求约束的交易中使用的 PIN 使用设备和方法进行处理，以确保其安全。
     </p>
     <p class="mb-5">
-      <i class="font-bold">Control Objective 2:</i>Cryptographic keys used for PIN encryption/decryption and related key management are created using processes that ensure that it is not possible to predict any key or determine that certain keys are more probable than other keys.
+      <i class="font-bold">管控目标 2:</i>使用用于PIN加密/解密和相关密钥管理的加密密钥是使用过程创建的，这些过程可确保无法预测任何密钥或确定某些密钥比其他密钥更有可能。
     </p>
     <p class="mb-5" id="control-3">
-      <i class="font-bold">Control Objective 3:</i>Keys are conveyed or transmitted in a secure manner.
+      <i class="font-bold">管控目标 3:</i>密钥以安全的方式传送或传输。
     </p>
     <p class="mb-5">
-      <i class="font-bold">Control Objective 4:</i>Key-loading to HSMs and POI PIN-acceptance devices is handled in a secure manner.
+      <i class="font-bold">管控目标 4:</i>以安全的方式处理对 HSM 和 POI PIN 接受设备的密钥加载。
     </p>
     <p class="mb-5">
-      <i class="font-bold">Control Objective 5:</i>Keys are used in a manner that prevents or detects their unauthorized usage.
+      <i class="font-bold">管控目标 5:</i>密钥的使用方式可以防止或检测未经授权的使用。
     </p>
     <p class="mb-5">
-      <i class="font-bold">Control Objective 6:</i>Keys are administered in a secure manner.
+      <i class="font-bold">管控目标 6:</i> 以安全的方式管理密钥。
     </p>
     <p class="mb-5">
-      <i class="font-bold">Control Objective 7:</i>Equipment used to process PINs and keys is managed in a secure manner.
+      <i class="font-bold">管控目标 7:</i>用于处理 PIN 和密钥的设备以安全的方式进行管理。
     </p>`,
-      header3: "3.Symmetric Key Distribution using Asymmetric Techniques",
-      p3: "A1 – Remote Key Distribution Using Asymmetric Techniques Operations",
-      link1: "(Control Objective 1/2/3/4/5/6)",
-      p4: "A2 – Certification and Registration Authority Operations",
-      link2: "(Control Objective 3/4/5/6/7)",
-      header4: "4.Key-Injection Facilities Security Requirements Technical",
-      link3: "(Control Objective 1/2/3/4/5/6/7)",
+      header3: "3.使用非对称技术的对称密钥分发",
+      p3: "A1 – 使用非对称技术操作的远程密钥分发",
+      link1: "（管控目标 1/2/3/4/5/6）",
+      p4: "A2 – 认证和注册机构操作",
+      link2: "（管控目标 3/4/5/6/7）",
+      header4: "4.密钥灌装设施安全技术要求",
+      link3: "(管控目标 1/2/3/4/5/6/7)",
     },
     p2pe: {
       title: "PCI P2PE",
-      badge: "FlyKey passed PCI P2PE",
-      header1: "Introduction of PCI P2PE",
-      p1: "PCI P2PE standard is to facilitate the development, approval, and deployment of PCI-approved P2PE solutions that will increase the protection of account data by encrypting that data from the point of interaction (POI) within the encryption environment where account data is captured through to the point of decrypting that data inside a decryption environment, effectively removing clear-text account data between these two points.",
+      badge: "FlyKey 已通过PCI P2PE认证",
+      header1: "PCI P2PE简介 ",
+      p1: "PCI P2PE 标准旨在促进 PCI 批准的 P2PE 解决方案的开发、批准和部署，该解决方案将通过加密环境中的交互点 （POI） 对帐户数据进行加密来增强对帐户数据的保护，交互点（POI）将捕获帐户数据，直到解密环境中解密该数据的点，从而有效地避免这两点之间数据传输过程中出现明文帐户数据。",
 
       table: {
-        head1: "Domain",
-        head2: "Overview",
-        head3: "P2PE Validation Requirements",
-        r1c1: "Domain 1: Encryption Device and Application Management",
-        r1c2: "The secure management of the PCI- approved POI devices and the resident software.",
+        head1: "域",
+        head2: "概述",
+        head3: "P2PE 验证要求",
+        r1c1: "域1: 加密设备和应用程序管理",
+        r1c2: "PCI批准的POI设备和常驻软件的安全管理",
         r1c3: `
             <li>
-              <strong>1A</strong> Account data must be encrypted in equipment that is resistant to physical and logical compromise.
+              <strong>1A</strong> 账户数据必须在能够抵御物理和逻辑攻击的设备中加密。
             </li>
             <li>
-              <strong>1B</strong> Logically secure POI devices.
+              <strong>1B</strong> POI设备逻辑上安全。
             </li>
             <li>
-              <strong>1C</strong> Use P2PE applications that protect PAN and SAD.
+              <strong>1C</strong> 使PAN和SAD保护的P2PE应用程序。
             </li>
             <li>
-              <strong>1D</strong> Implement secure application-management processes.
+              <strong>1D</strong> 实现安全的应用程序管理流程。
             </li>
             <li>
-              <strong>1E</strong> Component providers ONLY: report status to solution providers.
+              <strong>1E</strong> 仅限组件提供程序：向解决方案提供者报告状态。
             </li>
           `,
-        r2c1: "Domain 2: Application Security",
-        r2c2: "The secure development of payment applications designed to have access to clear-text account data intended solely for installation on PCI- approved POI devices.",
+        r2c1: "域2: 应用程序安全性",
+        r2c2: "支付应用程序的安全开发，旨在访问仅用于安装在PCI批准的POI设备上的明文帐户数据。",
         r2c3: ` 
         <li>
-          <strong>1A</strong> Protect PAN and SAD.
+          <strong>1A</strong> 保护PAN和SAD。
         </li>
         <li>
-          <strong>2B</strong> Develop and maintain secure applications.
+          <strong>2B</strong> 开发和维护安全的应用程序。
         </li>
         <li>
-          <strong>2C</strong> Implement secure application-management processes.
+          <strong>2C</strong> 实现安全的应用程序管理流程。
         </li>
       `,
-        r3c1: "Domain 3: P2PE Solution Management",
-        r3c2: "Overall management of the P2PE solution by the solution provider, including third-party relationships, incident response, and the P2PE Instruction Manual (PIM)",
+        r3c1: "域3: P2PE解决方案管理",
+        r3c2: "由解决方案提供商对 P2PE 解决方案进行全面管理，包括第三方关系、事件响应和 P2PE 说明手册 （PIM）。",
         r3c3: `
       <li>
-        <strong>3A</strong> P2PE solution management.
+        <strong>3A</strong> P2PE解决方案管理。
       </li>
       <li>
-        <strong>3B</strong> Third-party management.
+        <strong>3B</strong> 第三方管理。
       </li>
       <li>
-        <strong>3C</strong> reation and maintenance of P2PE Instruction Manual for merchants.
+        <strong>3C</strong> 为商家创建和维护P2PE说明书。
       </li>
     `,
-        r4c1: "Domain 4: Decryption Environment",
-        r4c2: "The secure management of the environment that receives encrypted account data and decrypts it",
-        r4c3: ` <li><strong>4A</strong>  Use approved decryption devices.</li>
+        r4c1: "域4: 解密环境",
+        r4c2: "接收加密后的帐户数据并对其进行解密的环境的安全管理。",
+        r4c3: ` <li><strong>4A</strong>  使用已批准的解密设备。</li>
     <li>
-      <strong>4B</strong> Secure the decryption environment.
+      <strong>4B</strong> 保护解密环境。
     </li>
     <li>
-      <strong>4C</strong> Monitor the decryption environment and respond to incidents
+      <strong>4C</strong> 监视解密环境并响应事件。
     </li>
     <li>
-      <strong>4D</strong> Implement secure, hybrid decryption processes.
+      <strong>4D</strong> 实现安全的混合解密流程。
     </li>
     <li>
-      <strong>4E</strong> Component providers ONLY: report status to solution providers.
+      <strong>4E</strong> 仅限组件提供程序：向解决方案提供者报告状态。
     </li>`,
-        r5c1: "Domain 5: P2PE Cryptographic Key Operations and Device Management",
-        r5c2: "Establish and administer key- management operations for account- data encryption POI devices and decryption HSMs.",
+        r5c1: "域5: P2PE 加密密钥操作和设备管理",
+        r5c2: "建立和管理帐户数据加密 POI 设备和解密 HSM 的密钥管理操作。",
         r5c3: `<li>
-    <strong>Control Objective 1</strong> Account data is processed using equipment and Account data is processed using equipment and methodologies that ensure they are kept secure.
+    <strong>管控目标 1</strong> 使用设备和方法处理帐户数据，以确保其安全。
   </li>
   <li>
-    <strong>Control Objective 2</strong> Account data keys and key-management
-    methodologies are created using processes that ensure it is not possible to predict any key or determine that certain keys are more probable than other keys.
+    <strong>管控目标 2</strong> 帐户数据密钥和密钥管理方法是使用过程创建的，这些过程可确保无法预测任何密钥或确定某些密钥比其他密钥更有可能。
   </li>
   <li>
-    <strong>Control Objective 3</strong>
-    Keys are conveyed or transmitted in a secure
-    manner.
+    <strong>管控目标 3</strong>
+    密钥以安全的方式传送或传输。
   </li>
   <li>
-    <strong>Control Objective 4</strong>
-    Key loading is handled in a secure manner.
+    <strong>管控目标 4</strong>
+    密钥加载以安全的方式处理。
   </li>
   <li>
-    <strong>Control Objective 5</strong>
-    Keys are used in a manner that prevents or
-    detects their unauthorized usage.
+    <strong>管控目标 5</strong>
+    密钥的使用方式可以防止或检测其未经授权的使用。
   </li>
   <li>
-    <strong>Control Objective 6</strong>
-    Keys are administered in a secure manner.
+    <strong>管控目标 6</strong>
+    密钥以安全的方式进行管理。
   </li>
   <li>
-    <strong>Control Objective 7</strong>
-    Equipment used to process account data and keys
-    is managed in a secure manner
+    <strong>管控目标 7</strong>
+    用于处理帐户数据和密钥的设备以安全的方式进行管理。
   </li>
   <li>
     <strong>5A</strong>
-    Account data is processed using algorithms and methodologies that ensure they are kept secure.
+    帐户数据使用算法和方法进行处理，以确保其安全。
   </li>
   <li>
     <strong>5H</strong>
-    For hybrid decryption solutions: Implement secure hybrid-key management.
+    对于混合解密解决方案：实现安全的混合密钥管理。
   </li>
   <li>
     <strong>5I</strong>
-    Component providers ONLY: report status to solution providers.
+    仅限组件提供程序：向解决方案提供者报告状态。
   </li>`,
       },
     },
   },
+  footer: {
+    pci_title:'TOMS已通过PCI DSS认证',
+    pci_sub_title: 'TOMS已通过PCI DSS的相关认证'      
+  }
 };

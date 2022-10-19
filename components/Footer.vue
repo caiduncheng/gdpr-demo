@@ -48,13 +48,14 @@
           <div class="footer-info pci">
             <div class="flex items-center mb-5 justify-center lg:justify-start">
               <div class="divider"></div>
-              <h4>TOMS IS NOW PCI DSS CERTIFIED</h4>
+              <h4>{{$t('footer.pci_title')}}</h4>
+              <!-- <h4>TOMS IS NOW PCI DSS CERTIFIED</h4> -->
             </div>
             <nuxt-link  :to="{
                   name: 'lang-pci-pci',
                   params: { lang: $store.state.locale },
                 }" >
-              <img src="~assets/PCI/4.png" alt class="mb-2 mr-10" />
+              <img src="~assets/PCI/4.png" alt class="mb-2 mr-3 xl:mr-10" />
             </nuxt-link>
             <div class="divider-pci">
             </div>
@@ -64,7 +65,8 @@
                 }">
               <img src="~assets/PCI/10.png" alt class="mb-2" />
             </nuxt-link>
-            <p>TOMS passed the relevant certification of PCI DSS.</p>
+            <p>{{$t(('footer.pci_sub_title'))}}</p>
+            <!-- <p>TOMS passed the relevant certification of PCI DSS.</p> -->
           </div>
         </div>  
       </div>
@@ -209,7 +211,7 @@ export default {
   }
   .fix-width {
     display: none;
-    @screen md {
+    @screen lg {
       display: inline-block;
       width: 4.2em;
     }

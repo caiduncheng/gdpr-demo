@@ -679,6 +679,15 @@ module.exports = {
       "In order for the application to quickly access the terminal , we provide detailed SDK API documents to facilitate developers to easily connect to the terminal system ; in order to ensure the legality and security of the application , we provide application content detection and application signature to ensure Apps can be distributed normally in various countries around the world.",
   },
   pci: {
+    layout: {
+      related_articles: "Related Articles",
+      pci: "The PCI Security Standards Council (PCI SSC) is a global forum that...",
+      pci_dss:
+        "PCI DSS contains 12 requirements, which are divided into 6 categories...",
+      pci_p2pe: "PCI P2PE standard is to facilitate the development...",
+      pci_pin:
+        "PCI PIN standard contains a complete set of requirement for the secure...",
+    },
     pci: {
       title: "PCI",
       head1: "1.Introduction of PCI",
@@ -780,7 +789,7 @@ module.exports = {
         </li>
       `,
         r3c1: "Domain 3: P2PE Solution Management",
-        r3c2: "Overall management of the P2PE solution by the solution provider, including third-party relationships, incident response, and the P2PE Instruction Manual (PIM)",
+        r3c2: "Overall management of the P2PE solution by the solution provider, including third-party relationships, incident response, and the P2PE Instruction Manual (PIM).",
         r3c3: `
       <li>
         <strong>3A</strong> P2PE solution management.
@@ -793,13 +802,13 @@ module.exports = {
       </li>
     `,
         r4c1: "Domain 4: Decryption Environment",
-        r4c2: "The secure management of the environment that receives encrypted account data and decrypts it",
+        r4c2: "The secure management of the environment that receives encrypted account data and decrypts it.",
         r4c3: ` <li><strong>4A</strong>  Use approved decryption devices.</li>
     <li>
       <strong>4B</strong> Secure the decryption environment.
     </li>
     <li>
-      <strong>4C</strong> Monitor the decryption environment and respond to incidents
+      <strong>4C</strong> Monitor the decryption environment and respond to incidents.
     </li>
     <li>
       <strong>4D</strong> Implement secure, hybrid decryption processes.
@@ -837,7 +846,7 @@ module.exports = {
   <li>
     <strong>Control Objective 7</strong>
     Equipment used to process account data and keys
-    is managed in a secure manner
+    is managed in a secure manner.
   </li>
   <li>
     <strong>5A</strong>
@@ -853,5 +862,9 @@ module.exports = {
   </li>`,
       },
     },
+  },
+  footer: {
+    pci_title: "TOMS IS NOW PCI DSS CERTIFIED",
+    pci_sub_title: "TOMS passed the relevant certification of PCI DSS.",
   },
 };
