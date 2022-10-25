@@ -220,6 +220,7 @@ module.exports = {
     sign_up: "请注册",
     under_verification: "你的账号正在审核中",
     title_reset_password: "重置密码",
+    title_activate_account: "激活账号",
     mailbox_reset: "重置邮箱",
     email: "邮箱",
     email_to_reset_password_tip:

@@ -247,6 +247,7 @@ module.exports = {
     sign_up: "Sign up",
     under_verification: "Your account is under verification",
     title_reset_password: "Reset Password",
+    title_activate_account: "Activate Account",
     mailbox_reset: "Email Reset",
     email: "Email",
     email_to_reset_password_tip:
