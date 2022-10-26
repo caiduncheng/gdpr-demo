@@ -247,7 +247,7 @@ module.exports = {
     address: "公司地址",
     address_placeholder: "请输入公司地址",
     name: "名称",
-    company_name: "运营商名称",
+    company_name: "公司名称",
     name_placeholder: "请输入名称",
     contacts: "联系人",
     contacts_placeholder: "请输入联系人名称",
@@ -285,7 +285,8 @@ module.exports = {
     select_role: "请选择你的身份",
     developer: "开发者",
     operator: "运营商",
-    operator_info: " 通过 TOMS 轻松管理你的终端和应用 (注册前请先联系 NPT 团队)",
+    operator_info:
+      " 通过 TOMS 轻松管理你的终端和应用 (注册前请先联系 NPT 团队)",
     developer_info: "在我们应用商店发布和管理你的应用",
     developer_type: "开发者类型",
     personal: "个人",
@@ -299,7 +300,7 @@ module.exports = {
     passport: "护照",
     certificate_num: "证件号",
     address1: "地址",
-    edit_info: "更改信息"
+    edit_info: "更改信息",
   },
   logout: {
     logout_tip: "您确定要退出登录吗？",
@@ -655,8 +656,9 @@ module.exports = {
       related_articles: "相关文章",
       pci: "PCI安全标准委员会(PCI SSC)是一个全球论坛...",
       pci_dss: "PCI DSS 包含 12 项要求，涵盖 6 个类别...",
-      pci_p2pe: "PCI P2PE 标准旨在促进 PCI 批准的 P2PE 解决方案的开发、批准和部署...",
-      pci_pin: 'PCI PIN标准包含一套完整的要求...'
+      pci_p2pe:
+        "PCI P2PE 标准旨在促进 PCI 批准的 P2PE 解决方案的开发、批准和部署...",
+      pci_pin: "PCI PIN标准包含一套完整的要求...",
     },
     pci: {
       title: "PCI",
@@ -829,7 +831,7 @@ module.exports = {
     },
   },
   footer: {
-    pci_title:'TOMS已通过PCI DSS认证',
-    pci_sub_title: 'TOMS已通过PCI DSS的相关认证'      
-  }
+    pci_title: "TOMS已通过PCI DSS认证",
+    pci_sub_title: "TOMS已通过PCI DSS的相关认证",
+  },
 };
