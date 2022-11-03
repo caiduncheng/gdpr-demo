@@ -5,7 +5,9 @@
         <el-card>
           <div v-if="!success">
             <h2 class="text-2xl text-center">{{ $t('login.title_activate_account') }}</h2>
-            <h3 class=" text-secondary text-sm text-center">{{email}}</h3>
+            <h3 class="text-secondary text-sm text-center mt-3">
+              {{ $t("login.account_email") }}:{{ getAccount }}
+            </h3>
             <el-form :model="form" :rules="loginRules" ref="form" class="p-5">
               <el-form-item :label="$t('login.new_password')" prop="password">
                 <el-input v-model="form.password" type="password"></el-input>
@@ -52,6 +54,7 @@ const MAP_PASSWORD_STRENGTH = {
 let username = "";
 let email = "";
 let token = "";
+let result = null;
 
 export default {
   layout: "login",
@@ -60,7 +63,7 @@ export default {
     email = getQueryParam("email");
     token = getQueryParam("token");
     try {
-      await store.dispatch("verifyResetToken", {
+      result =  await store.dispatch("verifyResetToken", {
         username,
         email,
         token,
@@ -70,6 +73,14 @@ export default {
     }
 
     return true;
+  },
+  computed: {
+    getAccount() {
+      console.log(result);
+      if (result && result.account) {
+        return result.account;
+      }
+    },
   },
   data() {
     const validPassword = function (rule, password, cb) {
@@ -126,6 +137,7 @@ export default {
       showPasswordStrength: false,
       passwordStrength: 0,
       username: "",
+      account: '',
       email: getQueryParam("email"),
       token: "",
       form: {
