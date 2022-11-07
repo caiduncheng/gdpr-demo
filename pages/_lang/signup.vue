@@ -72,10 +72,10 @@
                           <el-input disabled v-model="operatorForm.email"></el-input>
                         </el-form-item>
                         <el-form-item required prop="name" :label="$t('login.company_name')">
-                          <el-input v-model.trim="operatorForm.name" :maxlength="128"></el-input>
+                          <el-input v-model="operatorForm.name" @blur="() => operatorForm.name = operatorForm.name.trim()" :maxlength="128"></el-input>
                         </el-form-item>
                         <el-form-item required :label="$t('login.contacts')" prop="contactName">
-                          <el-input :maxlength="32" v-model.trim="operatorForm.contactName"></el-input>
+                          <el-input :maxlength="32" v-model="operatorForm.contactName" @blur="() => operatorForm.contactName = operatorForm.contactName.trim()"></el-input>
                         </el-form-item>
                         <el-form-item :label="$t('login.phone_number')" prop="mobile" required>
                           <el-input v-model.trim="operatorForm.mobile" :maxlength="16"></el-input>
@@ -96,7 +96,8 @@
                           </el-select>
                         </el-form-item>
                         <el-form-item :label="$t('login.address')">
-                          <el-input v-model="operatorForm.address" :maxlength="128"></el-input>
+                          <el-input v-model="operatorForm.address" :maxlength="128"  type="textarea"
+  :rows="2"></el-input>
                         </el-form-item>
                         <hr class="my-6" />
                       </div>
@@ -220,33 +221,18 @@
                       </el-select>
                     </el-form-item>
 
-                    <el-form-item
-                      v-if="developerForm.developerType == 1"
-                      required
-                      :label="$t('login.first_name')"
-                      prop="firstName"
-                      key="firstName"
-                    >
-                      <el-input :maxlength="128" v-model.trim="developerForm.firstName"></el-input>
+                    <el-form-item v-if="developerForm.developerType == 1" required :label="$t('login.first_name')"
+                      prop="firstName" key="firstName">
+                      <el-input :maxlength="128" v-model="developerForm.firstName" @blur="() => developerForm.firstName = developerForm.firstName.trim()"></el-input>
                     </el-form-item>
-                    <el-form-item
-                      v-if="developerForm.developerType == 1"
-                      required
-                      :label="$t('login.last_name')"
-                      prop="lastName"
-                      key="lastName"
-                    >
-                      <el-input :maxlength="128" v-model.trim="developerForm.lastName"></el-input>
+                    <el-form-item v-if="developerForm.developerType == 1" required :label="$t('login.last_name')"
+                      prop="lastName" key="lastName">
+                      <el-input :maxlength="128" v-model="developerForm.lastName" @blur="() => developerForm.lastName = developerForm.lastName.trim()"></el-input>
                     </el-form-item>
 
-                    <el-form-item
-                      v-if="developerForm.developerType == 2"
-                      required
-                      :label="$t('login.company_name1')"
-                      prop="firstName"
-                      key="firstName"
-                    >
-                      <el-input :maxlength="128" v-model.trim="developerForm.firstName"></el-input>
+                    <el-form-item v-if="developerForm.developerType == 2" required :label="$t('login.company_name1')"
+                      prop="firstName" key="firstName">
+                      <el-input :maxlength="128" v-model="developerForm.firstName" @blur="() => developerForm.firstName = developerForm.firstName.trim()"></el-input>
                     </el-form-item>
 
                     <el-form-item
@@ -261,14 +247,9 @@
                     <el-form-item :label="$t('login.certificate_num')">
                       <el-input v-model="developerForm.pid"></el-input>
                     </el-form-item>
-                    <el-form-item
-                      v-if="developerForm.developerType == 2"
-                      required
-                      :label="$t('login.contacts')"
-                      prop="contactName"
-                      key="contactName"
-                    >
-                      <el-input :maxlength="32" v-model.trim="developerForm.contactName"></el-input>
+                    <el-form-item v-if="developerForm.developerType == 2" required :label="$t('login.contacts')"
+                      prop="contactName" key="contactName">
+                      <el-input :maxlength="32" v-model="developerForm.contactName" @blur="() => developerForm.contactName = developerForm.contactName.trim()"></el-input>
                     </el-form-item>
                     <el-form-item :label="$t('login.phone_number')" prop="mobile" key="mobile">
                       <el-input v-model.trim="developerForm.mobile" :maxlength="16"></el-input>
@@ -294,7 +275,8 @@
                       </el-select>
                     </el-form-item>
                     <el-form-item :label="$t('login.address1')">
-                      <el-input v-model="developerForm.address" :maxlength="128"></el-input>
+                      <el-input v-model="developerForm.address" :maxlength="128"  type="textarea"
+  :rows="2"></el-input>
                     </el-form-item>
                     <div class="flex-1">
                       <hr class="my-6" />
