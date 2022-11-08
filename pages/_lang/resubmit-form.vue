@@ -26,10 +26,10 @@
                           <el-input disabled v-model="form.email"></el-input>
                         </el-form-item>
                         <el-form-item required prop="name" :label="$t('login.name')">
-                          <el-input v-model.trim="form.name" :maxlength="128"></el-input>
+                          <el-input v-model="form.name" @blur="() => form.name = form.name.trim()" :maxlength="128"></el-input>
                         </el-form-item>
                         <el-form-item required :label="$t('login.contacts')" prop="contactName">
-                          <el-input :maxlength="32" v-model.trim="form.contactName"></el-input>
+                          <el-input :maxlength="32" v-model="form.contactName" @blur="() => form.contactName = form.contactName.trim()"></el-input>
                         </el-form-item>
                         <el-form-item :label="$t('login.phone_number')" prop="mobile">
                           <el-input v-model.trim="form.mobile" :maxlength="16"></el-input>
@@ -50,7 +50,8 @@
                           </el-select>
                         </el-form-item>
                         <el-form-item :label="$t('login.address')">
-                          <el-input v-model="form.address" :maxlength="128"></el-input>
+                          <el-input v-model="form.address" :maxlength="128" type="textarea"
+  :rows="2"></el-input>
                         </el-form-item>
                         <hr class="my-6" />
                       </div>
