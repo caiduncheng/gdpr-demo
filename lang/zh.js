@@ -208,6 +208,7 @@ module.exports = {
     sign_in: "登录",
     click_here_signin: "点击此处登录",
     sign_in_tip: "登录并操作您的终端。",
+    account: "账号",
     account_email: "账号(邮箱)",
     account_email_placeholder: "输入您的邮箱",
     password: "密码",

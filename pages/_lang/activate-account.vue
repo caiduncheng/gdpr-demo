@@ -6,7 +6,7 @@
           <div v-if="!success">
             <h2 class="text-2xl text-center">{{ $t('login.title_activate_account') }}</h2>
             <h3 class="text-secondary text-sm text-center mt-3">
-              {{ $t("login.account_email") }}:{{ getAccount }}
+              {{ $t("login.account") }}:{{ getAccount }}
             </h3>
             <el-form :model="form" :rules="loginRules" ref="form" class="p-5">
               <el-form-item :label="$t('login.new_password')" prop="password">
