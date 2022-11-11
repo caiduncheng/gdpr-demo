@@ -380,6 +380,7 @@ module.exports = {
     services_list_item3: "Global support service",
   },
   country_or_region: {
+    '000': "Globe",
     AND: "Andorra",
     ARE: "United Arab Emirates",
     AFG: "Afghanistan",

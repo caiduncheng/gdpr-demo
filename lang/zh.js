@@ -354,6 +354,7 @@ module.exports = {
     services_list_item3: "全球支持服务",
   },
   country_or_region: {
+    '000': '全球',
     AND: "安道尔",
     ARE: "阿联酋",
     AFG: "阿富汗",

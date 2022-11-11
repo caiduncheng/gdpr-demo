@@ -108,7 +108,9 @@
                   </el-form-item>
                   <el-form-item>
                     <div class="text-center">
-                      <el-button type="primary" native-type="submit">{{$t('contact.btn_send_msg')}}</el-button>
+                      <el-button
+                      :loading="loading"
+                      type="primary" native-type="submit">{{$t('contact.btn_send_msg')}}</el-button>
                       <div class="el-form-item__error text-center">{{errorMsg}}</div>
                     </div>
                   </el-form-item>
@@ -206,6 +208,11 @@ export default {
           },
         ],
         content: [
+        {
+            required: true,
+            trigger: "change",
+            message: this.$t("contact.message.content_not_null_tip"),
+          },
           {
             validator: validateBlank,
           },
@@ -261,6 +268,7 @@ export default {
         type: "",
         content: "",
       },
+      loading: false,
       success: false,
       errorMsg: "",
     };
