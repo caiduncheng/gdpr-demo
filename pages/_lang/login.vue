@@ -70,14 +70,14 @@
 
                     <div class="text-center mt-6 " v-if="VUE_APP_NEWLAND_INFO == '1'">
                       <el-tooltip effect="dark" content="FlyKey" placement="bottom">
-                        <div class="website-icon mr-10 h-10">
+                        <div class="website-icon mr-10">
                           <a href="https://flykey.newlandpayment.com">
                             <img src="~/assets/sign-in/flykey.png" alt />
                           </a>
                         </div>
                       </el-tooltip>
                       <el-tooltip effect="dark" content="NPSC" placement="bottom">
-                        <div class="website-icon h-10">
+                        <div class="website-icon">
                           <a href="https://npsc.newlandpayment.com/npsc">
                             <img src="~assets/sign-in/npsc.png" alt />
                           </a>
