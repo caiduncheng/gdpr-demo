@@ -95,7 +95,7 @@ module.exports = {
         title: "Device Monitoring",
         feature1: "Rich Chart",
         detail1:
-          "Graphical display of storage, network traffic, module health etc., intuitive and generous.",
+          "Graphical display of storage, network traffic, module health etc, intuitive and generous.",
         feature2: "Geo Location",
         detail2: "View the exact location of your devices.",
         feature3: "History",
@@ -230,6 +230,7 @@ module.exports = {
       "Sign in to your account using email and password provided during registration",
       click_here_signin: "Click here to sign in",
     account_email: "Account(Email)",
+    account: "Account",
     account_email_placeholder: "Enter your email",
     password: "Password",
     password_placeholder: "Enter your password",
@@ -279,7 +280,7 @@ module.exports = {
     name_placeholder: "Please enter name",
     contacts: "Contacts",
     contacts_placeholder: "Please enter contact name",
-    phone_number: "Phone number",
+    phone_number: "Phone Number",
     phone_number_placeholder: "Please enter phone number",
     country_region: "Country / Region",
     csr: "CSR",
@@ -379,6 +380,7 @@ module.exports = {
     services_list_item3: "Global support service",
   },
   country_or_region: {
+    '000': "Globe",
     AND: "Andorra",
     ARE: "United Arab Emirates",
     AFG: "Afghanistan",

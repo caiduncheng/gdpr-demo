@@ -141,7 +141,7 @@ export default {
     const validateUsername = (rule, value, callback) => {
       if (!value) {
         callback(new Error(this.$t("login.validate_username_required_tip")));
-      } else if (value.length < 5) {
+      } else if (value.length < 1) {
         callback(new Error(this.$t("login.validate_username_less5_tip")));
       } else {
         callback();

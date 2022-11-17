@@ -40,7 +40,7 @@
                       prop="firstName"
                       key="firstName"
                     >
-                      <el-input :maxlength="128" v-model.trim="form.firstName"></el-input>
+                      <el-input :maxlength="128" v-model="form.firstName" @blur="() => form.firstName = form.firstName.trim()"></el-input>
                     </el-form-item>
                     <el-form-item
                       v-if="form.developerType == 1"
@@ -49,7 +49,7 @@
                       prop="lastName"
                       key="lastName"
                     >
-                      <el-input :maxlength="128" v-model.trim="form.lastName"></el-input>
+                      <el-input :maxlength="128" v-model="form.lastName" @blur="() => form.lastName = form.lastName.trim()"></el-input>
                     </el-form-item>
 
                     <el-form-item
@@ -59,7 +59,7 @@
                       prop="firstName"
                       key="firstName"
                     >
-                      <el-input :maxlength="128" v-model.trim="form.firstName"></el-input>
+                      <el-input :maxlength="128" v-model="form.firstName" @blur="() => form.firstName = form.firstName.trim()"></el-input>
                     </el-form-item>
 
                     <el-form-item
@@ -81,7 +81,7 @@
                       prop="contactName"
                       key="contactName"
                     >
-                      <el-input :maxlength="32" v-model.trim="form.contactName"></el-input>
+                      <el-input :maxlength="32" v-model="form.contactName" @blur="() => form.contactName = form.contactName.trim()"></el-input>
                     </el-form-item>
                     <el-form-item :label="$t('login.phone_number')" prop="mobile" key="mobile">
                       <el-input v-model.trim="form.mobile" :maxlength="16"></el-input>
@@ -107,7 +107,8 @@
                       </el-select>
                     </el-form-item>
                     <el-form-item :label="$t('login.address1')">
-                      <el-input v-model="form.address" :maxlength="128"></el-input>
+                      <el-input v-model="form.address" :maxlength="128" type="textarea"
+  :rows="2" ></el-input>
                     </el-form-item>
                     <el-form-item required prop="checked" key="checked">
                       <el-checkbox v-model="form.checked">
