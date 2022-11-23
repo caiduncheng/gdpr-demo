@@ -6,12 +6,13 @@ let operatorAddress = "";
 let developerAddress = "";
 let manufacturerAddress = "";
 let adminAddress = "";
+let flycareAddress = "";
 let domain = "";
 let mail = "";
 let captcha = "";
 let newlandInfo = "";
 let pubKey = "";
-let signUp = ""
+let signUp = "";
 
 console.log(process.env.BASE);
 
@@ -22,6 +23,7 @@ switch (process.env.BASE) {
     developerAddress = process.env.DEV_DEVELOPER_ADDRESS;
     manufacturerAddress = process.env.DEV_MANUFACTURER_ADDRESS;
     adminAddress = process.env.DEV_ADMIN_ADDRESS;
+    flycareAddress = process.env.DEV_FLYCARE_ADDRESS;
     domain = process.env.DEV_APP_DOMAIN;
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
@@ -35,6 +37,7 @@ switch (process.env.BASE) {
     developerAddress = process.env.TEST_DEVELOPER_ADDRESS;
     manufacturerAddress = process.env.TEST_MANUFACTURER_ADDRESS;
     adminAddress = process.env.TEST_ADMIN_ADDRESS;
+    flycareAddress = process.env.TEST_FLYCARE_ADDRESS;
     domain = process.env.TEST_APP_DOMAIN;
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
@@ -46,6 +49,7 @@ switch (process.env.BASE) {
     baseUrl = process.env.INTE_BASE_URL;
     operatorAddress = process.env.INTE_OPERATOR_ADDRESS;
     developerAddress = process.env.INTE_DEVELOPER_ADDRESS;
+    flycareAddress = process.env.INTE_FLYCARE_ADDRESS;
     manufacturerAddress = process.env.INTE_MANUFACTURER_ADDRESS;
     adminAddress = process.env.INTE_ADMIN_ADDRESS;
     domain = process.env.INTE_APP_DOMAIN;
@@ -61,6 +65,7 @@ switch (process.env.BASE) {
     developerAddress = process.env.PROD_DEVELOPER_ADDRESS;
     manufacturerAddress = process.env.PROD_MANUFACTURER_ADDRESS;
     adminAddress = process.env.PROD_ADMIN_ADDRESS;
+    flycareAddress = process.env.PROD_FLYCARE_ADDRESS;
     domain = process.env.PROD_APP_DOMAIN;
     mail = process.env.EMAIL;
     captcha = process.env.CAPTCHA;
@@ -98,6 +103,7 @@ switch (process.env.BASE) {
     baseUrl = process.env.BASE_URL;
     operatorAddress = process.env.OPERATOR_ADDRESS;
     developerAddress = process.env.DEVELOPER_ADDRESS;
+    flycareAddress = process.env.FLYCARE_ADDRESS;
     manufacturerAddress = process.env.MANUFACTURER_ADDRESS;
     adminAddress = process.env.ADMIN_ADDRESS;
     domain = process.env.APP_DOMAIN;
@@ -205,12 +211,13 @@ export default {
     VUE_APP_OPERATOR_ADDRESS: operatorAddress,
     VUE_APP_DEVELOPER_ADDRESS: developerAddress,
     VUE_APP_MANUFACTURER_ADDRESS: manufacturerAddress,
+    VUE_APP_FLYKEY_ADDRESS: flycareAddress,
     VUE_APP_ADMIN_ADDRESS: adminAddress,
     VUE_APP_DOMAIN: domain,
     VUE_APP_EMAIL: mail,
     VUE_APP_CAPTCHA: captcha,
     VUE_APP_NEWLAND_INFO: newlandInfo,
     VUE_APP_PUBKEY: pubKey,
-    VUE_APP_SIGN_UP: signUp
+    VUE_APP_SIGN_UP: signUp,
   },
 };
