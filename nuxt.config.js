@@ -172,6 +172,7 @@ export default {
     prefetchPayloads: false,
   },
   generate: {
+    dir: `portal-${process.env.BASE}`,
     routes: ["/", "zh-CN"],
   },
   modules: ["@nuxtjs/axios", "vue-scrollto/nuxt", "@nuxtjs/dotenv"],

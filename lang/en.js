@@ -69,7 +69,7 @@ module.exports = {
         feature2: "Group",
         detail2:
           "Devices can be binded to different groups, it's flexible to implement batch operations.",
-        feature3: "Renewal Schedule",
+        feature3: "Scheduled Update",
         detail3:
           "By setting a specific period of update, avoid interrupting the normal operation of merchants.",
         feature4: "Single Device Management",
@@ -127,7 +127,7 @@ module.exports = {
       },
     },
     vas: {
-      title: "Adavance Services",
+      title: "Advanced Services",
       flykey: {
         title: "FlyKey",
         detail:
@@ -351,7 +351,7 @@ module.exports = {
     feature1_list_item4: "POS remote inject key",
     feature2_title: "Solve pain points in all aspects",
     feature2_content:
-      "FlyKey not only complies with the specification standards throughout the process, but also provides stable services and rich scalability. Compared to traditional key injection methods, FlyKey makes everything easier and more cost-effective.",
+      "FlyKey not only complies with the specification standards throughout the process, but also provides stable eservices and rich scalability. Compared to traditional key injection methods, FlyKey makes everything easier and more cost-effective.",
     feature2_list_item1: "Pass PCI PIN 3.1 and P2PE certifications",
     feature2_list_item2: "Remote key injection",
     feature2_list_item3: "Reduce labor costs",
