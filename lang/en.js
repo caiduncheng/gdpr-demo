@@ -69,7 +69,7 @@ module.exports = {
         feature2: "Group",
         detail2:
           "Devices can be binded to different groups, it's flexible to implement batch operations.",
-        feature3: "Renewal Schedule",
+        feature3: "Scheduled Update",
         detail3:
           "By setting a specific period of update, avoid interrupting the normal operation of merchants.",
         feature4: "Single Device Management",
