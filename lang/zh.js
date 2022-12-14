@@ -210,7 +210,7 @@ module.exports = {
     sign_in_tip: "登录并操作您的终端。",
     account: "账号",
     account_email: "账号(邮箱)",
-    account_email_placeholder: "输入您的邮箱",
+    account_email_placeholder: "输入您的账号",
     password: "密码",
     password_placeholder: "输入您的密码",
     forgot_password: "忘记密码？",
