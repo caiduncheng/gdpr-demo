@@ -117,6 +117,24 @@ switch (process.env.BASE) {
 
 console.log(baseUrl);
 
+const meta = [
+  { charset: "utt-8" },
+  { name: "viewport", content: "width=device-width,initial-scale=1" },
+  {
+    hid: "description",
+    name: "description",
+    content: process.env.npm_package_description || "",
+  }
+];
+
+if (process.env.BASE) {
+  meta.push({
+    "http-equiv": "Content-Security-Policy",
+    content:
+      "default-src 'unsafe-inline' https: data: filesystem: 'unsafe-eval'",
+  });
+}
+
 export default {
   // server: {
   //   host: "0.0.0.0", // default: localhost
@@ -132,26 +150,13 @@ export default {
   },
   head: {
     title: process.env.npm_package_name || "",
-    meta: [
-      { charset: "utt-8" },
-      { name: "viewport", content: "width=device-width,initial-scale=1" },
-      {
-        hid: "description",
-        name: "description",
-        content: process.env.npm_package_description || "",
-      },
-    ],
-    link: [
-      {
-        rel: "stylesheet",
-        href: "//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
-      },
-    ],
+    meta
   },
   css: [
     { src: "element-ui/lib/theme-chalk/index.css" },
     "~assets/css/tailwind.css",
     "~assets/css/index.scss",
+    { src: "~assets/css/fontawesome.css" },
   ],
   buildModules: ["@nuxtjs/tailwindcss"],
   plugins: [
@@ -172,7 +177,7 @@ export default {
     prefetchPayloads: false,
   },
   generate: {
-    dir: `portal-${process.env.BASE}`,
+    dir: `portal-${process.env.BASE}/dist`,
     routes: ["/", "zh-CN"],
   },
   modules: ["@nuxtjs/axios", "vue-scrollto/nuxt", "@nuxtjs/dotenv"],
