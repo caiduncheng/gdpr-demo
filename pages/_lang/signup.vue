@@ -69,7 +69,7 @@
                         <el-form-item required :label="$t('login.contacts')" prop="contactName">
                           <el-input :maxlength="32" v-model.trim="operatorForm.contactName"></el-input>
                         </el-form-item>
-                        <el-form-item :label="$t('login.phone_number')" prop="mobile" required>
+                        <el-form-item :label="$t('login.phone_number')" prop="mobile">
                           <el-input v-model.trim="operatorForm.mobile" :maxlength="16"></el-input>
                         </el-form-item>
                         <el-form-item required prop="countryCode" class="country-code">
