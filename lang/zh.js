@@ -623,7 +623,7 @@ module.exports = {
     sections: {
       app_store: {
         title: "应用商店",
-        desc: "TOMS AppStore面向分布于全球各个国家的新大陆设备，全球的设备用户都可以使用TOMS AppStore下载各类应用以满足日常业务需求",
+        desc: "TOMS App Store面向分布于全球各个国家的新大陆设备，全球的设备用户都可以使用TOMS App Store下载各类应用以满足日常业务需求",
       },
       operation_process: {
         header: "运作流程",

@@ -648,7 +648,7 @@ module.exports = {
     sections: {
       app_store: {
         title: "App Store",
-        desc: "TOMS Appstore is aimed at Newland devices distributed in various countries around the world . Device users around the world can use TOMS App Store to download various applications to meet their daily business needs.",
+        desc: "TOMS App Store is aimed at Newland devices distributed in various countries around the world . Device users around the world can use TOMS App Store to download various applications to meet their daily business needs.",
       },
       operation_process: {
         header: "Operation Process",
