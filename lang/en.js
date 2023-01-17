@@ -265,6 +265,7 @@ module.exports = {
     validate_username_required_tip: "The account cannot be empty.",
     validate_password_required: "Password is required",
     validate_code_required: "Code is required",
+    validate_phone_tip: "Phone number must be under 16 chars",
     validate_password_tip: "Password must be between 8 and 18 characters",
     validate_password6_tip: "Password must be between 6 and 18 characters",
     validate_password_strength:

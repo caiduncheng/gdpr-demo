@@ -192,8 +192,15 @@ export default {
       changeOrigin: true,
       secure: false,
     },
+    "/api/online/developer-admin": {
+      target: "https://toms.opennl-dev.com",
+      pathRewrite: { "/api/online/developer-admin": "online/developer-admin" },
+      changeOrigin: true,
+      secure: false,
+    },
     "/api/online/developer": {
-      target: "http://192.168.35.83:9102",
+      // target: "http://192.168.35.83:9102",
+      target: "https://toms.opennl-dev.com",
       pathRewrite: {
         "/api/online/developer": "/online/developer",
       },

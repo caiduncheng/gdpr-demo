@@ -239,6 +239,7 @@ module.exports = {
     validate_username_required_tip: "账号不能为空",
     validate_password_required: "密码不能为空",
     validate_code_required: "验证码不能为空",
+    validate_phone_tip: "号码的长度必须低于16位",
     validate_password_tip: "密码的长度必须在8-18位",
     validate_password6_tip: "密码的长度必须在6-18位",
     validate_password_strength: "密码必须是包含字母、数字、符号的组合",

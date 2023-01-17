@@ -271,7 +271,9 @@ export default {
         ],
         mobile: [
           {
-            validator: checkPhoneNum.bind(this),
+            max: 16,
+            message: this.$t("login.validate_phone_tip"),
+            trigger: "blur",
           },
         ],
       },

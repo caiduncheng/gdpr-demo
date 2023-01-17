@@ -30,7 +30,7 @@ export const api = {
   },
   async registerDeveloper(store, data) {
     return await this.$axios({
-      url: `/online/authorization/register/developer`,
+      url: `online/developer-admin/developer/register`,
       method: "POST",
       data,
     });
@@ -94,7 +94,7 @@ export const api = {
       headers: {
         "WEB-TOKEN": data.registerToken,
       },
-      url: "/online/authorization/developer/self/edit ",
+      url: `online/developer-admin/developer/${data.developerId}/self/edit`,
       method: "POST",
       data,
     });

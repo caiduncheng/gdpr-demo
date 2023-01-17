@@ -24,7 +24,6 @@
                       key="developerType"
                     >
                       <el-select
-                        disabled
                         v-model="form.developerType"
                         @change="clearDeveloperValidate"
                       >
@@ -316,7 +315,9 @@ export default {
         ],
         mobile: [
           {
-            validator: checkPhoneNum.bind(this),
+            max: 16,
+            message: this.$t("login.validate_phone_tip"),
+            trigger: "blur",
           },
         ],
         checked: [
@@ -338,7 +339,11 @@ export default {
       this.form.file = file;
     },
     clearDeveloperValidate() {
-      this.$refs["developerForm"].clearValidate();
+      this.$refs["form"].clearValidate();
+      this.form.pidType = 1
+      this.form.contactName = ""
+      this.form.lastName = ""
+      this.form.firstName = ""
     },
 
     handleRemove() {
@@ -354,6 +359,7 @@ export default {
         if (valid) {
           this.buttonLoading = true;
           const formData = {};
+          formData.developerId = this.form.developerId
           formData.username = this.form.email;
           formData.developerType = this.form.developerType;
           formData.firstName = this.form.firstName;
@@ -364,7 +370,6 @@ export default {
             formData.contactName =
               this.form.firstName + " " + this.form.lastName;
           }
-
           formData.mobile = this.form.mobile;
           formData.email = this.form.email;
           formData.countryCode = this.form.countryCode;
