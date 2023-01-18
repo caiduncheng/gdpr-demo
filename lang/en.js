@@ -230,7 +230,7 @@ module.exports = {
       "Sign in to your account using email and password provided during registration",
       click_here_signin: "Click here to sign in",
     account_email: "Account(Email)",
-    account_email_placeholder: "Enter your account",
+    account_email_placeholder: "Account",
     password: "Password",
     password_placeholder: "Enter your password",
     forgot_password: "Forgot password?",
