@@ -339,10 +339,9 @@ export default {
           const tokenKey = "TOMS_TOKEN";
           // const tokenKey =
           //   characterCode === "OPERATOR" ? "TOMS_TOKEN" : "token";
-
           //  characterStatus 1:ok 2:待审核 3:审核失败
           if (characterStatus && characterStatus !== 1) {
-            if (characterStatus === 2) {
+            if (characterStatus === 2 || characterStatus === 5 || characterStatus === 7) {
               this.$router.push(
                 `/account-status?token=${token}&characterCode=${characterCode}`
               );

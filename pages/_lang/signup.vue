@@ -822,9 +822,50 @@ export default {
     backHandle() {
       if (this.selectedRole === this.ROLE_DEVELOPER) {
       this.$refs["developerForm"].resetFields();
+      this.developerForm = {
+        // 开发者类型，1-个人；2-公司
+        developerType: 2,
+        // developer_type = 1时表示名字; developer_type = 2时表示 公司名称
+        firstName: "",
+        lastName: "",
+        contactName: "",
+        mobile: "",
+        email: "",
+        registerToken: "",
+        username: "",
+        password: "",
+        confirmPassword1: "",
+        // 证件类型 Integer
+        pidType: "",
+        pid: "",
+        countryCode: "",
+        address: "",
+        checked: false,
+      }
+
+      this.showPasswordStrength=false
+      this.passwordStrength=  0
       this.step = 1
       } else {
       this.$refs["operatorForm"].resetFields();
+      this.operatorForm= {
+        address: "",
+        countryCode: "",
+        utcTime: "",
+        name: "",
+        contactName: "",
+        file: null,
+        language: "",
+        password: "",
+        mobile: "",
+        confirmPassword: "",
+        registerToken,
+        email,
+        checked: false,
+      }
+      this.showPasswordStrength=false
+      this.passwordStrength=  0
+      this.fileList = []
       this.step = 1
       }
     },
