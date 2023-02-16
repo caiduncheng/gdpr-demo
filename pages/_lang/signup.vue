@@ -345,7 +345,7 @@
                       key="firstName"
                     >
                       <el-input
-                        :maxlength="128"
+                        :maxlength="64"
                         v-model="developerForm.firstName"
                         @blur="
                           () =>
@@ -362,7 +362,7 @@
                       key="lastName"
                     >
                       <el-input
-                        :maxlength="128"
+                        :maxlength="64"
                         v-model="developerForm.lastName"
                         @blur="
                           () =>
@@ -380,7 +380,7 @@
                       key="firstName"
                     >
                       <el-input
-                        :maxlength="128"
+                        :maxlength="64"
                         v-model="developerForm.firstName"
                         @blur="
                           () =>
@@ -408,7 +408,7 @@
                       </el-select>
                     </el-form-item>
                     <el-form-item :label="$t('login.certificate_num')">
-                      <el-input v-model="developerForm.pid"></el-input>
+                      <el-input v-model="developerForm.pid" :maxlength="32"></el-input>
                     </el-form-item>
                     <el-form-item
                       v-if="developerForm.developerType == 2"
@@ -418,7 +418,7 @@
                       key="contactName"
                     >
                       <el-input
-                        :maxlength="32"
+                        :maxlength="64"
                         v-model="developerForm.contactName"
                         @blur="
                           () =>
@@ -740,7 +740,7 @@ export default {
         password: "",
         confirmPassword1: "",
         // 证件类型 Integer
-        pidType: "",
+        pidType: 1,
         pid: "",
         countryCode: "",
         address: "",
@@ -836,7 +836,7 @@ export default {
         password: "",
         confirmPassword1: "",
         // 证件类型 Integer
-        pidType: "",
+        pidType: 1,
         pid: "",
         countryCode: "",
         address: "",

@@ -39,7 +39,7 @@
                       prop="firstName"
                       key="firstName"
                     >
-                      <el-input :maxlength="128" v-model="form.firstName" @blur="() => form.firstName = form.firstName.trim()"></el-input>
+                      <el-input :maxlength="64" v-model="form.firstName" @blur="() => form.firstName = form.firstName.trim()"></el-input>
                     </el-form-item>
                     <el-form-item
                       v-if="form.developerType == 1"
@@ -48,7 +48,7 @@
                       prop="lastName"
                       key="lastName"
                     >
-                      <el-input :maxlength="128" v-model="form.lastName" @blur="() => form.lastName = form.lastName.trim()"></el-input>
+                      <el-input :maxlength="64" v-model="form.lastName" @blur="() => form.lastName = form.lastName.trim()"></el-input>
                     </el-form-item>
 
                     <el-form-item
@@ -58,7 +58,7 @@
                       prop="firstName"
                       key="firstName"
                     >
-                      <el-input :maxlength="128" v-model="form.firstName" @blur="() => form.firstName = form.firstName.trim()"></el-input>
+                      <el-input :maxlength="64" v-model="form.firstName" @blur="() => form.firstName = form.firstName.trim()"></el-input>
                     </el-form-item>
 
                     <el-form-item
@@ -71,7 +71,7 @@
                       </el-select>
                     </el-form-item>
                     <el-form-item :label="$t('login.certificate_num')">
-                      <el-input v-model="form.pid"></el-input>
+                      <el-input v-model="form.pid" :maxlength="32"></el-input>
                     </el-form-item>
                     <el-form-item
                       v-if="form.developerType == 2"
@@ -80,7 +80,7 @@
                       prop="contactName"
                       key="contactName"
                     >
-                      <el-input :maxlength="32" v-model="form.contactName" @blur="() => form.contactName = form.contactName.trim()"></el-input>
+                      <el-input :maxlength="64" v-model="form.contactName" @blur="() => form.contactName = form.contactName.trim()"></el-input>
                     </el-form-item>
                     <el-form-item :label="$t('login.phone_number')" prop="mobile" key="mobile">
                       <el-input v-model.trim="form.mobile" :maxlength="16"></el-input>
@@ -406,7 +406,7 @@ export default {
 
     const operInfo = this.$store.state.devInfo;
 
-    this.remark = operInfo.remark;
+    this.remark = operInfo.rejectionReason;
     this.email = operInfo.email;
     // // populate the form
     Object.assign(this.form, {
