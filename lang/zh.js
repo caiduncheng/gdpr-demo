@@ -203,6 +203,7 @@ module.exports = {
     },
   },
   login: {
+    reject_reason: '拒绝原因',
     welcome: "欢迎！",
     slogan: "摒弃繁杂，拥抱世界！",
     sign_in: "登录",

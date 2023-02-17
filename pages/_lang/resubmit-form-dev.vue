@@ -10,10 +10,19 @@
                 <h3 class="mb-2">{{ $t("login.title_sign_up") }}</h3>
                 <p class="text-xs">{{ $t("login.sign_up_tip") }}</p>
               </div>
-              <el-alert :title="remark" type="error" class="mb-3" v-if="!success"></el-alert>
+              
               <el-card :class="{ 'card-success': success }" class="card--sign-up">
                 <div v-if="!success" class="flex">
                   <el-form class="signup-form flex-1" ref="form" :rules="rules" :model="form">
+                    <el-alert
+                      v-if="remark"
+                      :title="$t('login.reject_reason')"
+                      type="error"
+                      :description="remark"
+                      show-icon
+                      :closable="false"
+                    >
+                    </el-alert>
                     <el-form-item :label="$t('login.email')">
                       <el-input disabled v-model="form.email"></el-input>
                     </el-form-item>

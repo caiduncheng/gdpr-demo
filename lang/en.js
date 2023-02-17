@@ -223,6 +223,7 @@ module.exports = {
     },
   },
   login: {
+    reject_reason: 'Reject Reason',
     welcome: "Welcome!",
     slogan: "Abandon the complexity / Embrace the world.",
     sign_in: "Sign In",
@@ -395,7 +396,7 @@ module.exports = {
     AUT: "Austria",
     AUS: "Australia",
     ABW: "Aruba",
-    ALA: "Åaland Islands",
+    ALA: "Aaland Islands",
     AZE: "Azerbaijan",
     BIH: "Bosnia and Herzegovina",
     BRB: "Barbados",
