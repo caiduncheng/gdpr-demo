@@ -4,7 +4,9 @@
       <div class="col-10 col-lg-6 m-auto">
         <el-card>
           <div v-if="!success">
-            <h2 class="text-2xl text-center">{{ $t('login.title_activate_account') }}</h2>
+            <h2 class="text-2xl text-center">
+              {{ $t("login.title_activate_account") }}
+            </h2>
             <h3 class="text-secondary text-sm text-center mt-3">
               {{ $t("login.account") }}:{{ getAccount }}
             </h3>
@@ -12,7 +14,10 @@
               <el-form-item :label="$t('login.new_password')" prop="password">
                 <el-input v-model="form.password" type="password"></el-input>
                 <div class="password-strength" v-show="showPasswordStrength">
-                  <div class="text">{{ $t('login.password_strength') }} {{ mapPasswordStrength[passwordStrength] }}</div>
+                  <div class="text">
+                    {{ $t("login.password_strength") }}
+                    {{ mapPasswordStrength[passwordStrength] }}
+                  </div>
                   <div class="indicator">
                     <span :class="['weak', { active: passwordStrength >= 1 }]"></span>
                     <span :class="['moderate', { active: passwordStrength >= 2 }]"></span>
@@ -23,18 +28,31 @@
               <el-form-item :label="$t('login.confirm_password')" prop="confirmPassword">
                 <el-input v-model="form.confirmPassword" type="password"></el-input>
               </el-form-item>
+              <el-form-item required prop="checked" key="checked">
+                <el-checkbox v-if="getCharacterCode === 'OPERATOR'" v-model="form.checked">
+                  <span class="text-xs" v-html="$t('login.agree_terms_conditions')"></span>
+                </el-checkbox>
+                <el-checkbox v-else v-model="form.checked">
+                  <span class="text-xs" v-html="$t('login.agree_terms_conditions_ndp')"></span>
+                </el-checkbox>
+              </el-form-item>
               <el-form-item>
-                <el-button type="primary" :loading="loading" class="w-full" @click="confirm">{{ $t('common.confirm') }}</el-button>
+                <el-button type="primary" :loading="loading" class="w-full" @click="confirm">{{ $t("common.confirm")
+                }}</el-button>
               </el-form-item>
             </el-form>
           </div>
           <div v-else class="text-center">
             <el-result icon="success">
-              <h2 slot="title" class="text-3xl">{{ $t('login.password_set_successfully') }}</h2>
+              <h2 slot="title" class="text-3xl">
+                {{ $t("login.password_set_successfully") }}
+              </h2>
             </el-result>
 
             <NuxtLink :to="{ name: 'lang', params: { lang: $store.state.locale } }">
-              <el-button type="primary">{{ $t('login.go_to_home_page') }}</el-button>
+              <el-button type="primary">{{
+                $t("login.go_to_home_page")
+              }}</el-button>
             </NuxtLink>
           </div>
         </el-card>
@@ -54,7 +72,7 @@ const MAP_PASSWORD_STRENGTH = {
 let username = "";
 let email = "";
 let token = "";
-let result = null;
+let result = null
 
 export default {
   layout: "login",
@@ -63,7 +81,7 @@ export default {
     email = getQueryParam("email");
     token = getQueryParam("token");
     try {
-      result =  await store.dispatch("verifyResetToken", {
+      result = await store.dispatch("verifyResetToken", {
         username,
         email,
         token,
@@ -81,8 +99,21 @@ export default {
         return result.account;
       }
     },
+    getCharacterCode() {
+      if (result && result.characterCode) {
+        return result.characterCode;
+      }
+      return "OPERATOR";
+    },
   },
   data() {
+    const validChecked = function (rule, checked, cb) {
+      if (!checked) {
+        cb(new Error("Please agree Terms and conditions"));
+      } else {
+        cb();
+      }
+    };
     const validPassword = function (rule, password, cb) {
       if (password) {
         this.showPasswordStrength = true;
@@ -137,12 +168,13 @@ export default {
       showPasswordStrength: false,
       passwordStrength: 0,
       username: "",
-      account: '',
+      account: "",
       email: getQueryParam("email"),
       token: "",
       form: {
         password: "",
         confirmPassword: "",
+        checked: false,
       },
       loginRules: {
         password: [
@@ -153,6 +185,11 @@ export default {
         confirmPassword: [
           {
             validator: validConfirmPassword.bind(this),
+          },
+        ],
+        checked: [
+          {
+            validator: validChecked.bind(this),
           },
         ],
       },
@@ -167,11 +204,11 @@ export default {
       return rsaPassWord;
     },
     async confirm() {
-      this.$refs.form.validate(async valid => {
+      this.$refs.form.validate(async (valid) => {
         if (valid) {
-          this.loading = true
+          this.loading = true;
           const { timestamp } = await this.$store.dispatch("getTimeStamp");
-          let random = ""
+          let random = "";
           for (var i = 0; i < 6; i++) {
             random += Math.floor(Math.random() * 10);
           }
@@ -192,8 +229,9 @@ export default {
             })
             .then(() => {
               this.success = true;
-              this.loading = false
-            }).catch((err) => {
+              this.loading = false;
+            })
+            .catch((err) => {
               console.log(err);
               this.$message({
                 type: "error",
@@ -204,7 +242,7 @@ export default {
               this.loading = false;
             });
         }
-      })
+      });
     },
   },
 
@@ -212,13 +250,16 @@ export default {
     const { default: _JSEncrypt } = await import("jsencrypt");
     JSEncrypt = _JSEncrypt;
     this.$store.commit("SET_MENU", false);
-
   },
-
 };
 </script>
 
 <style lang="scss" scoped>
+::v-deep .el-checkbox__label {
+  vertical-align: text-top;
+  white-space: pre-line;
+}
+
 .reset-password {
   .indicator {
     width: 180px;
