@@ -186,6 +186,10 @@
                   <!--<a :href="location">{{$store.state.platform}} Platform</a>-->
                   <a :href="location">{{ $t("common.management_platform") }}</a>
                 </li>
+                <li class="dropdown" v-if="showFlyCare">
+                  <!--<a :href="location">{{$store.state.platform}} Platform</a>-->
+                  <a :href="flycareAddress">{{ $t("common.flycare_platform") }}</a>
+                </li>
                 <li>
                   <a @click.prevent="logout">{{ $t("common.sign_out") }}</a>
                 </li>
@@ -281,6 +285,8 @@ export default {
       visible: false,
       VUE_APP_NEWLAND_INFO: process.env.VUE_APP_NEWLAND_INFO,
       query: null,
+      showFlyCare: false,
+      flycareAddress: process.env.VUE_APP_FLYKEY_ADDRESS
     };
   },
   computed: {
@@ -356,6 +362,10 @@ export default {
       this.$store.dispatch("getInfo").then((data) => {
         this.$store.commit("SET_USER_NAME", data.name);
         this.$store.commit("SET_PLATFORM", data.characterCode);
+        const platform = data.platformInfoList.map(item => item.platCode)
+        if(platform.includes('FLYCARE')) {
+          this.showFlyCare = true
+        }
       });
     }
   },

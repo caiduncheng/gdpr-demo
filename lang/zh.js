@@ -10,6 +10,7 @@ module.exports = {
     sign_out: "登出",
     hi: "你好",
     management_platform: "管理平台",
+    flycare_platform: 'FlyCare平台',
     learn_more: "了解更多",
     our_company: "我们公司",
     about_us: "关于我们",

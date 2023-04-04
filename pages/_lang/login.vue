@@ -302,7 +302,7 @@ export default {
       this.$refs.loginForm.validate(async (valid) => {
         if (valid) {
           this.loading = true;
-          let characterCode, characterStatus, token, needPasswdChange;
+          let characterCode, characterStatus, token, needPasswdChange, platformInfoList;
 
           try {
             let random = "";
@@ -324,8 +324,9 @@ export default {
             });
             characterCode = res.characterCode;
             characterStatus = res.characterStatus;
+            platformInfoList = res.platformInfoList;
             token = res.token;
-            needPasswdChange = res.needPasswdChange;
+            needPasswdChange = res.needPasswdChange;            
           } catch (err) {
             this.getCaptcha();
             this.errorMsg = err.message;
@@ -365,8 +366,13 @@ export default {
             let location = "";
 
             switch (characterCode) {
-              case "OPERATOR":
-                location = process.env.VUE_APP_OPERATOR_ADDRESS;
+              case "OPERATOR":      
+                let platforms = platformInfoList.map(item => item.platCode)                
+                if(platforms.includes('TOMS')) {
+                  location = process.env.VUE_APP_OPERATOR_ADDRESS
+                } else if (platforms.includes('FLYCARE')) {
+                  location = process.env.VUE_APP_FLYKEY_ADDRESS
+                }
                 break;
               case "DEV":
                 location = process.env.VUE_APP_DEVELOPER_ADDRESS;

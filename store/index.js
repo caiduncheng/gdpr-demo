@@ -8,6 +8,7 @@ export const state = () => ({
   privacyCatalogs: [],
   name: "",
   hasLogin: false,
+  characaterCode: '',
   platform: "",
   // 重新注册时提交的token
   registerToken: "",
@@ -34,6 +35,9 @@ export const mutations = {
       document.querySelector("html").style.overflow = "visible";
     }
     state.menuActive = active;
+  },
+  SET_CHARACTER_CODE(state, code) {
+    state.characaterCode = code
   },
   SET_CATALOGS(state, catalogs) {
     state.privacyCatalogs = catalogs;

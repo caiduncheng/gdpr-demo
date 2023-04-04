@@ -10,6 +10,7 @@ module.exports = {
     sign_out: "Sign Out",
     hi: "Hi",
     management_platform: "Management Platform",
+    flycare_platform: 'FlyCare Platform',
     learn_more: "Learn more",
     our_company: "Our Company",
     about_us: "About Us",
