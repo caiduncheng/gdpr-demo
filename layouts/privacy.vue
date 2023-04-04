@@ -190,7 +190,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .privacy {
   height: auto;
   width: 100%;

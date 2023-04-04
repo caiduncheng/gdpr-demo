@@ -182,7 +182,7 @@
                 <i class="fa fa-caret-down"></i>
               </a>
               <ul role="menu" class="link-menu" style="width: 350px">
-                <li class="dropdown">
+                <li class="dropdown" v-if="showToms">
                   <!--<a :href="location">{{$store.state.platform}} Platform</a>-->
                   <a :href="location">{{ $t("common.management_platform") }}</a>
                 </li>
@@ -286,6 +286,7 @@ export default {
       VUE_APP_NEWLAND_INFO: process.env.VUE_APP_NEWLAND_INFO,
       query: null,
       showFlyCare: false,
+      showToms: false,
       flycareAddress: process.env.VUE_APP_FLYKEY_ADDRESS
     };
   },
@@ -363,6 +364,9 @@ export default {
         this.$store.commit("SET_USER_NAME", data.name);
         this.$store.commit("SET_PLATFORM", data.characterCode);
         const platform = data.platformInfoList.map(item => item.platCode)
+        if(platform.includes('TOMS')) {
+          this.showToms = true
+        }
         if(platform.includes('FLYCARE')) {
           this.showFlyCare = true
         }
