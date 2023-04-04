@@ -256,7 +256,7 @@ module.exports = {
       "An email to reset the password was sent to mailbox <span class='link'>{email}</span>. Please log in to the mailbox and click the link to complete the operation. The validity of this email is <span class='link'>24 hours</span>",
     check_mail_now: "Check mail now",
     old_password: "Old password",
-    new_password: "New password",
+    new_password: "New Password",
     password_strength: "Password strength:",
     confirm_password: "Confirm Password",
     password_set_successfully: "The password was set successfully.",
