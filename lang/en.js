@@ -9,7 +9,7 @@ module.exports = {
     sign_up: "Sign Up",
     sign_out: "Sign Out",
     hi: "Hi",
-    management_platform: "TOMS Platform",
+    management_platform: "Management Platform",
     flycare_platform: 'FlyCare Platform',
     learn_more: "Learn more",
     our_company: "Our Company",
