@@ -1,5 +1,6 @@
 {
   "name": "TOMS",
+  "version": "2.1.7",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt",
     "build": "nuxt build",

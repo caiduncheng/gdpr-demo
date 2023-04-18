@@ -124,7 +124,9 @@ const meta = [
     hid: "description",
     name: "description",
     content: process.env.npm_package_description || "",
-  }
+  },
+  { env: domain },
+  { version: process.env.npm_package_version}
 ];
 
 if (process.env.BASE) {
