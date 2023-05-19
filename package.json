@@ -10,6 +10,7 @@
     "generate:ld": "cross-env NODE_ENV=production BASE=ld nuxt generate",
     "generate:penetration": "cross-env NODE_ENV=production BASE=penetration nuxt generate",
     "generate": "cross-env NODE_ENV=production BASE=production nuxt generate",
+    "generate:pilot": "cross-env NODE_ENV=production BASE=pilot nuxt generate",
     "start": "nuxt start"
   },
   "dependencies": {
