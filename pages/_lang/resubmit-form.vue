@@ -11,17 +11,17 @@
                 <p class="text-xs">{{ $t("login.sign_up_tip") }}</p>
               </div>
               <el-card :class="{ 'card-success': success }" class="card--sign-up">
-                <div v-if="!success" class="flex">
+                <div v-if="!success">
                   <el-form class="signup-form" ref="form" :rules="rules" :model="form">
-                    <el-alert
-                      v-if="remark"
-                      :title="$t('login.reject_reason')"
-                      type="error"
-                      :description="remark"
-                      show-icon
-                      :closable="false"
-                    >
-                    </el-alert>
+                    <el-form-item v-if="remark">
+                      <div style="background-color: #fef0f0; padding: 8px 16px; border-radius: 4px;">
+                        <div style="font-size: 13px;line-height: 18px; font-weight: 700; color: #f56c6c;">
+                          {{ $t('login.reject_reason') }}</div>
+                        <div
+                          style="font-size: 12px;line-height: 18px;color: #f56c6c;margin-top: 4px; overflow-wrap: break-word;">
+                          {{ remark }}</div>
+                      </div>
+                    </el-form-item>
                     <div class="flex">
                       <div class="vertical-line-container hidden md:block">
                         <div style class="vertical-line-icon">
@@ -34,32 +34,25 @@
                           <el-input disabled v-model="form.email"></el-input>
                         </el-form-item>
                         <el-form-item required prop="name" :label="$t('login.name')">
-                          <el-input v-model="form.name" @blur="() => form.name = form.name.trim()" :maxlength="128"></el-input>
+                          <el-input v-model="form.name" @blur="() => form.name = form.name.trim()"
+                            :maxlength="128"></el-input>
                         </el-form-item>
                         <el-form-item required :label="$t('login.contacts')" prop="contactName">
-                          <el-input :maxlength="32" v-model="form.contactName" @blur="() => form.contactName = form.contactName.trim()"></el-input>
+                          <el-input :maxlength="32" v-model="form.contactName"
+                            @blur="() => form.contactName = form.contactName.trim()"></el-input>
                         </el-form-item>
                         <el-form-item :label="$t('login.phone_number')" prop="mobile">
                           <el-input v-model.trim="form.mobile" :maxlength="16"></el-input>
                         </el-form-item>
                         <el-form-item required prop="countryCode" class="country-code">
                           <div slot="label" class="inline-block">{{ $t("login.country_region") }}</div>
-                          <el-select
-                            v-model="form.countryCode"
-                            :no-match-text="$t('common.no_data')"
-                            filterable
-                          >
-                            <el-option
-                              v-for="item in countries"
-                              :key="item.countryCode3"
-                              :label="item.countryNameEn"
-                              :value="item.countryCode3"
-                            ></el-option>
+                          <el-select v-model="form.countryCode" :no-match-text="$t('common.no_data')" filterable>
+                            <el-option v-for="item in countries" :key="item.countryCode3" :label="item.countryNameEn"
+                              :value="item.countryCode3"></el-option>
                           </el-select>
                         </el-form-item>
                         <el-form-item :label="$t('login.address')">
-                          <el-input v-model="form.address" :maxlength="128" type="textarea"
-  :rows="2"></el-input>
+                          <el-input v-model="form.address" :maxlength="128" type="textarea" :rows="2"></el-input>
                         </el-form-item>
                         <hr class="my-6" />
                       </div>
@@ -74,20 +67,12 @@
                       <div class="flex-1">
                         <el-form-item :label="$t('login.csr')" required prop="file" class="csr">
                           <div style="display: flex; align-items: flex-start" class="mb-10">
-                            <el-upload
-                              style="float: left; margin-right: 30px"
-                              action="#"
-                              :file-list="fileList"
-                              :auto-upload="false"
-                              :limit="1"
-                              :on-change="handleChange"
-                              :on-remove="handleRemove"
-                              :class="{ hide: uploadDisabled }"
-                              class="upload"
-                            >
+                            <el-upload style="float: left; margin-right: 30px" action="#" :file-list="fileList"
+                              :auto-upload="false" :limit="1" :on-change="handleChange" :on-remove="handleRemove"
+                              :class="{ hide: uploadDisabled }" class="upload">
                               <el-button type="primary">
                                 {{
-                                $t("login.upload")
+                                  $t("login.upload")
                                 }}
                               </el-button>
                             </el-upload>
@@ -105,12 +90,8 @@
                     </div>
 
                     <el-form-item class="text-center">
-                      <el-button
-                        type="primary"
-                        style="width: 200px"
-                        @click="submit"
-                        :loading="buttonLoading"
-                      >{{ $t("common.submit") }}</el-button>
+                      <el-button type="primary" style="width: 200px" @click="submit" :loading="buttonLoading">{{
+                        $t("common.submit") }}</el-button>
                       <div class="text-center error-message" v-if="errorMessage">{{ errorMessage }}</div>
                     </el-form-item>
                   </el-form>
@@ -320,10 +301,10 @@ export default {
           formData.append("mobile", this.form.mobile);
           formData.append("registerToken", this.form.registerToken);
           let token = this.form.registerToken;
-          let data = { token, formData};
+          let data = { token, formData };
           this.$store
-            .dispatch("reRegister", 
-            data
+            .dispatch("reRegister",
+              data
             )
             .then(() => {
               this.success = true;
@@ -361,18 +342,23 @@ export default {
   .el-alert {
     margin-bottom: 10px;
   }
+
   .el-select {
     width: 100%;
   }
+
   .el-card.card--sign-up {
     /* padding-left: 40px; */
   }
+
   .el-form .el-input__inner {
     width: 100%;
+
     @screen sm {
       max-width: 100%;
     }
   }
+
   .country-code {
     .el-form-item__label {
       float: none;
@@ -386,6 +372,7 @@ export default {
       line-height: 40px;
     }
   }
+
   .el-upload-list__item-name {
     /* max-width: 100px; */
   }
@@ -399,6 +386,7 @@ export default {
 
 <style lang="scss" scoped>
 @use "~assets/css/mixin";
+
 .signup-form {
   .indicator {
     width: 180px;
@@ -407,11 +395,13 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     span {
       position: relative;
       height: 100%;
       width: 100%;
       background: lightgrey;
+
       &::before {
         width: 0;
         position: absolute;
@@ -421,19 +411,24 @@ export default {
         left: 0;
         transition: width 0.5s;
       }
+
       /* border-radius: 5px; */
       &.weak::before {
         background-color: #ff4757;
       }
+
       &.moderate::before {
         background-color: orange;
       }
+
       &.strong::before {
         background-color: #9acb6b;
       }
+
       &.active::before {
         width: 100%;
       }
+
       &:nth-child(2) {
         margin: 0 3px;
       }
@@ -443,22 +438,27 @@ export default {
 
 .contact-title {
   text-align: center;
+
   @screen md {
     text-align: left;
   }
 }
+
 .upload {
   float: left;
   margin-right: 30px;
 }
+
 .password-strength {
   .text {
     line-height: 12px;
     margin-top: 10px;
     font-size: 12px;
   }
+
   color: #606266;
 }
+
 .upload-hint {
   float: left;
   line-height: 1.5;
@@ -467,26 +467,32 @@ export default {
   display: inline-block;
   color: #999999;
   font-size: 14px;
+
   @screen md {
     /* width: 500px; */
   }
 }
-.upload-hint > p {
+
+.upload-hint>p {
   margin: 0;
   display: inline-block;
 }
+
 .container {
   margin: 0 auto;
   width: 80%;
 }
+
 .divider {
   /* height: 1px; */
   width: 100%;
   border-top: 1px solid #e2edf4;
 }
+
 .card-footer {
   text-align: right;
 }
+
 .background {
   background-image: linear-gradient(180deg, transparent 30%, #ffffff 30%),
     url("~assets/bg-4.png");
@@ -499,6 +505,7 @@ export default {
   position: relative;
   margin-right: 30px;
   overflow: hidden;
+
   .vertical-line-icon {
     background: rgb(62, 127, 232);
     border-radius: 50%;
@@ -506,7 +513,8 @@ export default {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    & > img {
+
+    &>img {
       width: 20px;
       height: 20px;
     }

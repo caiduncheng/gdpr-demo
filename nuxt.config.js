@@ -73,6 +73,20 @@ switch (process.env.BASE) {
     signUp = process.env.SIGN_UP;
     pubKey = process.env.PUBKEY;
     break;
+  case "pilot":
+    baseUrl = process.env.PILOT_BASE_URL;
+    operatorAddress = process.env.PILOT_OPERATOR_ADDRESS;
+    developerAddress = process.env.PILOT_DEVELOPER_ADDRESS;
+    manufacturerAddress = process.env.PILOT_MANUFACTURER_ADDRESS;
+    adminAddress = process.env.PILOT_ADMIN_ADDRESS;
+    flycareAddress = process.env.PILOT_FLYCARE_ADDRESS;
+    domain = process.env.PILOT_APP_DOMAIN;
+    mail = process.env.EMAIL;
+    captcha = process.env.CAPTCHA;
+    newlandInfo = process.env.NEWLAND_INFO;
+    signUp = process.env.SIGN_UP;
+    pubKey = process.env.PUBKEY;
+    break;
   case "ld":
     baseUrl = process.env.LD_BASE_URL;
     operatorAddress = process.env.LD_OPERATOR_ADDRESS;
@@ -124,7 +138,9 @@ const meta = [
     hid: "description",
     name: "description",
     content: process.env.npm_package_description || "",
-  }
+  },
+  { env: domain },
+  { version: process.env.npm_package_version}
 ];
 
 if (process.env.BASE) {

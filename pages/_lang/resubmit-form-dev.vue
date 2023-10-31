@@ -12,17 +12,18 @@
               </div>
               
               <el-card :class="{ 'card-success': success }" class="card--sign-up">
-                <div v-if="!success" class="flex">
+                <div v-if="!success">
                   <el-form class="signup-form flex-1" ref="form" :rules="rules" :model="form">
-                    <el-alert
-                      v-if="remark"
-                      :title="$t('login.reject_reason')"
-                      type="error"
-                      :description="remark"
-                      show-icon
-                      :closable="false"
-                    >
-                    </el-alert>
+
+                    <el-form-item v-if="remark" >
+                     <div style="background-color: #fef0f0; padding: 8px 16px; border-radius: 4px;">
+                      <div style="font-size: 13px;line-height: 18px; font-weight: 700; color: #f56c6c;">
+                      {{ $t('login.reject_reason') }}</div>
+                      <div style="font-size: 12px;line-height: 18px;color: #f56c6c;margin-top: 4px; overflow-wrap: break-word;">
+                      {{ remark }}</div>
+                    </div>
+                    </el-form-item>
+                    
                     <el-form-item :label="$t('login.email')">
                       <el-input disabled v-model="form.email"></el-input>
                     </el-form-item>
