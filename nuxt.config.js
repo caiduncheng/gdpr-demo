@@ -153,10 +153,10 @@ export default {
     meta
   },
   css: [
-    { src: "element-ui/lib/theme-chalk/index.css" },
+    "element-ui/lib/theme-chalk/index.css",
     "~assets/css/tailwind.css",
     "~assets/css/index.scss",
-    { src: "~assets/css/fontawesome.css" },
+    "~assets/css/fontawesome.css",
   ],
   buildModules: ["@nuxtjs/tailwindcss"],
   plugins: [
