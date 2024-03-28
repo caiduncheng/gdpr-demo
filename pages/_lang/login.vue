@@ -369,20 +369,20 @@ export default {
             switch (characterCode) {
               case "OPERATOR":      
                 let platforms = platformInfoList.map(item => item.platCode)                
-                if(platforms.includes('TOMS')) {
-                  location = process.env.VUE_APP_OPERATOR_ADDRESS
+                if (platforms.includes('TOMS')) {
+                  location = document.location.origin + '/operator/#/'
                 } else if (platforms.includes('FLYCARE')) {
-                  location = process.env.VUE_APP_FLYKEY_ADDRESS
+                  location = 'https://' + 'flycare' + domain
                 }
                 break;
               case "DEV":
-                location = process.env.VUE_APP_DEVELOPER_ADDRESS;
+                location = document.location.origin + '/developer/#/'
                 break;
               case "MANUFACTURER":
-                location = process.env.VUE_APP_MANUFACTURER_ADDRESS;
+                location = document.location.origin + '/vendor/#/'
                 break;
               case "ADMIN":
-                location = process.env.VUE_APP_ADMIN_ADDRESS;
+                location = document.location.origin + '/admin/#/'
                 break;
             }
 

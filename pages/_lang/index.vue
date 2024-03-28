@@ -678,16 +678,16 @@ export default {
         let location = "";
         switch (this.$store.state.platform) {
           case "OPERATOR":
-            location = process.env.VUE_APP_OPERATOR_ADDRESS;
+            location = document.location.origin + '/operator/#/'
             break;
           case "DEVELOPER":
-            location = process.env.VUE_APP_DEVELOPER_ADDRESS;
+            location = document.location.origin + '/developer/#/'
             break;
           case "MANUFACTURER":
-            location = process.env.VUE_APP_MANUFACTURER_ADDRESS;
+            location = document.location.origin + '/vendor/#/'
             break;
           case "ADMIN":
-            location = process.env.VUE_APP_ADMIN_ADDRESS;
+            location = document.location.origin + '/admin/#/'
             break;
         }
         return location;
