@@ -10,7 +10,7 @@ module.exports = {
     sign_out: "Sign Out",
     hi: "Hi",
     management_platform: "Management Platform",
-    flycare_platform: 'FlyCare Platform',
+    flycare_platform: "FlyCare Platform",
     learn_more: "Learn more",
     our_company: "Our Company",
     about_us: "About Us",
@@ -20,6 +20,8 @@ module.exports = {
     rki: "RKI",
     cooperative_partner: "Partner",
     confirm: "Confirm",
+    cancel: "Cancel",
+    tip: "Tip",
     submit: "Submit",
     social: "Social Platform",
     contact_toms: "Contact TOMS",
@@ -224,14 +226,51 @@ module.exports = {
     },
   },
   login: {
+    otp: {
+      congratulations: 'Now you can sign in using OTP',
+      your_2fa_secret: 'Your two-factor secret',
+      take_1m: 'This will only take a minute',
+      take_1m_tip: `Enable 2FA now. You'll be able to continue on with your work right after.`,
+      tfa_why: `Two-factor authentication adds an additional layer of account security. lt is a proven
+      method of keeping you safe from hackers and account takeover, even if your password
+      is stolen or compromised.`,
+      tfa_what_forms: `What forms of 2FA we use?`,
+      tfa_what: `Authenticator application that supports <b>TOTP</b>
+      <p> Time-based one-time password (TOTP) is a computer algorithm that generates a one-time password
+        (OTP) that uses the current time as a source of uniqueness.
+      </p>`,
+      enable_2fa_now: 'Enable 2FA now',
+      enable_2fa: 'Enable two-factor authentication(2FA)',
+      open_otp_tip: "Please enter the following information to send an email verification code",
+      setup_authenticator_app: "Setup authenticator app",
+      app_intro: `
+      Authenticator apps and browser extensions like <a href="https://authy.com/download/" target="_blank" style="text-decoration: underline;">Authy</a>, <a href="https://www.microsoft.com/en-US/security/mobile-authenticator-app" target="_blank" style="text-decoration: underline;">Microsoft Authenticator</a>, <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank" style="text-decoration: underline;">Google Authenticator</a>, etc. generate one-time
+      passwords that are used as a second factor to verify your identity when prompted during sign-in.`,
+      scan_qrcode: "Scan the QR code",
+      scan_qrcode_tip: "Use an authenticator app or browser extension to scan. ",
+      unalbe_scan_qrcode: "Unable to scan? You can use the setup key to manually configure your authenticator app.",
+      manual: 'Manual',
+      verify_code: "Verify the code from the app",
+      verify: "Verify"
+    },
+    otp_info: `Two-Factor Authentication(2FA) <br> is required for your TOMS account`,
+    reject_reason: "Reject Reason",
+    send:"Send Email",
+    verification_code: "Verification code",
+    email_code_tip: "An email has been sent to your inbox. Please check your email to complete verification.",
+    download_auth_tip: "Please scan the QR code to download Authenticator.",
+    download_auth_tip1: `You can also use other authenticators that support <span style="color:#3E80E5">TOTP </span> (Time-based One-time Password), such as <span style="color:#3E80E5"> Google Authenticator, Microsoft Authenticator</span>, and <span style="color:#3E80E5">Authy</span>. If you cannot download it, please search for <span style="color:#3E80E5"> Authenticator</span> in the app store and select the appropriate application.`,
+    bind_otp_tip: "Please scan the QR code through Authenticator to create the code",
+    bind_otp2_tip: "Whenever possible, please do not disclose the qr-code you received to anyone, as this may harm your account security",
+    tofa: "Two-Factor Authentication",
     reject_reason: 'Reject Reason',
     welcome: "Welcome!",
     slogan: "Abandon the complexity / Embrace the world.",
     sign_in: "Sign In",
     sign_in_tip:
-      "Sign in to your account using email and password provided during registration",
-      account: "Account",
-      click_here_signin: "Click here to sign in",
+      "Sign in to your account using account and password provided during registration",
+    account: "Account",
+    click_here_signin: "Click here to sign in",
     account_email: "Account(Email)",
     account_email_placeholder: "Account",
     password: "Password",
@@ -268,6 +307,8 @@ module.exports = {
     validate_username_required_tip: "The account cannot be empty.",
     validate_password_required: "Password is required",
     validate_code_required: "Code is required",
+    validate_email_token_required: "Email CAPTCHA code is required",
+    validate_otp_required: "OTP is required",
     validate_phone_tip: "Phone number must be under 16 chars",
     validate_password_tip: "Password must be between 8 and 18 characters",
     validate_password6_tip: "Password must be between 6 and 18 characters",
@@ -303,6 +344,7 @@ module.exports = {
     congratulations: "Congratulations!",
     email_sent_successfully: "The email was sent successfully!",
     email_required: "Email is required",
+    account_required: "Account is required",
     enter_email_tip:
       "Please fill in your email address <br> so that we can send you an activation link",
     enter_email_placeholder: "Enter your email address",
@@ -387,7 +429,7 @@ module.exports = {
     services_list_item3: "Global support service",
   },
   country_or_region: {
-    '000': "Globe",
+    "000": "Globe",
     AND: "Andorra",
     ARE: "United Arab Emirates",
     AFG: "Afghanistan",

@@ -12,71 +12,76 @@
             <div class="login-form__header">{{ $t("login.sign_in") }}</div>
             <div class="login-form__body">
               <p class="text-xs text-gray text-center mb-4">{{ $t("login.sign_in_tip") }}</p>
-              <el-form
-                @validate="validate"
-                class="small"
-                ref="loginForm"
-                :model="loginForm"
-                :rules="loginRules"
-                auto-complete="on"
-                @submit.native.prevent
-                :show-message="false"
-              >
+              <el-form @validate="validate" class="small" ref="loginForm" :model="loginForm" :rules="loginRules"
+                auto-complete="on" @submit.native.prevent :show-message="false">
                 <el-form-item prop="username">
                   <el-popover trigger="manual" v-model="usernamePopover" placement="top">
                     <i class="el-icon-warning text-yellow-500"></i>
                     {{ invalidMessage }}
-                    <el-input @focus="hidePopovers" @change="handleBlur" slot="reference" ref="username" v-model.trim="loginForm.username" :placeholder="$t('login.account_email_placeholder')" tabindex="1" auto-complete="on" prefix-icon="el-icon-user"></el-input>
+                    <el-input @focus="hidePopovers" @change="handleBlur" slot="reference" ref="username"
+                      v-model.trim="loginForm.username" :placeholder="$t('login.account_email_placeholder')" tabindex="1"
+                      auto-complete="on" prefix-icon="el-icon-user"></el-input>
                   </el-popover>
                 </el-form-item>
                 <el-form-item prop="password">
                   <el-popover trigger="manual" v-model="passwordPopover" placement="top">
                     <i class="el-icon-warning text-yellow-500"></i>
                     {{ invalidMessage }}
-                    <el-input
-                      @focus="hidePopovers"
-                      slot="reference"
-                      :placeholder="$t('login.password')"
-                      v-model="loginForm.password"
-                      type="password"
-                      tabindex="2"
-                      auto-complete="on"
-                      prefix-icon="el-icon-lock"
-                    ></el-input>
+                    <el-input @focus="hidePopovers" slot="reference" :placeholder="$t('login.password')"
+                      v-model="loginForm.password" type="password" tabindex="2" auto-complete="on"
+                      prefix-icon="el-icon-lock"></el-input>
                   </el-popover>
                 </el-form-item>
-                <el-form-item v-if="VUE_APP_CAPTCHA == '1' && showCaptcha" prop="code">
+                <el-form-item v-if="VUE_APP_CAPTCHA == '1' && showCaptcha && !OTP" prop="code">
                   <el-row :gutter="20" type="flex" class="items-center">
                     <el-col :span="14">
                       <el-popover trigger="manual" v-model="codePopover" placement="top">
                         <i class="el-icon-warning text-yellow-500"></i>
                         {{ invalidMessage }}
-                        <el-input
-                          tabindex="3"
-                          @focus="hidePopovers"
-                          slot="reference"
-                          maxlength="5"
-                          :placeholder="$t('login.captcha')"
-                          v-model.trim="loginForm.code"
-                          @keyup.enter.native="handleLogin"
-                        ></el-input>
+                        <el-input tabindex="3" @focus="hidePopovers" slot="reference" maxlength="5"
+                          :placeholder="$t('login.captcha')" v-model.trim="loginForm.code"
+                          @keyup.enter.native="handleLogin"></el-input>
                       </el-popover>
                     </el-col>
                     <el-col :span="10" class="login-captcha">
                       <button>
-                        <img :src="captchaImgSrc" alt @click="getCaptcha" style="height: 30px" />
+                        <img ref="img" alt @click="getCaptcha" style="height: 30px" />
                       </button>
                     </el-col>
                   </el-row>
                 </el-form-item>
 
+                <el-form-item v-if="VUE_APP_CAPTCHA == '1' && showCaptcha && OTP" prop="otpToken">
+                  <div style="display: flex; align-items: center;">
+                    <div style="flex: auto;">
+                      <el-popover trigger="manual" v-model="otpTokenPopover" placement="top">
+                    <i class="el-icon-warning text-yellow-500"></i>
+                    {{ invalidMessage }}
+                    <el-input tabindex="4" @focus="hidePopovers" slot="reference" prefix-icon="el-icon-mobile-phone" :placeholder="$t('One-Time Password')"
+                      v-model.trim="loginForm.otpToken" @keyup.enter.native="handleLogin"></el-input>
+                  </el-popover>
+                    </div>
+                    <div style="flex: none; width: 44px; ">
+                      <el-tooltip content="Lost OTP" placement="top" open-delay="300">
+                      <div class="hover:bg-gray-100 text-center mx-2 cursor-pointer" style="border-radius: 4px;width: 32px; line-height: 32px;" @click="forgetOtpHandle">
+                        <i class="el-icon-refresh-right" ></i>
+                      </div>
+                     </el-tooltip>
+
+                    </div>
+                  </div>
+
+
+
+                    
+      
+                  
+
+                </el-form-item>
+
                 <el-form-item>
-                  <el-button
-                    class="w-full"
-                    :loading="loading"
-                    type="primary"
-                    @click="handleLogin"
-                  >{{ $t("common.sign_in") }}</el-button>
+                  <el-button class="w-full" :loading="loading" type="primary" @click="handleLogin">{{ $t("common.sign_in")
+                  }}</el-button>
                   <div class="el-form-item__error text-center">{{ errorMsg }}</div>
                 </el-form-item>
               </el-form>
@@ -91,12 +96,12 @@
                 <div class="text-center">
                   <a @click.prevent="resetPassword" class="text-xs link">
                     {{
-                    $t("login.forgot_password")
+                      $t("login.forgot_password")
                     }}
                   </a>
                 </div>
               </div>
-              <hr v-if="VUE_APP_EMAIL == '1'&& VUE_APP_NEWLAND_INFO == '1'" class="my-3" />
+              <hr v-if="VUE_APP_EMAIL == '1' && VUE_APP_NEWLAND_INFO == '1'" class="my-3" />
 
               <div class="text-center mt-6" v-if="VUE_APP_NEWLAND_INFO == '1'">
                 <el-tooltip effect="dark" content="FlyCare" placement="bottom">
@@ -121,7 +126,7 @@
                   </div>
                 </el-tooltip>
 
-               
+
               </div>
             </div>
           </div>
@@ -153,15 +158,9 @@
         </div>
       </div>
     </div>
-    <LazySignupDialog
-      :visible.sync="signUpDialogVisible"
-      :title="$t('login.sign_up')"
-      @login="fillEmail"
-    />
-    <LazyResetPasswordDialog
-      :visible.sync="resetPasswordDialogVisible"
-      :title="$t('login.title_reset_password')"
-    />
+    <LazySignupDialog :visible.sync="signUpDialogVisible" :title="$t('login.sign_up')" @login="fillEmail" />
+    <LazyResetPasswordDialog :visible.sync="resetPasswordDialogVisible" :title="$t('login.title_reset_password')" />
+    <LazyOTPDialog :visible.sync="OTPDialogVisible" :username="loginForm.username" :forget-otp="forgetOtp" @set-otpcode="onSetOtpcode" :title="$t('login.tofa')" />
   </div>
 </template>
 
@@ -202,6 +201,14 @@ export default {
       }
     };
 
+    const validateVerifyOTP = (rule, value, callback) => {
+      if (!value) {
+        callback(new Error(this.$t("login.validate_otp_required")));
+      } else {
+        callback();
+      }
+    };
+
     return {
       VUE_APP_PUBKEY: process.env.VUE_APP_PUBKEY,
       VUE_APP_EMAIL: process.env.VUE_APP_EMAIL,
@@ -210,12 +217,15 @@ export default {
       VUE_APP_SIGN_UP: process.env.VUE_APP_SIGN_UP,
       VUE_APP_FLYKEY_ADDRESS: process.env.VUE_APP_FLYKEY_ADDRESS,
       signUpDialogVisible: false,
+      OTPDialogVisible: false,
+      forgetOtp: false,
       resetPasswordDialogVisible: false,
       loginForm: {
         username: "",
         password: "",
         code: "",
         checked: false,
+        otpToken: ""
       },
       loginRules: {
         username: [
@@ -227,6 +237,9 @@ export default {
         code: [
           { required: true, trigger: "manual", validator: validateVerifyCode },
         ],
+        otpToken: [
+          { required: true, trigger: "manual", validator: validateVerifyOTP },
+        ],
       },
       loading: false,
       passwordType: "password",
@@ -237,6 +250,8 @@ export default {
       codePopover: false,
       passwordPopover: false,
       checkedPopover: false,
+      otpTokenPopover: false,
+      OTP: false,
       showFlag: false,
       showCaptcha: false,
       captchaImgSrc: "",
@@ -244,19 +259,74 @@ export default {
     };
   },
   methods: {
+    // 忘记 otp
+    forgetOtpHandle() {
+      this.forgetOtp = true
+      this.OTPDialogVisible = true
+    },
+    onSetOtpcode(event) {
+      this.forgetOtp = false
+      if (event) {
+        this.OTP = true
+        
+      }
+    },
     fillEmail(email) {
       this.loginForm.username = email;
     },
     getCaptcha() {
+
       if (this.VUE_APP_CAPTCHA == "1") {
-        this.showCaptcha = true;
         const prefix = process.env.VUE_APP_BASE_API;
+        // this.captchaImgSrc =
+        //   prefix +
+        //   "/online/authorization/auth/verify/code?time=" +
+        //   new Date().getTime() +
+        //   "&username=" +
+        //   this.loginForm.username;
         this.captchaImgSrc =
           prefix +
-          "/online/authorization/auth/verify/code?time=" +
+          "/online/authorization/auth/captcha?time=" +
           new Date().getTime() +
           "&username=" +
           this.loginForm.username;
+        let _this = this
+        let request = new XMLHttpRequest();
+        request.responseType = "blob";
+        request.open("get", this.captchaImgSrc, true);
+        request.onreadystatechange = (e) => {
+          if (request.readyState == XMLHttpRequest.DONE && request.status == 200) {
+            let fr = new FileReader()
+            fr.readAsText(request.response)
+            fr.onload = function (e) {
+              let result = fr.result
+              let resultObj = JSON.parse(fr.result)
+              if (resultObj.code === "1096") {
+                _this.showCaptcha = true;
+                _this.OTP = true
+              }
+              else {
+                _this.showCaptcha = true;
+                _this.OTP = false
+                _this.$nextTick(() => {
+                  let img = _this.$refs.img;
+                  img.src = resultObj.captcha
+                })
+              }
+            }
+          }else if (request.readyState == XMLHttpRequest.DONE) {
+            console.log(request);
+
+            let fr = new FileReader()
+            fr.readAsText(request.response)
+            fr.onload = function (e) {
+              let resultObj = JSON.parse(fr.result)
+              _this.errorMsg = resultObj.message
+            }
+          }
+        };
+        request.send(null);
+
       }
     },
     encryptPassword(json) {
@@ -295,7 +365,8 @@ export default {
         this.codePopover =
         this.passwordPopover =
         this.usernamePopover =
-          false;
+        this.otpTokenPopover =
+        false;
     },
     handleLogin() {
       this.showFlag = false;
@@ -327,11 +398,24 @@ export default {
             characterStatus = res.characterStatus;
             platformInfoList = res.platformInfoList;
             token = res.token;
-            needPasswdChange = res.needPasswdChange;            
+            needPasswdChange = res.needPasswdChange;
           } catch (err) {
-            this.getCaptcha();
-            this.errorMsg = err.message;
-            return;
+            if (err && err.code === "1097") {
+            // 绑定2fa 流程
+              this.getCaptcha();
+              this.OTPDialogVisible = true
+              this.errorMsg =err.message
+            } else if (err && err.code === '1096') {
+              // 使用 otp 验证码
+              this.errorMsg = err.message
+              this.showCaptcha = true
+              this.OTP = true
+            } else {
+              // 验证码错误
+              this.getCaptcha();
+              this.errorMsg = err.message;
+            }
+            return
           } finally {
             this.loading = false;
           }
@@ -375,8 +459,8 @@ export default {
             let location = "";
 
             switch (characterCode) {
-              case "OPERATOR":      
-                let platforms = platformInfoList.map(item => item.platCode)                
+              case "OPERATOR":
+                let platforms = platformInfoList.map(item => item.platCode)
                 if (platforms.includes('TOMS')) {
                   location = document.location.origin + '/operator/#/'
                 } else if (platforms.includes('FLYCARE')) {
@@ -393,7 +477,6 @@ export default {
                 location = document.location.origin + '/admin/#/'
                 break;
             }
-
             if (needPasswdChange == 1) {
               window.open("/change-password");
               this.loginForm.code = "";
@@ -468,7 +551,7 @@ export default {
     transition: background-color 0.3s;
     cursor: pointer;
 
-    & > a > img {
+    &>a>img {
       user-select: none;
       width: 20px;
       height: auto;

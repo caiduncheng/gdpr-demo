@@ -10,7 +10,7 @@ export default function ({ $axios, store }) {
       config.headers["WEB-TOKEN"] = store.getters.token;
     }
     // 将获取到token加入到请求头中
-    config.headers["TOMS-LANG"] = store.state.locale || "en-US";
+    config.headers["LANG"] = store.state.locale || "en-US";
   });
   // response拦截器，数据返回后，可以先在这里进行一个简单的判断
   $axios.interceptors.response.use(

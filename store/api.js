@@ -156,4 +156,27 @@ export const api = {
       method: "GET",
     });
   },
+
+  async sendEmailCode(store, data) {
+    return await this.$axios({
+      url: "/online/authorization/auth/2FA/otp/reset/code/send",
+      method: "post",
+      data
+    });
+  },
+
+  async getOTPKey(store, data) {
+    return await this.$axios({
+      url: "/online/authorization/auth/2FA/otp/generate",
+      method: "post",
+      data
+    });
+  },
+  async confirmOTPKey(store, data) {
+    return await this.$axios({
+      url: "/online/authorization/auth/2FA/otp/confirm",
+      method: "post",
+      data
+    });
+  },
 };
