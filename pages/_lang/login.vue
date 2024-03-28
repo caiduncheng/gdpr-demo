@@ -339,6 +339,14 @@ export default {
           const exp = new Date();
           exp.setTime(exp.getTime() + 2 * 60 * 60 * 1000);
           const tokenKey = "TOMS_TOKEN";
+          const host = document.location.host
+          let domain = ''
+          if(/^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/.test(host)) {
+            domain = host
+          } else {
+            const sub = host.split('.')[0]
+            domain = host.slice(sub.length)
+          }
           // const tokenKey =
           //   characterCode === "OPERATOR" ? "TOMS_TOKEN" : "token";
           //  characterStatus 1:ok 2:待审核 3:审核失败
@@ -356,13 +364,13 @@ export default {
             }
           } else {
             document.cookie = `${tokenKey}=${token};path=/;domain=${
-              process.env.VUE_APP_DOMAIN
+              domain
             };expires=${exp.toGMTString()}"`;
 
             exp.setTime(exp.getTime() + 30 * 24 * 3600 * 1000);
 
             document.cookie = `lang=${this.$store.state.locale};path=/;domain=${
-              process.env.VUE_APP_DOMAIN
+              domain
             };expires=${exp.toGMTString()}"`;
             let location = "";
 
