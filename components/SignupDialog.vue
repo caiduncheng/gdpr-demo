@@ -74,7 +74,7 @@ export default {
         email: [
           {
             required: true,
-            message: this.$t("login.email_required"),
+            message: this.$t("login.account_required"),
           },
           {
             type: "email",

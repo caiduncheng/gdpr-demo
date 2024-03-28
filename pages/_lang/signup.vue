@@ -91,7 +91,7 @@
                         <div class="vertical-line"></div>
                       </div>
                       <div class="flex-1">
-                        <el-form-item :label="$t('login.email')" prop="email">
+                        <el-form-item :label="$t('login.account')" prop="email">
                           <el-input
                             disabled
                             v-model="operatorForm.email"
@@ -308,7 +308,7 @@
                     :rules="operatorRules"
                     :model="developerForm"
                   >
-                    <el-form-item :label="$t('login.email')">
+                    <el-form-item :label="$t('login.account')">
                       <el-input
                         disabled
                         v-model="developerForm.email"
@@ -588,17 +588,17 @@ const STEPS = {
   SELECT_ROLE: 1,
 };
 
-export default {
+export default {  
   async validate({ params, query, store }) {
     email = getQueryParam("email");
     registerToken = getQueryParam("key");
     try {
-      await store.dispatch("verifyRegisterToken", {
-        email,
-        token: registerToken,
-      });
+    await store.dispatch("verifyRegisterToken", {
+    email,
+    token: registerToken,
+    });
     } catch {
-      return false;
+    return false;
     }
 
     return true;

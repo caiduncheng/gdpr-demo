@@ -30,7 +30,7 @@
                         <div class="vertical-line"></div>
                       </div>
                       <div class="flex-1">
-                        <el-form-item :label="$t('login.email')" prop="email">
+                        <el-form-item :label="$t('login.account')" prop="email">
                           <el-input disabled v-model="form.email"></el-input>
                         </el-form-item>
                         <el-form-item required prop="name" :label="$t('login.name')">

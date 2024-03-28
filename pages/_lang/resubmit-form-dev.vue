@@ -24,7 +24,7 @@
                     </div>
                     </el-form-item>
                     
-                    <el-form-item :label="$t('login.email')">
+                    <el-form-item :label="$t('login.account')">
                       <el-input disabled v-model="form.email"></el-input>
                     </el-form-item>
                     <el-form-item
