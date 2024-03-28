@@ -13,6 +13,8 @@ let captcha = "";
 let newlandInfo = "";
 let pubKey = "";
 let signUp = "";
+let site = ""
+let siteDomain = ""
 
 console.log(process.env.BASE);
 
@@ -113,6 +115,22 @@ switch (process.env.BASE) {
     signUp = process.env.SIGN_UP;
     pubKey = process.env.PUBKEY;
     break;
+  case "eu": 
+    site = 'Europe';
+    siteDomain = process.env.GLOBAL_SITE_DOMAIN;
+    baseUrl = process.env.PROD_BASE_URL;
+    operatorAddress = process.env.PROD_OPERATOR_ADDRESS;
+    developerAddress = process.env.PROD_DEVELOPER_ADDRESS;
+    manufacturerAddress = process.env.PROD_MANUFACTURER_ADDRESS;
+    adminAddress = process.env.PROD_ADMIN_ADDRESS;
+    flycareAddress = 'https://flycare-eu.newlandnpt.com'
+    domain = process.env.PROD_APP_DOMAIN;
+    mail = process.env.EMAIL;
+    captcha = process.env.CAPTCHA;
+    newlandInfo = process.env.NEWLAND_INFO;
+    signUp = process.env.SIGN_UP;
+    pubKey = process.env.PUBKEY;
+    break;
   default:
     baseUrl = process.env.BASE_URL;
     operatorAddress = process.env.OPERATOR_ADDRESS;
@@ -126,10 +144,12 @@ switch (process.env.BASE) {
     newlandInfo = process.env.NEWLAND_INFO;
     signUp = process.env.SIGN_UP;
     pubKey = process.env.PUBKEY;
+    site = 'Global';
+    siteDomain = process.env.EU_SITE_DOMAIN;
     break;
 }
 
-console.log(baseUrl);
+console.log('baseUrl' + baseUrl);
 
 const meta = [
   { charset: "utt-8" },
@@ -140,22 +160,18 @@ const meta = [
     content: process.env.npm_package_description || "",
   },
   { env: domain },
-  { version: process.env.npm_package_version}
+  { version: process.env.npm_package_version },
 ];
 
 if (process.env.BASE) {
-  meta.push({
-    "http-equiv": "Content-Security-Policy",
-    content:
-      "default-src 'unsafe-inline' https: data: filesystem: 'unsafe-eval'",
-  });
+  // meta.push({
+  //   "http-equiv": "Content-Security-Policy",
+  //   content:
+  //     "default-src 'unsafe-inline' https: data: filesystem: 'unsafe-eval'",
+  // });
 }
 
 export default {
-  // server: {
-  //   host: "0.0.0.0", // default: localhost
-  // },
-  mode: "universal",
   target: "static",
   build: {
     plugins: [
@@ -166,13 +182,13 @@ export default {
   },
   head: {
     title: process.env.npm_package_name || "",
-    meta
+    meta,
   },
   css: [
     "element-ui/lib/theme-chalk/index.css",
     "~assets/css/tailwind.css",
     "~assets/css/index.scss",
-    "~assets/css/fontawesome.css",
+    "~assets/css/fontawesome.css" 
   ],
   buildModules: ["@nuxtjs/tailwindcss"],
   plugins: [
@@ -237,16 +253,18 @@ export default {
   },
   env: {
     VUE_APP_BASE_API: baseUrl,
-    VUE_APP_OPERATOR_ADDRESS: operatorAddress,
-    VUE_APP_DEVELOPER_ADDRESS: developerAddress,
-    VUE_APP_MANUFACTURER_ADDRESS: manufacturerAddress,
-    VUE_APP_FLYKEY_ADDRESS: flycareAddress,
-    VUE_APP_ADMIN_ADDRESS: adminAddress,
-    VUE_APP_DOMAIN: domain,
-    VUE_APP_EMAIL: mail,
-    VUE_APP_CAPTCHA: captcha,
-    VUE_APP_NEWLAND_INFO: newlandInfo,
-    VUE_APP_PUBKEY: pubKey,
-    VUE_APP_SIGN_UP: signUp,
+    VUE_APP_OPERATOR_ADDRESS: operatorAddress || process.env.OPERATOR_ADDRESS,
+    VUE_APP_DEVELOPER_ADDRESS: developerAddress || process.env.DEVELOPER_ADDRESS,
+    VUE_APP_MANUFACTURER_ADDRESS: manufacturerAddress || process.env.MANUFACTURER_ADDRESS,
+    VUE_APP_FLYKEY_ADDRESS: flycareAddress || process.env.FLYCARE_ADDRESS,
+    VUE_APP_ADMIN_ADDRESS: adminAddress || process.env.ADMIN_ADDRESS,
+    VUE_APP_DOMAIN: domain || process.env.APP_DOMAIN,
+    VUE_APP_EMAIL: mail || process.env.EMAIL,
+    VUE_APP_CAPTCHA: captcha || process.env.CAPTCHA,
+    VUE_APP_NEWLAND_INFO: newlandInfo || process.env.NEWLAND_INFO,
+    VUE_APP_PUBKEY: pubKey || process.env.PUBKEY,
+    VUE_APP_SIGN_UP: signUp || process.env.SIGN_UP,
+    VUE_APP_SITE: site || 'Global',
+    VUE_APP_SITE_DOMAIN: siteDomain || process.env.EU_SITE_DOMAIN
   },
 };

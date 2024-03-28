@@ -3,12 +3,14 @@
   "version": "2.1.8",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt",
+    "dev:eu": "cross-env NODE_ENV=development BASE=eu nuxt",
     "build": "nuxt build",
     "generate:test": "cross-env NODE_ENV=production BASE=test nuxt generate",
     "generate:inte": "cross-env NODE_ENV=production BASE=inte nuxt generate",
     "generate:dev": "cross-env NODE_ENV=production BASE=dev nuxt generate",
     "generate:ld": "cross-env NODE_ENV=production BASE=ld nuxt generate",
     "generate:penetration": "cross-env NODE_ENV=production BASE=penetration nuxt generate",
+    "generate:eu": "cross-env NODE_ENV=production BASE=eu nuxt generate",
     "generate": "cross-env NODE_ENV=production BASE=production nuxt generate",
     "generate:pilot": "cross-env NODE_ENV=production BASE=pilot nuxt generate",
     "start": "nuxt start"
@@ -29,6 +31,7 @@
     "mapbox-gl": "^2.5.1",
     "nuxt": "^2.15.8",
     "postcss": "^7.0.39",
+    "qrcode.vue": "^1.7.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "vue-i18n": "^8.27.0",
     "vue-scrollto": "^2.20.0",

@@ -2,10 +2,10 @@
   <div>
     <header
       :class="[
-      'header',
-      'container-fluid',
-      { 'fixed-header': fixed, containerXL: !fixed },
-    ]"
+        'header',
+        'container-fluid',
+        { 'fixed-header': fixed, containerXL: !fixed },
+      ]"
       :style="scrollNavBarStyle"
     >
       <!-- 手机端菜单 -->
@@ -13,7 +13,9 @@
         <div class="content">
           <div class="row">
             <div class="col-12 text-center">
-              <NuxtLink :to="{ name: 'lang', params: { lang: $store.state.locale } }">
+              <NuxtLink
+                :to="{ name: 'lang', params: { lang: $store.state.locale } }"
+              >
                 <img :src="logo" alt="toms logo" :style="logoStyle" />
               </NuxtLink>
             </div>
@@ -23,19 +25,21 @@
                   <li class="menu-item">
                     <NuxtLink
                       :to="{
-                      name: 'lang',
-                      params: { lang: $store.state.locale },
-                    }"
+                        name: 'lang',
+                        params: { lang: $store.state.locale },
+                      }"
                       exact
-                    >{{ $t("common.home") }}</NuxtLink>
+                      >{{ $t("common.home") }}</NuxtLink
+                    >
                   </li>
                   <li class="menu-item">
                     <NuxtLink
                       :to="{
-                      name: 'lang-products-flykey',
-                      params: { lang: $store.state.locale },
-                    }"
-                    >FlyKey</NuxtLink>
+                        name: 'lang-products-flykey',
+                        params: { lang: $store.state.locale },
+                      }"
+                      >FlyKey</NuxtLink
+                    >
                   </li>
                   <li class="menu-item">
                     <NuxtLink
@@ -44,58 +48,71 @@
                         params: { lang: $store.state.locale },
                       }"
                       exact
-                    >{{ $t("common.developer") }}</NuxtLink>
+                      >{{ $t("common.developer") }}</NuxtLink
+                    >
                   </li>
                   <li class="menu-item">
                     <NuxtLink
                       :to="{
-                      name: 'lang-contact-us',
-                      params: { lang: $store.state.locale },
-                    }"
+                        name: 'lang-contact-us',
+                        params: { lang: $store.state.locale },
+                      }"
                       exact
-                    >{{ $t("common.contact_us") }}</NuxtLink>
+                      >{{ $t("common.contact_us") }}</NuxtLink
+                    >
                   </li>
                   <li class="menu-item">
                     <NuxtLink
                       :to="{
-                      name: 'lang-login',
-                      params: { lang: $store.state.locale },
-                    }"
+                        name: 'lang-login',
+                        params: { lang: $store.state.locale },
+                      }"
                     >
                       <span>{{ $t("common.sign_in") }}</span>
                     </NuxtLink>
                   </li>
-                  <li class="language-switcher">
-                    <NuxtLink
-                      :class="{ 'current-language': $store.state.locale === 'zh-CN' }"
-                      :to="
-                      $store.state.locale === 'zh-CN'
-                        ? ''
-                        : {
-                          name:
-                            $route.name === 'index'
-                              ? 'lang'
-                              : `lang-${$route.name}`,
-                          params: { lang: 'zh-CN' },
-                        }
-                    "
-                    >中文</NuxtLink>
+                  <li class="menu-item">
+                    <a :href="siteDomain">
+                      <span style="text-transform: uppercase">{{ siteName.remote }}</span>
+                    </a>
                   </li>
                   <li class="language-switcher">
                     <NuxtLink
-                      :class="{ 'current-language': $store.state.locale === 'en-US' }"
+                      :class="{
+                        'current-language': $store.state.locale === 'zh-CN',
+                      }"
                       :to="
-                      $store.state.locale === 'en-US'
-                        ? ''
-                        : {
-                          name:
-                            $route.name === 'index'
-                              ? 'lang'
-                              : `${$route.name}`,
-                          params: { lang: 'en-US' },
-                        }
-                    "
-                    >English</NuxtLink>
+                        $store.state.locale === 'zh-CN'
+                          ? ''
+                          : {
+                              name:
+                                $route.name === 'index'
+                                  ? 'lang'
+                                  : `lang-${$route.name}`,
+                              params: { lang: 'zh-CN' },
+                            }
+                      "
+                      >中文</NuxtLink
+                    >
+                  </li>
+                  <li class="language-switcher">
+                    <NuxtLink
+                      :class="{
+                        'current-language': $store.state.locale === 'en-US',
+                      }"
+                      :to="
+                        $store.state.locale === 'en-US'
+                          ? ''
+                          : {
+                              name:
+                                $route.name === 'index'
+                                  ? 'lang'
+                                  : `${$route.name}`,
+                              params: { lang: 'en-US' },
+                            }
+                      "
+                      >English</NuxtLink
+                    >
                   </li>
                 </ul>
               </nav>
@@ -106,16 +123,24 @@
       <!--  -->
       <div class="header-wrapper">
         <div class="header-inner">
-          <div class="col-lg-2 col-12 text-center lg:text-left">
-            <NuxtLink :to="{ name:'lang', params: { lang: $store.state.locale } }">
-              <img :src="logo" alt="toms logo" :style="logoStyle" />
-            </NuxtLink>
-            <div class="menu-toggle" :class="{ active }" @click="toggleMenu">
-              <div class="top"></div>
-              <div class="mid"></div>
-              <div class="btm"></div>
+          <div class="logo-container">
+            <div class="col-lg-2 col-12 text-center lg:text-left">
+              <NuxtLink
+                style="line-height: 55px;"
+                :to="{ name: 'lang', params: { lang: $store.state.locale } }"
+              >
+                <img :src="logo" alt="toms logo" :style="logoStyle" />
+              </NuxtLink>
+
+              <div class="menu-toggle" :class="{ active }" @click="toggleMenu">
+                <div class="top"></div>
+                <div class="mid"></div>
+                <div class="btm"></div>
+              </div>
             </div>
           </div>
+
+ 
 
           <div class="header-links">
             <div class="header-nav">
@@ -125,11 +150,12 @@
                     <li>
                       <NuxtLink
                         :to="{
-                        name: 'lang',
-                        params: { lang: $store.state.locale },
-                      }"
+                          name: 'lang',
+                          params: { lang: $store.state.locale },
+                        }"
                         exact
-                      >{{ $t("common.home") }}</NuxtLink>
+                        >{{ $t("common.home") }}</NuxtLink
+                      >
                     </li>
                     <li v-if="VUE_APP_NEWLAND_INFO == '1'" class="dropdown">
                       <a>
@@ -140,15 +166,21 @@
                         <li class="flex">
                           <NuxtLink
                             :to="{
-                            name: 'lang-products-flykey',
-                            params: { lang: $store.state.locale },
-                          }"
+                              name: 'lang-products-flykey',
+                              params: { lang: $store.state.locale },
+                            }"
                             class="production"
                           >
-                            <img src="~assets/flykey-logo.png" width="40px" class="mr-2" />
+                            <img
+                              src="~assets/flykey-logo.png"
+                              width="40px"
+                              class="mr-2"
+                            />
                             <div>
                               <span>FlyKey</span>
-                              <p class="production-intro">{{ $t("flykey.navbar_tip") }}</p>
+                              <p class="production-intro">
+                                {{ $t("flykey.navbar_tip") }}
+                              </p>
                             </div>
                           </NuxtLink>
                         </li>
@@ -157,28 +189,30 @@
                     <li v-if="VUE_APP_NEWLAND_INFO == '1'">
                       <NuxtLink
                         :to="{
-                        name: 'lang-ndp',
-                        params: { lang: $store.state.locale },
-                      }"
+                          name: 'lang-ndp',
+                          params: { lang: $store.state.locale },
+                        }"
                         exact
-                      >{{ $t("common.developer") }}</NuxtLink>
+                        >{{ $t("common.developer") }}</NuxtLink
+                      >
                     </li>
                     <li v-if="VUE_APP_NEWLAND_INFO == '1'">
                       <NuxtLink
                         :to="{
-                        name: 'lang-contact-us',
-                        params: { lang: $store.state.locale },
-                      }"
+                          name: 'lang-contact-us',
+                          params: { lang: $store.state.locale },
+                        }"
                         exact
-                      >{{ $t("common.contact_us") }}</NuxtLink>
+                        >{{ $t("common.contact_us") }}</NuxtLink
+                      >
                     </li>
                   </ul>
                 </nav>
               </div>
             </div>
-            <div v-if="$store.state.hasLogin" class="user-name dropdown">
+            <div v-if="$store.state.hasLogin" class="user-name dropdown" style="width: 120px">
               <a>
-                {{ $t("common.hi") }}!&nbsp;{{ $store.state.name }}
+                <span :title="$store.state.name">{{ $t("common.hi") }}!&nbsp;{{ $store.state.name }}&nbsp;</span>
                 <i class="fa fa-caret-down"></i>
               </a>
               <ul role="menu" class="link-menu" style="width: 350px">
@@ -188,7 +222,9 @@
                 </li>
                 <li class="dropdown" v-if="showFlyCare">
                   <!--<a :href="location">{{$store.state.platform}} Platform</a>-->
-                  <a :href="flycareAddress">{{ $t("common.flycare_platform") }}</a>
+                  <a :href="flycareAddress">{{
+                    $t("common.flycare_platform")
+                  }}</a>
                 </li>
                 <li>
                   <a @click.prevent="logout">{{ $t("common.sign_out") }}</a>
@@ -198,9 +234,9 @@
             <NuxtLink
               v-else
               :to="{
-              name: 'lang-login',
-              params: { lang: $store.state.locale },
-            }"
+                name: 'lang-login',
+                params: { lang: $store.state.locale },
+              }"
               :class="['btn', 'btn-light', 'sign-in__btn', { primary: fixed }]"
             >
               <span>{{ $t("common.sign_in") }}</span>
@@ -208,43 +244,63 @@
 
             <div class="dropdown language">
               <a>
-                {{ language }}
+                {{ language }}&nbsp;
                 <i class="fa fa-caret-down"></i>
               </a>
               <ul role="menu" class="link-menu">
                 <li>
                   <NuxtLink
                     :to="
-                    $store.state.locale === 'en-US'
-                      ? {query}
-                      : {
-                        name:
-                          $route.name === 'index'
-                            ? 'lang'
-                            : `${$route.name}`,
-                        params: { lang: 'en-US' },
-                        query
-                      }
-                  "
-                  >English</NuxtLink>
+                      $store.state.locale === 'en-US'
+                        ? { query }
+                        : {
+                            name:
+                              $route.name === 'index'
+                                ? 'lang'
+                                : `${$route.name}`,
+                            params: { lang: 'en-US' },
+                            query,
+                          }
+                    "
+                    >English</NuxtLink
+                  >
                 </li>
                 <li>
                   <NuxtLink
                     :to="
-                    $store.state.locale === 'zh-CN'
-                      ? {query}
-                      : {
-                        name:
-                          $route.name === 'index'
-                            ? 'lang'
-                            : `lang-${$route.name}`,
-                        params: { lang: 'zh-CN' },
-                        query
-                      }
-                  "
-                  >中文</NuxtLink>
+                      $store.state.locale === 'zh-CN'
+                        ? { query }
+                        : {
+                            name:
+                              $route.name === 'index'
+                                ? 'lang'
+                                : `lang-${$route.name}`,
+                            params: { lang: 'zh-CN' },
+                            query,
+                          }
+                    "
+                    >中文</NuxtLink
+                  >
                 </li>
               </ul>
+            </div>
+
+            <div class="header-links inline-block">
+                <button class="flex items-center dropdown site-button">
+                  <img
+                    src="~assets/menu.png"
+                    width="24px"
+                    class="mr-2"
+                  />
+                  <span>{{ siteName.current }}</span>
+                  <ul role="menu" class="link-menu" style="top: 73px;">
+                    <li class="flex">
+                      <a :href="siteDomain">
+                        <span style="text-transform: none; letter-spacing: normal">{{ siteName.remote }}</span>
+                      </a>
+                    </li>
+                  </ul>
+                </button>
             </div>
           </div>
         </div>
@@ -287,7 +343,12 @@ export default {
       query: null,
       showFlyCare: false,
       showToms: false,
-      flycareAddress: process.env.VUE_APP_FLYKEY_ADDRESS
+      flycareAddress: process.env.VUE_APP_FLYKEY_ADDRESS,
+      siteName: {
+        current: process.env.VUE_APP_SITE +  ' Sites',
+        remote: (process.env.VUE_APP_SITE === 'Global' ? 'Europe' : 'Global') + ' Sites'
+      },
+      siteDomain: process.env.VUE_APP_SITE_DOMAIN
     };
   },
   computed: {
@@ -323,7 +384,7 @@ export default {
           break;
       }
       return location;
-    },
+    }
   },
   methods: {
     toggleMenu() {
@@ -332,9 +393,10 @@ export default {
     },
     logout() {
       this.visible = true;
-    },
+    }
   },
   mounted() {
+    console.log(process.env.SITE)
     if (this.$route.path.includes("signup")) {
       this.query = { email: getQueryParam("email"), key: getQueryParam("key") };
     } else if (this.$route.path.includes("resubmit-form")) {
@@ -444,15 +506,23 @@ export default {
   }
 }
 
+.site-button {
+  height: 60px;
+}
+
 .dropdown {
   /* text-transform: uppercase; */
   a {
-    display: block;
+    display: flex;
+    align-items: center;
     width: 100%;
     padding: 20px 0;
   }
 
+
+
   &.language {
+    margin-right: 40px;
     a {
       padding: 40px 0;
     }
@@ -643,8 +713,7 @@ export default {
   margin: 0 auto;
 }
 
-.header-links {
-  flex-grow: 1;
+.header-links {  
   justify-content: flex-end;
   align-items: center;
   display: none;
@@ -675,6 +744,13 @@ export default {
     cursor: pointer;
     margin-right: 40px;
     position: relative;
+    span {
+      width: 100%;
+      overflow: hidden;
+      display: inline-block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
   }
 
   .sign-in__btn {
@@ -783,10 +859,20 @@ export default {
   display: flex;
   height: 70px;
   align-items: center;
-  justify-content: space-between;
+  
+  justify-content: center;
 
   @screen md {
     height: 90px;
+    justify-content: space-between;
+  }
+
+  .logo-container {
+    display: flex;
+    width: 100%;
+    @screen lg {
+      width: fit-content;
+    }
   }
 
   & > .header-links {
