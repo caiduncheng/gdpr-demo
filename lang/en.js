@@ -328,7 +328,11 @@ module.exports = {
     passport: "Passport",
     certificate_num: "Certificate Number",
     address1: "Address",
-    edit_info: "Change Info"
+    edit_info: "Change Info",
+    invalid_link: "Invalid Link",
+    invalid_link_info:
+      "Please check whether the link is within the validity period. If the link is within the validity period, please contact the administrator.",
+    confirm_close_2fa_dialog: "Please confirm that you have completed scanning the QR code to generate OTP."
   },
   logout: {
     logout_tip: "Do you want to log out?",

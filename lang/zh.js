@@ -305,6 +305,11 @@ module.exports = {
     certificate_num: "证件号",
     address1: "地址",
     edit_info: "更改信息",
+    invalid_link: "无效链接",
+    invalid_link_info:
+      "请检查链接是否在有效期内，如果链接在有效期内，请联系管理员",
+    confirm_close_2fa_dialog: "请确认您已完成扫描二维码以生成 OTP。"
+
   },
   logout: {
     logout_tip: "您确定要退出登录吗？",

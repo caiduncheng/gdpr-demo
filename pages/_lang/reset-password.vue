@@ -1,70 +1,88 @@
 <template>
   <div class="container container-fluid reset-password pt-24">
     <div class="row">
-      <div class="col-10 col-lg-6 m-auto">
+      <div class="col-10 m-auto">
         <el-card>
-          <div v-if="!success">
-            <h2 class="text-2xl text-center">
-              {{ $t("login.title_reset_password") }}
-            </h2>
-            <h3 class="text-secondary text-sm text-center mt-3">
-              {{ $t("login.account") }}:{{ getAccount }}
-            </h3>
-            <el-form :model="form" :rules="loginRules" ref="form" class="p-5">
-              <el-form-item :label="$t('login.new_password')" prop="password">
-                <el-input v-model="form.password" type="password"></el-input>
-                <div class="password-strength" v-show="showPasswordStrength">
-                  <div class="text">
-                    {{ $t("login.password_strength") }}
-                    {{ mapPasswordStrength[passwordStrength] }}
-                  </div>
-                  <div class="indicator">
-                    <span
-                      :class="['weak', { active: passwordStrength >= 1 }]"
-                    ></span>
-                    <span
-                      :class="['moderate', { active: passwordStrength >= 2 }]"
-                    ></span>
-                    <span
-                      :class="['strong', { active: passwordStrength === 3 }]"
-                    ></span>
-                  </div>
-                </div>
-              </el-form-item>
-              <el-form-item
-                :label="$t('login.confirm_password')"
-                prop="confirmPassword"
-              >
-                <el-input
-                  v-model="form.confirmPassword"
-                  type="password"
-                ></el-input>
-              </el-form-item>
-              <el-form-item>
-                <el-button
-                  type="primary"
-                  :loading="loading"
-                  class="w-full"
-                  @click="confirm"
-                  >{{ $t("common.confirm") }}</el-button
-                >
-              </el-form-item>
-            </el-form>
-          </div>
-          <div v-else class="text-center">
-            <el-result icon="success">
-              <h2 slot="title" class="text-3xl">
-                {{ $t("login.password_set_successfully") }}
+          <!-- 链接已经通过验证 -->
+          <div v-if="verified">
+            <!-- 修改密码 -->
+            <div v-if="!success">
+              <h2 class="text-2xl text-center">
+                {{ $t("login.title_reset_password") }}
               </h2>
-            </el-result>
+              <h3 class="text-secondary text-sm text-center mt-3">
+                {{ $t("login.account") }}:{{ getAccount }}
+              </h3>
+              <el-form :model="form" :rules="loginRules" ref="form" class="p-5">
+                <el-form-item :label="$t('login.new_password')" prop="password">
+                  <el-input v-model="form.password" type="password"></el-input>
+                  <div class="password-strength" v-show="showPasswordStrength">
+                    <div class="text">
+                      {{ $t("login.password_strength") }}
+                      {{ mapPasswordStrength[passwordStrength] }}
+                    </div>
+                    <div class="indicator">
+                      <span
+                        :class="['weak', { active: passwordStrength >= 1 }]"
+                      ></span>
+                      <span
+                        :class="['moderate', { active: passwordStrength >= 2 }]"
+                      ></span>
+                      <span
+                        :class="['strong', { active: passwordStrength === 3 }]"
+                      ></span>
+                    </div>
+                  </div>
+                </el-form-item>
+                <el-form-item
+                  :label="$t('login.confirm_password')"
+                  prop="confirmPassword"
+                >
+                  <el-input
+                    v-model="form.confirmPassword"
+                    type="password"
+                  ></el-input>
+                </el-form-item>
+                <el-form-item>
+                  <el-button
+                    type="primary"
+                    :loading="loading"
+                    class="w-full"
+                    @click="confirm"
+                    >{{ $t("common.confirm") }}</el-button
+                  >
+                </el-form-item>
+              </el-form>
+            </div>
+            <!-- 修改密码成功提示 -->
+            <div v-else class="text-center">
+              <el-result icon="success">
+                <h2 slot="title" class="text-3xl">
+                  {{ $t("login.password_set_successfully") }}
+                </h2>
+              </el-result>
 
-            <NuxtLink
-              :to="{ name: 'lang', params: { lang: $store.state.locale } }"
-            >
-              <el-button type="primary">{{
-                $t("login.go_to_home_page")
-              }}</el-button>
-            </NuxtLink>
+              <NuxtLink
+                :to="{ name: 'lang', params: { lang: $store.state.locale } }"
+              >
+                <el-button type="primary">{{
+                  $t("login.go_to_home_page")
+                }}</el-button>
+              </NuxtLink>
+            </div>
+          </div>
+          <!-- 链接未通过验证 -->
+          <div v-else >
+            <el-result icon="error">
+              <div slot="title">
+              <h2 slot="title" class="text-3xl mb-2 text-center">
+                {{ $t('login.invalid_link') }}
+              </h2>
+              <span>
+                {{ $t('login.invalid_link_info') }}
+              </span>
+              </div>            
+            </el-result>
           </div>
         </el-card>
       </div>
@@ -84,6 +102,7 @@ let username = "";
 let email = "";
 let token = "";
 let result = null;
+let verified = true
 export default {
   layout: "login",
   async validate({ params, query, store }) {
@@ -97,9 +116,8 @@ export default {
         token,
       });
     } catch {
-      return false;
-    }
-
+      verified = false
+    }     
     return true;
   },
   data() {
@@ -149,7 +167,7 @@ export default {
     };
     return {
       VUE_APP_PUBKEY: process.env.VUE_APP_PUBKEY,
-      verified: false,
+      verified,
       loading: false,
       loaded: false,
       success: false,
@@ -246,6 +264,11 @@ export default {
 
 <style lang="scss" scoped>
 .reset-password {
+
+
+  &::v-deep .el-result{
+    text-align: left;
+  }
   .indicator {
     width: 180px;
     height: 5px;
