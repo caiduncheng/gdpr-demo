@@ -14,6 +14,7 @@ export const state = () => ({
   registerToken: "",
   operInfo: {},
   devInfo: {},
+  showPrefencesDialog: false
 });
 
 export const getters = {
@@ -27,6 +28,12 @@ export const mutations = {
     if (state.locales.includes(locale)) {
       state.locale = locale;
     }
+  },
+  OPEN_PREFERENCES_DIALOG(state) {
+    state.showPrefencesDialog = true
+  },
+  CLOSE_PREFERENCES_DIALOG(state) {
+    state.showPrefencesDialog = false
   },
   SET_MENU(state, active) {
     if (active) {
