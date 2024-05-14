@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/zh-CN/privacy/terms", {data:[{}],fetch:{},mutations:[]});
