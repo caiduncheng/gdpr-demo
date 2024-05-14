@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/privacy/distribution", {data:[{}],fetch:{},mutations:[]});

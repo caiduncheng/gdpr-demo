@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/products/flykey", {data:[{}],fetch:{},mutations:[]});

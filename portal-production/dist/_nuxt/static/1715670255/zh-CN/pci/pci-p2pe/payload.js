@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/zh-CN/pci/pci-p2pe", {data:[{}],fetch:{},mutations:[]});
