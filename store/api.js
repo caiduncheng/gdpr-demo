@@ -1,6 +1,6 @@
 export const api = {
-  async login({ commit }, form) {
-    return await this.$axios({
+  async login(store, form) {
+    return await this.$axios({      
       url: "/online/authorization/auth/login",
       data: form,
       method: "POST",
@@ -133,8 +133,11 @@ export const api = {
     });
   },
 
-  async getInfo() {
+  async getInfo(store) {
     return await this.$axios({
+      headers: {
+        "WEB-TOKEN": store.getters.token,
+      },
       url: "/online/authorization/auth/user/info",
       method: "get",
     });

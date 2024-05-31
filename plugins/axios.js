@@ -5,10 +5,10 @@ export default function ({ $axios, store }) {
   // 数据访问前缀
   $axios.defaults.baseURL = process.env.VUE_APP_BASE_API;
   // request拦截器
-  $axios.onRequest((config) => {
-    if (!config.headers["WEB-TOKEN"]) {
-      config.headers["WEB-TOKEN"] = store.getters.token;
-    }
+  $axios.onRequest((config) => {    
+    // if (!config.headers["WEB-TOKEN"]) {
+    //   config.headers["WEB-TOKEN"] = store.getters.token;
+    // }
     // 将获取到token加入到请求头中
     config.headers["LANG"] = store.state.locale || "en-US";
   });
